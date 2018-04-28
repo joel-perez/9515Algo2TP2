@@ -10,6 +10,6 @@
 using namespace std;
 
 int main() {
-	cout << "T.P. Nro. 2 ' Granjeros." << endl;
+	cout << "T.P. Nro. 2 - Granjeros." << endl;
 	return 0;
 }
