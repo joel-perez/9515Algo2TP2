@@ -14,6 +14,7 @@ int main() {
 	cout << "Hola chicos, como estan, soy Analia?" << endl;
 	cout << "Hola! Soy Joel haciendo cambios sobre el commit de Ana..." << endl;
 	cout << "soy vero!!" << endl;
-	cout<<"Hola mundo! XD"
+	cout<<"Hola mundo! XD"<<endl;
+	cout<<"al fin dios!"<<endl;
 	return 0;
 }
