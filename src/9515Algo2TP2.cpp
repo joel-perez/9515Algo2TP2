@@ -12,6 +12,7 @@ using namespace std;
 int main() {
 	cout << "T.P. Nro. 2 - Granjeros." << endl;
 	cout << "  		   ..:::Bienvenidos:::.." << std::endl << std::endl;
+	cout << "El juego consiste en maximizar las ganancias del jugador"<< endl;
 
 	return 0;
 }
