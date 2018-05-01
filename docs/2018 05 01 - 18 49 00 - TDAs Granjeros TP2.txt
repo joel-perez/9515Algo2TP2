@@ -1,0 +1,44 @@
+Pensando Objetos / TDAs:
+
+Juego
+ * Grupo de Jugadores
+ * Grupo de Cultivos
+ * Cantidad de Turnos
+ * 3 Niveles de Dificultad
+ 
+Jugador
+ * Grupo de Terrenos
+ * Grupo de Almacenes
+ * Grupo de Tanques de Agua
+ * Creditos
+
+
+Tanque de Agua
+
+Almacen
+ * Grupo de Cosechas
+ * Grupo de Destinos
+ * 
+ 
+Destino
+ * Nombre
+ * Distancia en KM
+ * Costo por KM
+ * Cultivo
+ 
+ 
+Terreno
+ * Grupo de Parcelas
+ * Comprar Terreno
+ * Vender Terreno
+
+Parcela
+ * Tiene un Cultivo
+
+Cultivo
+ * Nombre
+ * Costo
+ * TiempoDeCrecimiento
+ * Rentabilidad
+ * TiempoDeRecuperacion
+ * ConsumoDeAgua
