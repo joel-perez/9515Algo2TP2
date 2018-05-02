@@ -9,7 +9,7 @@ Juego
 Dificultad
  * Cantidad de Turnos
  * Tamaño Inicial
- * Valores delas compras.
+ * Valores de las compras.
 
 Jugador
  * Grupo de Terrenos
