@@ -3,9 +3,14 @@ Pensando Objetos / TDAs:
 Juego
  * Grupo de Jugadores
  * Grupo de Cultivos
+ * Grupo de 3 Niveles de Dificultad
  * Cantidad de Turnos
- * 3 Niveles de Dificultad
- 
+
+Dificultad
+ * Cantidad de Turnos
+ * Tamaño Inicial
+ * Valores delas compras.
+
 Jugador
  * Grupo de Terrenos
  * Grupo de Almacenes
