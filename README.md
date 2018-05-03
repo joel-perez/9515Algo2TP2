@@ -64,24 +64,17 @@ C,2,1,5,0,2
 
 Estos valores en una tabla serían:
 
-Cultivo Costo semilla
-[Monedas por
-Parcela]
-Tiempo hasta
-cosecha
-[Turnos]
-Rentabilidad
-[Monedas por
-Parcela]
-Tiempo de
-recuperación
-[Turnos]
-Agua x Truno
-[U de Riego]
-A 1 2 10 1 3
-B 3 4 30 2 1
-C 2 1 5 0 2
-Referencias
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Cultivo|Costo semilla [Monedas por Parcela]|Tiempo hasta cosecha [Turnos]|Rentabilidad [Monedas por Parcela]|Tiempo de recuperación [Turnos]|Agua x Truno [U de Riego]|
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|A|1|2|10|1|3|
+--------------
+|B|3|4|30|2|1|
+--------------
+|C|2|1|5|0|2|
+-------------
+
+# Referencias
 Cultivo : Nombre del cultivo
 Costo semilla : Cantidad de monedas necesarias para comprar semillas suficientes
 para sembrar una parcela del cultivo.
