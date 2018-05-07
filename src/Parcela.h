@@ -20,11 +20,10 @@ const char CULTIVO_C= 'C';
  *
  */
 
-class Casilla {
+class Parcela {
 
-	private:
-
-		char cultivo;
+private:
+ Cultivo cultivo;
 		char estado;
 
 	public:
@@ -37,6 +36,14 @@ class Casilla {
 		 * post: Informa si la parcela esta ocupada o no.
 		 */
 		bool estaOcupada();
+		
+		
+Cultivo obtenerCultivo();
+
+
+		
+//TODO: Implementar los metodos que sean necesarios...
+
 
 }
 

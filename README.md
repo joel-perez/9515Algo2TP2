@@ -139,7 +139,7 @@ El usuario debe interactuar con la juego por medio de la consola, pero el juego 
 guardar cada nuevo estado del tablero en un bitmap (distinto cada vez) donde represente el
 terreno y sus datos.
 Normas de entrega
-Trabajo práctico individual: 5 persona.
+Trabajo práctico individual: 5 personas.
 Reglas generales: respetar el apéndice A.
 Se deberá subir un archivo comprimido al campus, en un link que se habilitará para
 esta entrega. Este archivo deberá tener un nombre formado de la siguiente manera:
@@ -150,7 +150,10 @@ realizado, las respuestas al cuestionario, el manual del usuario y el manual del
 La fecha de entrega vence el día jueves 24/05/18 a las 23.59hs.
 Se evaluará: funcionalidad, eficiencia, algoritmos utilizados, buenas prácticas de
 programación, modularización, documentación, gestión de memoria y estructuras de datos.
-Apéndice A:
+
+
+# Apéndice A:
+
 1) Usar las siguientes convenciones para nombrar identificadores.
 Clases o Structs: Los nombres de clases o Structs siempre deben comenzar con la primera letra en
 mayúscula en cada palabra, deben ser simples y descriptivos. Se concatenan todas las palabras.

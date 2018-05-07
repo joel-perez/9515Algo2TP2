@@ -1,0 +1,5 @@
+
+ 
+public
+Parcela();
+Cultivo obtenerCultivo();
