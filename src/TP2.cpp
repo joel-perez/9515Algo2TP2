@@ -2,7 +2,7 @@
 // Name        : TP2.cpp
 // Author      : Grupo Neo
 //               Joel Perez
-//               Analia Ludueña
+//               Analia LudueÃ±a
 //               Gabriela Choque
 //               Veronica Leguizamon
 //               Noelia Rodriguez
