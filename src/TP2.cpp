@@ -17,7 +17,7 @@
 using namespace std;
 
 int main() {
-	MostrarBienvenida();
-
+	Juego* juego = new Juego();
+	juego->iniciarJuego();
 	return 0;
 }

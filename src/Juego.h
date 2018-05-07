@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "Cultivo.h"
 #include "Dificultad.h"
+#include "Consola.h"
 
 class Juego {
 private:
@@ -15,6 +16,7 @@ private:
 
 public:
 	Juego();
+	void iniciarJuego();
 
 	Lista<Jugador> obtenerJugadores();
 
