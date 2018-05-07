@@ -1,10 +1,12 @@
 #include "juego.h"
 
-Juego::Juego();
+using namespace std;
 
-List<Jugador> Juego::obtenerJugadores(){
-	return NULL;
+Juego::Juego() {
 }
+
+Lista<Jugador> Juego::obtenerJugadores() {
+	return this->jugadores;
+}
+
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
-
-}

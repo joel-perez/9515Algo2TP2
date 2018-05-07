@@ -1,8 +1,8 @@
 #include "Tanque.h"
 
-TanqueAgua::TanqueAgua(){
+Tanque::Tanque() {
 }
 
-unsigned int TanqueAgua::obtenerCapacidad(){
+unsigned int Tanque::obtenerCapacidad() {
 	return this->capacidad;
 }

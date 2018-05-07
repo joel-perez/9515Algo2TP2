@@ -1,18 +1,23 @@
 //============================================================================
-// Name        : 9515Algo2TP2.cpp
+// Name        : TP2.cpp
 // Author      : Grupo Neo
+//               Joel Perez
+//               Analia Ludueña
+//               Gabriela Choque
+//               Veronica Leguizamon
+//               Noelia Rodriguez
 // Version     :
 // Copyright   : Copyright  2018
-// Description : Hello World in C++, Ansi-style
+// Description : Algoritmos y Programacion II - T.P. 2
 //============================================================================
 
 #include <iostream>
+#include "TP2.h"
+
 using namespace std;
 
 int main() {
-	cout << "T.P. Nro. 2 - Granjeros." << endl;
-	cout << "  		   ..:::Bienvenidos:::.." << std::endl << std::endl;
-	cout << "El juego consiste en maximizar las ganancias del jugador"<< endl;
+	MostrarBienvenida();
 
 	return 0;
 }

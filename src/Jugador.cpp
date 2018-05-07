@@ -1,7 +1,13 @@
 #include "Jugador.h"
 
-Jugador::Jugador(){
+Jugador::Jugador() {
 }
 
- void Jugador::comprarTerreno(){}
- void Jugador::venderTerreno(){}
+Jugador::Jugador(const Jugador& jugador){
+
+}
+
+void Jugador::comprarTerreno() {
+}
+void Jugador::venderTerreno() {
+}

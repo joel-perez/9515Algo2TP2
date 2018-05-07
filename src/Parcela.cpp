@@ -1,6 +1,9 @@
+#include <iostream>
 #include "Parcela.h"
 
-Parcela::Parcela(){
+Parcela::Parcela() {
 }
 
-Cultivo Parcela::obtenerCultivo(){return NULL;}
+Cultivo Parcela::obtenerCultivo() {
+	return this->cultivo;
+}

@@ -1,5 +1,0 @@
-
- 
-public
-Parcela();
-Cultivo obtenerCultivo();
