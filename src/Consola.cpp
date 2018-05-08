@@ -9,3 +9,15 @@ void Consola::MostrarBienvenida() {
 	cout << "El juego consiste en maximizar las ganancias del jugador" << endl;
 	cout << "				Buena suerte		" << endl << endl;
 }
+
+void Consola::mostrarDatosDelTurno(Jugador* jugadorActual){
+
+}
+
+void Consola::mostrarTerreno(Jugador* jugadorActual){
+
+}
+
+void Consola::mostrarFin(Lista<Jugador*>* jugadores){
+
+}
