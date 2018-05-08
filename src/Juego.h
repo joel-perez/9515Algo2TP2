@@ -9,16 +9,16 @@
 
 class Juego {
 private:
-	Lista<Jugador> jugadores;
-	Lista<Cultivo> cultivos;
-	Lista<Dificultad> dificultades;
+	Lista<Jugador*>* jugadores;
+	Lista<Cultivo*>* cultivos;
+	Lista<Dificultad*>* dificultades;
 	unsigned int turnos;
 
 public:
 	Juego();
 	void iniciarJuego();
 
-	Lista<Jugador> obtenerJugadores();
+	Lista<Jugador*>* obtenerJugadores();
 
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 

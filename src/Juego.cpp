@@ -3,9 +3,10 @@
 using namespace std;
 
 Juego::Juego() {
+	this->jugadores = new Lista<Jugador*>;
 }
 
-Lista<Jugador> Juego::obtenerJugadores() {
+Lista<Jugador*>* Juego::obtenerJugadores() {
 	return this->jugadores;
 }
 

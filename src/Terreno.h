@@ -6,7 +6,7 @@
 
 class Terreno {
 private:
-	Lista<Parcela> parcelas;
+	Lista<Parcela*>* parcelas;
 
 public:
 	Terreno();

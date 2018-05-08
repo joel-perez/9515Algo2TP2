@@ -8,9 +8,9 @@
 
 class Jugador {
 private:
-	Lista<Terreno> terrenos;
-	Lista<Almacen> almacenes;
-	Lista<Tanque> tanquesAgua;
+	Lista<Terreno*>* terrenos;
+	Lista<Almacen*>* almacenes;
+	Lista<Tanque*>* tanquesAgua;
 	unsigned int creditos;
 
 public:

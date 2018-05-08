@@ -7,8 +7,8 @@
 
 class Almacen {
 private:
-	Lista<Cosecha> cosechas;
-	Lista<Destino> destinos;
+	Lista<Cosecha*>* cosechas;
+	Lista<Destino*>* destinos;
 
 public:
 	Almacen();
