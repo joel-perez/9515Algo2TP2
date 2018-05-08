@@ -22,7 +22,7 @@ void Juego::procesarTurno(Jugador* jugador) {
 
 }
 
-void Juego::solicitarDatosIniciales(){
+void Juego::solicitarDatosIniciales() {
 
 }
 
@@ -33,11 +33,13 @@ void Juego::iniciarJuego() {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
+			//Esto va a ir en el TDA Jugador
 			consola.mostrarDatosDelTurno(jugadorActual);
 			consola.mostrarTerreno(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);
 			procesarTurno(jugadorActual);
+			//
 		}
 		turnoActual++;
 	}
