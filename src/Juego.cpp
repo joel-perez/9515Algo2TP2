@@ -11,7 +11,8 @@ Lista<Jugador*>* Juego::obtenerJugadores() {
 }
 
 void Juego::iniciarJuego() {
-	MostrarBienvenida();
+	Consola consola;
+	consola.MostrarBienvenida();
 }
 
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...

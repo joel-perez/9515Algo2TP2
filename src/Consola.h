@@ -1,6 +1,9 @@
 #ifndef CONSOLA_H_
 #define CONSOLA_H_
 
-void MostrarBienvenida();
+class Consola {
+public:
+	void MostrarBienvenida();
+};
 
 #endif
