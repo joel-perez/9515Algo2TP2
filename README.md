@@ -72,38 +72,43 @@ Estos valores en una tabla serían:
 
 # Referencias
 Cultivo : Nombre del cultivo
-Costo semilla : Cantidad de monedas necesarias para comprar semillas suficientes
-para sembrar una parcela del cultivo.
-Tiempo hasta cosecha : Cantidad de turnos necesarios desde que se siembra las
-semillas hasta que se puede cosechar una parcela del cultivo.
+
+Costo semilla : Cantidad de monedas necesarias para comprar semillas suficientes para sembrar una parcela del cultivo.
+
+Tiempo hasta cosecha : Cantidad de turnos necesarios desde que se siembra las semillas hasta que se puede cosechar una parcela del cultivo.
+
 Rentabilidad : Cantidad de monedas ganadas por cosechar una parcela del cultivo.
-Tiempo de recuperación : Cantidad de turnos que se necesitan para volver a utilizar
-una parcela después de haber cosechado el cultivo.
-Turnos
+
+Tiempo de recuperación : Cantidad de turnos que se necesitan para volver a utilizar una parcela después de haber cosechado el cultivo.
+
+# Turnos
 El juego se desarrolla durante una secuencia de turnos.
-En cada turno un jugador puede realizar tantas acciones como crea convenientes
-siguiendo las reglas y ateniéndose a las restricciones establecidas.
-Al inicio de cada turno el jugador tira un dado de 6 caras y obtiene el potenciador de
-agua.
-Agua
-En cada turno, el jugador recibe agua que almacena en su tanque y que podrá
-utilizar para regar las parcelas.
-La cantidad de unidades de riego recibidas se calcula como 5 por el potenciador de
-agua.
-El tanque de agua tiene una capacidad máxima de unidades de riego. Las unidades
-de riego en el tanque que no fueron usadas al finalizar el turno quedan disponibles para el
-próximo. El jugador puede comprar una ampliación del tanque.
-Almacén
-Las cosechas se guardan en un almacén para ser enviadas. Cada envío tiene un
-costo por destino. Los destinos se cargan desde un archivo de texto: destinos.txt, a saber:
+
+En cada turno un jugador puede realizar tantas acciones como crea convenientes siguiendo las reglas y ateniéndose a las restricciones establecidas.
+
+Al inicio de cada turno el jugador tira un dado de 6 caras y obtiene el potenciador de agua.
+
+# Agua
+En cada turno, el jugador recibe agua que almacena en su tanque y que podrá utilizar para regar las parcelas.
+
+La cantidad de unidades de riego recibidas se calcula como 5 por el potenciador de agua.
+
+El tanque de agua tiene una capacidad máxima de unidades de riego. Las unidades de riego en el tanque que no fueron usadas al finalizar el turno quedan disponibles para el próximo. El jugador puede comprar una ampliación del tanque.
+
+# Almacén
+Las cosechas se guardan en un almacén para ser enviadas. Cada envío tiene un costo por destino. Los destinos se cargan desde un archivo de texto: destinos.txt, a saber:
+
 NOMBRE_DEL_DESTINO,DISTANCIA_EN_KM,PRECIO,CULTIVO
+
 EJEMPLO:
+
 SAN LUIS, 604, A
+
 CORDOBA, 720, B
-El almacén tiene una capacidad de 2 x (N+M) (a decidir por el grupo en el nivel de dificultad)
-cosechas. Se puede extender mediante la compra. Si no hay capacidad al final del turno, la
-cosecha se pierde.
-Acciones
+
+El almacén tiene una capacidad de 2 x (N+M) (a decidir por el grupo en el nivel de dificultad) cosechas. Se puede extender mediante la compra. Si no hay capacidad al final del turno, la cosecha se pierde.
+
+# Acciones
 El jugador puede realizar las siguientes acciones durante un turno
 ● Sembrar semillas en una parcela:
 Comprar semillas de un cultivo con las monedas disponibles y
