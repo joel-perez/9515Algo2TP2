@@ -6,10 +6,12 @@
 
 class Consola {
 public:
-	void MostrarBienvenida();
+	unsigned int solicitarIngresoNumerico(unsigned int minValor, unsigned int maxValor);
+	void mostrarBienvenida();
 	void mostrarDatosDelTurno(Jugador* jugadorActual);
-	void mostrarTerreno(Jugador* jugadorActual);
 	void mostrarFin(Lista<Jugador*>* jugadores);
+	void mostrarTerreno(Jugador* jugadorActual);
+	void solicitarEnterParaSalir();
 };
 
 #endif
