@@ -24,18 +24,19 @@ void Juego::procesarTurno(Jugador* jugador) {
 
 }
 
-/*
- * PRE:
- * POST: Solicita al usuario los datos con los cuales se va a iniciar el juego.
- */
 void Juego::solicitarDatosIniciales() {
 	cout << "Ingrese un numero entre 1 y 10... solo para probar ;)" << endl;
 	unsigned int numerito = consola.solicitarIngresoNumerico(1, 10);
 	cout << "El numero ingresado es: " << numerito << endl;
 }
 
+void Juego::cargarArchivos() {
+
+}
+
 void Juego::iniciarJuego() {
 	consola.mostrarBienvenida();
+	cargarArchivos();
 	solicitarDatosIniciales();
 	while (turnoActual <= this->turnos) {
 		jugadores->iniciarCursor();

@@ -7,6 +7,7 @@
 #include "Dificultad.h"
 #include "Consola.h"
 #include "Constantes.h"
+#include "Archivo.h"
 
 class Juego {
 private:
@@ -16,6 +17,7 @@ private:
 	unsigned int turnos;
 	unsigned int turnoActual;
 	Consola consola;
+	Archivo archivo;
 
 public:
 	Juego();
@@ -25,7 +27,13 @@ public:
 	void administrarAguaDelTurno(Jugador* jugador);
 	void solicitarAcciones(Jugador* jugador);
 	void procesarTurno(Jugador* jugador);
+
+	/*
+	 * PRE:
+	 * POST: Solicita al usuario los datos con los cuales se va a iniciar el juego.
+	 */
 	void solicitarDatosIniciales();
+	void cargarArchivos();
 
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 
