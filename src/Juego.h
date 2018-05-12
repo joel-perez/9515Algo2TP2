@@ -86,8 +86,12 @@ public:
 	void solicitarTamanioTerreno();
 
 	/*
-	 * PRE:
-	 * POST:
+	 *PRE :
+	 * 		 'FACIL' asigna los valores predeterminado a Dificultad;
+	 * 		 'MEDIO' idem.
+	 * 		 'DIFICIL' indem.
+	 *POST: El juego tiene una Dificultad definida
+	 * 		 EL USUARIO YA PUEDE COMENZAR A JUGAR.
 	 */
 	Dificultad solicitarDificultad();
 
