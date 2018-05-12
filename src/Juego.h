@@ -87,7 +87,7 @@ public:
 
 	/*
 	 *PRE :
-	 * 		 'FACIL' asigna los valores predeterminado a Dificultad;
+	 * 		 'FACIL' asigna los valores predeterminados a Dificultad;
 	 * 		 'MEDIO' idem.
 	 * 		 'DIFICIL' indem.
 	 *POST: El juego tiene una Dificultad definida
