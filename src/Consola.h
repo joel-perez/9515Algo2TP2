@@ -3,6 +3,7 @@
 
 #include "Lista.h"
 #include "Jugador.h"
+#include "Archivo.h"
 
 class Consola {
 public:

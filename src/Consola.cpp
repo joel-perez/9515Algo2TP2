@@ -10,6 +10,12 @@ void Consola::mostrarBienvenida() {
 	cout << "  		   ..:::Bienvenidos:::.." << endl << endl;
 	cout << "El juego consiste en maximizar las ganancias del jugador" << endl;
 	cout << "				Buena suerte		" << endl << endl;
+
+	Archivo archivo;
+	cout << "El separador de directorios para el S.O. Actual es: "
+			<< archivo.obtenerSeparadorDirectorio() << endl;
+	cout << "La ruta del ejecutable actual es: "
+			<< archivo.obtenerRutaEjecutable() << endl;
 }
 
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual) {

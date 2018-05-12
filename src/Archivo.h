@@ -5,12 +5,26 @@
 #include <iostream>
 #include <sstream>
 
+#include "Constantes.h"
+
 #ifdef linux
-#define const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_LINUX;
+#include <string>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/stat.h>
+const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_LINUX;
 #elif _WIN32
-#define const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_WINDOWS;
+#include <string>
+#include <windows.h>
+const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_WINDOWS;
 #endif
 
+/*
+ * Administra el manejo de archivos, directorios, rutas, etc.
+ * Dado que depende de rutinas internas del Sistema Operativo
+ * en el cual se ejecuta la aplicacion, se acoto las posibilidades
+ * a sistemas Linux y Windows.
+ */
 class Archivo {
 private:
 
@@ -23,14 +37,15 @@ public:
 
 	/*
 	 * Crea el directorio especificado.
-	 * Pre: El parametro nombreDirectorio debe ser un nombre de directorio valido.
-	 * Post: Crea el directorio.
+	 * PRE:  El parametro nombreDirectorio debe ser un nombre de directorio valido.
+	 * POST: Crea el directorio.
 	 */
 	void crearDirectorio(std::string nombreDirectorio);
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST: Devuelve el caracter que representa la separacion de directorios
+	 *       en una ruta dada para el sistema operativo actual.
 	 */
 	char obtenerSeparadorDirectorio();
 
