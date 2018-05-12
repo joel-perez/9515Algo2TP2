@@ -160,36 +160,54 @@ programación, modularización, documentación, gestión de memoria y estructura
 # Apéndice A:
 
 1) Usar las siguientes convenciones para nombrar identificadores.
+
 Clases o Structs: Los nombres de clases o Structs siempre deben comenzar con la primera letra en
 mayúscula en cada palabra, deben ser simples y descriptivos. Se concatenan todas las palabras.
+
 Ejemplo: Coche, Vehiculo, CentralTelefonica.
 Métodos y funciones: Deben comenzar con letra minúscula, y si esta compuesta por 2 o más
 palabras, la primera letra de la segunda palabra debe comenzar con mayúscula. De preferencia que
 sean verbos. Ejemplo: arrancarCoche(), sumar().
+
 Variables y objetos: las variables siguen la misma convención que los métodos. Por Ejemplo: alumno,
 padronElectoral.
+
 Constantes: Las variables constantes o finales, las cuales no cambian su valor durante todo el
 programa se deben escribir en mayúsculas, concatenadas por "_". Ejemplo: ANCHO, VACIO,
 COLOR_BASE.
+
 2) El lenguaje utilizado es C++, esto quiere decir que se debe utilizar siempre C++ y no C, por lo
 tanto una forma de darse cuenta de esto es no incluir nada que tenga .h, por ejemplo #include
 <iostream> .
+
 3) No usar sentencias 'using namespace' en los .h, solo en los .cpp. Por ejemplo, para referenciar el
 tipo string en el .h se pone std::string.
+
 4) No usar 'and' y 'or', utilizar los operadores '&&' y '||' respectivamente.
+
 5) Compilar en forma ANSI, no todos utilizan el mismo compilador y de esta forma se minimizan los
 errores. Debe estar compilado con la versión de Virtual Box que damos en la cátedra. Utilizamos el
 estándar C++98.
+
 6) Chequear memoria antes de entregar. No tener accesos fuera de rango ni memoria colgada.
+
 7) Si el trabajo práctico requiere archivos para procesar, entregar los archivos de prueba en la
 entrega del TP. Utilizar siempre rutas relativas y no absolutas.
+
 8) Entregar el informe explicando el TP realizado, manual de usuario y manual del programador.
+
 9) Comentar el código. Todos los tipos, métodos y funciones deberían tener sus comentarios en el .h
 que los declara.
+
 10) Modularizar el código. No entregar 1 o 2 archivos, separar cada Clase o Struct con sus
 funcionalidades en un .h y .cpp
+
 11) No inicializar valores dentro del struct o .h.
+
 12) Si cualquier estructura de control tiene 1 linea, utilizar {} siempre, por ejemplo:
+
 for(int i = 0; i < 10; i++) {
+
 std::cout << i;
+
 }
