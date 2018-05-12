@@ -5,6 +5,7 @@
 #include "Lista.h"
 #include "Terreno.h"
 #include "Almacen.h"
+#include "Constantes.h"
 
 class Jugador {
 private:
@@ -12,6 +13,7 @@ private:
 	Lista<Almacen*>* almacenes;
 	Lista<Tanque*>* tanquesAgua;
 	unsigned int creditos;
+	std::string nombre;
 
 public:
 	/*

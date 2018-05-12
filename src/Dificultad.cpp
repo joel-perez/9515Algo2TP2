@@ -1,6 +1,10 @@
 #include "Dificultad.h"
 
-Dificultad::Dificultad() {
+Dificultad::Dificultad(){
+
+}
+
+Dificultad::Dificultad(unsigned int dificultadSeleccionada) {
 }
 
 unsigned int Dificultad::obtenerTurnos() {

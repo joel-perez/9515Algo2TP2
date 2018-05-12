@@ -5,6 +5,7 @@ Jugador::Jugador() {
 	this->almacenes=new Lista<Almacen*>;
 	this->tanquesAgua=new Lista<Tanque*>;
 	this->creditos=0;
+	this->nombre = NOMBRE_JUGADOR_DEFAULT;
 }
 
 Jugador::Jugador(const Jugador& jugador){

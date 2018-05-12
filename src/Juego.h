@@ -13,7 +13,7 @@ class Juego {
 private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
-	Lista<Dificultad*>* dificultades;
+	Dificultad dificultad;
 	unsigned int turnos;
 	unsigned int turnoActual;
 	Consola consola;
@@ -24,11 +24,35 @@ public:
 	 * post: Juego listo para jugar una partida.
 	 */
 	Juego();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void iniciarJuego();
 
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Lista<Jugador*>* obtenerJugadores();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void administrarAguaDelTurno(Jugador* jugador);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void solicitarAcciones(Jugador* jugador);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void procesarTurno(Jugador* jugador);
 
 	/*
@@ -36,7 +60,36 @@ public:
 	 * POST: Solicita al usuario los datos con los cuales se va a iniciar el juego.
 	 */
 	void solicitarDatosIniciales();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void cargarArchivos();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	unsigned int solicitarCantidadTurnos();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	Lista<Jugador*>* solicitarJugadores();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	void solicitarTamanioTerreno();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	Dificultad solicitarDificultad();
 
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 
