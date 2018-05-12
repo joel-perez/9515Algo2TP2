@@ -11,7 +11,16 @@ private:
 	Lista<Destino*>* destinos;
 
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Almacen();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Almacen(const Almacen& almacen);
 
 	//TODO: Implementar metodos necesarios...

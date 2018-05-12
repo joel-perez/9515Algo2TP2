@@ -4,9 +4,18 @@
 class Tanque {
 private:
 	unsigned int capacidad;
+
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Tanque();
 
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	unsigned int obtenerCapacidad();
 
 //TODO: Implementar los metodos que hagan falta...

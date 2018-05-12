@@ -17,12 +17,27 @@ private:
 
 public:
 	/*
-	 * post: Jugador listo para jugar.
+	 * PRE:
+	 * POST: Jugador listo para jugar.
 	 */
 	Jugador();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Jugador(const Jugador& jugador);
 
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void comprarTerreno();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void venderTerreno();
 
 	//TODO: Implementar todo lo que sea necesario...

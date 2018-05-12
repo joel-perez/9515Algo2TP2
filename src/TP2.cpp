@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : TP2.cpp
-// Author      : Grupo Neo
+// Author      : Grupo NEO
 //               Joel Perez
 //               Analia Ludueña
 //               Gabriela Choque

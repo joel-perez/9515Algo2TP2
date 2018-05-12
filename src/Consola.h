@@ -6,11 +6,41 @@
 
 class Consola {
 public:
-	unsigned int solicitarIngresoNumerico(unsigned int minValor, unsigned int maxValor);
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	unsigned int solicitarIngresoNumerico(unsigned int minValor,
+			unsigned int maxValor);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void mostrarBienvenida();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void mostrarDatosDelTurno(Jugador* jugadorActual);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void mostrarFin(Lista<Jugador*>* jugadores);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void mostrarTerreno(Jugador* jugadorActual);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	void solicitarEnterParaSalir();
 };
 

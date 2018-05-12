@@ -11,9 +11,15 @@ private:
 
 public:
 	/*
-	 * post: Crea un Terreno con 0 terrenoFila y 0 parcelaColumna.
+	 * PRE:
+	 * POST: Crea un Terreno con 0 terrenoFila y 0 parcelaColumna.
 	 */
 	Terreno();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Terreno(const Terreno& terreno);
 
 	//TODO: Implementar los metodos que sean necesarios...

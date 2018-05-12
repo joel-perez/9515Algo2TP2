@@ -13,6 +13,10 @@ private:
 	unsigned int consumoDeAgua;
 
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Cultivo();
 };
 

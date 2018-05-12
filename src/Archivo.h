@@ -5,6 +5,10 @@ class Archivo {
 private:
 
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Archivo();
 };
 

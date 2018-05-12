@@ -7,12 +7,6 @@
 
 #include "Cultivo.h"
 
-const char PARCELA_LIBRE = '#';
-const char CULTIVO_PERDIDO_RECUPERADO = 'X';
-const char CULTIVO_A = 'A';
-const char CULTIVO_B = 'B';
-const char CULTIVO_C = 'C';
-
 /*
  *
  * Una PARCELA/PARCELAS es un cubiculo donde se puede almacenar algun  cultivo.
@@ -26,15 +20,21 @@ private:
 
 public:
 	/*
-	 * post: Parcela vacia y sin cultivo.
+	 * PRE:
+	 * POST: Parcela vacia y sin cultivo.
 	 */
 	Parcela();
 
 	/*
-	 * post: Informa si la parcela esta ocupada o no.
+	 * PRE:
+	 * POST: Informa si la parcela esta ocupada o no.
 	 */
 	bool estaOcupada();
 
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Cultivo obtenerCultivo();
 
 //TODO: Implementar los metodos que sean necesarios...

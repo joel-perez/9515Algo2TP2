@@ -12,6 +12,10 @@ private:
 	Cultivo cultivo;
 
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Destino();
 
 	//TODO: Implementar los metodos necesarios...

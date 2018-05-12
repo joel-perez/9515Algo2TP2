@@ -5,6 +5,10 @@ class Cosecha {
 private:
 
 public:
+	/*
+	 * PRE:
+	 * POST:
+	 */
 	Cosecha();
 };
 

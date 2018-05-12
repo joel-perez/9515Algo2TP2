@@ -9,7 +9,6 @@ Juego::Juego() {
 	this->cultivos = new Lista<Cultivo*>;
 	this->turnos = 0;
 	this->turnoActual = 0;
-	//this->dificultad = Dificultad(1);
 }
 
 Lista<Jugador*>* Juego::obtenerJugadores() {
