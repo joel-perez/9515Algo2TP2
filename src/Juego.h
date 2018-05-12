@@ -74,8 +74,8 @@ public:
 	unsigned int solicitarCantidadTurnos();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE: Se ingresa al menos un jugador.
+	 * POST: Jugadore listos para jugar.
 	 */
 	Lista<Jugador*>* solicitarJugadores();
 
