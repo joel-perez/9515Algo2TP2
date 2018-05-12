@@ -14,6 +14,9 @@ private:
 	unsigned int creditos;
 
 public:
+	/*
+	 * post: Jugador listo para jugar.
+	 */
 	Jugador();
 	Jugador(const Jugador& jugador);
 

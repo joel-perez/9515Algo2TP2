@@ -6,6 +6,11 @@ using namespace std;
 
 Juego::Juego() {
 	this->jugadores = new Lista<Jugador*>;
+	this->cultivos= new Lista<Cultivo*>;
+	this->dificultades=new Lista<Dificultad*>;
+	this->turnos=0;
+	this->turnoActual=0;
+
 }
 
 Lista<Jugador*>* Juego::obtenerJugadores() {

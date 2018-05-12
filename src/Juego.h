@@ -20,6 +20,9 @@ private:
 	Archivo archivo;
 
 public:
+	/*
+	 * post: Juego listo para jugar una partida.
+	 */
 	Juego();
 	void iniciarJuego();
 
