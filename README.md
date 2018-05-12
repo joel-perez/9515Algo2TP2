@@ -3,7 +3,7 @@
 
 Cátedra Ing. Patricia Calvo - 1er cuatrimestre 2018
 
-# Trabajo Práctico 2: Granjeros v1.0
+# Trabajo Práctico 2: :herb: Granjeros v1.0
 
 # Enunciado
 Desarrollar una pieza de software que implemente el juego de consola Granjeros con las siguientes especificaciones.
@@ -110,51 +110,70 @@ El almacén tiene una capacidad de 2 x (N+M) (a decidir por el grupo en el nivel
 
 # Acciones
 El jugador puede realizar las siguientes acciones durante un turno
+
 ● Sembrar semillas en una parcela:
-Comprar semillas de un cultivo con las monedas disponibles y
-utilizarlas para sembrar una parcela libre.
+
+Comprar semillas de un cultivo con las monedas disponibles y utilizarlas para sembrar una parcela libre.
+
 ● Cosechar una parcela:
-Liberar una parcela tomando el cultivo luego de haber transcurrido la
-cantidad de turnos necesarios para el cultivo. Esta cosecha va al almacén.
+
+Liberar una parcela tomando el cultivo luego de haber transcurrido la cantidad de turnos necesarios para el cultivo. Esta cosecha va al almacén.
+
 ● Regar una parcela:
-Utilizar una unidad de riego consumida del tanque de agua para que
-el cultivo no se seque.
+
+Utilizar una unidad de riego consumida del tanque de agua para que el cultivo no se seque.
+
 ● Enviar: enviar una cosecha a destino y cobrar.
-● Comprar un Terreno: comprar un terreno. El valor lo decide el grupo. Debe
-costar más caro a medida que el jugador tiene mas terrenos.
-● Vender un Terreno: se puede vender un terreno. Se cobra el 50% del costo
-actual.
+
+● Comprar un Terreno:
+
+Comprar un terreno. El valor lo decide el grupo. Debe costar más caro a medida que el jugador tiene mas terrenos.
+
+● Vender un Terreno: 
+
+Se puede vender un terreno. Se cobra el 50% del costo actual.
+
 ● Comprar capacidad del tanque de agua.
+
 ● Comprar capacidad del almacén.
-Reglas
-● Si una parcela no es cosechada a tiempo se pudre, perdiéndose en el siguiente
-turno, pero la parcela reduce su tiempo de recuperación a la mitad.
-● Toda parcela cultivada debe ser regada en cada turno, de lo contrario se seca,
-perdiéndose en el siguiente turno
+
+# Reglas
+
+● Si una parcela no es cosechada a tiempo se pudre, perdiéndose en el siguiente turno, pero la parcela reduce su tiempo de recuperación a la mitad.
+
+● Toda parcela cultivada debe ser regada en cada turno, de lo contrario se seca, perdiéndose en el siguiente turno
+
 A definir por el Usuario:
+
 1) Cantidad de jugadores
+
 2) Parámetro N y M
+
 3) L: cantidad de turnos
+
 4) Contenido de los archivos de Cultivos y Destinos
-A definir por el Grupo:
-1) Definir los valores del juego con 3 dificultades. Ej: cantidad de turnos, tamaño inicial,
-valores de las compras, etc.
-Interfaz de usuario
-El usuario debe interactuar con la juego por medio de la consola, pero el juego debe
-guardar cada nuevo estado del tablero en un bitmap (distinto cada vez) donde represente el
-terreno y sus datos.
-Normas de entrega
+
+# A definir por el Grupo:
+
+1) Definir los valores del juego con 3 dificultades. Ej: cantidad de turnos, tamaño inicial, valores de las compras, etc.
+
+# Interfaz de usuario
+
+El usuario debe interactuar con la juego por medio de la consola, pero el juego debe guardar cada nuevo estado del tablero en un bitmap (distinto cada vez) donde represente el terreno y sus datos.
+
+# Normas de entrega
+
 Trabajo práctico individual: 5 personas.
+
 Reglas generales: respetar el apéndice A.
-Se deberá subir un archivo comprimido al campus, en un link que se habilitará para
-esta entrega. Este archivo deberá tener un nombre formado de la siguiente manera:
-Nombre_De_Grupo-TP2.zip
-Deberá contener los archivos fuentes (no los binarios), el informe del trabajo
-realizado, las respuestas al cuestionario, el manual del usuario y el manual del programador
-(Todo en el mismo PDF).
+
+Se deberá subir un archivo comprimido al campus, en un link que se habilitará para esta entrega. Este archivo deberá tener un nombre formado de la siguiente manera: Nombre_De_Grupo-TP2.zip
+
+Deberá contener los archivos fuentes (no los binarios), el informe del trabajo realizado, las respuestas al cuestionario, el manual del usuario y el manual del programador (Todo en el mismo PDF).
+
 La fecha de entrega vence el día jueves 24/05/18 a las 23.59hs.
-Se evaluará: funcionalidad, eficiencia, algoritmos utilizados, buenas prácticas de
-programación, modularización, documentación, gestión de memoria y estructuras de datos.
+
+Se evaluará: funcionalidad, eficiencia, algoritmos utilizados, buenas prácticas de programación, modularización, documentación, gestión de memoria y estructuras de datos.
 
 
 # Apéndice A:
