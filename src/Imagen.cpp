@@ -1,7 +1,6 @@
 #include "Imagen.h"
 
 /*
- *
  * #include "Imagen.h"
 
 Imagen::Imagen(){

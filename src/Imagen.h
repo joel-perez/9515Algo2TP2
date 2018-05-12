@@ -3,7 +3,7 @@
 #define IMAGEN_H_
 
 /*
- * Necesita > Dimensiones, capacidad del Tanque y cantidad, capacidad del almmacen y cantidad, nombre del jugador,
+ * Necesita > Dimensiones, capacidad del Tanque y cantidad, capacidad del almacen y cantidad, nombre del jugador,
  */
 
 /*
