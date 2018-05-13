@@ -43,6 +43,12 @@ public:
 	 * POST:
 	 */
 	void solicitarEnterParaSalir();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	std::string SolicitarIngresoLineaTexto();
 };
 
 #endif

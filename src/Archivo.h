@@ -53,7 +53,28 @@ public:
 	 * PRE:
 	 * POST: Devuelve la ruta desde donde se esta ejecutando esta aplicacion.
 	 */
-	std::string obtenerRutaEjecutable();
+	std::string obtenerRutaEjecucion();
+
+	/*
+	 * PRE:
+	 * POST: Devuelve una ruta a un archivo compuesta por directorioPrimero,
+	 *       al cual se le concatena el separador de directorios de ser necesario,
+	 *       y luego se le concatena el segundo directorio.
+	 */
+	std::string concatenarRutas(std::string directorioPrimero,
+			std::string directorioSegundo);
+
+	/*
+	 * PRE:
+	 * POST: Devuelve la ruta completa donde se almacenan los archivos de Recursos (Imagenes)
+	 */
+	std::string obtenerRutaRecursos();
+
+	/*
+	 * PRE:
+	 * POST: Devuelve la ruta completa donde se almacenan las Capturas de Pantalla de cada turno.
+	 */
+	std::string obtenerRutaCapturasPantalla();
 };
 
 #endif

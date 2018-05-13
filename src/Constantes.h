@@ -8,8 +8,8 @@ const char CULTIVO_PERDIDO_RECUPERADO = 'X';
 const char PARCELA_LIBRE = '#';
 const char SEPARADOR_DIRECTORIO_LINUX = '/';
 const char SEPARADOR_DIRECTORIO_WINDOWS = '\\';
-const std::string DIRECTORIO_IMAGENES = "res";
-const std::string DIRECTORIO_IMAGENES_RESULTANTES = "screenshots";
+const std::string DIRECTORIO_RECURSOS = "res";
+const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
 
 #endif

@@ -14,8 +14,11 @@ void Consola::mostrarBienvenida() {
 	Archivo archivo;
 	cout << "El separador de directorios para el S.O. Actual es: "
 			<< archivo.obtenerSeparadorDirectorio() << endl;
-	cout << "La ruta del ejecutable actual es: "
-			<< archivo.obtenerRutaEjecutable() << endl;
+	cout << "La carpeta del ejecutable actual es: "
+			<< archivo.obtenerRutaEjecucion() << endl;
+	cout << "Capturas de Pantalla: " << archivo.obtenerRutaCapturasPantalla()
+			<< endl;
+	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl;
 }
 
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual) {
@@ -53,4 +56,12 @@ void Consola::solicitarEnterParaSalir() {
 	cout << "Presione ENTER para Salir." << endl;
 	cin.ignore();
 	cin.get();
+}
+
+string Consola::SolicitarIngresoLineaTexto() {
+	std::string textLine = "";
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin, textLine);
+	return textLine;
 }
