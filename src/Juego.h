@@ -32,8 +32,8 @@ public:
 	void iniciarJuego();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:se obtiene los jugadores de la partida.
 	 */
 	Lista<Jugador*>* obtenerJugadores();
 
