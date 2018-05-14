@@ -69,8 +69,8 @@ public:
 	void cargarArchivos();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:el Juego tiene una cantidad de TURNOS definidos
 	 */
 	unsigned int solicitarCantidadTurnos();
 

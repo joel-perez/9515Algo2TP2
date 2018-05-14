@@ -55,7 +55,10 @@ void Juego::solicitarJugadores() {
 }
 
 unsigned int Juego::solicitarCantidadTurnos() {
-	return 1; //TODO: Completar...
+
+	cout<<"Ingrese la cantidad de TURNOS [cantidad max. "<<MAX_TURNO<<" - cantidad min. "<<MIN_TURNO<<"]: "<<endl;
+	unsigned int cantidadDeTurnos = consola.solicitarIngresoNumerico(MIN_TURNO,MAX_TURNO);
+	return (this->turnos= cantidadDeTurnos);
 }
 
 void Juego::solicitarTamanioTerreno() {
