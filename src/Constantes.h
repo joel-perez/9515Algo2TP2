@@ -12,4 +12,9 @@ const std::string DIRECTORIO_RECURSOS = "res";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
 
+const int TERRENO_MAX_COLUMNAS = 10;
+const int TERRENO_MAX_FILAS = 10;
+const int TERRENO_MIN_COLUMNAS = 3;
+const int TERRENO_MIN_FILAS = 3;
+
 #endif

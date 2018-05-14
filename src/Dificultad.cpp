@@ -1,6 +1,8 @@
 #include "Dificultad.h"
 
 Dificultad::Dificultad(){
+	this->turnos=0;
+	this->tamanioInicial=0;
 
 }
 

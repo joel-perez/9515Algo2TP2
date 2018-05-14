@@ -1,5 +1,11 @@
 #ifndef DIFICULTAD_H_
 #define DIFICULTAD_H_
+enum Tipo{
+	SIN_DIFICULTAD,
+	FACIL,
+	INTERMEDIO,
+	DIFICIL
+};
 
 class Dificultad {
 private:

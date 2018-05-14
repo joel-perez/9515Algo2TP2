@@ -8,6 +8,7 @@
 class Terreno {
 private:
 	Lista<Parcela*>* parcelas;
+	unsigned int tamanioDelTerreno;
 
 public:
 	/*
