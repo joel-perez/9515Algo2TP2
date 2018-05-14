@@ -13,14 +13,14 @@ private:
 	Lista<Almacen*>* almacenes;
 	Lista<Tanque*>* tanquesAgua;
 	unsigned int creditos;
-	std::string nombre;
+	std::string  nombre;
 
 public:
 	/*
 	 * PRE:
 	 * POST: Jugador listo para jugar.
 	 */
-	Jugador();
+	Jugador(std::string nombre);
 
 	/*
 	 * PRE:

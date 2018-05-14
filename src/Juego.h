@@ -18,6 +18,7 @@ private:
 	unsigned int turnoActual;
 	Consola consola;
 	Archivo archivo;
+	unsigned int  numeroDeJugadores;
 
 public:
 	/*
@@ -77,7 +78,7 @@ public:
 	 * PRE: Se ingresa al menos un jugador.
 	 * POST: Jugadore listos para jugar.
 	 */
-	Lista<Jugador*>* solicitarJugadores();
+	void solicitarJugadores();
 
 	/*
 	 * PRE:

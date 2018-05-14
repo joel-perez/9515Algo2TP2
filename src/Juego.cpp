@@ -7,8 +7,11 @@ using namespace std;
 Juego::Juego() {
 	this->jugadores = new Lista<Jugador*>;
 	this->cultivos = new Lista<Cultivo*>;
+
 	this->turnos = 0;
 	this->turnoActual = 0;
+	this->numeroDeJugadores=0;
+
 }
 
 Lista<Jugador*>* Juego::obtenerJugadores() {
@@ -28,14 +31,27 @@ void Juego::procesarTurno(Jugador* jugador) {
 }
 
 void Juego::solicitarDatosIniciales() {
-	this->jugadores = solicitarJugadores();
+	solicitarJugadores();
 	solicitarTamanioTerreno(); //TODO: Ver si es sencillo usar un TDA Dimensiones, o devolver valores por referencia, etc.
 	this->turnos = solicitarCantidadTurnos();
 	this->dificultad = solicitarDificultad();
 }
 
-Lista<Jugador*>* Juego::solicitarJugadores() {
-	return new Lista<Jugador*>();
+void Juego::solicitarJugadores() {
+	unsigned int contador=0;
+	unsigned int cantidad;
+	string nombre="";
+	cout<<"Ingrese la CANTIDAD de jugadores:"<<endl;
+	cin>>cantidad;
+	this->numeroDeJugadores=cantidad;
+	do{
+		cout<<">JUGADOR -"<<contador + 1<<"- :";
+		cin>>nombre;
+		Jugador* nuevoJugador=new Jugador(nombre);
+		this->jugadores->agregar(nuevoJugador);
+		contador++;
+	}while(contador < this->numeroDeJugadores);
+
 }
 
 unsigned int Juego::solicitarCantidadTurnos() {

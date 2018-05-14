@@ -1,11 +1,11 @@
 #include "Jugador.h"
 
-Jugador::Jugador() {
+Jugador::Jugador(std::string nombre) {
 	this->terrenos= new Lista<Terreno*>;
 	this->almacenes=new Lista<Almacen*>;
 	this->tanquesAgua=new Lista<Tanque*>;
 	this->creditos=0;
-	this->nombre = NOMBRE_JUGADOR_DEFAULT;
+	this->nombre=nombre;
 }
 
 Jugador::Jugador(const Jugador& jugador){
