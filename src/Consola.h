@@ -8,15 +8,15 @@
 class Consola {
 public:
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Recibe por teclado un numero entero valido.
 	 */
 	unsigned int solicitarIngresoNumerico(unsigned int minValor,
 			unsigned int maxValor);
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:imprime en pantalla un mensaje de bienvenida.
 	 */
 	void mostrarBienvenida();
 
@@ -39,14 +39,14 @@ public:
 	void mostrarTerreno(Jugador* jugadorActual);
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:imprime en pantalla un mensaje.
 	 */
 	void solicitarEnterParaSalir();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Devuelve la cadena de caracteres.
 	 */
 	std::string SolicitarIngresoLineaTexto();
 };
