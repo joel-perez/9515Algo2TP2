@@ -16,8 +16,15 @@ const int TERRENO_MAX_COLUMNAS = 10;
 const int TERRENO_MAX_FILAS = 10;
 const int TERRENO_MIN_COLUMNAS = 3;
 const int TERRENO_MIN_FILAS = 3;
+const int TERRENO_MAX_FILA_COLUMNA=10;
+const int TERRENO_MIN_FILA_COLUMNA=3;
 
 const int MAX_TURNO=6;
 const int MIN_TURNO=3;
+
+const int DIFICULTAD_FACIL=1;
+const int DIFICULTAD_MEDIA=2;
+const int DIFICULTAD_DIFICIL=3;
+
 
 #endif

@@ -9,11 +9,14 @@
 #include "Constantes.h"
 #include "Archivo.h"
 
+#include "Terreno.h"
+
 class Juego {
 private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
 	Dificultad dificultad;
+	Terreno* terreno;
 	unsigned int turnos;
 	unsigned int turnoActual;
 	Consola consola;
@@ -81,8 +84,9 @@ public:
 	void solicitarJugadores();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Crea un Terreno dinamico de 'N' filas x 'M' columnas.
+	 *     el usuario ingresa por teclado las FILAS y las COLUMNAS.
 	 */
 	void solicitarTamanioTerreno();
 

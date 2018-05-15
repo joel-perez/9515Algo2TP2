@@ -8,6 +8,8 @@ Juego::Juego() {
 	this->jugadores = new Lista<Jugador*>;
 	this->cultivos = new Lista<Cultivo*>;
 
+	this->terreno=new Terreno;
+
 	this->turnos = 0;
 	this->turnoActual = 0;
 	this->numeroDeJugadores=0;
@@ -62,6 +64,14 @@ unsigned int Juego::solicitarCantidadTurnos() {
 }
 
 void Juego::solicitarTamanioTerreno() {
+	cout<<"Ingrese cuantas filas y columnas tendra el Terreno."<<endl;
+	cout<<"[el minimo es "<<TERRENO_MIN_FILA_COLUMNA<<"]"<<endl;
+	cout<<"[el maximo es "<<TERRENO_MAX_FILA_COLUMNA<<"]"<<endl;
+	cout<<">Filas:";
+	unsigned int filas=consola.solicitarIngresoNumerico(TERRENO_MIN_FILA_COLUMNA,TERRENO_MAX_FILA_COLUMNA);
+	cout<<">columnas:";
+	unsigned int columnas=consola.solicitarIngresoNumerico(TERRENO_MIN_FILA_COLUMNA,TERRENO_MAX_FILA_COLUMNA);
+	this->terreno->crearTerreno(filas,columnas);
 
 }
 
