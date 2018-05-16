@@ -3,6 +3,7 @@
 Dificultad::Dificultad(){
 	this->turnos=0;
 	this->tamanioInicial=0;
+	this->dificuldad =SIN_DIFICULTAD;
 
 }
 

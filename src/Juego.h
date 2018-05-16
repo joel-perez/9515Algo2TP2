@@ -16,7 +16,8 @@ private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
 	Dificultad dificultad;
-	Terreno* terreno;
+	unsigned int altoTerreno;
+	unsigned int anchoTerreno;
 	unsigned int turnos;
 	unsigned int turnoActual;
 	Consola consola;
@@ -81,7 +82,7 @@ public:
 	 * PRE: Se ingresa al menos un jugador.
 	 * POST: Jugadore listos para jugar.
 	 */
-	void solicitarJugadores();
+	Lista<Jugador*>* solicitarJugadores();
 
 	/*
 	 * PRE:~

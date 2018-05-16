@@ -25,7 +25,7 @@ public:
 	 * POST: Terreno de 'filas'x'columnas' con 'filas'*'columas' Parcelas
 	 * 		 vacias y sin cultivo.
 	 */
-	void crearTerreno(unsigned int filas, unsigned int columnas);
+	Terreno(unsigned int filas, unsigned int columnas);
 
 	//TODO: Implementar los metodos que sean necesarios...
 };

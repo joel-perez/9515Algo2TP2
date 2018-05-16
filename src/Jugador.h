@@ -40,6 +40,13 @@ public:
 	 */
 	void venderTerreno();
 
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	Lista<Terreno*>* obtenerTerrenos();
+
+
 	//TODO: Implementar todo lo que sea necesario...
 };
 

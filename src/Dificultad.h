@@ -11,6 +11,7 @@ class Dificultad {
 private:
 	unsigned int turnos;
 	unsigned int tamanioInicial;
+	unsigned int dificuldad;
 	//Ver como contener los valores de las compras...
 
 public:
