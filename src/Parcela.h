@@ -18,6 +18,10 @@ class Parcela {
 private:
 	Cultivo cultivo;
 	char estado;
+	int tiempoHastaCosecha;
+	int tiempoHastaRecuperacion;
+	int rentabilidad;
+	bool estaRegada;
 
 public:
 	/*

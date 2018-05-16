@@ -21,11 +21,24 @@ public:
 		 */
 	Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento, int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua);
 
-	/*
+	/*PRE:~
 	 *
-	 *
+	 *POST: Crea un cultivo vacio.
 	 */
 	Cultivo();
+
+
+	/*
+	 * POST:Devuelve la cantidad de turnos necesarios desde que se siembra las semillas
+	 *     hasta que se puede cosechar una parcela del cultivo.
+	 */
+	int obtenerTiempoHastaCosecha();
+
+	/*
+	 * POST: Devuelve la cantidad de turnos que se necesitan para volver a utilizar una
+	 * 		parcela despues de haber cosechado el cultivo.
+	 */
+	int obtenerTiempoRecuperacion();
 
 
 };

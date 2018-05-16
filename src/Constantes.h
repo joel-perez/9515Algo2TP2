@@ -31,5 +31,6 @@ const int DIFICULTAD_DIFICIL=3;
 const std::string RUTA_CULTIVO="cultivos.txt";
 const std::string RUTA_DESTINO="destinos.txt";
 
+const int RENTABILIDAD_CULTIVO_VACIO = 0;
 
 #endif
