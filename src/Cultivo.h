@@ -1,12 +1,13 @@
 #ifndef CULTIVO_H_
 #define CULTIVO_H_
 
+#include "Lista.h"
 #include <string>
 
 class Cultivo {
 private:
 	std::string nombre;
-	float costo;
+	unsigned int costo;
 	unsigned int tiempoDeCrecimiento;
 	unsigned int rentabilidad;
 	unsigned int tiempoDeRecuperacion;
@@ -17,7 +18,45 @@ public:
 	 * PRE:
 	 * POST:
 	 */
+	Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento, int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua);
+
+	/*
+	 *
+	 *
+	 */
 	Cultivo();
+
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerCosto();
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerTiempoDeCrecimiento();
+	/*
+	 *
+	 *
+	 *
+	 */
+	unsigned int obtenerRentabilidad();
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerTiempoDeRecuperacion();
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerConsumoDeAgua();
+	/*
+	 *
+	 *
+	 */
+	std::string obtenerNombreDelCultivo();
 };
 
 #endif

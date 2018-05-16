@@ -17,7 +17,9 @@ Juego::Juego() {
 Lista<Jugador*>* Juego::obtenerJugadores() {
 	return this->jugadores;
 }
-
+Lista<Cultivo*>* Juego::obtenerCultivos(){
+	return this->cultivos;
+}
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
 
 }
@@ -43,7 +45,7 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 	unsigned int contador = 0;
 	unsigned int cantidad;
 	string nombre = "";
-	cout << "Ingrese la CANTIDAD de jugadores:" << endl;
+	cout << "Ingrese la CANTIDAD de jugadores: ";
 	cin >> cantidad;
 	this->numeroDeJugadores = cantidad;
 	do {
@@ -90,7 +92,7 @@ Dificultad Juego::solicitarDificultad() {
 }
 
 void Juego::cargarArchivos() {
-
+	texto.leerCultivo(this->obtenerCultivos());
 }
 
 void Juego::iniciarJuego() {

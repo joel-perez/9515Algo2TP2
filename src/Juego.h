@@ -8,7 +8,7 @@
 #include "Consola.h"
 #include "Constantes.h"
 #include "Archivo.h"
-
+#include "Texto.h"
 #include "Terreno.h"
 
 class Juego {
@@ -22,6 +22,7 @@ private:
 	unsigned int turnoActual;
 	Consola consola;
 	Archivo archivo;
+	Texto texto;
 	unsigned int  numeroDeJugadores;
 
 public:
@@ -41,6 +42,12 @@ public:
 	 * POST:se obtiene los jugadores de la partida.
 	 */
 	Lista<Jugador*>* obtenerJugadores();
+
+	/*
+	 *
+	 * POST: se obtiene los cultivos de la partida.
+	 */
+	Lista<Cultivo*>* obtenerCultivos();
 
 	/*
 	 * PRE:
