@@ -5,16 +5,16 @@
 #include <fstream>
 #include <sstream>
 
-std::string Texto::pedirRuta(){
+std::string Texto::pedirRuta(std::string obteneRuta){
 	// Por ahora fijo, se debe preguntar el nombre del archivo....
-	std::string ruta = "cultivos.txt";
+	std::string ruta = obteneRuta;
 	return ruta;
 }
 
 Lista<Cultivo*>* Texto::leerCultivo(){
 
 	std::ifstream entrada;
-	std::string rutaDeterminada = this->pedirRuta();
+	std::string rutaDeterminada = this->pedirRuta(RUTA_CULTIVO);
 	entrada.open(rutaDeterminada.c_str());
 
 	Lista<Cultivo*>* cultivosDisponibles = new Lista<Cultivo*>;

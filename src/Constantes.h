@@ -1,6 +1,8 @@
 #ifndef CONSTANTES_H_
 #define CONSTANTES_H_
 
+#include <string>
+
 const char CULTIVO_A = 'A';
 const char CULTIVO_B = 'B';
 const char CULTIVO_C = 'C';
@@ -25,6 +27,9 @@ const int MIN_TURNO=3;
 const int DIFICULTAD_FACIL=1;
 const int DIFICULTAD_MEDIA=2;
 const int DIFICULTAD_DIFICIL=3;
+
+const std::string RUTA_CULTIVO="cultivos.txt";
+const std::string RUTA_DESTINO="destinos.txt";
 
 
 #endif

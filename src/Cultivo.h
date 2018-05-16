@@ -15,9 +15,10 @@ private:
 
 public:
 	/*
-	 * PRE:
-	 * POST:
-	 */
+		 * PRE:
+		 * POST:Incializa Cultivo con el nombreCultico, costo, tiempoDeCrecimiento,
+		 * 		rentabilidad,tiempoDeRecuperacion y consumoDeAgua, asociados.
+		 */
 	Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento, int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua);
 
 	/*

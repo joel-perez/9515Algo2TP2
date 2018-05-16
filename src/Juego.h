@@ -33,7 +33,7 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:carga los datos asociados para el arranque de Juego
 	 */
 	void iniciarJuego();
 
@@ -74,8 +74,8 @@ public:
 	void solicitarDatosIniciales();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE: Los archivos deben de existir.
+	 * POST: obtengo a "cultivos" cargado.
 	 */
 	void cargarArchivos();
 
