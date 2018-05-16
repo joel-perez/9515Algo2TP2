@@ -26,37 +26,7 @@ public:
 	 */
 	Cultivo();
 
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerCosto();
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerTiempoDeCrecimiento();
-	/*
-	 *
-	 *
-	 *
-	 */
-	unsigned int obtenerRentabilidad();
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerTiempoDeRecuperacion();
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerConsumoDeAgua();
-	/*
-	 *
-	 *
-	 */
-	std::string obtenerNombreDelCultivo();
+
 };
 
 #endif

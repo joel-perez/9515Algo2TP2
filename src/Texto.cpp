@@ -6,15 +6,18 @@
 #include <sstream>
 
 std::string Texto::pedirRuta(){
+	// Por ahora fijo, se debe preguntar el nombre del archivo....
 	std::string ruta = "cultivos.txt";
 	return ruta;
 }
 
-void Texto::leerCultivo(Lista<Cultivo*>* cultivos){
+Lista<Cultivo*>* Texto::leerCultivo(){
 
 	std::ifstream entrada;
 	std::string rutaDeterminada = this->pedirRuta();
 	entrada.open(rutaDeterminada.c_str());
+
+	Lista<Cultivo*>* cultivosDisponibles = new Lista<Cultivo*>;
 
 	std::string linea;
 	if (entrada.fail()){
@@ -36,8 +39,9 @@ void Texto::leerCultivo(Lista<Cultivo*>* cultivos){
 			ss>>consumoDeAgua>>separador;
 
 			Cultivo* nuevoCultivo=new Cultivo(nombreCultivo, costo, tiempoDeCrecimiento, rentabilidad, tiempoDeRecuperacion,consumoDeAgua);
-			cultivos->agregar(nuevoCultivo);
+			cultivosDisponibles->agregar(nuevoCultivo);
 		}
 
 	entrada.close();
+	return cultivosDisponibles;
 }

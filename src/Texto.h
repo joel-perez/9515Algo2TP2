@@ -17,7 +17,7 @@ public:
 	 *
 	 *
 	 */
-	void leerCultivo(Lista<Cultivo*>* cultivos);
+	Lista<Cultivo*>* leerCultivo();
 };
 
 #endif
