@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+
 #include "Juego.h"
 
 using namespace std;
@@ -21,12 +24,29 @@ Lista<Jugador*>* Juego::obtenerJugadores() {
 Lista<Cultivo*>* Juego::obtenerCultivos(){
 	return this->cultivos;
 }
+/*unsigned int Juego::tirarDado(){
+	int potenciador = (rand()% CANT_CARAS_DADO)+1;
+	srand(time(NULL));
+	int aguaRecibida = MULTIPLICADOR_DADO * potenciador;
+	return aguaRecibida;
+}*/
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
 
+	/*Lista<Tanque*>* tanqueActual=jugador->obtenerTanques();
+	int unidadesDeRiego = 0;
+	tanqueActual->iniciarCursor();
+	while(tanqueActual->avanzarCursor()){
+		Tanque* tanqueAnalizado = tanqueActual->obtenerCursor();
+		if (tanqueAnalizado->obtenerCapacidad() < CAPACIDAD_MAXIMA_DEL_TANQUE){
+			unidadesDeRiego=tirarDado();
+
+			tanqueAnalizado->cambiarCapacidad(unidadesDeRiego);
+		}
+	}*/
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
-
+	consola.mostrarAcciones();
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
@@ -54,6 +74,8 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 		nombre = consola.SolicitarIngresoLineaTexto();
 		Jugador* nuevoJugador = new Jugador(nombre);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
+		//Tanque* nuevoTanque = new Tanque();
+		//nuevoJugador->obtenerTanques()->agregar(nuevoTanque);
 		nuevoJugador->obtenerTerrenos()->agregar(nuevoTerreno);
 		resultado->agregar(nuevoJugador);
 		contador++;
@@ -106,7 +128,7 @@ void Juego::iniciarJuego() {
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
 			//Esto va a ir en el TDA Jugador, posiblemente...
-			consola.mostrarDatosDelTurno(jugadorActual);
+			consola.mostrarDatosDelTurno(jugadorActual,turnoActual);
 			consola.mostrarTerreno(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);

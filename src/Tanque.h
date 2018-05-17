@@ -18,6 +18,7 @@ public:
 	 */
 	unsigned int obtenerCapacidad();
 
+	void cambiarCapacidad(unsigned int nuevaCapacidad);
 //TODO: Implementar los metodos que hagan falta...
 };
 

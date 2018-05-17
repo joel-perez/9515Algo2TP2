@@ -107,6 +107,11 @@ public:
 	 */
 	Dificultad solicitarDificultad();
 
+	/*
+	 *
+	 *
+	 */
+	//unsigned int tirarDado();
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 
 };

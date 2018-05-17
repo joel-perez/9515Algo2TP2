@@ -21,3 +21,10 @@ void Jugador::venderTerreno() {
 Lista<Terreno*>* Jugador::obtenerTerrenos() {
 	return this->terrenos;
 }
+
+unsigned int Jugador::obtenerCreditos(){
+	return this->creditos;
+}
+Lista<Tanque*>* Jugador::obtenerTanques(){
+	return this->tanquesAgua;
+}

@@ -33,4 +33,7 @@ const std::string RUTA_DESTINO="destinos.txt";
 
 const int RENTABILIDAD_CULTIVO_VACIO = 0;
 
+const int CAPACIDAD_MAXIMA_DEL_TANQUE = 105;
+const int CANT_CARAS_DADO = 6;
+const int MULTIPLICADOR_DADO = 5;
 #endif

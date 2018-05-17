@@ -24,7 +24,7 @@ public:
 	 * PRE:
 	 * POST:
 	 */
-	void mostrarDatosDelTurno(Jugador* jugadorActual);
+	void mostrarDatosDelTurno(Jugador* jugadorActual,unsigned int turno);
 
 	/*
 	 * PRE:
@@ -49,6 +49,12 @@ public:
 	 * POST:Devuelve la cadena de caracteres.
 	 */
 	std::string SolicitarIngresoLineaTexto();
+
+	/*
+	 *
+	 * Imprime las acciones disponibles en cada turno.
+	 */
+	void mostrarAcciones();
 };
 
 #endif

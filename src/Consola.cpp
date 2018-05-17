@@ -21,8 +21,9 @@ void Consola::mostrarBienvenida() {
 	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl;
 }
 
-void Consola::mostrarDatosDelTurno(Jugador* jugadorActual) {
-
+void Consola::mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turno) {
+	cout<< "Turno Nro: "<< turno + 1 << endl;
+	cout<<"Cantidad de creditos: "<<jugadorActual->obtenerCreditos()<<endl;
 }
 
 void Consola::mostrarTerreno(Jugador* jugadorActual) {
@@ -64,4 +65,16 @@ string Consola::SolicitarIngresoLineaTexto() {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, textLine);
 	return textLine;
+}
+
+void Consola::mostrarAcciones(){
+	cout<<"Seleccione una accion:" <<endl;
+	cout<<"\tSembrar semillas en una parcela."<<endl;
+	cout<<"\tCosechar una parcela."<<endl;
+	cout<<"\tRegar una parcela."<<endl;
+	cout<<"\tEnviar una cosecha a destino."<<endl;
+	cout<<"\tComprar un Terreno."<<endl;
+	cout<<"\tVender un Terreno."<<endl;
+	cout<<"\tComprar capacidad del tanque de agua."<<endl;
+	cout<<"\tComprar capacidad del almacen."<<endl;
 }
