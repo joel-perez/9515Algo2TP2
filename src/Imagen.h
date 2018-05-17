@@ -6,11 +6,12 @@
  * Necesita > Dimensiones, capacidad del Tanque y cantidad, capacidad del almacen y cantidad, nombre del jugador,
  */
 
-/*
+
 #include "lib/EasyBMP.h"
 #include "lib/EasyBMP_Geometry.h"
 #include "lib/EasyBMP_Font.h"
 
+/*
 //class Imagen{
 //private:
 //	RGBApixel color;
