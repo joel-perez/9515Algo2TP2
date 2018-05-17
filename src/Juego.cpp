@@ -93,8 +93,8 @@ Dificultad Juego::solicitarDificultad() {
 }
 
 void Juego::cargarArchivos() {
-	this->cultivos = texto.leerCultivo();
-	this->destinos = texto.leerDestino();
+	this->cultivos = archivo.leerCultivo();
+	this->destinos = archivo.leerDestino();
 }
 
 void Juego::iniciarJuego() {

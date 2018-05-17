@@ -4,7 +4,9 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
+#include "Lista.h"
+#include "Cultivo.h"
+#include "Destino.h"
 #include "Constantes.h"
 
 #ifdef linux
@@ -75,6 +77,21 @@ public:
 	 * POST: Devuelve la ruta completa donde se almacenan las Capturas de Pantalla de cada turno.
 	 */
 	std::string obtenerRutaCapturasPantalla();
+
+	/* PRE: La obteneRuta del archito txt debe de exitir .
+	 * POST:Obtien la determinada ruta;
+	 */
+	std::string pedirRuta(std::string obteneRuta);
+
+	/* PRE:~
+	 * POST:Devuelve una nueva Lista con todos los Cultivos.
+	 */
+	Lista<Cultivo*>* leerCultivo();
+
+	/* PRE:~
+	 * POST:Devuelve una nueva Lista con todos los Destinos.
+	 */
+	Lista<Destino*>* leerDestino();
 };
 
 #endif

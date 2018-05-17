@@ -8,7 +8,6 @@
 #include "Consola.h"
 #include "Constantes.h"
 #include "Archivo.h"
-#include "Texto.h"
 #include "Terreno.h"
 
 class Juego {
@@ -23,7 +22,6 @@ private:
 	unsigned int turnoActual;
 	Consola consola;
 	Archivo archivo;
-	Texto texto;
 	unsigned int  numeroDeJugadores;
 
 public:
