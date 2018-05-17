@@ -17,6 +17,11 @@ public:
 	 * POST:
 	 */
 	Destino();
+	/*
+	 *
+	 *
+	 */
+	Destino(std::string nombreDestino, int km, int precio, std::string  cultivoAceptado);
 
 	//TODO: Implementar los metodos necesarios...
 };

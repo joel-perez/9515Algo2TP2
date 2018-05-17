@@ -26,7 +26,11 @@ public:
 	 *POST: Crea un cultivo vacio.
 	 */
 	Cultivo();
-
+	/*
+	 *
+	 *
+	 */
+	Cultivo(std::string nombreCultivo);
 
 	/*
 	 * POST:Devuelve la cantidad de turnos necesarios desde que se siembra las semillas

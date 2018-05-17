@@ -7,6 +7,7 @@ using namespace std;
 Juego::Juego() {
 	this->jugadores = new Lista<Jugador*>;
 	this->cultivos = new Lista<Cultivo*>;
+	this->destinos = new Lista<Destino*>;
 	this->turnos = 0;
 	this->turnoActual = 0;
 	this->numeroDeJugadores = 0;
@@ -93,8 +94,7 @@ Dificultad Juego::solicitarDificultad() {
 
 void Juego::cargarArchivos() {
 	this->cultivos = texto.leerCultivo();
-
-	//this->destinos= texto.leerDestino();
+	this->destinos = texto.leerDestino();
 }
 
 void Juego::iniciarJuego() {

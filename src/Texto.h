@@ -4,6 +4,7 @@
 #include <string>
 #include "Lista.h"
 #include "Cultivo.h"
+#include "Destino.h"
 #include "Constantes.h"
 
 class Texto {
@@ -21,7 +22,7 @@ public:
 	/* PRE:~
 	 * POST:Devuelve una nueva Lista con todos los Destinos.
 	 */
-	//Lista<Destino*>*leerDestino();
+	Lista<Destino*>* leerDestino();
 };
 
 #endif
