@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Cultivo.h"
 
-Cultivo::Cultivo(){
-	this->nombre ="";
+Cultivo::Cultivo() {
+	this->nombre = "";
 	this->costo = 0;
 	this->tiempoDeCrecimiento = 0;
 	this->rentabilidad = 0;
@@ -11,7 +11,7 @@ Cultivo::Cultivo(){
 
 }
 
-Cultivo::Cultivo(std::string nombreCultivo){
+Cultivo::Cultivo(std::string nombreCultivo) {
 	this->nombre = nombreCultivo;
 	this->costo = 0;
 	this->tiempoDeCrecimiento = 0;
@@ -20,8 +20,9 @@ Cultivo::Cultivo(std::string nombreCultivo){
 	this->consumoDeAgua = 0;
 }
 
-Cultivo::Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento, int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua){
-	this->nombre =nombreCultivo;
+Cultivo::Cultivo(std::string nombreCultivo, int costo, int tiempoDeCrecimiento,
+		int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua) {
+	this->nombre = nombreCultivo;
 	this->costo = costo;
 	this->tiempoDeCrecimiento = tiempoDeCrecimiento;
 	this->rentabilidad = rentabilidad;
@@ -30,10 +31,10 @@ Cultivo::Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento,
 }
 
 int Cultivo::obtenerTiempoHastaCosecha() {
-
+	return this->tiempoDeCrecimiento;
 }
 
 int Cultivo::obtenerTiempoRecuperacion() {
-
+	return this->tiempoDeRecuperacion;
 }
 
