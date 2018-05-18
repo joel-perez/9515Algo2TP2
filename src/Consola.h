@@ -58,6 +58,13 @@ public:
 	 * 		para el jugadorActual.
 	 */
 	void mostrarPosiblesAcciones();
+	/*
+	 *
+	 * POST: imprime por pantalla la cantidad e terrenos que posee el
+	 * 		jugadorActual, y debe elegir uno de ello para  dicha acción.
+	 */
+	void mostrarTerrenosParaAccionElegida();
+
 };
 
 #endif

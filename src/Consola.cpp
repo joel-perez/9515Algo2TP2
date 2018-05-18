@@ -99,8 +99,7 @@ string Consola::SolicitarIngresoLineaTexto() {
 }
 
 void Consola::mostrarPosiblesAcciones(){
-	cout<<"Ingrese la accion a realizar: "<<endl;
-	cout<<endl;
+	cout<<"Ingrese la accion a realizar: "<<endl<<endl;
 	cout<<"1 - Sembrar semillas en un parcela."<<endl;
 	cout<<"2 - Regar una parcela."<<endl;
 	cout<<"3 - Cosechar una parcela."<<endl;
@@ -110,4 +109,10 @@ void Consola::mostrarPosiblesAcciones(){
 	cout<<"7 - Comprar mas capacidad para el tanque"<<endl;
 	cout<<"8 - Comprar mas capacidad para el almacen"<<endl;
 	cout<<"9 - Avanzar al siguiente turno."<<endl;
+	cout<<"10- Avandonar juego."<<endl;
 }
+ void Consola::mostrarTerrenosParaAccionElegida(){
+	 cout<<"Ejila el terreno  al cual desea aplicarle dicha acción:  "<<endl<<endl;
+
+ }
+
