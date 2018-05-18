@@ -39,7 +39,11 @@ void Juego::administrarAguaDelTurno(Jugador* jugador) {
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
-
+	unsigned int accionSolicitada = 0;
+	while(accionSolicitada!= ACCION_SIGUIENTE_TURNO){
+		consola.mostrarPosiblesAcciones();
+		accionSolicitada=consola.solicitarIngresoNumerico(1,9);
+	}
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
@@ -114,7 +118,7 @@ void Juego::iniciarJuego() {
 	consola.mostrarBienvenida();
 	cargarArchivos();
 	solicitarDatosIniciales();
-	while (turnoActual <= this->turnos) {
+	while (turnoActual < this->turnos) {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();

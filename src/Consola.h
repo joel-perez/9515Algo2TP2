@@ -49,6 +49,12 @@ public:
 	 * POST:Devuelve la cadena de caracteres.
 	 */
 	std::string SolicitarIngresoLineaTexto();
+
+	/*
+	 *
+	 * POST: imprime por pantalla las acciones disponibles en el juego
+	 */
+	void mostrarPosiblesAcciones();
 };
 
 #endif
