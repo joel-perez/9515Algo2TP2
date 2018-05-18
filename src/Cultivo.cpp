@@ -43,3 +43,11 @@ int Cultivo::obtenerTiempoRecuperacion() {
 string Cultivo::obtenerNombre() {
 	return this->nombre;
 }
+
+unsigned int Cultivo::obtenerCosto(){
+	return this->costo;
+
+}
+unsigned int Cultivo::obtenerRentabilidad(){
+	return this->rentabilidad;
+}

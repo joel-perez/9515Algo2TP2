@@ -46,9 +46,20 @@ public:
 	int obtenerTiempoRecuperacion();
 
 	/*
-	 * Devuelve el nombre del cultivo.
+	 * POST:Devuelve el nombre del cultivo.
 	 */
 	std::string obtenerNombre();
+	/*
+	 * POST: Devuelve el consto del cultivo.
+	 *
+	 */
+	unsigned int obtenerCosto();
+	/*
+	 * POST: Devuelve la Rentabilidad  del cultivo.
+	 *
+	 */
+	unsigned int obtenerRentabilidad();
+
 };
 
 #endif

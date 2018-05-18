@@ -55,20 +55,24 @@ public:
 	Cultivo* obtenerCultivoPorNombre(std::string nombreCultivo);
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Acumula el agua recibida con la que hay en el tanque, si
+	 * supera un cierto limite, el sobrante se pierde quedando el tanque
+	 *  lleno hasta el maximo.
 	 */
 	void administrarAguaDelTurno(Jugador* jugador);
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Solicita al jugador que realice una o mas acciones
+	 * dentro del turnoActual.
 	 */
 	void solicitarAcciones(Jugador* jugador);
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Realiza las operaciones correspondientes al avance de un turno luego
+	 * de que el jugador haya realizado las acciones que considero necesarias.
 	 */
 	void procesarTurno(Jugador* jugador);
 
