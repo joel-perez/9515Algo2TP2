@@ -25,7 +25,11 @@ void Terreno::inicializarTerreno(unsigned int filas, unsigned int columnas) {
 
 	//Probando una nueva implementacion de lista...
 	unsigned int tamanioTotal = filas * columnas;
-	this->parcelas = new Lista<Parcela*>;
+	this->parcelas = new Lista<Parcela*>();
+	for (unsigned int i = 0; i < tamanioTotal; i++) {
+		Parcela* nuevaParcela = new Parcela();
+		this->parcelas->agregar(nuevaParcela);
+	}
 	//
 
 	// Esto es usando Lista...
