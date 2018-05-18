@@ -21,7 +21,10 @@ void Consola::mostrarBienvenida() {
 	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl;
 }
 
-void Consola::mostrarDatosDelTurno(Jugador* jugadorActual) {
+void Consola::mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turnoActual) {
+	cout<<"\n JUGADOR: "<<jugadorActual->obtenerNombre()<<endl;
+	cout<<"Turno Nro: "<<turnoActual+1<<endl;
+	cout<<"Creditos: "<<jugadorActual->obtenerCreditos()<<endl;
 
 }
 

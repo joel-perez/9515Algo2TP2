@@ -14,6 +14,7 @@ private:
 	Lista<Tanque*>* tanquesAgua;
 	unsigned int creditos;
 	std::string  nombre;
+	unsigned int aguaPorTurno;
 
 public:
 	/*
@@ -45,7 +46,29 @@ public:
 	 * POST:
 	 */
 	Lista<Terreno*>* obtenerTerrenos();
+	/*
+	 *
+	 * POST: devuelve el nombre del jugador.
+	 */
+	std::string obtenerNombre();
+	/*
+	 *
+	 * POST: asigna la cantidad de agua al azar que tendra en el turno.
+	 */
+	void asignarAguaDelTurno();
 
+	/*
+	 *
+	 * POST: devuelve la cantidad de credito del jugador.
+	 */
+	unsigned int obtenerCreditos();
+
+private:
+	/*
+	 *
+	 * POST: devuelve un numero al azar.
+	 */
+	unsigned int tirarDado();
 
 	//TODO: Implementar todo lo que sea necesario...
 };

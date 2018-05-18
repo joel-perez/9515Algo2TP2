@@ -35,7 +35,7 @@ Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 }
 
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
-
+	jugador->asignarAguaDelTurno();
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
@@ -119,7 +119,7 @@ void Juego::iniciarJuego() {
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
 			//Esto va a ir en el TDA Jugador, posiblemente...
-			consola.mostrarDatosDelTurno(jugadorActual);
+			consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
 			consola.mostrarTerrenos(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);

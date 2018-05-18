@@ -24,7 +24,7 @@ public:
 	 * PRE:
 	 * POST:
 	 */
-	void mostrarDatosDelTurno(Jugador* jugadorActual);
+	void mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turnoActual);
 
 	/*
 	 * PRE:

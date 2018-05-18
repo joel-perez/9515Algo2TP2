@@ -11,7 +11,7 @@ class Dificultad {
 private:
 	unsigned int turnos;
 	unsigned int tamanioInicial;
-	unsigned int dificuldad;
+	unsigned int dificultad;
 	//Ver como contener los valores de las compras...
 
 public:
@@ -32,6 +32,8 @@ public:
 	 * POST:
 	 */
 	unsigned int obtenerTurnos();
+
+	unsigned int obtenerDificultad();
 
 	//Agregar los metodos publicos necesarios...
 };

@@ -31,4 +31,6 @@ const std::string ARCHIVO_DESTINOS = "destinos.txt";
 
 const int RENTABILIDAD_CULTIVO_VACIO = 0;
 
+const int MULTIPLICADOR_DADO = 8;
+const int CARAS_DADO = 6;
 #endif

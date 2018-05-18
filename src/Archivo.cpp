@@ -111,8 +111,7 @@ Lista<Cultivo*>* Archivo::leerCultivos() {
 
 Lista<Destino*>* Archivo::leerDestinos() {
 	std::ifstream entrada;
-	std::string rutaDeterminada = " ";
-	//		this->pedirRuta(RUTA_DESTINO);
+	std::string rutaDeterminada = this->pedirRuta(ARCHIVO_DESTINOS);
 
 	entrada.open(rutaDeterminada.c_str());
 	if (entrada.fail()) {
