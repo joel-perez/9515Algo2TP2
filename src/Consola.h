@@ -21,8 +21,9 @@ public:
 	void mostrarBienvenida();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST: muestra por pantalla  la ficha tecnica del
+	 * 		jugadorActual.
 	 */
 	void mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turnoActual);
 
@@ -34,7 +35,8 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:muestra el estado del terreno del
+	 * 	jugadorActual.
 	 */
 	void mostrarTerrenos(Jugador* jugadorActual);
 
@@ -52,7 +54,8 @@ public:
 
 	/*
 	 *
-	 * POST: imprime por pantalla las acciones disponibles en el juego
+	 * POST: imprime por pantalla las acciones disponibles
+	 * 		para el jugadorActual.
 	 */
 	void mostrarPosiblesAcciones();
 };

@@ -31,19 +31,19 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:compra un terreno durantes el turnoActual;
 	 */
 	void comprarTerreno();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST: vende un terreno durantes el turnoActual;
 	 */
 	void venderTerreno();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:devuelve los terrenos de jugadorActual.
 	 */
 	Lista<Terreno*>* obtenerTerrenos();
 	/*
@@ -62,6 +62,11 @@ public:
 	 * POST: devuelve la cantidad de credito del jugador.
 	 */
 	unsigned int obtenerCreditos();
+	/*
+	 *
+	 * POST: devuelve los tanques de agua del jugadorActual.
+	 */
+	Lista<Tanque*>* obtenerTanques();
 
 private:
 	/*

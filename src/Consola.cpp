@@ -18,7 +18,7 @@ void Consola::mostrarBienvenida() {
 			<< archivo.obtenerRutaEjecucion() << endl;
 	cout << "Capturas de Pantalla: " << archivo.obtenerRutaCapturasPantalla()
 			<< endl;
-	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl;
+	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl<<endl<<endl<<endl;
 }
 
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turnoActual) {
@@ -35,8 +35,8 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 	while (terrenos->avanzarCursor()) {
 		Terreno* terrenoActual = terrenos->obtenerCursor();
 
-		for (unsigned int i = 0; i < terrenoActual->obtenerFilas(); i++) {
-			for (unsigned int j = 0; j < terrenoActual->obtenerColumnas();
+		for (unsigned int i = 1; i < terrenoActual->obtenerFilas(); i++) {
+			for (unsigned int j = 1; j < terrenoActual->obtenerColumnas();
 					j++) {
 				Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
 				cout << " " << miParcela->obtenerEstado();

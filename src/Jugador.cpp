@@ -34,6 +34,11 @@ std::string Jugador::obtenerNombre(){
 unsigned int Jugador::obtenerCreditos(){
 	return this->creditos;
 }
+
+Lista<Tanque*>* Jugador::obtenerTanques(){
+	return this->tanquesAgua;
+
+}
 unsigned int Jugador::tirarDado(){
 	unsigned int potenciador =(rand()%CARAS_DADO)+1;
 	return potenciador;
@@ -42,3 +47,7 @@ unsigned int Jugador::tirarDado(){
 void Jugador::asignarAguaDelTurno(){
 	this->aguaPorTurno = this->tirarDado() * MULTIPLICADOR_DADO;
 }
+
+
+
+
