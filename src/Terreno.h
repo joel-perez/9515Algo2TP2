@@ -27,10 +27,25 @@ public:
 	 * 		 vacias y sin cultivo.
 	 */
 	Terreno(unsigned int filas, unsigned int columnas);
-
+	/*
+	 * PRE:
+	 * POST: delvuelve el alto del terreno,
+	 */
 	unsigned int obtenerFilas();
+	/*
+	 * PRE:
+	 * POST: devuelve el ancho del terreno.
+	 */
 	unsigned int obtenerColumnas();
+	/*
+	 * PRE: fila y columna deb de estar en el rango permitido.
+	 * POST: devuelve la parcela dada una fila y una columna.
+	 */
 	Parcela* obtenerParcela(unsigned int fila, unsigned int columna);
+	/*
+	 * PRE: fila y columna deb de estar en el rango permitido.
+	 * POST: devuelve el terreno inicializado.
+	 */
 	void inicializarTerreno(unsigned int filas, unsigned int columnas);
 };
 
