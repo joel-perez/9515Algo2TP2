@@ -5,7 +5,7 @@
 #include <sstream>
 
 #include "Archivo.h"
-#include "Constantes.h"
+
 using namespace std;
 
 Archivo::Archivo() {
@@ -71,10 +71,10 @@ std::string Archivo::pedirRuta(std::string obteneRuta) {
 	return ruta;
 }
 
-Lista<Cultivo*>* Archivo::leerCultivo() {
+Lista<Cultivo*>* Archivo::leerCultivos() {
 
 	std::ifstream entrada;
-	std::string rutaDeterminada = this->pedirRuta(RUTA_CULTIVO);
+	std::string rutaDeterminada = this->pedirRuta(ARCHIVO_CULTIVOS);
 	entrada.open(rutaDeterminada.c_str());
 
 	std::string linea;
@@ -109,9 +109,10 @@ Lista<Cultivo*>* Archivo::leerCultivo() {
 	return cultivosDisponibles;
 }
 
-Lista<Destino*>* Archivo::leerDestino() {
+Lista<Destino*>* Archivo::leerDestinos() {
 	std::ifstream entrada;
-	std::string rutaDeterminada = this->pedirRuta(RUTA_DESTINO);
+	std::string rutaDeterminada = " ";
+	//		this->pedirRuta(RUTA_DESTINO);
 
 	entrada.open(rutaDeterminada.c_str());
 	if (entrada.fail()) {

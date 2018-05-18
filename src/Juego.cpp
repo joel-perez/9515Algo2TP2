@@ -1,8 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <ctime>
-
 #include "Juego.h"
 
 using namespace std;
@@ -21,32 +18,28 @@ Juego::Juego() {
 Lista<Jugador*>* Juego::obtenerJugadores() {
 	return this->jugadores;
 }
-Lista<Cultivo*>* Juego::obtenerCultivos(){
+
+Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
 }
-/*unsigned int Juego::tirarDado(){
-	int potenciador = (rand()% CANT_CARAS_DADO)+1;
-	srand(time(NULL));
-	int aguaRecibida = MULTIPLICADOR_DADO * potenciador;
-	return aguaRecibida;
-}*/
+
+Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
+	Cultivo* resultado;
+	this->cultivos->obtenerCursor();
+	while (this->cultivos->avanzarCursor()) {
+		Cultivo* cultivoEncontrado = this->cultivos->obtenerCursor();
+		if (cultivoEncontrado->obtenerNombre() == nombreCultivo)
+			resultado = cultivoEncontrado;
+	}
+	return resultado;
+}
+
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
 
-	/*Lista<Tanque*>* tanqueActual=jugador->obtenerTanques();
-	int unidadesDeRiego = 0;
-	tanqueActual->iniciarCursor();
-	while(tanqueActual->avanzarCursor()){
-		Tanque* tanqueAnalizado = tanqueActual->obtenerCursor();
-		if (tanqueAnalizado->obtenerCapacidad() < CAPACIDAD_MAXIMA_DEL_TANQUE){
-			unidadesDeRiego=tirarDado();
-
-			tanqueAnalizado->cambiarCapacidad(unidadesDeRiego);
-		}
-	}*/
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
-	consola.mostrarAcciones();
+
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
@@ -74,8 +67,6 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 		nombre = consola.SolicitarIngresoLineaTexto();
 		Jugador* nuevoJugador = new Jugador(nombre);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
-		//Tanque* nuevoTanque = new Tanque();
-		//nuevoJugador->obtenerTanques()->agregar(nuevoTanque);
 		nuevoJugador->obtenerTerrenos()->agregar(nuevoTerreno);
 		resultado->agregar(nuevoJugador);
 		contador++;
@@ -94,14 +85,14 @@ unsigned int Juego::solicitarCantidadTurnos() {
 
 void Juego::solicitarTamanioTerreno() {
 	cout << "Ingrese cuantas filas y columnas tendra el Terreno." << endl;
-	cout << "[el minimo es " << TERRENO_MIN_FILA_COLUMNA << "]" << endl;
-	cout << "[el maximo es " << TERRENO_MAX_FILA_COLUMNA << "]" << endl;
+	cout << "[el minimo es " << TERRENO_MIN_FILAS << "]" << endl;
+	cout << "[el maximo es " << TERRENO_MAX_FILAS << "]" << endl;
 	cout << ">Filas:";
-	this->altoTerreno = consola.solicitarIngresoNumerico(
-			TERRENO_MIN_FILA_COLUMNA, TERRENO_MAX_FILA_COLUMNA);
+	this->altoTerreno = consola.solicitarIngresoNumerico(TERRENO_MIN_FILAS,
+			TERRENO_MAX_FILAS);
 	cout << ">columnas:";
-	this->anchoTerreno = consola.solicitarIngresoNumerico(
-			TERRENO_MIN_FILA_COLUMNA, TERRENO_MAX_FILA_COLUMNA);
+	this->anchoTerreno = consola.solicitarIngresoNumerico(TERRENO_MIN_FILAS,
+			TERRENO_MAX_FILAS);
 }
 
 Dificultad Juego::solicitarDificultad() {
@@ -115,8 +106,8 @@ Dificultad Juego::solicitarDificultad() {
 }
 
 void Juego::cargarArchivos() {
-	this->cultivos = archivo.leerCultivo();
-	this->destinos = archivo.leerDestino();
+	this->cultivos = archivo.leerCultivos();
+	this->destinos = archivo.leerDestinos();
 }
 
 void Juego::iniciarJuego() {
@@ -128,8 +119,8 @@ void Juego::iniciarJuego() {
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
 			//Esto va a ir en el TDA Jugador, posiblemente...
-			consola.mostrarDatosDelTurno(jugadorActual,turnoActual);
-			consola.mostrarTerreno(jugadorActual);
+			consola.mostrarDatosDelTurno(jugadorActual);
+			consola.mostrarTerrenos(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);
 			procesarTurno(jugadorActual);

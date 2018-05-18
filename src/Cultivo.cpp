@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Cultivo.h"
 
+using namespace std;
+
 Cultivo::Cultivo() {
 	this->nombre = "";
 	this->costo = 0;
@@ -38,3 +40,6 @@ int Cultivo::obtenerTiempoRecuperacion() {
 	return this->tiempoDeRecuperacion;
 }
 
+string Cultivo::obtenerNombre() {
+	return this->nombre;
+}

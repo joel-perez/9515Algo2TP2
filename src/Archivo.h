@@ -86,12 +86,12 @@ public:
 	/* PRE:~
 	 * POST:Devuelve una nueva Lista con todos los Cultivos.
 	 */
-	Lista<Cultivo*>* leerCultivo();
+	Lista<Cultivo*>* leerCultivos();
 
 	/* PRE:~
 	 * POST:Devuelve una nueva Lista con todos los Destinos.
 	 */
-	Lista<Destino*>* leerDestino();
+	Lista<Destino*>* leerDestinos();
 };
 
 #endif

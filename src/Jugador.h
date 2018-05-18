@@ -45,13 +45,7 @@ public:
 	 * POST:
 	 */
 	Lista<Terreno*>* obtenerTerrenos();
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerCreditos();
 
-	Lista<Tanque*>* obtenerTanques();
 
 	//TODO: Implementar todo lo que sea necesario...
 };

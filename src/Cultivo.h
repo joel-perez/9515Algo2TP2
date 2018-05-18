@@ -15,11 +15,12 @@ private:
 
 public:
 	/*
-		 * PRE:
-		 * POST:Incializa Cultivo con el nombreCultico, costo, tiempoDeCrecimiento,
-		 * 		rentabilidad,tiempoDeRecuperacion y consumoDeAgua, asociados.
-		 */
-	Cultivo(std::string nombreCultivo, int costo,  int tiempoDeCrecimiento, int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua);
+	 * PRE:
+	 * POST:Incializa Cultivo con el nombreCultico, costo, tiempoDeCrecimiento,
+	 * 		rentabilidad,tiempoDeRecuperacion y consumoDeAgua, asociados.
+	 */
+	Cultivo(std::string nombreCultivo, int costo, int tiempoDeCrecimiento,
+			int rentabilidad, int tiempoDeRecuperacion, int consumoDeAgua);
 
 	/*PRE:~
 	 *
@@ -44,7 +45,10 @@ public:
 	 */
 	int obtenerTiempoRecuperacion();
 
-
+	/*
+	 * Devuelve el nombre del cultivo.
+	 */
+	std::string obtenerNombre();
 };
 
 #endif

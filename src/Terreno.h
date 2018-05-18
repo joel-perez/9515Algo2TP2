@@ -8,7 +8,8 @@
 
 class Terreno {
 private:
-	Lista<Lista<Parcela*>*>* parcelas;
+	//Parcela* parcelas[1][1];
+	Lista<Parcela*>* parcelas;
 	unsigned int tamanioFilas;
 	unsigned int tamanioColumnas;
 
@@ -27,7 +28,10 @@ public:
 	 */
 	Terreno(unsigned int filas, unsigned int columnas);
 
-	//TODO: Implementar los metodos que sean necesarios...
+	unsigned int obtenerFilas();
+	unsigned int obtenerColumnas();
+	Parcela* obtenerParcela(unsigned int fila, unsigned int columna);
+	void inicializarTerreno(unsigned int filas, unsigned int columnas);
 };
 
 #endif

@@ -42,7 +42,11 @@ public:
 	 */
 	Cultivo obtenerCultivo();
 
-//TODO: Implementar los metodos que sean necesarios...
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	std::string obtenerEstado();
 
 };
 

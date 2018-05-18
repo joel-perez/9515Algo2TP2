@@ -21,12 +21,39 @@ void Consola::mostrarBienvenida() {
 	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl;
 }
 
-void Consola::mostrarDatosDelTurno(Jugador* jugadorActual, unsigned int turno) {
-	cout<< "Turno Nro: "<< turno + 1 << endl;
-	cout<<"Cantidad de creditos: "<<jugadorActual->obtenerCreditos()<<endl;
+void Consola::mostrarDatosDelTurno(Jugador* jugadorActual) {
+
 }
 
-void Consola::mostrarTerreno(Jugador* jugadorActual) {
+void Consola::mostrarTerrenos(Jugador* jugadorActual) {
+	cout << "Estado del Terreno:" << endl << endl;
+	Lista<Terreno*>* terrenos = jugadorActual->obtenerTerrenos();
+	terrenos->iniciarCursor();
+	while (terrenos->avanzarCursor()) {
+		Terreno* terrenoActual = terrenos->obtenerCursor();
+
+		for (int i = 0; i < terrenoActual->obtenerFilas(); i++) {
+			for (int j = 0; j < terrenoActual->obtenerColumnas(); j++) {
+				Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
+				cout << " " << miParcela->obtenerEstado();
+			}
+			cout << endl;
+		}
+
+		/*
+		 Lista<Lista<Parcela*>*>* parcelas = terrenoActual->obtenerParcelas();
+		 parcelas->iniciarCursor();
+		 while (parcelas->avanzarCursor()) {
+		 Lista<Parcela*>* unaColumna = parcelas->obtenerCursor();
+		 unaColumna->iniciarCursor();
+		 while (unaColumna->avanzarCursor()) {
+		 Parcela* unaParcela = unaColumna->obtenerCursor();
+		 std::cout << " | " << unaParcela->obtenerEstado() << "|";
+		 }
+		 std::cout << std::endl;
+		 }
+		 */
+	}
 
 }
 
@@ -65,16 +92,4 @@ string Consola::SolicitarIngresoLineaTexto() {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, textLine);
 	return textLine;
-}
-
-void Consola::mostrarAcciones(){
-	cout<<"Seleccione una accion:" <<endl;
-	cout<<"\tSembrar semillas en una parcela."<<endl;
-	cout<<"\tCosechar una parcela."<<endl;
-	cout<<"\tRegar una parcela."<<endl;
-	cout<<"\tEnviar una cosecha a destino."<<endl;
-	cout<<"\tComprar un Terreno."<<endl;
-	cout<<"\tVender un Terreno."<<endl;
-	cout<<"\tComprar capacidad del tanque de agua."<<endl;
-	cout<<"\tComprar capacidad del almacen."<<endl;
 }

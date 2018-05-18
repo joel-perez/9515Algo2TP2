@@ -1,7 +1,9 @@
 #include "Terreno.h"
 
+using namespace std;
+
 Terreno::Terreno() {
-	this->parcelas = new Lista<Lista<Parcela*>*>;
+	//this->parcelas = new Lista<Lista<Parcela*>*>;
 	this->tamanioFilas = 0;
 	this->tamanioColumnas = 0;
 
@@ -9,25 +11,54 @@ Terreno::Terreno() {
 
 Terreno::Terreno(unsigned int filas, unsigned int columnas) {
 
-	if ((filas < TERRENO_MIN_FILA_COLUMNA)
-			|| (columnas < TERRENO_MIN_FILA_COLUMNA))
+	if ((filas < TERRENO_MIN_FILAS) || (columnas < TERRENO_MIN_COLUMNAS))
+		//throw std::string("El terreno como minimo debe ser de " + TERRENO_MIN_FILAS + " filas por " + TERRENO_MIN_COLUMNAS + " columnas");
+		throw string("Error al contruir terreno...");
+	this->inicializarTerreno(filas, columnas);
+}
 
-		throw std::string("Error filas/columnas");
+void Terreno::inicializarTerreno(unsigned int filas, unsigned int columnas) {
 
-	for (unsigned int i = 0; i < columnas; i++) {
+	//Esto es usando un array... pero no me deja hacerlo dinamicamente...
+	//this->parcelas = new Parcela[filas][columnas];
+	//
 
-		Lista<Parcela*>* nuevaColumna = new Lista<Parcela*>;
+	//Probando una nueva implementacion de lista...
+	unsigned int tamanioTotal = filas * columnas;
+	this->parcelas = new Lista<Parcela*>;
+	//
 
-		for (unsigned int j = 0; j < filas; j++) {
+	// Esto es usando Lista...
+	/*for (unsigned int i = 0; i < columnas; i++) {
 
-			Parcela* nuevaParcela = new Parcela;
-			nuevaColumna->agregar(nuevaParcela);
-		}
-//		this->parcelas->agregar(nuevaColumna);
-	}
+	 Lista<Parcela*>* nuevaColumna = new Lista<Parcela*>;
 
+	 for (unsigned int j = 0; j < filas; j++) {
+
+	 Parcela* nuevaParcela = new Parcela;
+	 nuevaColumna->agregar(nuevaParcela);
+	 }}*/
+	//
 	this->tamanioFilas = filas;
 	this->tamanioColumnas = columnas;
 }
 
-//TODO: Implementar los metodos que sean necesarios...
+unsigned int Terreno::obtenerFilas() {
+	return this->tamanioFilas;
+}
+unsigned int Terreno::obtenerColumnas() {
+	return this->tamanioColumnas;
+}
+
+Parcela* Terreno::obtenerParcela(unsigned int fila, unsigned int columna) {
+	Parcela* resultado;
+	if (fila > this->tamanioFilas || columna > this->tamanioColumnas)
+		throw string("Indice fuera de rango."); // TODO: Mejorar este mensaje...
+	unsigned int indiceBuscado = fila * this->tamanioColumnas + columna;
+	unsigned int indiceActual = 0;
+	this->parcelas->iniciarCursor();
+	while (this->parcelas->avanzarCursor() && indiceActual < indiceBuscado) {
+		resultado = this->parcelas->obtenerCursor();
+	}
+	return resultado;
+}

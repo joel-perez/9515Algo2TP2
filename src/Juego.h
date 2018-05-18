@@ -22,7 +22,7 @@ private:
 	unsigned int turnoActual;
 	Consola consola;
 	Archivo archivo;
-	unsigned int  numeroDeJugadores;
+	unsigned int numeroDeJugadores;
 
 public:
 	/*
@@ -47,6 +47,12 @@ public:
 	 * POST: se obtiene los cultivos de la partida.
 	 */
 	Lista<Cultivo*>* obtenerCultivos();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	Cultivo* obtenerCultivoPorNombre(std::string nombreCultivo);
 
 	/*
 	 * PRE:
@@ -107,11 +113,6 @@ public:
 	 */
 	Dificultad solicitarDificultad();
 
-	/*
-	 *
-	 *
-	 */
-	//unsigned int tirarDado();
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 
 };

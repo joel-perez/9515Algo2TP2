@@ -18,22 +18,17 @@ const int TERRENO_MAX_COLUMNAS = 10;
 const int TERRENO_MAX_FILAS = 10;
 const int TERRENO_MIN_COLUMNAS = 3;
 const int TERRENO_MIN_FILAS = 3;
-const int TERRENO_MAX_FILA_COLUMNA=10;
-const int TERRENO_MIN_FILA_COLUMNA=3;
 
-const int MAX_TURNO=6;
-const int MIN_TURNO=3;
+const int MAX_TURNO = 6;
+const int MIN_TURNO = 3;
 
-const int DIFICULTAD_FACIL=1;
-const int DIFICULTAD_MEDIA=2;
-const int DIFICULTAD_DIFICIL=3;
+const int DIFICULTAD_FACIL = 1;
+const int DIFICULTAD_MEDIA = 2;
+const int DIFICULTAD_DIFICIL = 3;
 
-const std::string RUTA_CULTIVO="cultivos.txt";
-const std::string RUTA_DESTINO="destinos.txt";
+const std::string ARCHIVO_CULTIVOS = "cultivos.txt";
+const std::string ARCHIVO_DESTINOS = "destinos.txt";
 
 const int RENTABILIDAD_CULTIVO_VACIO = 0;
 
-const int CAPACIDAD_MAXIMA_DEL_TANQUE = 105;
-const int CANT_CARAS_DADO = 6;
-const int MULTIPLICADOR_DADO = 5;
 #endif
