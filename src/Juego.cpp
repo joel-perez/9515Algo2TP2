@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "Juego.h"
 
 using namespace std;
@@ -58,6 +59,15 @@ void Juego::procesarTurno(Jugador* jugador) {
 void Juego::solicitarDatosIniciales() {
 	solicitarTamanioTerreno(); //TODO: Ver si es sencillo usar un TDA Dimensiones, o devolver valores por referencia, etc.
 	this->jugadores = solicitarJugadores();
+
+	//TODO: Eliminar esto cuando termine las pruebas...
+	this->jugadores->iniciarCursor();
+	while (this->jugadores->avanzarCursor()) {
+		Jugador* jugador = this->jugadores->obtenerCursor();
+		cout << "Jugador: '" << jugador->obtenerNombre() << "'" << endl;
+	}
+	//
+
 	this->turnos = solicitarCantidadTurnos();
 	this->dificultad = solicitarDificultad();
 }
@@ -71,11 +81,10 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 	cin >> cantidad;
 	this->numeroDeJugadores = cantidad;
 	do {
-		cout << ">JUGADOR -" << contador + 1 << "- :";
+		cout << ">Ingrese el Nombre del JUGADOR -" << contador + 1 << "- :";
 		nombre = consola.SolicitarIngresoLineaTexto();
 		Jugador* nuevoJugador = new Jugador(nombre);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
-		//nuevoJugador->obtenerTerrenos()->agregar(nuevoTerreno);
 		nuevoJugador->agregarTerreno(nuevoTerreno);
 		resultado->agregar(nuevoJugador);
 		contador++;
