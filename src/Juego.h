@@ -117,6 +117,12 @@ public:
 	 */
 	Dificultad solicitarDificultad();
 
+	/*
+	 *
+	 *
+	 */
+	Dificultad obtenerDificultad();
+
 //TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
 
 };

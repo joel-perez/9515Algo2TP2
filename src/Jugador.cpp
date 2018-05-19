@@ -44,8 +44,8 @@ unsigned int Jugador::tirarDado(){
 	return potenciador;
 }
 
-void Jugador::asignarAguaDelTurno(){
-	this->aguaPorTurno = this->tirarDado() * MULTIPLICADOR_DADO;
+void Jugador::asignarAguaDelTurno(unsigned int multiplicador){
+	this->aguaPorTurno = this->tirarDado() * multiplicador;
 }
 
 

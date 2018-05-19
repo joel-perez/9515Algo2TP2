@@ -12,7 +12,7 @@ private:
 	unsigned int turnos;
 	unsigned int tamanioInicial;
 	unsigned int dificultad;
-	//Ver como contener los valores de las compras...
+	unsigned int multiplicadorAgua;
 
 public:
 	/*
@@ -34,6 +34,11 @@ public:
 	unsigned int obtenerTurnos();
 
 	unsigned int obtenerDificultad();
+
+	unsigned int obtenerMultiplicadorAgua();
+
+private:
+	unsigned int elegirMultiplicador();
 
 	//Agregar los metodos publicos necesarios...
 };

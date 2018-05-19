@@ -55,7 +55,7 @@ public:
 	 *
 	 * POST: asigna la cantidad de agua al azar que tendra en el turno.
 	 */
-	void asignarAguaDelTurno();
+	void asignarAguaDelTurno(unsigned int multiplicador);
 
 	/*
 	 *
