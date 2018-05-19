@@ -24,10 +24,9 @@ void Consola::mostrarBienvenida() {
 
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual,
 		unsigned int turnoActual) {
-	cout << "\n JUGADOR: " << jugadorActual->obtenerNombre() << endl;
+	cout << endl << "JUGADOR: " << jugadorActual->obtenerNombre() << endl;
 	cout << "Turno Nro: " << turnoActual + 1 << endl;
 	cout << "Creditos: " << jugadorActual->obtenerCreditos() << endl;
-
 }
 
 void Consola::mostrarTerrenos(Jugador* jugadorActual) {
@@ -108,17 +107,16 @@ void Consola::mostrarPosiblesAcciones() {
 	cout << "4 - Enviar una cosecha a un destino." << endl;
 	cout << "5 - Comprar un terreno." << endl;
 	cout << "6 - Vender un terreno." << endl;
-	cout << "7 - Comprar mas capacidad para el tanque" << endl;
-	cout << "8 - Comprar mas capacidad para el almacen" << endl;
-	cout << "9 - Avanzar al siguiente turno." << endl;
-	cout << "10- Avandonar juego." << endl;
+	cout << "7 - Comprar mas capacidad para el tanque." << endl;
+	cout << "8 - Comprar mas capacidad para el almacen." << endl;
+	cout << "9 - Cambiar de Terreno." << endl;
+	cout << "10 - Avanzar al siguiente turno." << endl;
+	cout << "11 - Abandonar el Juego." << endl;
 }
 void Consola::mostrarTerrenosParaAccionElegida() {
 	cout << "Ejila el terreno  al cual desea aplicarle dicha acción:  " << endl
 			<< endl;
-	unsigned int terrenoElegido = solicitarIngresoNumerico(1,
-			10);
-
+	unsigned int terrenoElegido = solicitarIngresoNumerico(1, 10);
 
 }
 
