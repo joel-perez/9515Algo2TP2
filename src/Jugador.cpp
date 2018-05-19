@@ -12,7 +12,6 @@ Jugador::Jugador(std::string nombre) {
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	srand(time(NULL));
-
 }
 
 Jugador::Jugador(const Jugador& jugador) {

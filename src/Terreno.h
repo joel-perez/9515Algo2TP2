@@ -9,10 +9,10 @@
 
 class Terreno {
 private:
-	Texto texto;
 	Lista<Parcela*>* parcelas;
-	unsigned int tamanioFilas;
+	Texto texto;
 	unsigned int tamanioColumnas;
+	unsigned int tamanioFilas;
 
 public:
 	/*
@@ -28,18 +28,21 @@ public:
 	 * 		 vacias y sin cultivo.
 	 */
 	Terreno(unsigned int filas, unsigned int columnas);
+
 	/*
 	 * PRE:
 	 * POST: delvuelve el alto del terreno,
 	 */
 	unsigned int obtenerFilas();
+
 	/*
 	 * PRE:
 	 * POST: devuelve el ancho del terreno.
 	 */
 	unsigned int obtenerColumnas();
+
 	/*
-	 * PRE: fila y columna deb de estar en el rango permitido.
+	 * PRE: fila y columna deben estar en el rango permitido.
 	 * POST: devuelve la parcela dada una fila y una columna.
 	 */
 	Parcela* obtenerParcela(unsigned int fila, unsigned int columna);

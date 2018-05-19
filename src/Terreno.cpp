@@ -5,8 +5,9 @@
 using namespace std;
 
 Terreno::Terreno() {
-	this->tamanioFilas = 0;
+	this->parcelas = new Lista<Parcela*>();
 	this->tamanioColumnas = 0;
+	this->tamanioFilas = 0;
 }
 
 Terreno::Terreno(unsigned int filas, unsigned int columnas) {
@@ -17,19 +18,21 @@ Terreno::Terreno(unsigned int filas, unsigned int columnas) {
 						+ texto.intToString(TERRENO_MIN_COLUMNAS)
 						+ " columnas.");
 	unsigned int tamanioTotal = filas * columnas;
+	this->parcelas = new Lista<Parcela*>();
 	for (unsigned int i = 0; i < tamanioTotal; i++) {
 		Parcela* nuevaParcela = new Parcela();
 		this->parcelas->agregar(nuevaParcela);
 	}
-	this->tamanioFilas = filas;
 	this->tamanioColumnas = columnas;
+	this->tamanioFilas = filas;
+}
+
+unsigned int Terreno::obtenerColumnas() {
+	return this->tamanioColumnas;
 }
 
 unsigned int Terreno::obtenerFilas() {
 	return this->tamanioFilas;
-}
-unsigned int Terreno::obtenerColumnas() {
-	return this->tamanioColumnas;
 }
 
 Parcela* Terreno::obtenerParcela(unsigned int fila, unsigned int columna) {
