@@ -76,22 +76,6 @@ TipoDificultad Dificultad::obtenerDificultad() {
 	return this->dificultad;
 }
 
-unsigned int Dificultad::elegirMultiplicador() {
-	unsigned int valor;
-	switch (this->obtenerDificultad()) {
-	case FACIL:
-		valor = 8;
-		break;
-	case INTERMEDIO:
-		valor = 5;
-		break;
-	case DIFICIL:
-		valor = 3;
-		break;
-	}
-	return valor;
-}
-
 unsigned int Dificultad::obtenerCoeficienteMultiplicadorAgua() {
 	return this->coeficienteMultiplicadorAgua;
 }
