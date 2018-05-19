@@ -1,9 +1,7 @@
 #ifndef DIFICULTAD_H_
 #define DIFICULTAD_H_
 
-enum TipoDificultad {
-	FACIL, INTERMEDIO, DIFICIL
-};
+#include "TipoDificultad.h"
 
 class Dificultad {
 private:
@@ -29,7 +27,9 @@ public:
 	 * 	intervalo de [1,3].
 	 * POST: Dificultad lista para ser usada segun la dificultadSeleccionada.
 	 */
-	Dificultad(TipoDificultad dificultadSeleccionada);
+	//Dificultad(const TipoDificultad& dificultadSeleccionada);
+	Dificultad(unsigned int dificultadSeleccionada);
+
 	/*
 	 * PRE:~
 	 * POST:devuelve el coeficioenteCredito según la dificultadSeleccionada.

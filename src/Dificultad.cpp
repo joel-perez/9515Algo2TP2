@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Dificultad.h"
 
 Dificultad::Dificultad() {
@@ -10,10 +12,9 @@ Dificultad::Dificultad() {
 	this->coeficienteTamanioAlmacen = 0;
 	this->coeficienteTamanioTerreno = 0;
 	this->dificultad = FACIL;
-
 }
 
-Dificultad::Dificultad(TipoDificultad dificultadSeleccionada) {
+Dificultad::Dificultad(unsigned int dificultadSeleccionada) {
 	this->dificultad = (TipoDificultad) dificultadSeleccionada;
 	switch (dificultadSeleccionada) {
 	case FACIL:
@@ -90,6 +91,7 @@ unsigned int Dificultad::elegirMultiplicador() {
 	}
 	return valor;
 }
+
 unsigned int Dificultad::obtenerCoeficienteMultiplicadorAgua() {
 	return this->coeficienteMultiplicadorAgua;
 }
