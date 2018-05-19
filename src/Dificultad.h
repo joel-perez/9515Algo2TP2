@@ -1,18 +1,20 @@
 #ifndef DIFICULTAD_H_
 #define DIFICULTAD_H_
-enum Tipo{
-	SIN_DIFICULTAD,
-	FACIL,
-	INTERMEDIO,
-	DIFICIL
+enum TipoDificultad {
+	FACIL, INTERMEDIO, DIFICIL
 };
 
 class Dificultad {
 private:
-	unsigned int turnos;
-	unsigned int tamanioInicial;
-	unsigned int dificultad;
-	unsigned int multiplicadorAgua;
+	TipoDificultad dificultadSeleccionada;
+	unsigned int coeficienteCreditosAsignados;
+	unsigned int coeficienteTamanioTanque;
+	unsigned int coeficienteTamanioAlmacen;
+	unsigned int coeficienteCantidadturnos;
+	unsigned int coeficienteTamanioTerreno;
+	unsigned int coeficientePrecioCultivo;
+	unsigned int coeficientePrecioTerreno;
+	unsigned int coeficienteMultiplicadorAgua;
 
 public:
 	/*
@@ -27,21 +29,21 @@ public:
 	 */
 	Dificultad(unsigned int dificultadSeleccionada);
 
+	unsigned int obtenerCoeficienteCreditosAsignados();
+	unsigned int obtenerCoeficienteTamanioTanque();
+	unsigned int obtenerCoeficienteTamanioAlmacen();
+	unsigned int obtenerCoeficienteCantidadTurnos();
+	unsigned int obtenerCoeficienteTamanioTerreno();
+	unsigned int obtenerCoeficientePrecioCultivo();
+	unsigned int obtenerCoeficientePrecioTerreno();
+
+	TipoDificultad obtenerDificultad();
+
 	/*
-	 * PRE:
-	 * POST:
-	 */
-	unsigned int obtenerTurnos();
-	/*
 	 *
 	 *
 	 */
-	unsigned int obtenerDificultad();
-	/*
-	 *
-	 *
-	 */
-	unsigned int obtenerMultiplicadorAgua();
+	unsigned int obtenerCoeficienteMultiplicadorAgua();
 
 private:
 	/*
