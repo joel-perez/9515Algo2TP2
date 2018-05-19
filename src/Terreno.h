@@ -5,10 +5,11 @@
 #include "Parcela.h"
 #include "Dificultad.h"
 #include "Constantes.h"
+#include "Texto.h"
 
 class Terreno {
 private:
-	//Parcela* parcelas[1][1];
+	Texto texto;
 	Lista<Parcela*>* parcelas;
 	unsigned int tamanioFilas;
 	unsigned int tamanioColumnas;
@@ -42,11 +43,6 @@ public:
 	 * POST: devuelve la parcela dada una fila y una columna.
 	 */
 	Parcela* obtenerParcela(unsigned int fila, unsigned int columna);
-	/*
-	 * PRE: fila y columna deb de estar en el rango permitido.
-	 * POST: devuelve el terreno inicializado.
-	 */
-	void inicializarTerreno(unsigned int filas, unsigned int columnas);
 };
 
 #endif

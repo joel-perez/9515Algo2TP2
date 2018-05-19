@@ -1,6 +1,9 @@
 #include <iostream>
-#include <limits>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <limits>
+
 #include "Consola.h"
 
 using namespace std;
@@ -113,10 +116,3 @@ void Consola::mostrarPosiblesAcciones() {
 	cout << "10 - Avanzar al siguiente turno." << endl;
 	cout << "11 - Abandonar el Juego." << endl;
 }
-void Consola::mostrarTerrenosParaAccionElegida() {
-	cout << "Ejila el terreno  al cual desea aplicarle dicha acción:  " << endl
-			<< endl;
-	unsigned int terrenoElegido = solicitarIngresoNumerico(1, 10);
-
-}
-

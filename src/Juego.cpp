@@ -33,13 +33,14 @@ Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 	}
 	return resultado;
 }
-Dificultad Juego::obtenerDificultad(){
+Dificultad Juego::obtenerDificultad() {
 	// lala
 	return this->dificultad;
 }
 
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
-	unsigned int multiplicador = this->obtenerDificultad().obtenerMultiplicadorAgua();
+	unsigned int multiplicador =
+			this->obtenerDificultad().obtenerCoeficienteMultiplicadorAgua();
 	jugador->asignarAguaDelTurno(multiplicador);
 }
 

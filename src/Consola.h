@@ -65,6 +65,10 @@ public:
 	 */
 	void mostrarTerrenosParaAccionElegida();
 
+	/*
+	 * POST: Convierte un entero a String para poder mostrarlo en pantalla.
+	 */
+	/*std::string intToString(int number);*/
 };
 
 #endif
