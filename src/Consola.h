@@ -53,6 +53,11 @@ public:
 	std::string SolicitarIngresoLineaTexto();
 
 	/*
+	 * POST: Limpia el buffer de ingreso.
+	 */
+	void LimpiarIngreso();
+
+	/*
 	 *
 	 * POST: imprime por pantalla las acciones disponibles
 	 * 		para el jugadorActual.

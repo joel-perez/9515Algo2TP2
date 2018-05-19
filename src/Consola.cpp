@@ -75,14 +75,14 @@ unsigned int Consola::solicitarIngresoNumerico(unsigned int minValor,
 	bool esValido = false;
 	while (!esValido) {
 		if (!(cin >> numero)) {
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			LimpiarIngreso();
 			cout << "Debe ingresar un numero valido." << endl;
-		}
-		esValido = (numero >= minValor && numero <= maxValor);
-		if (!esValido) {
-			cout << "Debe ingresar un numero entre " << minValor << " y "
-					<< maxValor << endl;
+		} else {
+			esValido = (numero >= minValor && numero <= maxValor);
+			if (!esValido) {
+				cout << "Debe ingresar un numero entre " << minValor << " y "
+						<< maxValor << endl;
+			}
 		}
 	}
 	return numero;
@@ -95,11 +95,23 @@ void Consola::solicitarEnterParaSalir() {
 }
 
 string Consola::SolicitarIngresoLineaTexto() {
-	std::string textLine = "";
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, textLine);
-	return textLine;
+	string lineaTexto = "";
+	bool esValido = false;
+	while (!esValido) {
+		char input[100];
+		cin.getline(input, sizeof(input));
+		lineaTexto = string(input);
+		esValido = (lineaTexto != "");
+		if (!esValido) {
+			cout << "Debe ingresar un Texto." << endl;
+		}
+	}
+	return lineaTexto;
+}
+
+void Consola::LimpiarIngreso() {
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void Consola::mostrarPosiblesAcciones() {
