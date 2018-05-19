@@ -46,6 +46,12 @@ public:
 	 * POST:devuelve los terrenos de jugadorActual.
 	 */
 	Lista<Terreno*>* obtenerTerrenos();
+
+	/*
+	 * POST: Agrega un terreno a la lista de terrenos del jugador.
+	 */
+	void agregarTerreno(Terreno* terreno);
+
 	/*
 	 *
 	 * POST: devuelve el nombre del jugador.

@@ -27,9 +27,15 @@ void Jugador::venderTerreno() {
 Lista<Terreno*>* Jugador::obtenerTerrenos() {
 	return this->terrenos;
 }
+
+void Jugador::agregarTerreno(Terreno* terreno){
+	this->terrenos->agregar(terreno);
+}
+
 std::string Jugador::obtenerNombre(){
 	return this->nombre;
 }
+
 unsigned int Jugador::obtenerCreditos(){
 	return this->creditos;
 }

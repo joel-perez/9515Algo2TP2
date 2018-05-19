@@ -23,6 +23,10 @@ Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
 }
 
+Lista<Destino*>* Juego::obtenerDestinos() {
+	return this->destinos;
+}
+
 Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 	Cultivo* resultado;
 	this->cultivos->obtenerCursor();
@@ -34,7 +38,6 @@ Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 	return resultado;
 }
 Dificultad Juego::obtenerDificultad() {
-	// lala
 	return this->dificultad;
 }
 
@@ -60,7 +63,6 @@ void Juego::solicitarDatosIniciales() {
 }
 
 Lista<Jugador*>* Juego::solicitarJugadores() {
-
 	Lista<Jugador*>* resultado = new Lista<Jugador*>;
 	unsigned int contador = 0;
 	unsigned int cantidad;
@@ -73,7 +75,8 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 		nombre = consola.SolicitarIngresoLineaTexto();
 		Jugador* nuevoJugador = new Jugador(nombre);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
-		nuevoJugador->obtenerTerrenos()->agregar(nuevoTerreno);
+		//nuevoJugador->obtenerTerrenos()->agregar(nuevoTerreno);
+		nuevoJugador->agregarTerreno(nuevoTerreno);
 		resultado->agregar(nuevoJugador);
 		contador++;
 	} while (contador < this->numeroDeJugadores);
@@ -135,4 +138,11 @@ void Juego::iniciarJuego() {
 		turnoActual++;
 	}
 	consola.mostrarFin(jugadores);
+}
+
+Juego::~Juego() {
+	//TODO: Eliminar jugadores, cultivos y destinos...
+	this->obtenerJugadores()->~Lista();
+	this->obtenerCultivos()->~Lista();
+	this->obtenerDestinos()->~Lista();
 }

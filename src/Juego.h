@@ -49,6 +49,11 @@ public:
 	Lista<Cultivo*>* obtenerCultivos();
 
 	/*
+	 * POST: Devuelve la lista de destinos que se cargo desde un archivo.
+	 */
+	Lista<Destino*>* obtenerDestinos();
+
+	/*
 	 * PRE:
 	 * POST:
 	 */
@@ -123,7 +128,10 @@ public:
 	 */
 	Dificultad obtenerDificultad();
 
-//TODO: Agregar los metodos publicos necesarios con sus PRE y POST condiciones...
+	/*
+	 * POST: Libera la memoria que habia sido solicitada en el Heap.
+	 */
+	~Juego();
 
 };
 
