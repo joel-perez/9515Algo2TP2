@@ -126,6 +126,22 @@ Dificultad Juego::solicitarDificultad() {
 void Juego::cargarArchivos() {
 	this->cultivos = archivo.leerCultivos();
 	this->destinos = archivo.leerDestinos();
+
+	//TODO: Eliminar esto cuando terminemos las pruebas...
+	cout << "Cultivos Cargados desde Archivo:" << endl;
+	this->cultivos->iniciarCursor();
+	while (this->cultivos->avanzarCursor()) {
+		Cultivo* cultivo = this->cultivos->obtenerCursor();
+		cout << "Cultivo: " << cultivo->obtenerNombre() << endl;
+	}
+	cout << endl;
+	cout << "Destinos Cargados desde Archivo:" << endl;
+	this->destinos->iniciarCursor();
+	while (this->destinos->avanzarCursor()) {
+		Destino* destino = this->destinos->obtenerCursor();
+		cout << "Destino: " << destino->obtenerNombre() << endl;
+	}
+	//
 }
 
 void Juego::iniciarJuego() {
@@ -150,7 +166,7 @@ void Juego::iniciarJuego() {
 }
 
 Juego::~Juego() {
-	//TODO: Eliminar jugadores, cultivos y destinos...
+//TODO: Eliminar jugadores, cultivos y destinos...
 	this->obtenerJugadores()->~Lista();
 	this->obtenerCultivos()->~Lista();
 	this->obtenerDestinos()->~Lista();

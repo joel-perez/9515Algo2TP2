@@ -116,15 +116,15 @@ void Consola::LimpiarIngreso() {
 
 void Consola::mostrarPosiblesAcciones() {
 	cout << "Ingrese la accion a realizar: " << endl << endl;
-	cout << "1 - Sembrar semillas en un parcela." << endl;
-	cout << "2 - Regar una parcela." << endl;
-	cout << "3 - Cosechar una parcela." << endl;
-	cout << "4 - Enviar una cosecha a un destino." << endl;
-	cout << "5 - Comprar un terreno." << endl;
-	cout << "6 - Vender un terreno." << endl;
-	cout << "7 - Comprar mas capacidad para el tanque." << endl;
-	cout << "8 - Comprar mas capacidad para el almacen." << endl;
-	cout << "9 - Cambiar de Terreno." << endl;
+	cout << " 1 - Sembrar semillas en un parcela." << endl;
+	cout << " 2 - Regar una parcela." << endl;
+	cout << " 3 - Cosechar una parcela." << endl;
+	cout << " 4 - Enviar una cosecha a un destino." << endl;
+	cout << " 5 - Comprar un terreno." << endl;
+	cout << " 6 - Vender un terreno." << endl;
+	cout << " 7 - Comprar mas capacidad para el tanque." << endl;
+	cout << " 8 - Comprar mas capacidad para el almacen." << endl;
+	cout << " 9 - Cambiar de Terreno." << endl;
 	cout << "10 - Avanzar al siguiente turno." << endl;
 	cout << "11 - Abandonar el Juego." << endl;
 }

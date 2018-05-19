@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Destino.h"
 
+using namespace std;
+
 Destino::Destino() {
 	this->nombre = " ";
 	this->costoPorKm = 0;
@@ -8,7 +10,8 @@ Destino::Destino() {
 	this->distanciaEnKm = 0;
 }
 
-Destino::Destino(std::string nombreDestino, int km, int precio, std::string  cultivoAceptado){
+Destino::Destino(std::string nombreDestino, int km, int precio,
+		std::string cultivoAceptado) {
 	this->nombre = nombreDestino;
 	this->distanciaEnKm = km;
 	this->costoPorKm = precio;
@@ -16,4 +19,6 @@ Destino::Destino(std::string nombreDestino, int km, int precio, std::string  cul
 
 }
 
-//TODO: Implementar los metodos que sean necesarios...
+string Destino::obtenerNombre() {
+	return this->nombre;
+}

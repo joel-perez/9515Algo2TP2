@@ -17,13 +17,19 @@ public:
 	 * POST:
 	 */
 	Destino();
-	/*
-	 *
-	 *
-	 */
-	Destino(std::string nombreDestino, int km, int precio, std::string  cultivoAceptado);
 
-	//TODO: Implementar los metodos necesarios...
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	Destino(std::string nombreDestino, int km, int precio,
+			std::string cultivoAceptado);
+
+	/*
+	 * PRE:
+	 * POST: Devuelve el nombre de este Destino.
+	 */
+	std::string obtenerNombre();
 };
 
 #endif
