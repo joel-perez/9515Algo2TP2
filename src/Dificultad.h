@@ -1,16 +1,17 @@
 #ifndef DIFICULTAD_H_
 #define DIFICULTAD_H_
+
 enum TipoDificultad {
 	FACIL, INTERMEDIO, DIFICIL
 };
 
 class Dificultad {
 private:
-	TipoDificultad dificultadSeleccionada;
+	TipoDificultad dificultad;
 	unsigned int coeficienteCreditosAsignados;
 	unsigned int coeficienteTamanioTanque;
 	unsigned int coeficienteTamanioAlmacen;
-	unsigned int coeficienteCantidadturnos;
+	unsigned int coeficienteCantidadTurnos;
 	unsigned int coeficienteTamanioTerreno;
 	unsigned int coeficientePrecioCultivo;
 	unsigned int coeficientePrecioTerreno;
@@ -28,7 +29,7 @@ public:
 	 * 	intervalo de [1,3].
 	 * POST: Dificultad lista para ser usada segun la dificultadSeleccionada.
 	 */
-	Dificultad(unsigned int dificultadSeleccionada);
+	Dificultad(TipoDificultad dificultadSeleccionada);
 	/*
 	 * PRE:~
 	 * POST:devuelve el coeficioenteCredito según la dificultadSeleccionada.
