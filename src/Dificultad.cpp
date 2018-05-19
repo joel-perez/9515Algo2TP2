@@ -14,7 +14,7 @@ Dificultad::Dificultad(TipoDificultad dificultadSeleccionada) {
 	this->dificultadSeleccionada = (TipoDificultad) dificultadSeleccionada;
 	switch (dificultadSeleccionada) {
 	case FACIL:
-		this->turnos = 0;
+		this->coeficienteCantidadturnos = 1;
 		this->tamanioInicial = 0;
 		this->multiplicadorAgua = elegirMultiplicador();
 		break;
