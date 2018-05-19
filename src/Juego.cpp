@@ -34,6 +34,7 @@ Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 	return resultado;
 }
 Dificultad Juego::obtenerDificultad(){
+	// lala
 	return this->dificultad;
 }
 

@@ -45,6 +45,7 @@ unsigned int Jugador::tirarDado(){
 }
 
 void Jugador::asignarAguaDelTurno(unsigned int multiplicador){
+	//lala
 	this->aguaPorTurno = this->tirarDado() * multiplicador;
 }
 

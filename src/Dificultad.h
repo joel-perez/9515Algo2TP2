@@ -32,12 +32,22 @@ public:
 	 * POST:
 	 */
 	unsigned int obtenerTurnos();
-
+	/*
+	 *
+	 *
+	 */
 	unsigned int obtenerDificultad();
-
+	/*
+	 *
+	 *
+	 */
 	unsigned int obtenerMultiplicadorAgua();
 
 private:
+	/*
+	 *
+	 * POST: elige el multiplicador segun la dificultad
+	 */
 	unsigned int elegirMultiplicador();
 
 	//Agregar los metodos publicos necesarios...

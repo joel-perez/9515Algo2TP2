@@ -15,6 +15,7 @@ Dificultad::Dificultad(unsigned int dificultadSeleccionada) {
 }
 
 unsigned int Dificultad::obtenerTurnos() {
+	//return this->turnos;
 	return 0;
 }
 

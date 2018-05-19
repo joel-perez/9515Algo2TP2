@@ -53,7 +53,7 @@ public:
 	std::string obtenerNombre();
 	/*
 	 *
-	 * POST: asigna la cantidad de agua al azar que tendra en el turno.
+	 * POST: asigna la cantidad de agua al azar que tendra en el turno segun la dificultad que tenga.
 	 */
 	void asignarAguaDelTurno(unsigned int multiplicador);
 

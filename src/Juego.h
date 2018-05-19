@@ -119,7 +119,7 @@ public:
 
 	/*
 	 *
-	 *
+	 * POST: obtiene la dificultad del juego
 	 */
 	Dificultad obtenerDificultad();
 
