@@ -1,3 +1,7 @@
+#include <fstream>
+#include <iostream>
+#include <sstream>
+
 #include "Terreno.h"
 
 using namespace std;
@@ -54,15 +58,19 @@ unsigned int Terreno::obtenerColumnas() {
 	return this->tamanioColumnas;
 }
 
+//TODO: Esta funcion deberia ir en consola o algo por el estilo...
+string intToString(int number) {
+	std::ostringstream convert;
+	convert << number;
+	return convert.str();
+}
+
 Parcela* Terreno::obtenerParcela(unsigned int fila, unsigned int columna) {
-	Parcela* resultado;
 	if (fila > this->tamanioFilas || columna > this->tamanioColumnas)
-		throw string("Indice fuera de rango."); // TODO: Mejorar este mensaje...
-	unsigned int indiceBuscado = fila * this->tamanioColumnas + columna;
-	unsigned int indiceActual = 0;
-	this->parcelas->iniciarCursor();
-	while (this->parcelas->avanzarCursor() && indiceActual < indiceBuscado) {
-		resultado = this->parcelas->obtenerCursor();
-	}
-	return resultado;
+		throw string(
+				"Fila debe ser menor o igual a " + intToString(fila)
+						+ " y Columna debe ser menor o igual a "
+						+ intToString(columna));
+	unsigned int indice = fila * this->tamanioColumnas + columna;
+	return this->parcelas->obtener(indice);
 }
