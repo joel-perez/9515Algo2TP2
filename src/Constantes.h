@@ -35,6 +35,7 @@ const int TERRENO_MIN_COLUMNAS = 3;
 const int TERRENO_MIN_FILAS = 3;
 const std::string ARCHIVO_CULTIVOS = "cultivos.txt";
 const std::string ARCHIVO_DESTINOS = "destinos.txt";
+const std::string DIRECTORIO_ARCHIVOS_DATOS = "datos";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string DIRECTORIO_RECURSOS = "res";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";

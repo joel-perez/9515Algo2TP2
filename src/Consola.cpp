@@ -21,6 +21,10 @@ void Consola::mostrarBienvenida() {
 			<< archivo.obtenerRutaEjecucion() << endl;
 	cout << "Capturas de Pantalla: " << archivo.obtenerRutaCapturasPantalla()
 			<< endl;
+	cout << "Archivo de Cultivos: " << archivo.obtenerRutaArchivosDatos(ARCHIVO_CULTIVOS)
+			<< endl;
+	cout << "Archivo de Destinos: " << archivo.obtenerRutaArchivosDatos(ARCHIVO_DESTINOS)
+			<< endl;
 	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl
 			<< endl << endl << endl;
 }
@@ -47,22 +51,7 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 			}
 			cout << endl;
 		}
-
-		/*
-		 Lista<Lista<Parcela*>*>* parcelas = terrenoActual->obtenerParcelas();
-		 parcelas->iniciarCursor();
-		 while (parcelas->avanzarCursor()) {
-		 Lista<Parcela*>* unaColumna = parcelas->obtenerCursor();
-		 unaColumna->iniciarCursor();
-		 while (unaColumna->avanzarCursor()) {
-		 Parcela* unaParcela = unaColumna->obtenerCursor();
-		 std::cout << " | " << unaParcela->obtenerEstado() << "|";
-		 }
-		 std::cout << std::endl;
-		 }
-		 */
 	}
-
 }
 
 void Consola::mostrarFin(Lista<Jugador*>* jugadores) {

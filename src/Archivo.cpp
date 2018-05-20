@@ -65,6 +65,12 @@ string Archivo::obtenerRutaCapturasPantalla() {
 	return concatenarRutas(obtenerRutaEjecucion(), DIRECTORIO_CAPTURAS_PANTALLA);
 }
 
+string Archivo::obtenerRutaArchivosDatos(string nombreArchivoDatos) {
+	return concatenarRutas(
+			concatenarRutas(obtenerRutaEjecucion(), DIRECTORIO_ARCHIVOS_DATOS),
+			nombreArchivoDatos);
+}
+
 std::string Archivo::pedirRuta(std::string obteneRuta) {
 	// Por ahora fijo, se debe preguntar el nombre del archivo....
 	std::string ruta = obteneRuta;
@@ -74,7 +80,8 @@ std::string Archivo::pedirRuta(std::string obteneRuta) {
 Lista<Cultivo*>* Archivo::leerCultivos() {
 
 	std::ifstream entrada;
-	std::string rutaDeterminada = this->pedirRuta(ARCHIVO_CULTIVOS);
+	std::string rutaDeterminada = this->obtenerRutaArchivosDatos(
+			ARCHIVO_CULTIVOS);
 	entrada.open(rutaDeterminada.c_str());
 
 	std::string linea;
@@ -111,7 +118,8 @@ Lista<Cultivo*>* Archivo::leerCultivos() {
 
 Lista<Destino*>* Archivo::leerDestinos() {
 	std::ifstream entrada;
-	std::string rutaDeterminada = this->pedirRuta(ARCHIVO_DESTINOS);
+	std::string rutaDeterminada = this->obtenerRutaArchivosDatos(
+			ARCHIVO_DESTINOS);
 
 	entrada.open(rutaDeterminada.c_str());
 	if (entrada.fail()) {
@@ -139,5 +147,4 @@ Lista<Destino*>* Archivo::leerDestinos() {
 	entrada.close();
 	return destinosDisponibles;
 }
-
 

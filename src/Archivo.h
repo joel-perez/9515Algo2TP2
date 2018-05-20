@@ -78,6 +78,12 @@ public:
 	 */
 	std::string obtenerRutaCapturasPantalla();
 
+	/*
+	 * PRE:
+	 * POST:Devuelve la ruta completa donde se almacenan los Archivos de Datos de Cultivos y Destinos.
+	 */
+	std::string obtenerRutaArchivosDatos(std::string nombreArchivoDatos);
+
 	/* PRE: La obteneRuta del archito txt debe de exitir .
 	 * POST:Obtien la determinada ruta;
 	 */
