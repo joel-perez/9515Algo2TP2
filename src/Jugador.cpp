@@ -28,25 +28,24 @@ Lista<Terreno*>* Jugador::obtenerTerrenos() {
 	return this->terrenos;
 }
 
-void Jugador::agregarTerreno(Terreno* terreno){
+Terreno* Jugador::obtenerTerrenoActual() {
+	return this->terrenoActual;
+}
+
+void Jugador::agregarTerreno(Terreno* terreno) {
 	this->terrenos->agregar(terreno);
 }
 
-std::string Jugador::obtenerNombre(){
+std::string Jugador::obtenerNombre() {
 	return this->nombre;
 }
 
-unsigned int Jugador::obtenerCreditos(){
+unsigned int Jugador::obtenerCreditos() {
 	return this->creditos;
 }
 
-Tanque* Jugador::obtenerTanque(){
+Tanque* Jugador::obtenerTanque() {
 	return this->tanque;
 
 }
-
-
-
-
-
 

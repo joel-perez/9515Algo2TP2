@@ -14,8 +14,9 @@ private:
 	Lista<Almacen*>* almacenes;
 	Tanque* tanque;
 	unsigned int creditos;
-	std::string  nombre;
+	std::string nombre;
 	unsigned int aguaPorTurno;
+	Terreno* terrenoActual;
 
 public:
 	/*
@@ -69,7 +70,11 @@ public:
 	 * POST: devuelve los tanques de agua del jugadorActual.
 	 */
 	Tanque* obtenerTanque();
-	//TODO: Implementar todo lo que sea necesario...
+
+	/*
+	 * POST: Devuelve el terreno actual con que esta jugando.
+	 */
+	Terreno* obtenerTerrenoActual();
 };
 
 #endif
