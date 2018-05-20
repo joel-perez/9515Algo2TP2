@@ -133,6 +133,12 @@ public:
 	Dificultad obtenerDificultad();
 
 	/*
+	 * PRE:
+	 * POST:
+	 */
+	void ejecutarAccion(int accionSeleccionada, Jugador* jugador);
+
+	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
 	~Juego();

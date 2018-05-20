@@ -17,6 +17,7 @@ private:
 	std::string nombre;
 	unsigned int aguaPorTurno;
 	Terreno* terrenoActual;
+	bool sigueJugando;
 
 public:
 	/*

@@ -48,7 +48,27 @@ void Juego::administrarAguaDelTurno(Jugador* jugador) {
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
-	consola.mostrarPosiblesAcciones();
+	int accionSeleccionada = 0;
+	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO) {
+		consola.mostrarPosiblesAcciones();
+		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
+		ejecutarAccion(accionSeleccionada, jugador);
+	}
+}
+
+void Juego::ejecutarAccion(int accionSeleccionada, Jugador* jugador) {
+	switch (accionSeleccionada) {
+	case ACCION_SEMBRAR:
+		//TODO: Implementar...
+		break;
+	case ACCION_COSECHAR:
+		//TODO: Implementar...
+		break;
+	case ACCION_REGAR:
+		//TODO: Implementar...
+		break;
+	}
+	//TODO: Implementar las demas acciones que hagan falta...
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
