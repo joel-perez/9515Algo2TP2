@@ -46,6 +46,12 @@ public:
 
 	/*
 	 * PRE:
+	 * POST:
+	 */
+	void abrirConAplicacionPredeterminada(std::string nombreArchivo);
+
+	/*
+	 * PRE:
 	 * POST: Devuelve el caracter que representa la separacion de directorios
 	 *       en una ruta dada para el sistema operativo actual.
 	 */

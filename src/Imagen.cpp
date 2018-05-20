@@ -5,6 +5,7 @@ Imagen::Imagen() {
 }
 
 void Imagen::mostrarTerrenos(Jugador* jugador) {
+	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programación II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
 	std::cout << "TODO: Implementar mostrarTerrenos usando EasyBMP."
 			<< std::endl;
 }

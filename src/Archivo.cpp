@@ -26,6 +26,19 @@ void crearDirectorio(std::string nombreDirectorio) {
 #endif
 }
 
+void Archivo::abrirConAplicacionPredeterminada(string nombreArchivo) {
+#ifdef _WIN32
+	system(((char) 34 + nombreArchivo + (char) 34).c_str());
+#endif
+#ifdef __unix__
+	//Cual de estos comandos sera?
+	//    play
+	//    xgd-open
+	//    gnome-open
+	system(("xgd-open " + nombreArchivo).c_str());
+#endif
+}
+
 char Archivo::obtenerSeparadorDirectorio() {
 	return SEPARADOR_DIRECTORIO;
 }
