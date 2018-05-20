@@ -4,6 +4,7 @@
 #include "Tanque.h"
 #include "Lista.h"
 #include "Terreno.h"
+#include "Tanque.h"
 #include "Almacen.h"
 #include "Constantes.h"
 
@@ -11,7 +12,7 @@ class Jugador {
 private:
 	Lista<Terreno*>* terrenos;
 	Lista<Almacen*>* almacenes;
-	Lista<Tanque*>* tanquesAgua;
+	Tanque* tanque;
 	unsigned int creditos;
 	std::string  nombre;
 	unsigned int aguaPorTurno;
@@ -57,11 +58,6 @@ public:
 	 * POST: devuelve el nombre del jugador.
 	 */
 	std::string obtenerNombre();
-	/*
-	 *
-	 * POST: asigna la cantidad de agua al azar que tendra en el turno segun la dificultad que tenga.
-	 */
-	void asignarAguaDelTurno(unsigned int multiplicador);
 
 	/*
 	 *
@@ -72,15 +68,7 @@ public:
 	 *
 	 * POST: devuelve los tanques de agua del jugadorActual.
 	 */
-	Lista<Tanque*>* obtenerTanques();
-
-private:
-	/*
-	 *
-	 * POST: devuelve un numero al azar.
-	 */
-	unsigned int tirarDado();
-
+	Tanque* obtenerTanque();
 	//TODO: Implementar todo lo que sea necesario...
 };
 

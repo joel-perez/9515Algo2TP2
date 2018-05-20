@@ -43,9 +43,8 @@ Dificultad Juego::obtenerDificultad() {
 }
 
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
-	unsigned int multiplicador =
-			this->obtenerDificultad().obtenerCoeficienteMultiplicadorAgua();
-	jugador->asignarAguaDelTurno(multiplicador);
+	Tanque* tanqueActual = jugador->obtenerTanque();
+	tanqueActual->asignarAguaDisponible();
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {

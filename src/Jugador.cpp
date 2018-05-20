@@ -7,7 +7,7 @@
 Jugador::Jugador(std::string nombre) {
 	this->terrenos = new Lista<Terreno*>;
 	this->almacenes = new Lista<Almacen*>;
-	this->tanquesAgua = new Lista<Tanque*>;
+	this->tanque = new Tanque();
 	this->creditos = 0;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
@@ -40,19 +40,12 @@ unsigned int Jugador::obtenerCreditos(){
 	return this->creditos;
 }
 
-Lista<Tanque*>* Jugador::obtenerTanques(){
-	return this->tanquesAgua;
+Tanque* Jugador::obtenerTanque(){
+	return this->tanque;
 
 }
-unsigned int Jugador::tirarDado(){
-	unsigned int potenciador =(rand()%CARAS_DADO)+1;
-	return potenciador;
-}
 
-void Jugador::asignarAguaDelTurno(unsigned int multiplicador){
-	//lala
-	this->aguaPorTurno = this->tirarDado() * multiplicador;
-}
+
 
 
 
