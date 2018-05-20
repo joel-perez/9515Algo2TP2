@@ -127,16 +127,19 @@ public:
 	Dificultad solicitarDificultad();
 
 	/*
-	 *
-	 * POST: obtiene la dificultad del juego
+	 * PRE:~
+	 * POST:Solicita al jugador que realice una o mas acciones
+	 *  	dentro del turnoActual.
 	 */
 	Dificultad obtenerDificultad();
 
+
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Realiza la accion solicitada por el jugadorActual.
 	 */
-	void ejecutarAccion(int accionSeleccionada, Jugador* jugador);
+	void ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, unsigned int credito, unsigned int tanqueDeAgua);
+
 
 	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.

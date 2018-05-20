@@ -52,14 +52,16 @@ void Juego::solicitarAcciones(Jugador* jugador) {
 	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO) {
 		consola.mostrarPosiblesAcciones();
 		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
-		ejecutarAccion(accionSeleccionada, jugador);
+		unsigned int tanqueDeAgua = jugador->obtenerTanque()->obtenerAguaDisponible();
+		unsigned int credito =jugador->obtenerCreditos();
+		ejecutarAccion(accionSeleccionada, jugador, credito,tanqueDeAgua);
 	}
 }
 
-void Juego::ejecutarAccion(int accionSeleccionada, Jugador* jugador) {
+void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, unsigned int credito, unsigned int tanqueDeAgua) {
 	switch (accionSeleccionada) {
 	case ACCION_SEMBRAR:
-		//TODO: Implementar...
+		//credito-= sembrarParcela(jugador, credito);
 		break;
 	case ACCION_COSECHAR:
 		//TODO: Implementar...
@@ -67,7 +69,24 @@ void Juego::ejecutarAccion(int accionSeleccionada, Jugador* jugador) {
 	case ACCION_REGAR:
 		//TODO: Implementar...
 		break;
-	}
+	case ACCION_ENVIAR_A_DESTINO:
+			break;
+	case ACCION_COMPRAR_TERRENO:
+		break;
+	case ACCION_VENDER_TERRENO:
+		break;
+	case ACCION_COMPRAR_CAPACIDAD_TANQUE:
+		break;
+	case ACCION_COMPRAR_CAPACIDAD_ALMACEN:
+		break;
+	case ACCION_CAMBIAR_TERRENO:
+		break;
+	case ACCION_SIGUIENTE_TURNO:
+		break;
+	case ACCION_ABANDONAR:
+		break;
+
+		}
 	//TODO: Implementar las demas acciones que hagan falta...
 }
 
