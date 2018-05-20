@@ -9,6 +9,7 @@
 #include "Constantes.h"
 #include "Archivo.h"
 #include "Terreno.h"
+#include "Imagen.h"
 
 class Juego {
 private:
@@ -21,6 +22,7 @@ private:
 	unsigned int turnos;
 	unsigned int turnoActual;
 	Consola consola;
+	Imagen imagen;
 	Archivo archivo;
 	unsigned int numeroDeJugadores;
 
@@ -58,6 +60,8 @@ public:
 	 * POST:
 	 */
 	Cultivo* obtenerCultivoPorNombre(std::string nombreCultivo);
+
+	void mostrarTerrenos(Jugador* jugador);
 
 	/*
 	 * PRE:~

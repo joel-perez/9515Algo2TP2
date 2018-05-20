@@ -1,4 +1,18 @@
 #include "Imagen.h"
+
+Imagen::Imagen() {
+	//TODO: Implementar este constructor...
+}
+
+void Imagen::mostrarTerrenos(Jugador* jugador) {
+	std::cout << "TODO: Implementar mostrarTerrenos usando EasyBMP."
+			<< std::endl;
+}
+
+Imagen::~Imagen() {
+	//TODO: Implementar este constructor...
+}
+
 /*
  Imagen::Imagen() {
 

@@ -145,6 +145,11 @@ void Juego::cargarArchivos() {
 	//
 }
 
+void Juego::mostrarTerrenos(Jugador* jugadorActual) {
+	consola.mostrarTerrenos(jugadorActual);
+	imagen.mostrarTerrenos(jugadorActual);
+}
+
 void Juego::iniciarJuego() {
 	consola.mostrarBienvenida();
 	cargarArchivos();
@@ -155,7 +160,7 @@ void Juego::iniciarJuego() {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
 			//Esto va a ir en el TDA Jugador, posiblemente...
 			consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
-			consola.mostrarTerrenos(jugadorActual);
+			mostrarTerrenos(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);
 			procesarTurno(jugadorActual);
