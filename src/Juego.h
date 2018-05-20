@@ -140,6 +140,20 @@ public:
 	 */
 	void ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, unsigned int credito, unsigned int tanqueDeAgua);
 
+	/*
+	 * POST:Siembra la parcela seleccionada con el cultivo indicado por el usuario,
+	 * verificando que se tenga el suficiente credito y la parcela este en condiciones
+	 * de ser sembrada. Devuelve la cantidad de credito que se consumio.
+	 */
+	unsigned int sembrarParcela(Jugador* jugador);
+
+	/*
+	 * PRE:Solicita al usuario que ingrese uno de los terrenos disponibles
+	 * POST:
+	 * y devuelve una referencia a ese terreno, si solo tiene un terreno
+	 * devolvera ese terreno.
+	 */
+	Lista<Parcela*>*  seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
 
 	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.

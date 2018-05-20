@@ -46,6 +46,15 @@ public:
 	 * POST: devuelve la parcela dada una fila y una columna.
 	 */
 	Parcela* obtenerParcela(unsigned int fila, unsigned int columna);
+
+	/*
+	 * PRE:Solicita al usuario que ingrese uno de los terrenos disponibles
+	 * POST:
+	 * y devuelve una referencia a ese terreno, si solo tiene un terreno
+	 * devolvera ese terreno.
+	 */
+	Lista<Parcela*>* seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
+
 };
 
 #endif

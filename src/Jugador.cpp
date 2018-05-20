@@ -44,6 +44,10 @@ unsigned int Jugador::obtenerCreditos() {
 	return this->creditos;
 }
 
+unsigned int Jugador::cambiarCredito(unsigned int creditoUtilizado){
+	return (this->creditos - creditoUtilizado);
+}
+
 Tanque* Jugador::obtenerTanque() {
 	return this->tanque;
 

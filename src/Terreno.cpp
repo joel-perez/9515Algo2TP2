@@ -44,3 +44,8 @@ Parcela* Terreno::obtenerParcela(unsigned int fila, unsigned int columna) {
 	unsigned int indice = fila * this->tamanioColumnas + columna;
 	return this->parcelas->obtener(indice);
 }
+
+
+Lista<Parcela*>*  Terreno::seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual){
+	return 0;
+}

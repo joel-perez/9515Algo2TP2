@@ -66,6 +66,13 @@ public:
 	 * POST: devuelve la cantidad de credito del jugador.
 	 */
 	unsigned int obtenerCreditos();
+
+
+	/*
+	 *
+	 * POST: devuelve el nuevo credito del jugador.
+	 */
+	unsigned int cambiarCredito(unsigned int creditoUtilizado);
 	/*
 	 *
 	 * POST: devuelve los tanques de agua del jugadorActual.
