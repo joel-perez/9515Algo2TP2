@@ -32,11 +32,10 @@ void Archivo::abrirConAplicacionPredeterminada(string nombreArchivo) {
 	system(((char) 34 + nombreArchivo + (char) 34).c_str());
 #endif
 #ifdef __unix__
-	//Cual de estos comandos sera?
-	//    play
-	//    xgd-open
-	//    gnome-open
-	system(("xgd-open " + nombreArchivo).c_str());
+	//    play       (requiere: sudo apt install sox)
+	//    xdg-open   (requiere: sudo apt install xdg-utils)
+	//    gnome-open (requiere: sudo apt install libgnome2-bin)
+	system(("xdg-open " + nombreArchivo).c_str());
 #endif
 }
 
