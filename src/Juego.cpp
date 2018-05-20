@@ -78,7 +78,8 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 	unsigned int cantidad;
 	string nombre = "";
 	cout << "Ingrese la CANTIDAD de jugadores: ";
-	cin >> cantidad;
+	cantidad = consola.solicitarIngresoNumerico(1, CANTIDAD_MAXIMA_JUGADORES);
+	consola.LimpiarIngreso();
 	this->numeroDeJugadores = cantidad;
 	do {
 		cout << ">Ingrese el Nombre del JUGADOR -" << contador + 1 << "- :";

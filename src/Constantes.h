@@ -19,6 +19,7 @@ const int ACCION_REGAR = 2;
 const int ACCION_SEMBRAR = 1;
 const int ACCION_SIGUIENTE_TURNO = 9;
 const int ACCION_VENDER_TERRENO = 6;
+const int CANTIDAD_MAXIMA_JUGADORES = 10;
 const int CARAS_DADO = 6;
 const int DIFICULTAD_DIFICIL = 3;
 const int DIFICULTAD_FACIL = 1;
