@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <cstdlib>
 #include "Lista.h"
 #include "Cultivo.h"
 #include "Destino.h"
