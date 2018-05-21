@@ -97,7 +97,7 @@ public:
 	 * PRE:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
-	//void sembrar(TipoCultivo tipoCultivo);
+	unsigned int  sembrar(Cultivo* tipoCultivo);
 };
 
 #endif

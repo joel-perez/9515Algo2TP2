@@ -143,10 +143,14 @@ public:
 	/*
 	 * POST:Siembra la parcela seleccionada con el cultivo indicado por el usuario,
 	 * verificando que se tenga el suficiente credito y la parcela este en condiciones
-	 * de ser sembrada. Devuelve la cantidad de credito que se consumio.
+	 * de ser sembrada.
 	 */
-	unsigned int sembrarParcela(Jugador* jugador);
+	void sembrarParcela(Jugador* jugador);
 
+	/*
+	 * POST: Devuelve el cultivo seleccionado.
+	 */
+	Cultivo* seleccionarCultivo();
 	/*
 	 * PRE:Solicita al usuario que ingrese uno de los terrenos disponibles
 	 * POST:

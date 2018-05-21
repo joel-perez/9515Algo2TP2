@@ -105,6 +105,8 @@ public:
 	 * POST:Devuelve una nueva Lista con todos los Destinos.
 	 */
 	Lista<Destino*>* leerDestinos();
+
+	~Archivo();
 };
 
 #endif

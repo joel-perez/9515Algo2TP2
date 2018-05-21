@@ -130,16 +130,20 @@ int Juego::regarParcela(Jugador* jugador) {
 	return aguaUtilizada;
 }
 
-unsigned int Juego::sembrarParcela(Jugador* jugador) {
+Cultivo* Juego::seleccionarCultivo() {
+	consola.mostrarCultivosDisponibles(this->obtenerCultivos());
+	unsigned int opcionSeleccionada = consola.solicitarIngresoNumerico(1,
+			cultivos->contarElementos());
+	return cultivos->obtener(opcionSeleccionada);
+}
+
+void Juego::sembrarParcela(Jugador* jugador) {
 	unsigned int creditoUtilizado = 0;
-	Lista<Terreno*>* terrenosJugadorActual = jugador->obtenerTerrenos();
-
-	Lista<Parcela*>* terrenoActual =
-			jugador->obtenerTerrenoActual()->seleccionarTerreno(
-					terrenosJugadorActual);
-
-	return (jugador->cambiarCredito(creditoUtilizado));
-
+	Parcela* parcelaActual = seleccionarParcela(
+			jugador->obtenerTerrenoActual());
+	Cultivo* cultivoSeleccionado = seleccionarCultivo();
+	creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
+	jugador->restarCredito(creditoUtilizado);
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
@@ -269,7 +273,22 @@ void Juego::iniciarJuego() {
 
 Juego::~Juego() {
 //TODO: Eliminar jugadores, cultivos y destinos...
+
 	this->obtenerJugadores()->~Lista();
 	this->obtenerCultivos()->~Lista();
 	this->obtenerDestinos()->~Lista();
+
+	this->jugadores->iniciarCursor();
+	while (jugadores->avanzarCursor()) {
+		delete this->jugadores->obtenerCursor();
+	}
+	this->cultivos->iniciarCursor();
+	while (cultivos->avanzarCursor()) {
+		delete this->cultivos->obtenerCursor();
+	}
+
+	this->destinos->iniciarCursor();
+	while (destinos->avanzarCursor()) {
+		delete this->destinos->obtenerCursor();
+	}
 }
