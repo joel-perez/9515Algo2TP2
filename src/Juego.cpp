@@ -27,10 +27,10 @@ Lista<Cultivo*>* Juego::obtenerCultivos() {
 Lista<Destino*>* Juego::obtenerDestinos() {
 	return this->destinos;
 }
-unsigned int Juego::obtenerAnchoTerreno(){
+unsigned int Juego::obtenerAnchoTerreno() {
 	return this->anchoTerreno;
 }
-unsigned int Juego::obtenerAltoTerreno(){
+unsigned int Juego::obtenerAltoTerreno() {
 	return this->altoTerreno;
 }
 Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
@@ -69,32 +69,32 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 	switch (accionSeleccionada) {
 	case ACCION_SEMBRAR:
 		sembrarParcela(jugador);
-	break;
+		break;
 	case ACCION_COSECHAR:
 		//TODO: Implementar...
-	break;
+		break;
 	case ACCION_REGAR:
 		regarParcela(jugador);
-	break;
+		break;
 	case ACCION_ENVIAR_A_DESTINO:
 		//TODO: Implementar...
-	break;
+		break;
 	case ACCION_COMPRAR_TERRENO:
 		//TODO: Implementar...
-	break;
+		break;
 	case ACCION_VENDER_TERRENO:
 		//TODO: Implementar...
-	break;
+		break;
 	case ACCION_COMPRAR_CAPACIDAD_TANQUE:
 		jugador->obtenerTanque()->aumentarCapacidad();
 		//FALTA RESTAR CREDITOS
-	break;
+		break;
 	case ACCION_COMPRAR_CAPACIDAD_ALMACEN:
 		comprarAlmacen(jugador);
-	break;
+		break;
 	case ACCION_CAMBIAR_TERRENO:
 		//TODO: Implementar...
-	break;
+		break;
 	case ACCION_SIGUIENTE_TURNO:
 		//TODO: Implementar...
 		break;
@@ -103,10 +103,11 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 void Juego::comprarAlmacen(Jugador* jugador) {
 	Almacen* nuevoAlmacen = new Almacen(
 			this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
-			this->obtenerAltoTerreno(),this->obtenerAnchoTerreno());
+			this->obtenerAltoTerreno(), this->obtenerAnchoTerreno());
 	jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
 	//ELIMINAR ESTO LUEGO DE LA PRUEBA
-	cout<<"Ahora hay "<<jugador->obtenerAlmacenes()->contarElementos()<<" almacenes"<<endl;
+	cout << "Ahora hay " << jugador->obtenerAlmacenes()->contarElementos()
+			<< " almacenes" << endl;
 	//FALTA RESTAR CREDITO
 }
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
@@ -167,17 +168,7 @@ void Juego::procesarTurno(Jugador* jugador) {
 void Juego::solicitarDatosIniciales() {
 	solicitarTamanioTerreno();
 	this->dificultad = solicitarDificultad();
-
 	this->jugadores = solicitarJugadores(this->obtenerDificultad());
-
-	//TODO: Eliminar esto cuando termine las pruebas...
-	this->jugadores->iniciarCursor();
-	while (this->jugadores->avanzarCursor()) {
-		Jugador* jugador = this->jugadores->obtenerCursor();
-		cout << "Jugador: '" << jugador->obtenerNombre() << "'" << endl;
-	}
-	//
-
 	this->turnos = solicitarCantidadTurnos();
 }
 
@@ -208,7 +199,6 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 }
 
 unsigned int Juego::solicitarCantidadTurnos() {
-
 	cout << "Ingrese la cantidad de TURNOS [cantidad max. " << MAX_TURNO
 			<< " - cantidad min. " << MIN_TURNO << "]: " << endl;
 	unsigned int cantidadDeTurnos = consola.solicitarIngresoNumerico(MIN_TURNO,
@@ -241,22 +231,6 @@ Dificultad Juego::solicitarDificultad() {
 void Juego::cargarArchivos() {
 	this->cultivos = archivo.leerCultivos();
 	this->destinos = archivo.leerDestinos();
-
-	//TODO: Eliminar esto cuando terminemos las pruebas...
-	cout << "Cultivos Cargados desde Archivo:" << endl;
-	this->cultivos->iniciarCursor();
-	while (this->cultivos->avanzarCursor()) {
-		Cultivo* cultivo = this->cultivos->obtenerCursor();
-		cout << "Cultivo: " << cultivo->obtenerNombre() << endl;
-	}
-	cout << endl;
-	cout << "Destinos Cargados desde Archivo:" << endl;
-	this->destinos->iniciarCursor();
-	while (this->destinos->avanzarCursor()) {
-		Destino* destino = this->destinos->obtenerCursor();
-		cout << "Destino: " << destino->obtenerNombre() << endl;
-	}
-	//
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
@@ -288,9 +262,9 @@ void Juego::iniciarJuego() {
 Juego::~Juego() {
 //TODO: Eliminar jugadores, cultivos y destinos...
 
-	this->obtenerJugadores()->~Lista();
-	this->obtenerCultivos()->~Lista();
-	this->obtenerDestinos()->~Lista();
+//this->obtenerJugadores()->~Lista();
+//this->obtenerCultivos()->~Lista();
+//this->obtenerDestinos()->~Lista();
 
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {

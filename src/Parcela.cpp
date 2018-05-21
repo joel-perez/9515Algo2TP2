@@ -20,7 +20,7 @@ Cultivo* Parcela::obtenerCultivo() {
 }
 
 string Parcela::obtenerEstado() {
-	return "Completar!!!"; //TODO: Completar...
+	return this->cultivo->obtenerNombre();
 }
 
 void Parcela::establecerCultivo(Cultivo* tipoCultivo) {
@@ -47,6 +47,6 @@ unsigned int Parcela::sembrar(Cultivo* cultivo) {
 		this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
 		this->tiempoHastaRecuperacion = cultivo->obtenerTiempoRecuperacion();
 		this->estaRegada = false;
-
 	}
+	return cultivo->obtenerCosto();
 }
