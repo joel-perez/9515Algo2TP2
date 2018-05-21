@@ -11,11 +11,12 @@ Jugador::Jugador(std::string nombre) {
 	this->creditos = 0;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
+	this->sigueJugando = true;
 	srand(time(NULL));
 }
 
 Jugador::Jugador(const Jugador& jugador) {
-
+	this->sigueJugando = true;
 }
 
 void Jugador::comprarTerreno() {
@@ -45,7 +46,7 @@ unsigned int Jugador::obtenerCreditos() {
 	return this->creditos;
 }
 
-unsigned int Jugador::cambiarCredito(unsigned int creditoUtilizado){
+unsigned int Jugador::cambiarCredito(unsigned int creditoUtilizado) {
 	return (this->creditos - creditoUtilizado);
 }
 
@@ -54,3 +55,10 @@ Tanque* Jugador::obtenerTanque() {
 
 }
 
+void Jugador::abandonarJuego() {
+	this->sigueJugando = false;
+}
+
+bool Jugador::abandono() {
+	return this->sigueJugando;
+}

@@ -67,7 +67,6 @@ public:
 	 */
 	unsigned int obtenerCreditos();
 
-
 	/*
 	 *
 	 * POST: devuelve el nuevo credito del jugador.
@@ -83,6 +82,16 @@ public:
 	 * POST: Devuelve el terreno actual con que esta jugando.
 	 */
 	Terreno* obtenerTerrenoActual();
+
+	/*
+	 * POST: Establece al jugador como que no va a seguir jugando.
+	 */
+	void abandonarJuego();
+
+	/*
+	 * POST: Indica si el jugador sigue jugando o no.
+	 */
+	bool abandono();
 };
 
 #endif

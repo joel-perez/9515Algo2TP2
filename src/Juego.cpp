@@ -52,7 +52,8 @@ void Juego::solicitarAcciones(Jugador* jugador) {
 	unsigned int tanqueDeAgua =
 			jugador->obtenerTanque()->obtenerAguaDisponible();
 	unsigned int credito = jugador->obtenerCreditos();
-	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO) {
+	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO
+			&& accionSeleccionada != ACCION_ABANDONAR) {
 		consola.mostrarPosiblesAcciones();
 		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
 		unsigned int tanqueDeAgua =
@@ -60,6 +61,8 @@ void Juego::solicitarAcciones(Jugador* jugador) {
 		unsigned int credito = jugador->obtenerCreditos();
 		ejecutarAccion(accionSeleccionada, jugador, credito, tanqueDeAgua);
 	}
+	if (accionSeleccionada == ACCION_ABANDONAR)
+		jugador->abandonarJuego();
 }
 
 void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador,
@@ -93,9 +96,6 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador,
 		//TODO: Implementar...
 		break;
 	case ACCION_SIGUIENTE_TURNO:
-		//TODO: Implementar...
-		break;
-	case ACCION_ABANDONAR:
 		//TODO: Implementar...
 		break;
 	}
@@ -254,10 +254,12 @@ void Juego::iniciarJuego() {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
-			consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
-			mostrarTerrenos(jugadorActual);
-			administrarAguaDelTurno(jugadorActual);
-			solicitarAcciones(jugadorActual);
+			if (!jugadorActual->abandono()) {
+				consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
+				mostrarTerrenos(jugadorActual);
+				administrarAguaDelTurno(jugadorActual);
+				solicitarAcciones(jugadorActual);
+			}
 			procesarTurno(jugadorActual);
 		}
 		turnoActual++;
