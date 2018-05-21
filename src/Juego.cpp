@@ -150,7 +150,9 @@ void Juego::procesarTurno(Jugador* jugador) {
 
 void Juego::solicitarDatosIniciales() {
 	solicitarTamanioTerreno();
-	this->jugadores = solicitarJugadores();
+	this->dificultad = solicitarDificultad();
+
+	this->jugadores = solicitarJugadores(this->obtenerDificultad());
 
 	//TODO: Eliminar esto cuando termine las pruebas...
 	this->jugadores->iniciarCursor();
@@ -161,10 +163,9 @@ void Juego::solicitarDatosIniciales() {
 	//
 
 	this->turnos = solicitarCantidadTurnos();
-	this->dificultad = solicitarDificultad();
 }
 
-Lista<Jugador*>* Juego::solicitarJugadores() {
+Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 	Lista<Jugador*>* resultado = new Lista<Jugador*>;
 	unsigned int contador = 0;
 	unsigned int cantidad;
@@ -176,7 +177,7 @@ Lista<Jugador*>* Juego::solicitarJugadores() {
 	do {
 		cout << ">Ingrese el Nombre del JUGADOR -" << contador + 1 << "- :";
 		nombre = consola.SolicitarIngresoLineaTexto();
-		Jugador* nuevoJugador = new Jugador(nombre);
+		Jugador* nuevoJugador = new Jugador(nombre,dificultad,altoTerreno,anchoTerreno);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
 		nuevoJugador->agregarTerreno(nuevoTerreno);
 		resultado->agregar(nuevoJugador);

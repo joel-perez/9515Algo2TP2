@@ -107,7 +107,7 @@ public:
 	 * PRE: Se ingresa al menos un jugador.
 	 * POST: Jugadore listos para jugar.
 	 */
-	Lista<Jugador*>* solicitarJugadores();
+	Lista<Jugador*>* solicitarJugadores(Dificultad dificultad);
 
 	/*
 	 * PRE:~

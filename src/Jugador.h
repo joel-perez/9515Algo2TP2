@@ -7,6 +7,7 @@
 #include "Tanque.h"
 #include "Almacen.h"
 #include "Constantes.h"
+#include "Dificultad.h"
 
 class Jugador {
 private:
@@ -24,7 +25,7 @@ public:
 	 * PRE:
 	 * POST: Jugador listo para jugar.
 	 */
-	Jugador(std::string nombre);
+	Jugador(std::string nombre, Dificultad dificultad,unsigned int altoTerreno, unsigned int anchoTerreno);
 
 	/*
 	 * PRE:

@@ -1,14 +1,17 @@
 #include <ctime>
 #include <cstdlib>
-
+#include <iostream>
 #include "Jugador.h"
 #include "Constantes.h"
 
-Jugador::Jugador(std::string nombre) {
+Jugador::Jugador(std::string nombre, Dificultad dificultad,
+		unsigned int altoTerreno, unsigned int anchoTerreno) {
 	this->terrenos = new Lista<Terreno*>;
 	this->almacenes = new Lista<Almacen*>;
-	this->tanque = new Tanque();
-	this->creditos = 0;
+	this->tanque = new Tanque(altoTerreno, anchoTerreno,
+			dificultad.obtenerCoeficienteTamanioTanque());
+	this->creditos = dificultad.obtenerCoeficienteCreditosAsignados()
+			* altoTerreno * anchoTerreno;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
