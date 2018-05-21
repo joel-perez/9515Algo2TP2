@@ -7,6 +7,7 @@
 
 #include "Constantes.h"
 #include "Cultivo.h"
+#include "EstadoParcela.h"
 
 /*
  * Una PARCELA es un cubiculo donde se puede almacenar un cultivo.
@@ -14,8 +15,8 @@
 class Parcela {
 
 private:
+	EstadoParcela estadoParcela;
 	Cultivo* cultivo;
-	char estado;
 	int tiempoHastaCosecha;
 	int tiempoHastaRecuperacion;
 	int rentabilidad;
@@ -44,7 +45,13 @@ public:
 	 * PRE:
 	 * POST:
 	 */
-	std::string obtenerEstado();
+	EstadoParcela obtenerEstado();
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	std::string obtenerNombre();
 
 	/*
 	 * PRE:~
@@ -97,7 +104,7 @@ public:
 	 * PRE:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
-	unsigned int  sembrar(Cultivo* tipoCultivo);
+	unsigned int sembrar(Cultivo* tipoCultivo);
 };
 
 #endif

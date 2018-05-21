@@ -4,7 +4,7 @@
 using namespace std;
 
 Cultivo::Cultivo() {
-	this->nombre = "";
+	this->nombre = "#";
 	this->costo = 0;
 	this->tiempoDeCrecimiento = 0;
 	this->rentabilidad = 0;

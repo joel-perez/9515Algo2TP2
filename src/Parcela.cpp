@@ -4,22 +4,27 @@
 using namespace std;
 
 Parcela::Parcela() {
-	cout << "Soy una nueva parcela!!" << endl;
-	this->estado = PARCELA_LIBRE;
+	this->estadoParcela = VACIA;
 	this->estaRegada = false;
 	this->cultivo = new Cultivo(); //lo puse asi para que compile, hay que cambiarlo...
 	this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
 	this->tiempoHastaRecuperacion = this->cultivo->obtenerTiempoRecuperacion();
 	this->rentabilidad = RENTABILIDAD_CULTIVO_VACIO;
 }
+
 bool Parcela::estaOcupada() {
-	return (this->estado != PARCELA_LIBRE);
+	return (this->estadoParcela == VACIA);
 }
+
 Cultivo* Parcela::obtenerCultivo() {
 	return this->cultivo;
 }
 
-string Parcela::obtenerEstado() {
+EstadoParcela Parcela::obtenerEstado() {
+	return this->estadoParcela;
+}
+
+string Parcela::obtenerNombre() {
 	return this->cultivo->obtenerNombre();
 }
 
@@ -37,9 +42,11 @@ bool Parcela::yaEstaRegada() {
 unsigned int Parcela::obtenerRentabilidad() {
 	return this->rentabilidad;
 }
+
 unsigned int Parcela::obtenerTiempoHastaCosecha() {
 	return this->tiempoHastaCosecha;
 }
+
 unsigned int Parcela::sembrar(Cultivo* cultivo) {
 	if (!this->estaOcupada()) {
 		this->cultivo = cultivo;

@@ -27,6 +27,7 @@ public:
 	 *POST: Crea un cultivo vacio.
 	 */
 	Cultivo();
+
 	/*
 	 *
 	 *
