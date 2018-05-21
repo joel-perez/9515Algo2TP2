@@ -21,10 +21,10 @@ void Consola::mostrarBienvenida() {
 			<< archivo.obtenerRutaEjecucion() << endl;
 	cout << "Capturas de Pantalla: " << archivo.obtenerRutaCapturasPantalla()
 			<< endl;
-	cout << "Archivo de Cultivos: " << archivo.obtenerRutaArchivosDatos(ARCHIVO_CULTIVOS)
-			<< endl;
-	cout << "Archivo de Destinos: " << archivo.obtenerRutaArchivosDatos(ARCHIVO_DESTINOS)
-			<< endl;
+	cout << "Archivo de Cultivos: "
+			<< archivo.obtenerRutaArchivosDatos(ARCHIVO_CULTIVOS) << endl;
+	cout << "Archivo de Destinos: "
+			<< archivo.obtenerRutaArchivosDatos(ARCHIVO_DESTINOS) << endl;
 	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl
 			<< endl << endl << endl;
 }
@@ -116,4 +116,33 @@ void Consola::mostrarPosiblesAcciones() {
 	cout << " 9 - Cambiar de Terreno." << endl;
 	cout << "10 - Avanzar al siguiente turno." << endl;
 	cout << "11 - Abandonar el Juego." << endl;
+}
+void Consola::mostrarCultivosDisponibles(Lista<Cultivo*>* cultivos) {
+	cultivos->iniciarCursor();
+	while (cultivos->avanzarCursor()) {
+		Cultivo* cultivoActual = cultivos->obtenerCursor();
+		cout << "Cultivo: " << cultivoActual->obtenerNombre() << endl;
+		cout << "\t Consumo de Agua: " << cultivoActual->obtenerConsumoDeAgua()
+				<< endl;
+		cout << "\t Costo: " << cultivoActual->obtenerCosto() << endl;
+		cout << "\t Rentabilidad: " << cultivoActual->obtenerRentabilidad()
+				<< endl;
+		cout << "\t Tiempo de cosecha: "
+				<< cultivoActual->obtenerTiempoHastaCosecha() << endl;
+		cout << "\t Tiempo de recuperacion: "
+				<< cultivoActual->obtenerTiempoRecuperacion() << endl;
+		cout << endl;
+	}
+}
+void Consola::mostrarDestinosDisponibles(Lista<Destino*>* destinos) {
+	destinos->iniciarCursor();
+	while (destinos->avanzarCursor()) {
+		Destino* destinoActual = destinos->obtenerCursor();
+		cout << "Destino: " << destinoActual->obtenerNombre() << endl;
+		cout << "\t Costo de envio: " << destinoActual->obtenerCostoDeEnvio()
+				<< endl;
+		cout << "\t Tipo de cultivo que acepta: "
+				<< destinoActual->obtenerCultivoQueAcepta().obtenerNombre()
+				<< endl;
+	}
 }

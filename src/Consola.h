@@ -74,6 +74,15 @@ public:
 	 * POST: Convierte un entero a String para poder mostrarlo en pantalla.
 	 */
 	/*std::string intToString(int number);*/
+
+	/*
+	 *POST; imprime la lista de cultivos disponiles
+	 */
+	void mostrarCultivosDisponibles(Lista<Cultivo*>* cultivos);
+	/*
+	 * POST: imprime la lista de destinos disponibles.
+	 */
+	void mostrarDestinosDisponibles(Lista<Destino*>* destinos);
 };
 
 #endif
