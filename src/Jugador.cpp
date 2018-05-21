@@ -31,7 +31,9 @@ void Jugador::venderTerreno() {
 Lista<Terreno*>* Jugador::obtenerTerrenos() {
 	return this->terrenos;
 }
-
+Lista<Almacen*>* Jugador::obtenerAlmacenes(){
+	return this->almacenes;
+}
 Terreno* Jugador::obtenerTerrenoActual() {
 	return this->terrenoActual;
 }
@@ -40,7 +42,9 @@ void Jugador::agregarTerreno(Terreno* terreno) {
 	this->terrenos->agregar(terreno);
 	this->terrenoActual = terreno;
 }
-
+void Jugador::agregarAlmacen(Almacen* almacen) {
+	this->almacenes->agregar(almacen);
+}
 std::string Jugador::obtenerNombre() {
 	return this->nombre;
 }

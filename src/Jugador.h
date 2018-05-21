@@ -25,7 +25,8 @@ public:
 	 * PRE:
 	 * POST: Jugador listo para jugar.
 	 */
-	Jugador(std::string nombre, Dificultad dificultad,unsigned int altoTerreno, unsigned int anchoTerreno);
+	Jugador(std::string nombre, Dificultad dificultad, unsigned int altoTerreno,
+			unsigned int anchoTerreno);
 
 	/*
 	 * PRE:
@@ -50,12 +51,18 @@ public:
 	 * POST:devuelve los terrenos de jugadorActual.
 	 */
 	Lista<Terreno*>* obtenerTerrenos();
-
+	/*
+	 * POST: devuelve los almacenes del jugador
+	 */
+	Lista<Almacen*>* obtenerAlmacenes();
 	/*
 	 * POST: Agrega un terreno a la lista de terrenos del jugador.
 	 */
 	void agregarTerreno(Terreno* terreno);
-
+	/*
+	 * POST: Agrega un almacen a la lista de Almacenes del jugador.
+	 */
+	void agregarAlmacen(Almacen* almacen);
 	/*
 	 *
 	 * POST: devuelve el nombre del jugador.

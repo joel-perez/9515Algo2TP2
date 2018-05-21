@@ -107,8 +107,6 @@ Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 	return terreno->obtenerParcela(fila, columna);
 }
 
-
-
 int Juego::regarParcela(Jugador* jugador) {
 	int aguaUtilizada = 0;
 	Parcela* parcelaActual = seleccionarParcela(
@@ -177,9 +175,14 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 	do {
 		cout << ">Ingrese el Nombre del JUGADOR -" << contador + 1 << "- :";
 		nombre = consola.SolicitarIngresoLineaTexto();
-		Jugador* nuevoJugador = new Jugador(nombre,dificultad,altoTerreno,anchoTerreno);
+		Jugador* nuevoJugador = new Jugador(nombre, dificultad, altoTerreno,
+				anchoTerreno);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
+		Almacen* nuevoAlmacen = new Almacen(
+				dificultad.obtenerCoeficienteTamanioAlmacen(), altoTerreno,
+				anchoTerreno);
 		nuevoJugador->agregarTerreno(nuevoTerreno);
+		nuevoJugador->agregarAlmacen(nuevoAlmacen);
 		resultado->agregar(nuevoJugador);
 		contador++;
 	} while (contador < this->numeroDeJugadores);
