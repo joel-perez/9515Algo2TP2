@@ -60,6 +60,11 @@ public:
 	 */
 	unsigned int obtenerRentabilidad();
 
+	/*
+	 * POST: Devuelve la cantidad de agua que requiere el cultivo en un turno.
+	 */
+	unsigned int obtenerConsumoDeAgua();
+
 };
 
 #endif

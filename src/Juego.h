@@ -156,6 +156,16 @@ public:
 	Lista<Parcela*>*  seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
 
 	/*
+	 * POST: Devuelve la parcela indicada por el usuario.
+	 */
+	Parcela* seleccionarParcela(Terreno* terreno);
+
+	/*
+	 * POST: Riega la parcela del jugador indicado.
+	 */
+	int regarParcela(Jugador* jugador);
+
+	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
 	~Juego();

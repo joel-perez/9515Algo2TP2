@@ -49,18 +49,21 @@ void Juego::administrarAguaDelTurno(Jugador* jugador) {
 
 void Juego::solicitarAcciones(Jugador* jugador) {
 	int accionSeleccionada = 0;
-	unsigned int tanqueDeAgua = jugador->obtenerTanque()->obtenerAguaDisponible();
-	unsigned int credito =jugador->obtenerCreditos();
+	unsigned int tanqueDeAgua =
+			jugador->obtenerTanque()->obtenerAguaDisponible();
+	unsigned int credito = jugador->obtenerCreditos();
 	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO) {
 		consola.mostrarPosiblesAcciones();
 		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
-		unsigned int tanqueDeAgua = jugador->obtenerTanque()->obtenerAguaDisponible();
-		unsigned int credito =jugador->obtenerCreditos();
-		ejecutarAccion(accionSeleccionada, jugador, credito,tanqueDeAgua);
+		unsigned int tanqueDeAgua =
+				jugador->obtenerTanque()->obtenerAguaDisponible();
+		unsigned int credito = jugador->obtenerCreditos();
+		ejecutarAccion(accionSeleccionada, jugador, credito, tanqueDeAgua);
 	}
 }
 
-void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, unsigned int credito, unsigned int tanqueDeAgua) {
+void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador,
+		unsigned int credito, unsigned int tanqueDeAgua) {
 	switch (accionSeleccionada) {
 	case ACCION_SEMBRAR:
 		sembrarParcela(jugador);
@@ -69,48 +72,88 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, un
 		//TODO: Implementar...
 		break;
 	case ACCION_REGAR:
-		//TODO: Implementar...
+		regarParcela(jugador);
 		break;
 	case ACCION_ENVIAR_A_DESTINO:
-			break;
+		//TODO: Implementar...
+		break;
 	case ACCION_COMPRAR_TERRENO:
+		//TODO: Implementar...
 		break;
 	case ACCION_VENDER_TERRENO:
+		//TODO: Implementar...
 		break;
 	case ACCION_COMPRAR_CAPACIDAD_TANQUE:
+		//TODO: Implementar...
 		break;
 	case ACCION_COMPRAR_CAPACIDAD_ALMACEN:
+		//TODO: Implementar...
 		break;
 	case ACCION_CAMBIAR_TERRENO:
+		//TODO: Implementar...
 		break;
 	case ACCION_SIGUIENTE_TURNO:
+		//TODO: Implementar...
 		break;
 	case ACCION_ABANDONAR:
+		//TODO: Implementar...
 		break;
-
-		}
-	//TODO: Implementar las demas acciones que hagan falta...
+	}
 }
 
-unsigned int Juego::sembrarParcela(Jugador* jugador){
-	unsigned int creditoUtilizado=0;
-	Lista<Terreno*>* terrenosJugadorActual= jugador->obtenerTerrenos();
+Parcela* Juego::seleccionarParcela(Terreno* terreno) {
+	cout << "Seleccione una Parcela:" << endl;
+	cout << "Ingrese Fila: ";
+	int fila = consola.solicitarIngresoNumerico(1, terreno->obtenerFilas());
+	cout << "Ingrese Columna: ";
+	int columna = consola.solicitarIngresoNumerico(1,
+			terreno->obtenerColumnas());
+	cout << "Ha seleccionado la Parcela(" << fila << ", " << columna << ")"
+			<< endl;
+	return terreno->obtenerParcela(fila, columna);
+}
 
-	Lista<Parcela*>* terrenoActual= jugador->obtenerTerrenoActual()->seleccionarTerreno(terrenosJugadorActual);
+int Juego::regarParcela(Jugador* jugador) {
+	int aguaUtilizada = 0;
+	Parcela* parcelaActual = seleccionarParcela(
+			jugador->obtenerTerrenoActual());
+	if (parcelaActual->estaOcupada()) {
+		if (!parcelaActual->yaEstaRegada()) {
+			if (jugador->obtenerTanque()->obtenerAguaDisponible() > 0) {
+				parcelaActual->regar();
+				aguaUtilizada =
+						parcelaActual->obtenerCultivo()->obtenerConsumoDeAgua();
+				cout << "La parcela ha sido regada." << endl;
+			} else {
+				cout << "No hay suficiente agua para regar la parcela." << endl;
+			}
+		} else {
+			cout << "No hace falta regar la parcela, ya estaba regada." << endl;
+		}
+	} else {
+		cout << "Solo se pueden regar parcelas con cultivo." << endl;
+	}
+	return aguaUtilizada;
+}
 
+unsigned int Juego::sembrarParcela(Jugador* jugador) {
+	unsigned int creditoUtilizado = 0;
+	Lista<Terreno*>* terrenosJugadorActual = jugador->obtenerTerrenos();
+
+	Lista<Parcela*>* terrenoActual =
+			jugador->obtenerTerrenoActual()->seleccionarTerreno(
+					terrenosJugadorActual);
 
 	return (jugador->cambiarCredito(creditoUtilizado));
 
 }
-
-
 
 void Juego::procesarTurno(Jugador* jugador) {
 
 }
 
 void Juego::solicitarDatosIniciales() {
-	solicitarTamanioTerreno(); //TODO: Ver si es sencillo usar un TDA Dimensiones, o devolver valores por referencia, etc.
+	solicitarTamanioTerreno();
 	this->jugadores = solicitarJugadores();
 
 	//TODO: Eliminar esto cuando termine las pruebas...
@@ -211,13 +254,11 @@ void Juego::iniciarJuego() {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
-			//Esto va a ir en el TDA Jugador, posiblemente...
 			consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
 			mostrarTerrenos(jugadorActual);
 			administrarAguaDelTurno(jugadorActual);
 			solicitarAcciones(jugadorActual);
 			procesarTurno(jugadorActual);
-			//
 		}
 		turnoActual++;
 	}

@@ -7,15 +7,15 @@ Parcela::Parcela() {
 	cout << "Soy una nueva parcela!!" << endl;
 	this->estado = PARCELA_LIBRE;
 	this->estaRegada = false;
-	this->cultivo = Cultivo();
-	this->tiempoHastaCosecha = cultivo.obtenerTiempoHastaCosecha();
-	this->tiempoHastaRecuperacion = this->cultivo.obtenerTiempoRecuperacion();
+	this->cultivo = new Cultivo(); //lo puse asi para que compile, hay que cambiarlo...
+	this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
+	this->tiempoHastaRecuperacion = this->cultivo->obtenerTiempoRecuperacion();
 	this->rentabilidad = RENTABILIDAD_CULTIVO_VACIO;
 }
-bool Parcela::estaOcupada(){
-	return (this->estado !=PARCELA_LIBRE);
+bool Parcela::estaOcupada() {
+	return (this->estado != PARCELA_LIBRE);
 }
-Cultivo Parcela::obtenerCultivo() {
+Cultivo* Parcela::obtenerCultivo() {
 	return this->cultivo;
 }
 
@@ -23,15 +23,15 @@ string Parcela::obtenerEstado() {
 	return "Completar!!!"; //TODO: Completar...
 }
 
-void Parcela::establecerCultivo(Cultivo tipoCultivo) {
-	this->cultivo = Cultivo(tipoCultivo);
-}
-void Parcela::regar(){
-	this->estaRegada=true;
-
+void Parcela::establecerCultivo(Cultivo* tipoCultivo) {
+	this->cultivo = tipoCultivo;
 }
 
-bool Parcela::yaEstaRegada(){
+void Parcela::regar() {
+	this->estaRegada = true;
+}
+
+bool Parcela::yaEstaRegada() {
 	return this->estaRegada;
 }
 unsigned int Parcela::obtenerRentabilidad() {

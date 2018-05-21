@@ -10,7 +10,6 @@ Cultivo::Cultivo() {
 	this->rentabilidad = 0;
 	this->tiempoDeRecuperacion = 0;
 	this->consumoDeAgua = 0;
-
 }
 
 Cultivo::Cultivo(std::string nombreCultivo) {
@@ -44,10 +43,14 @@ string Cultivo::obtenerNombre() {
 	return this->nombre;
 }
 
-unsigned int Cultivo::obtenerCosto(){
+unsigned int Cultivo::obtenerCosto() {
 	return this->costo;
 
 }
-unsigned int Cultivo::obtenerRentabilidad(){
+unsigned int Cultivo::obtenerRentabilidad() {
 	return this->rentabilidad;
+}
+
+unsigned int Cultivo::obtenerConsumoDeAgua() {
+	return this->consumoDeAgua;
 }

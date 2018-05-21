@@ -9,14 +9,12 @@
 #include "Cultivo.h"
 
 /*
- *
- * Una PARCELA/PARCELAS es un cubiculo donde se puede almacenar algun  cultivo.
- *
+ * Una PARCELA es un cubiculo donde se puede almacenar un cultivo.
  */
 class Parcela {
 
 private:
-	Cultivo cultivo;
+	Cultivo* cultivo;
 	char estado;
 	int tiempoHastaCosecha;
 	int tiempoHastaRecuperacion;
@@ -40,7 +38,7 @@ public:
 	 * PRE:
 	 * POST:Deulve el cultivo actual.
 	 */
-	Cultivo obtenerCultivo();
+	Cultivo* obtenerCultivo();
 
 	/*
 	 * PRE:
@@ -50,9 +48,9 @@ public:
 
 	/*
 	 * PRE:~
-	 * POST:Establece un nuevo cultivoen la parcela.
+	 * POST:Establece un nuevo cultivo en la parcela.
 	 */
-	void establecerCultivo(Cultivo tipoCultivo);
+	void establecerCultivo(Cultivo* tipoCultivo);
 
 	/*
 	 * PRE:~
@@ -84,26 +82,22 @@ public:
 	 */
 
 	//unsigned int creditoRequeridoPara(TipoCultivo tipoCultivo);
-
 	/*
 	 * PRE:
 	 * POST:Procesa las acciones realizadas por el jugador para establecer las
 	 * condiciones iniciales del siguiente turno.
 	 */
 	//void procesarTurno();
-
 	/*
 	 * PRE:
 	 * POST:Cosecha el cultivo actual, dejando su estado en recuperacion.
 	 */
 	//void cosechar();
-
 	/*
 	 * PRE:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
 	//void sembrar(TipoCultivo tipoCultivo);
-
 };
 
 #endif
