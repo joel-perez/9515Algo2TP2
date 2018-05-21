@@ -34,6 +34,7 @@ Terreno* Jugador::obtenerTerrenoActual() {
 
 void Jugador::agregarTerreno(Terreno* terreno) {
 	this->terrenos->agregar(terreno);
+	this->terrenoActual = terreno;
 }
 
 std::string Jugador::obtenerNombre() {
