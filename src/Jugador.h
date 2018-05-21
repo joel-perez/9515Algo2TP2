@@ -77,9 +77,9 @@ public:
 
 	/*
 	 *
-	 * POST: devuelve el nuevo credito del jugador.
+	 * POST: el creditoActual le resta al creditoUtilizado y devuelve el nuevo saldo.
 	 */
-	unsigned int cambiarCredito(unsigned int creditoUtilizado);
+	unsigned int restarCredito(unsigned int creditoUtilizado);
 	/*
 	 *
 	 * POST: devuelve los tanques de agua del jugadorActual.

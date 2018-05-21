@@ -161,3 +161,8 @@ Lista<Destino*>* Archivo::leerDestinos() {
 	return destinosDisponibles;
 }
 
+Archivo::~Archivo(){
+
+
+
+}

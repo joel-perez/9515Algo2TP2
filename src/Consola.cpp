@@ -117,23 +117,26 @@ void Consola::mostrarPosiblesAcciones() {
 	cout << "10 - Avanzar al siguiente turno." << endl;
 	cout << "11 - Abandonar el Juego." << endl;
 }
+
 void Consola::mostrarCultivosDisponibles(Lista<Cultivo*>* cultivos) {
+	unsigned int i = 1;
+	cout << "Seleccione uno de los siguientes cultivos:" << endl;
 	cultivos->iniciarCursor();
 	while (cultivos->avanzarCursor()) {
 		Cultivo* cultivoActual = cultivos->obtenerCursor();
-		cout << "Cultivo: " << cultivoActual->obtenerNombre() << endl;
-		cout << "\t Consumo de Agua: " << cultivoActual->obtenerConsumoDeAgua()
-				<< endl;
-		cout << "\t Costo: " << cultivoActual->obtenerCosto() << endl;
-		cout << "\t Rentabilidad: " << cultivoActual->obtenerRentabilidad()
-				<< endl;
-		cout << "\t Tiempo de cosecha: "
-				<< cultivoActual->obtenerTiempoHastaCosecha() << endl;
-		cout << "\t Tiempo de recuperacion: "
-				<< cultivoActual->obtenerTiempoRecuperacion() << endl;
+		cout << i << ") Cultivo: " << cultivoActual->obtenerNombre();
+		cout << " Consumo de Agua: " << cultivoActual->obtenerConsumoDeAgua();
+		cout << " Costo: " << cultivoActual->obtenerCosto();
+		cout << " Rentabilidad: " << cultivoActual->obtenerRentabilidad();
+		cout << " Tiempo de cosecha: "
+				<< cultivoActual->obtenerTiempoHastaCosecha();
+		cout << " Tiempo de recuperacion: "
+				<< cultivoActual->obtenerTiempoRecuperacion();
 		cout << endl;
+		i++;
 	}
 }
+
 void Consola::mostrarDestinosDisponibles(Lista<Destino*>* destinos) {
 	destinos->iniciarCursor();
 	while (destinos->avanzarCursor()) {

@@ -53,7 +53,7 @@ unsigned int Jugador::obtenerCreditos() {
 	return this->creditos;
 }
 
-unsigned int Jugador::cambiarCredito(unsigned int creditoUtilizado) {
+unsigned int Jugador::restarCredito(unsigned int creditoUtilizado) {
 	return (this->creditos - creditoUtilizado);
 }
 

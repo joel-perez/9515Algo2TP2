@@ -40,3 +40,13 @@ unsigned int Parcela::obtenerRentabilidad() {
 unsigned int Parcela::obtenerTiempoHastaCosecha() {
 	return this->tiempoHastaCosecha;
 }
+unsigned int Parcela::sembrar(Cultivo* cultivo) {
+	if (!this->estaOcupada()) {
+		this->cultivo = cultivo;
+		this->rentabilidad = cultivo->obtenerRentabilidad();
+		this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
+		this->tiempoHastaRecuperacion = cultivo->obtenerTiempoRecuperacion();
+		this->estaRegada = false;
+
+	}
+}
