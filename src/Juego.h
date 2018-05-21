@@ -54,6 +54,14 @@ public:
 	 * POST: Devuelve la lista de destinos que se cargo desde un archivo.
 	 */
 	Lista<Destino*>* obtenerDestinos();
+	/*
+	 * POST: devuelve la cantidad de columnas en el terreno
+	 */
+	unsigned int obtenerAnchoTerreno();
+	/*
+	 * POST: devuelve la cantidad de filas del terreno
+	 */
+	unsigned int obtenerAltoTerreno();
 
 	/*
 	 * PRE:
@@ -133,7 +141,6 @@ public:
 	 */
 	Dificultad obtenerDificultad();
 
-
 	/*
 	 * PRE:~
 	 * POST:Realiza la accion solicitada por el jugadorActual.
@@ -153,7 +160,7 @@ public:
 	 * y devuelve una referencia a ese terreno, si solo tiene un terreno
 	 * devolvera ese terreno.
 	 */
-	Lista<Parcela*>*  seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
+	Lista<Parcela*>* seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
 
 	/*
 	 * POST: Devuelve la parcela indicada por el usuario.
@@ -164,6 +171,12 @@ public:
 	 * POST: Riega la parcela del jugador indicado.
 	 */
 	int regarParcela(Jugador* jugador);
+	/*
+	 *
+	 * POST: agrega un nuevo almacen a la lista de almacenes ddel jugador y se restan los creditos
+	 *       correspondientes
+	 */
+	void comprarAlmacen(Jugador* jugador);
 
 	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.

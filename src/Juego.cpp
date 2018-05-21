@@ -27,7 +27,12 @@ Lista<Cultivo*>* Juego::obtenerCultivos() {
 Lista<Destino*>* Juego::obtenerDestinos() {
 	return this->destinos;
 }
-
+unsigned int Juego::obtenerAnchoTerreno(){
+	return this->anchoTerreno;
+}
+unsigned int Juego::obtenerAltoTerreno(){
+	return this->altoTerreno;
+}
 Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 	Cultivo* resultado;
 	this->cultivos->obtenerCursor();
@@ -64,37 +69,46 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 	switch (accionSeleccionada) {
 	case ACCION_SEMBRAR:
 		sembrarParcela(jugador);
-		break;
+	break;
 	case ACCION_COSECHAR:
 		//TODO: Implementar...
-		break;
+	break;
 	case ACCION_REGAR:
 		regarParcela(jugador);
-		break;
+	break;
 	case ACCION_ENVIAR_A_DESTINO:
 		//TODO: Implementar...
-		break;
+	break;
 	case ACCION_COMPRAR_TERRENO:
 		//TODO: Implementar...
-		break;
+	break;
 	case ACCION_VENDER_TERRENO:
 		//TODO: Implementar...
-		break;
+	break;
 	case ACCION_COMPRAR_CAPACIDAD_TANQUE:
-		//TODO: Implementar...
-		break;
+		jugador->obtenerTanque()->aumentarCapacidad();
+		//FALTA RESTAR CREDITOS
+	break;
 	case ACCION_COMPRAR_CAPACIDAD_ALMACEN:
-		//TODO: Implementar...
-		break;
+		comprarAlmacen(jugador);
+	break;
 	case ACCION_CAMBIAR_TERRENO:
 		//TODO: Implementar...
-		break;
+	break;
 	case ACCION_SIGUIENTE_TURNO:
 		//TODO: Implementar...
 		break;
 	}
 }
-
+void Juego::comprarAlmacen(Jugador* jugador) {
+	Almacen* nuevoAlmacen = new Almacen(
+			this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
+			this->obtenerAltoTerreno(),this->obtenerAnchoTerreno());
+	jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
+	//ELIMINAR ESTO LUEGO DE LA PRUEBA
+	cout<<"Ahora hay "<<jugador->obtenerAlmacenes()->contarElementos()<<" almacenes"<<endl;
+	//FALTA RESTAR CREDITO
+}
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 	cout << "Seleccione una Parcela:" << endl;
 	cout << "Ingrese Fila: ";
