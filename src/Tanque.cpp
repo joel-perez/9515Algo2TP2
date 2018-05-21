@@ -37,7 +37,7 @@ void Tanque::asignarAguaDisponible() {
 void Tanque::cambiarAguaDisponible(unsigned int aguaDelTurno) {
 	this->aguaDisponible += aguaDelTurno;
 
-	if (this->estaLleno()) {
+	if (this->superoCapacidadMaxima()) {
 		this->aguaDisponible = this->obtenerCapacidadMaxima();
 	}
 }
@@ -46,6 +46,6 @@ unsigned int Tanque::tirarDado() {
 	unsigned int potenciador = (rand() % CARAS_DADO) + 1;
 	return potenciador;
 }
-bool Tanque::estaLleno() {
+bool Tanque::superoCapacidadMaxima() {
 	return (this->aguaDisponible >= this->capacidadMaxima);
 }

@@ -61,9 +61,9 @@ public:
 	/* esta lleno?
 	 *
 	 *
-	 *
+	 * true si supero y false si no
 	 */
-	bool estaLleno();
+	bool superoCapacidadMaxima();
 
 //TODO: Implementar los metodos que hagan falta...
 };

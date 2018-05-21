@@ -8,8 +8,7 @@
 class Almacen {
 private:
 	Lista<Cosecha*>* cosechas;
-	Lista<Destino*>* destinos;
-
+	unsigned int capacidadMaximaAlmacen;
 public:
 	/*
 	 * PRE:
@@ -21,8 +20,37 @@ public:
 	 * PRE:
 	 * POST:
 	 */
-	Almacen(const Almacen& almacen);
+	Almacen(unsigned int coeficienteCapacidadAlmacen, unsigned int filas, unsigned int columnas);
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerCapacidadMaxima();
 
+	/*
+	 *
+	 *
+	 */
+	void enviarCosechas();
+
+	/*
+	 *
+	 *
+	 */
+	void agregarCosechas();
+
+	/* esta lleno el almacen?
+	 *
+	 *
+	 * POST: devuelve true si es asi y false si no
+	 */
+	bool estaLleno();
+	/*
+	 *
+	 *
+	 *
+	 */
+	Lista<Cosecha*>* obtenerCosechas();
 	//TODO: Implementar metodos necesarios...
 
 };

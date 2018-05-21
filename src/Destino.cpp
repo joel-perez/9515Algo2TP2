@@ -22,3 +22,12 @@ Destino::Destino(std::string nombreDestino, int km, int precio,
 string Destino::obtenerNombre() {
 	return this->nombre;
 }
+Cultivo Destino::obtenerCultivoQueAcepta() {
+	return this->cultivo;
+}
+float Destino::obtenerCostoDeEnvio() {
+	return this->costoPorKm;
+}
+unsigned int Destino::obtenerDistancia() {
+	return this->distanciaEnKm;
+}

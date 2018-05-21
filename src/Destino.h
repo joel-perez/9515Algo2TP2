@@ -30,6 +30,22 @@ public:
 	 * POST: Devuelve el nombre de este Destino.
 	 */
 	std::string obtenerNombre();
+
+	/*
+	 *
+	 *
+	 */
+	Cultivo obtenerCultivoQueAcepta();
+	/*
+	 *
+	 *
+	 */
+	float obtenerCostoDeEnvio();
+	/*
+	 *
+	 *
+	 */
+	unsigned int obtenerDistancia();
 };
 
 #endif
