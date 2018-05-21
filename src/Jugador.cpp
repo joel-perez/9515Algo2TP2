@@ -60,5 +60,5 @@ void Jugador::abandonarJuego() {
 }
 
 bool Jugador::abandono() {
-	return this->sigueJugando;
+	return !this->sigueJugando;
 }
