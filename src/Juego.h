@@ -138,7 +138,7 @@ public:
 	 * PRE:~
 	 * POST:Realiza la accion solicitada por el jugadorActual.
 	 */
-	void ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador, unsigned int credito, unsigned int tanqueDeAgua);
+	void ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador);
 
 	/*
 	 * POST:Siembra la parcela seleccionada con el cultivo indicado por el usuario,

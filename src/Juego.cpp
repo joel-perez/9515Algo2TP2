@@ -49,24 +49,18 @@ void Juego::administrarAguaDelTurno(Jugador* jugador) {
 
 void Juego::solicitarAcciones(Jugador* jugador) {
 	int accionSeleccionada = 0;
-	unsigned int tanqueDeAgua =
-			jugador->obtenerTanque()->obtenerAguaDisponible();
-	unsigned int credito = jugador->obtenerCreditos();
+
 	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO
 			&& accionSeleccionada != ACCION_ABANDONAR) {
 		consola.mostrarPosiblesAcciones();
 		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
-		unsigned int tanqueDeAgua =
-				jugador->obtenerTanque()->obtenerAguaDisponible();
-		unsigned int credito = jugador->obtenerCreditos();
-		ejecutarAccion(accionSeleccionada, jugador, credito, tanqueDeAgua);
+		ejecutarAccion(accionSeleccionada, jugador);
 	}
 	if (accionSeleccionada == ACCION_ABANDONAR)
 		jugador->abandonarJuego();
 }
 
-void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador,
-		unsigned int credito, unsigned int tanqueDeAgua) {
+void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 	switch (accionSeleccionada) {
 	case ACCION_SEMBRAR:
 		sembrarParcela(jugador);
@@ -112,6 +106,8 @@ Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 			<< endl;
 	return terreno->obtenerParcela(fila, columna);
 }
+
+
 
 int Juego::regarParcela(Jugador* jugador) {
 	int aguaUtilizada = 0;
