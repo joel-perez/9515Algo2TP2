@@ -33,6 +33,7 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 	string nombre = jugador->obtenerNombre();
 
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
+	archivo.crearDirectorio(archivo.obtenerRutaCapturasPantalla().c_str());
 	string rutaCompleta = archivo.concatenarRutas(
 			archivo.obtenerRutaCapturasPantalla(), "ejemploterreno.bmp");
 	imagenDelTerreno.WriteToFile(rutaCompleta.c_str());

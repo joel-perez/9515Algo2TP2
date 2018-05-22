@@ -13,7 +13,7 @@ Archivo::Archivo() {
 
 }
 
-void crearDirectorio(std::string nombreDirectorio) {
+void Archivo::crearDirectorio(std::string nombreDirectorio) {
 #ifdef linux
 	mkdir(nombreDirectorio.c_str(), S_IRWXU);
 #elif _WIN32
@@ -161,8 +161,6 @@ Lista<Destino*>* Archivo::leerDestinos() {
 	return destinosDisponibles;
 }
 
-Archivo::~Archivo(){
-
-
+Archivo::~Archivo() {
 
 }
