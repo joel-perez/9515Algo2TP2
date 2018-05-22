@@ -4,8 +4,11 @@
 #include "Lista.h"
 #include "Jugador.h"
 #include "Archivo.h"
+#include "Texto.h"
 
 class Consola {
+	Texto texto;
+
 public:
 	/*
 	 * PRE:~

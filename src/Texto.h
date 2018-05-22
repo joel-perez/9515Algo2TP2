@@ -1,7 +1,7 @@
 #ifndef TEXTO_H_
 #define TEXTO_H_
 
-class Texto{
+class Texto {
 private:
 
 public:
@@ -9,6 +9,11 @@ public:
 	 * Devuelve un string en base al int recibido como parametro.
 	 */
 	std::string intToString(int number);
+
+	/*
+	 * POST: Devuelve un string rellenado a derecha con el caracter pad.
+	 */
+	std::string padRight(std::string str, unsigned int cant, char pad);
 };
 
 #endif

@@ -46,8 +46,10 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 			for (unsigned int j = 1; j <= terrenoActual->obtenerColumnas();
 					j++) {
 				Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
-				cout << "(" << i << "," << j << ") "
-						<< miParcela->obtenerEstadoParaMostrarEnPantalla();
+				cout
+						<< texto.padRight(
+								miParcela->obtenerEstadoParaMostrarEnPantalla(),
+								10, ' ');
 			}
 			cout << endl;
 		}
