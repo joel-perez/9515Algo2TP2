@@ -95,9 +95,6 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 	case ACCION_CAMBIAR_TERRENO:
 		//TODO: Implementar...
 		break;
-	case ACCION_SIGUIENTE_TURNO:
-		//TODO: Implementar...
-		break;
 	}
 }
 void Juego::comprarAlmacen(Jugador* jugador) {
@@ -110,6 +107,7 @@ void Juego::comprarAlmacen(Jugador* jugador) {
 			<< " almacenes" << endl;
 	//FALTA RESTAR CREDITO
 }
+
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 	cout << "Seleccione una Parcela:" << endl;
 	cout << "Ingrese Fila: ";
@@ -119,7 +117,7 @@ Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 			terreno->obtenerColumnas());
 	cout << "Ha seleccionado la Parcela(" << fila << ", " << columna << ")"
 			<< endl;
-	return terreno->obtenerParcela(fila, columna);
+	return terreno->obtenerParcela(fila - 1, columna - 1);
 }
 
 int Juego::regarParcela(Jugador* jugador) {
@@ -162,7 +160,7 @@ void Juego::sembrarParcela(Jugador* jugador) {
 }
 
 void Juego::procesarTurno(Jugador* jugador) {
-
+//TODO: JOEL se va a encargar de esto!! =)
 }
 
 void Juego::solicitarDatosIniciales() {

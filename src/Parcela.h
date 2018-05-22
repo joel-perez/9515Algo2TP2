@@ -105,6 +105,12 @@ public:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
 	unsigned int sembrar(Cultivo* tipoCultivo);
+
+	/*
+	 * PRE:
+	 * POST: Devuelve el estado de la parcela listo para mostrar en pantalla.
+	 */
+	std::string obtenerEstadoParaMostrarEnPantalla();
 };
 
 #endif

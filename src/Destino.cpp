@@ -15,7 +15,7 @@ Destino::Destino(std::string nombreDestino, int km, int precio,
 	this->nombre = nombreDestino;
 	this->distanciaEnKm = km;
 	this->costoPorKm = precio;
-	this->cultivo = Cultivo(cultivoAceptado);
+	this->cultivo = Cultivo(cultivoAceptado); //TODO: Creo que aca habria que recibir un cultivo ya existente de los que se cargaron del otro archivo...
 
 }
 

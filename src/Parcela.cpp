@@ -24,6 +24,28 @@ EstadoParcela Parcela::obtenerEstado() {
 	return this->estadoParcela;
 }
 
+string Parcela::obtenerEstadoParaMostrarEnPantalla() {
+	string estadoParaMostrar = "sarasa";
+	switch (this->estadoParcela) {
+	case VACIA:
+		estadoParaMostrar = "#"; //TODO: Pasar a constante...
+		break;
+	case SEMBRADA:
+		estadoParaMostrar = this->obtenerNombre().substr(0, 10); //TODO: Pasar el 10 a constante...
+		break;
+	case SECA:
+		estadoParaMostrar = "S"; //TODO: Pasar a constante...
+		break;
+	case PODRIDA:
+		estadoParaMostrar = "P"; //TODO: Pasar a constante...
+		break;
+	case RECUPERACION:
+		estadoParaMostrar = "R"; //TODO: Pasar a constante...
+		break;
+	}
+	return estadoParaMostrar;
+}
+
 string Parcela::obtenerNombre() {
 	return this->cultivo->obtenerNombre();
 }
