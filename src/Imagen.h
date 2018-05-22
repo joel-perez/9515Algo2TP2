@@ -13,11 +13,30 @@ private:
 	BMP imagenDelTerreno;
 	BMP cultivo;
 	Archivo archivo;
-
 	RGBApixel color;
-//	BMP fondoTerreno;
-//	BMP fondoUsuario;
-//	BMP imagenDelTerreno;
+
+	/*
+	 * PRE
+	 * POST adecua las medidas del cultivo.
+	 */
+	void rescalarImagenes(unsigned int columnas);
+
+	/*
+	 * PRE
+	 * POST coloca los fondos del disenio en la imagen final.
+	 */
+	void pegarFondos();
+
+	/*
+	 *
+	 */
+	void pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
+			unsigned int filas);
+
+	/*
+	 *
+	 */
+	void pegarEstadoDeLosDatos();
 
 public:
 	/*
@@ -29,31 +48,20 @@ public:
 	/*
 	 * POST: Muestra los terrenos del jugador indicado en una o varias imagenes BMP.
 	 */
-	void mostrarTerrenos(Jugador* jugador,unsigned int columnas, unsigned int filas);
-
-	/*
-	 * POST: Libera los recursos utilizados.
-	 */
-	~Imagen();
+	void mostrarTerrenos(Jugador* jugador, unsigned int columnas,
+			unsigned int filas);
 
 	/*
 	 * PRE
 	 * POST imagen del estado del terreno en cada turno creado.
 	 */
-	void obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,unsigned int columnas, unsigned int filas);
-private:
+	void obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
+			unsigned int columnas, unsigned int filas);
+
 	/*
-	 * PRE
-	 * POST adecua las medidas del cultivo.
+	 * POST: Libera los recursos utilizados.
 	 */
-	void rescalarImagenes(unsigned int columnas);
-	/*
-	 * PRE
-	 * POST coloca los fondos del disenio en la imagen final.
-	 */
-	void pegarFondos();
-	void pegarEstadoDelTerreno(Terreno* terreno,unsigned int columnas,unsigned int filas);
-	void pegarEstadoDeLosDatos();
+	~Imagen();
 };
 
 #endif

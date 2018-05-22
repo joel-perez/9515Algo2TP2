@@ -30,12 +30,6 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:
-	 */
-	Jugador(const Jugador& jugador);
-
-	/*
-	 * PRE:
 	 * POST:compra un terreno durantes el turnoActual;
 	 */
 	void comprarTerreno();

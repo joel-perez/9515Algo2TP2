@@ -6,7 +6,7 @@
 
 Jugador::Jugador(std::string nombre, Dificultad dificultad,
 		unsigned int altoTerreno, unsigned int anchoTerreno) {
-	this->terrenos = new Lista<Terreno*>;
+	this->terrenos = new Lista<Terreno*>; //TODO: Ver si aca es mejor opcion para inicializar el primer terreno vacio para el jugador...
 	this->almacenes = new Lista<Almacen*>;
 	this->tanque = new Tanque(altoTerreno, anchoTerreno,
 			dificultad.obtenerCoeficienteTamanioTanque());
@@ -15,11 +15,8 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
+	this->terrenoActual = NULL;
 	srand(time(NULL));
-}
-
-Jugador::Jugador(const Jugador& jugador) {
-	this->sigueJugando = true;
 }
 
 void Jugador::comprarTerreno() {
@@ -42,9 +39,11 @@ void Jugador::agregarTerreno(Terreno* terreno) {
 	this->terrenos->agregar(terreno);
 	this->terrenoActual = terreno;
 }
+
 void Jugador::agregarAlmacen(Almacen* almacen) {
 	this->almacenes->agregar(almacen);
 }
+
 std::string Jugador::obtenerNombre() {
 	return this->nombre;
 }
@@ -64,7 +63,6 @@ unsigned int Jugador::incrementoDeGananciaPorHaberLLegadoADestino(
 
 Tanque* Jugador::obtenerTanque() {
 	return this->tanque;
-
 }
 
 void Jugador::abandonarJuego() {
@@ -73,7 +71,6 @@ void Jugador::abandonarJuego() {
 
 void Jugador::cambiarTerrenoActual(unsigned int indiceTerreno) {
 	this->terrenoActual = this->terrenos->obtener(indiceTerreno);
-
 }
 
 bool Jugador::abandono() {

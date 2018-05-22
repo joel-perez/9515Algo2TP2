@@ -1,5 +1,8 @@
 #include "Imagen.h"
-#include<string>
+#include <string>
+
+using namespace std;
+
 Imagen::Imagen() {
 	fondoTerreno.ReadFromFile("terreno.bmp");
 	imagenDelTerreno.SetSize(fondoTerreno.TellWidth(),
@@ -27,11 +30,12 @@ void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 
 void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 		unsigned int columnas, unsigned int filas) {
-	std::string nombre = jugador->obtenerNombre();
+	string nombre = jugador->obtenerNombre();
 
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
-	imagenDelTerreno.WriteToFile("ejemploterreno.bmp");
-
+	string rutaCompleta = archivo.concatenarRutas(
+			archivo.obtenerRutaCapturasPantalla(), "ejemploterreno.bmp");
+	imagenDelTerreno.WriteToFile(rutaCompleta.c_str());
 }
 
 void Imagen::rescalarImagenes(unsigned int columnas) {
@@ -60,10 +64,8 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 
 				RangedPixelToPixelCopyTransparent(cultivo, 0,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
-						imagenDelTerreno,
-						(columna * cultivo.TellWidth()) + 0,
-						(fila * cultivo.TellHeight()) + 0,
-						*cultivo(0, 49));
+						imagenDelTerreno, (columna * cultivo.TellWidth()) + 0,
+						(fila * cultivo.TellHeight()) + 0, *cultivo(0, 49));
 				PrintString(cultivo, datoParaImprimir, cultivo.TellWidth() / 2,
 						(cultivo.TellHeight() / 2) + 17, 8, color);
 
@@ -74,6 +76,7 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 		columna = 1;
 	}
 }
+
 Imagen::~Imagen() {
 
 }
