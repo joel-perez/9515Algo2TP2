@@ -42,8 +42,8 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 	terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {
 		Terreno* terrenoActual = terrenos->obtenerCursor();
-		for (unsigned int i = 0; i < terrenoActual->obtenerFilas(); i++) {
-			for (unsigned int j = 0; j < terrenoActual->obtenerColumnas();
+		for (unsigned int i = 1; i <= terrenoActual->obtenerFilas(); i++) {
+			for (unsigned int j = 1; j <= terrenoActual->obtenerColumnas();
 					j++) {
 				Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
 				cout << "(" << i << "," << j << ") "

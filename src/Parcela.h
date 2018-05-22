@@ -104,7 +104,7 @@ public:
 	 * PRE:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
-	unsigned int sembrar(Cultivo* tipoCultivo);
+	unsigned int sembrar(Cultivo* &tipoCultivo);
 
 	/*
 	 * PRE:

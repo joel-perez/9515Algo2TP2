@@ -117,7 +117,7 @@ Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 			terreno->obtenerColumnas());
 	cout << "Ha seleccionado la Parcela(" << fila << ", " << columna << ")"
 			<< endl;
-	return terreno->obtenerParcela(fila - 1, columna - 1);
+	return terreno->obtenerParcela(fila, columna);
 }
 
 int Juego::regarParcela(Jugador* jugador) {

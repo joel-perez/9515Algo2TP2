@@ -41,11 +41,11 @@ Parcela* Terreno::obtenerParcela(unsigned int fila, unsigned int columna) {
 				"Fila debe ser menor o igual a " + texto.intToString(fila)
 						+ " y Columna debe ser menor o igual a "
 						+ texto.intToString(columna));
-	unsigned int indice = fila * this->tamanioColumnas + columna;
+	unsigned int indice = (fila - 1) * this->tamanioColumnas + columna;
 	return this->parcelas->obtener(indice);
 }
 
-
-Lista<Parcela*>*  Terreno::seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual){
+Lista<Parcela*>* Terreno::seleccionarTerreno(
+		Lista<Terreno*>* terrenosJugadorActual) {
 	return 0;
 }

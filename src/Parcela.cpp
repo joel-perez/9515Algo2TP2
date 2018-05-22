@@ -25,7 +25,7 @@ EstadoParcela Parcela::obtenerEstado() {
 }
 
 string Parcela::obtenerEstadoParaMostrarEnPantalla() {
-	string estadoParaMostrar = "sarasa";
+	string estadoParaMostrar = "";
 	switch (this->estadoParcela) {
 	case VACIA:
 		estadoParaMostrar = "#"; //TODO: Pasar a constante...
@@ -69,8 +69,9 @@ unsigned int Parcela::obtenerTiempoHastaCosecha() {
 	return this->tiempoHastaCosecha;
 }
 
-unsigned int Parcela::sembrar(Cultivo* cultivo) {
+unsigned int Parcela::sembrar(Cultivo* &cultivo) {
 	if (!this->estaOcupada()) {
+		this->estadoParcela = SEMBRADA;
 		this->cultivo = cultivo;
 		this->rentabilidad = cultivo->obtenerRentabilidad();
 		this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
