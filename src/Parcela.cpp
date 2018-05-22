@@ -13,7 +13,7 @@ Parcela::Parcela() {
 }
 
 bool Parcela::estaOcupada() {
-	return (this->estadoParcela == VACIA);
+	return (this->estadoParcela != VACIA);
 }
 
 Cultivo* Parcela::obtenerCultivo() {
