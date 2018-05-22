@@ -107,6 +107,11 @@ public:
 	 * POST: Indica si el jugador sigue jugando o no.
 	 */
 	bool abandono();
+
+	/*
+	 * POST: Libera los recursos utilizados.
+	 */
+	~Jugador();
 };
 
 #endif

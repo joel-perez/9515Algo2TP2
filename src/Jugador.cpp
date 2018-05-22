@@ -76,3 +76,10 @@ void Jugador::cambiarTerrenoActual(unsigned int indiceTerreno) {
 bool Jugador::abandono() {
 	return !this->sigueJugando;
 }
+
+Jugador::~Jugador() {
+	// TODO: Eliminar estos tres elementos, las listas borrarlas recorriendolas... ya tu sabes.
+	// delete this->terrenos = new Lista<Terreno*>;
+	// delete this->almacenes = new Lista<Almacen*>;
+	delete this->tanque;
+}

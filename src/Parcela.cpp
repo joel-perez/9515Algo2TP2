@@ -81,14 +81,19 @@ unsigned int Parcela::sembrar(Cultivo* &cultivo) {
 	return cultivo->obtenerCosto();
 }
 
-void Parcela::cosechar(Cultivo* &cultivo){
-	unsigned int tiempoRecuperacionActual = cultivo->obtenerTiempoRecuperacion();
-	if(!this->estaOcupada()){
+void Parcela::cosechar(Cultivo* &cultivo) {
+	unsigned int tiempoRecuperacionActual =
+			cultivo->obtenerTiempoRecuperacion();
+	if (!this->estaOcupada()) {
 		//this->cultivo = ....
 		this->estadoParcela = RECUPERACION;
-		this->estaRegada=false;
-		this->tiempoHastaRecuperacion= tiempoRecuperacionActual;
-		this->tiempoHastaCosecha=TIEMPO_COSECHA_CULTIVO_COSECHADO;
+		this->estaRegada = false;
+		this->tiempoHastaRecuperacion = tiempoRecuperacionActual;
+		this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_COSECHADO;
 
 	}
+}
+
+Parcela::~Parcela() {
+	delete this->cultivo;
 }

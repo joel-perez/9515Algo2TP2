@@ -113,6 +113,11 @@ public:
 	 * POST: Devuelve el estado de la parcela listo para mostrar en pantalla.
 	 */
 	std::string obtenerEstadoParaMostrarEnPantalla();
+
+	/*
+	 * POST: Libera los recursos utilizados.
+	 */
+	~Parcela();
 };
 
 #endif
