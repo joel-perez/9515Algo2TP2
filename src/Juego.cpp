@@ -71,7 +71,7 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 		sembrarParcela(jugador);
 		break;
 	case ACCION_COSECHAR:
-		//TODO: Implementar...
+		cosecharParcel(jugador);
 		break;
 	case ACCION_REGAR:
 		regarParcela(jugador);
@@ -141,6 +141,38 @@ int Juego::regarParcela(Jugador* jugador) {
 		cout << "Solo se pueden regar parcelas con cultivo." << endl;
 	}
 	return aguaUtilizada;
+}
+
+void Juego::cosecharParcel(Jugador* jugador) {
+	Parcela* parcelaActual = this->seleccionarParcela(
+			jugador->obtenerTerrenoActual());
+	Cultivo* cultivoSelcionado = parcelaActual->obtenerCultivo();
+	cultivoSelcionado->obtenerNombre();
+	if (parcelaActual->estaOcupada()) {
+		if (cultivoSelcionado->obtenerTiempoHastaCosecha() == 0
+				&& cultivoSelcionado->obtenerNombre()
+						!= PARCELA_EN_RECUPERACION) {
+			if (cultivoSelcionado->obtenerNombre() != CULTIVO_PODRIDO
+					&& cultivoSelcionado->obtenerNombre() != CULTIVO_SECO) {
+				parcelaActual->cosechar(cultivoSelcionado);
+
+
+			} else {
+				cout
+						<< "Solo se puede cosechar parcelas que no esten podridas o secas."
+						<< endl;
+			}
+
+		} else {
+			cout
+					<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."
+					<< endl;
+		}
+
+	} else {
+		cout << "Solo se pueden cosechar parcelas con cultivo." << endl;
+	}
+
 }
 
 Cultivo* Juego::seleccionarCultivo() {
@@ -233,7 +265,8 @@ void Juego::cargarArchivos() {
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
 	consola.mostrarTerrenos(jugadorActual);
-	imagen.mostrarTerrenos(jugadorActual,this->obtenerAnchoTerreno(),this->obtenerAltoTerreno());
+	imagen.mostrarTerrenos(jugadorActual, this->obtenerAnchoTerreno(),
+			this->obtenerAltoTerreno());
 }
 
 void Juego::iniciarJuego() {

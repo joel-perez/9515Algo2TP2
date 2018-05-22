@@ -6,8 +6,6 @@
 const char CULTIVO_A = 'A';
 const char CULTIVO_B = 'B';
 const char CULTIVO_C = 'C';
-const char CULTIVO_PERDIDO_RECUPERADO = 'X';
-const char PARCELA_LIBRE = '#';
 const char SEPARADOR_DIRECTORIO_LINUX = '/';
 const char SEPARADOR_DIRECTORIO_WINDOWS = '\\';
 const int ACCION_COMPRAR_CAPACIDAD_ALMACEN = 8;
@@ -45,4 +43,9 @@ const int MARGEN_COLUMNA=0;
 const int MARGEN_FILA=0;
 const std::string FONDO_TERRENO = "terrenoo.bmp";
 const std::string CULTIVO_FRUTILLA = "frutilla.bmp";
+const std::string CULTIVO_PODRIDO="P";
+const std::string PARCELA_EN_RECUPERACION="R";
+const std::string CULTIVO_SECO="S";
+const std::string PARCEL_VACIA="#";
+const  unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
 #endif

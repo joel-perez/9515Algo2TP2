@@ -95,16 +95,18 @@ public:
 	 * condiciones iniciales del siguiente turno.
 	 */
 	//void procesarTurno();
-	/*
-	 * PRE:
-	 * POST:Cosecha el cultivo actual, dejando su estado en recuperacion.
-	 */
-	//void cosechar();
+
 	/*
 	 * PRE:
 	 * POST:Siembra el cultivo indicado en la parcela actual.
 	 */
 	unsigned int sembrar(Cultivo* &tipoCultivo);
+
+	/*
+	* PRE:
+	* POST:Cosecha el la parcelaActual, dejando su estado en recuperacion.
+	*/
+	void cosechar(Cultivo* &cultivo);
 
 	/*
 	 * PRE:

@@ -28,19 +28,19 @@ string Parcela::obtenerEstadoParaMostrarEnPantalla() {
 	string estadoParaMostrar = "";
 	switch (this->estadoParcela) {
 	case VACIA:
-		estadoParaMostrar = "#"; //TODO: Pasar a constante...
+		estadoParaMostrar = PARCEL_VACIA;
 		break;
 	case SEMBRADA:
-		estadoParaMostrar = this->obtenerNombre().substr(0, 10); //TODO: Pasar el 10 a constante...
+		estadoParaMostrar = this->obtenerNombre().substr(0, 10);
 		break;
 	case SECA:
-		estadoParaMostrar = "S"; //TODO: Pasar a constante...
+		estadoParaMostrar = CULTIVO_SECO;
 		break;
 	case PODRIDA:
-		estadoParaMostrar = "P"; //TODO: Pasar a constante...
+		estadoParaMostrar = CULTIVO_PODRIDO;
 		break;
 	case RECUPERACION:
-		estadoParaMostrar = "R"; //TODO: Pasar a constante...
+		estadoParaMostrar = PARCELA_EN_RECUPERACION;
 		break;
 	}
 	return estadoParaMostrar;
@@ -79,4 +79,16 @@ unsigned int Parcela::sembrar(Cultivo* &cultivo) {
 		this->estaRegada = false;
 	}
 	return cultivo->obtenerCosto();
+}
+
+void Parcela::cosechar(Cultivo* &cultivo){
+	unsigned int tiempoRecuperacionActual = cultivo->obtenerTiempoRecuperacion();
+	if(!this->estaOcupada()){
+		//this->cultivo = ....
+		this->estadoParcela = RECUPERACION;
+		this->estaRegada=false;
+		this->tiempoHastaRecuperacion= tiempoRecuperacionActual;
+		this->tiempoHastaCosecha=TIEMPO_COSECHA_CULTIVO_COSECHADO;
+
+	}
 }

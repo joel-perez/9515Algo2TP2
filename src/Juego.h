@@ -182,6 +182,9 @@ public:
 	 */
 	void comprarAlmacen(Jugador* jugador);
 
+
+	void cosecharParcel(Jugador* jugador);
+
 	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
