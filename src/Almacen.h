@@ -9,10 +9,11 @@ class Almacen {
 private:
 	Lista<Cosecha*>* cosechas;
 	unsigned int capacidadMaximaAlmacen;
+
 public:
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:Almacen listo para usar.
 	 */
 	Almacen();
 
@@ -20,7 +21,8 @@ public:
 	 * PRE:
 	 * POST:
 	 */
-	Almacen(unsigned int coeficienteCapacidadAlmacen, unsigned int filas, unsigned int columnas);
+	Almacen(unsigned int coeficienteCapacidadAlmacen, unsigned int filas,
+			unsigned int columnas);
 	/*
 	 *
 	 *
@@ -33,11 +35,11 @@ public:
 	 */
 	void enviarCosechas();
 
-	/*
+	/*////////////////////////////////////
 	 *
 	 *
 	 */
-	void agregarCosechas();
+	void agregarCosechaAmiAlmacen(Cultivo* cultivo);
 
 	/* esta lleno el almacen?
 	 *
@@ -45,13 +47,36 @@ public:
 	 * POST: devuelve true si es asi y false si no
 	 */
 	bool estaLleno();
+
 	/*
-	 *
-	 *
-	 *
+	 * PRE:~
+	 * POST:devuelve las cosechas de ese almacen.
 	 */
+
 	Lista<Cosecha*>* obtenerCosechas();
 	//TODO: Implementar metodos necesarios...
+
+
+
+
+	/*///////////////////////////////////////////////
+	 * PRE:~
+	 * POST:devuelve la cantidad de cosechas de ese almacen.
+	 */
+	unsigned int obtenerCantidadDeCosechasEnUnAlmacen(){
+		return(this->cosechas->contarElementos());
+	}
+
+	/*
+	 * PRE:~
+	 * POST:devuelve la cosecha indicada por cosechaElegida.
+	 */
+	Cosecha* obtenerUnaCosecha(unsigned int cosechaElegida) {
+
+		return (this->cosechas->obtener(cosechaElegida));
+	}
+
+
 
 };
 

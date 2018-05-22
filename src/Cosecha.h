@@ -2,10 +2,13 @@
 #define COSECHA_H_
 #include "Lista.h"
 #include "Cultivo.h"
-
+/*
+ * Una Cosecha  es una entidad que recoge los frutos que produce mi terreno.
+ *
+ */
 class Cosecha {
 private:
-	Lista<Cultivo*>* cosechas;
+	Lista<Cultivo*>* cultivos;
 
 
 public:
@@ -16,9 +19,28 @@ public:
 	Cosecha();
 	/*
 	 * PRE:
-	 * POST:Devuelve los las cosechas del jugadorActual.
+	 * POST:devuelve los cultivos de esa cosecha.
 	 */
-	Lista<Cultivo*>* obtenerCosechas();
+
+	Lista<Cultivo*>* obtenerCosecha();
+	/////////////////////////////////////////
+	/*
+	 * PRE:~
+	 * POST:devuelve el cultivo indicada por cultivoCosechadoElegido.
+	 */
+	Cultivo* obtenerUncultivoCosechado(unsigned int cultivoCosechadoElegido);
+	/*
+	 * PRE:~
+	 * POST:devuelve la cantidad de cultivos de esa cosecha.
+	 */
+	unsigned int obtenerCantidadDeCultivosEnUnaCosecha();
+
+
+
+
+
+
+
 };
 
 

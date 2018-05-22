@@ -1,11 +1,21 @@
 #include "Cosecha.h"
 
 Cosecha::Cosecha() {
-	this->cosechas= new Lista<Cultivo*>;
+	this->cultivos= new Lista<Cultivo*>;
 
 }
 
-Lista<Cultivo*>* Cosecha::obtenerCosechas(){
-	return this->cosechas;
+Lista<Cultivo*>* Cosecha::obtenerCosecha(){
+	return this->cultivos;
 }
+
+Cultivo*Cosecha::obtenerUncultivoCosechado(unsigned int cultivoCosechadoElegido){
+	return (this->cultivos->obtener(cultivoCosechadoElegido));
+}
+unsigned int Cosecha::obtenerCantidadDeCultivosEnUnaCosecha(){
+		return(this->cultivos->contarElementos());
+	}
+
+
+
 //TODO: Implementar los metodos necesarios...

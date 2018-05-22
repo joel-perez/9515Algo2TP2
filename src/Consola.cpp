@@ -57,6 +57,9 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 }
 
 void Consola::mostrarFin(Lista<Jugador*>* jugadores) {
+	//TODO: Agregar resultados finales, o sea quien gano el juego con sus terrenos,
+	//      La lista de todos los jugadores ordenados descendentemente por cantidad de creditos.
+	//      Guardar la imagen BMP final con todos estos datos tambien...
 	this->solicitarEnterParaSalir();
 }
 

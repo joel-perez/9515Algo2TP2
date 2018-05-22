@@ -31,7 +31,7 @@ void Jugador::venderTerreno() {
 Lista<Terreno*>* Jugador::obtenerTerrenos() {
 	return this->terrenos;
 }
-Lista<Almacen*>* Jugador::obtenerAlmacenes(){
+Lista<Almacen*>* Jugador::obtenerAlmacenes() {
 	return this->almacenes;
 }
 Terreno* Jugador::obtenerTerrenoActual() {
@@ -57,6 +57,11 @@ unsigned int Jugador::restarCredito(unsigned int creditoUtilizado) {
 	return (this->creditos - creditoUtilizado);
 }
 
+unsigned int Jugador::incrementoDeGananciaPorHaberLLegadoADestino(
+		unsigned int gananciaPorLlegarADestino) {
+	return (this->creditos + gananciaPorLlegarADestino);
+}
+
 Tanque* Jugador::obtenerTanque() {
 	return this->tanque;
 
@@ -64,6 +69,11 @@ Tanque* Jugador::obtenerTanque() {
 
 void Jugador::abandonarJuego() {
 	this->sigueJugando = false;
+}
+
+void Jugador::cambiarTerrenoActual(unsigned int indiceTerreno) {
+	this->terrenoActual = this->terrenos->obtener(indiceTerreno);
+
 }
 
 bool Jugador::abandono() {

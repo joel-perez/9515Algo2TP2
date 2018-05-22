@@ -189,10 +189,41 @@ public:
 	 * en condiciones de ser cosechada.
 	 *
 	 */
+	void cosecharParcela(Jugador* jugador);
 
-	 void cosecharParcel(Jugador* jugador);
+	/*
+	 *
+	 */
+	void enviarCosechaADestino(Jugador* jugador);
 
-	 /*
+	/*
+	 *
+	 */
+	void comprarTerreno(Jugador* jugador);
+
+	/*
+	 *
+	 */
+	void venderTerreno(Jugador* jugador);
+
+	/*
+	 * POST: Solicita al usuario que seleccione con cual terreno quiere trabajar y lo asigna
+	 *       a la variable terrenoActual.
+	 */
+	void solicitarCambioTerreno(Jugador* jugador);
+
+	/*
+	 *
+	 */
+	void comprarCapacidadTanque(Jugador* jugador);
+
+	/*
+	 * POST: Solicita al usuario que seleccione un terreno y devuelve el indice de ese terreno
+	 *       dentro de su lista de terrenos.
+	 */
+	unsigned int solicitarSeleccionarTerreno(Jugador* jugador);
+
+	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
 	~Juego();

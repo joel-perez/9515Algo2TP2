@@ -15,7 +15,7 @@ unsigned int Almacen::obtenerCapacidadMaxima(){
 	return this->capacidadMaximaAlmacen;
 }
 
-void Almacen::agregarCosechas(){
+void Almacen::agregarCosechaAmiAlmacen(Cultivo* cultivo){
 
 }
 

@@ -80,6 +80,14 @@ public:
 	 * POST: el creditoActual le resta al creditoUtilizado y devuelve el nuevo saldo.
 	 */
 	unsigned int restarCredito(unsigned int creditoUtilizado);
+
+	/*////////////////////////////////////////////////////////////quitar despues
+	 *
+	 * POST: el creditoActual le suma la gananciaPorLlegarADestino y devuelve el nuevo saldo.
+	 */
+
+	unsigned int incrementoDeGananciaPorHaberLLegadoADestino(
+			unsigned int gananciaPorLlegarADestino);
 	/*
 	 *
 	 * POST: devuelve los tanques de agua del jugadorActual.
@@ -95,6 +103,11 @@ public:
 	 * POST: Establece al jugador como que no va a seguir jugando.
 	 */
 	void abandonarJuego();
+
+	/*
+	 *
+	 */
+	void cambiarTerrenoActual(unsigned int indiceTerreno);
 
 	/*
 	 * POST: Indica si el jugador sigue jugando o no.

@@ -42,6 +42,7 @@ Cultivo* Juego::obtenerCultivoPorNombre(string nombreCultivo) {
 			resultado = cultivoEncontrado;
 	}
 	return resultado;
+
 }
 Dificultad Juego::obtenerDificultad() {
 	return this->dificultad;
@@ -71,41 +72,78 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 		sembrarParcela(jugador);
 		break;
 	case ACCION_COSECHAR:
-		cosecharParcel(jugador);
+		cosecharParcela(jugador);
 		break;
 	case ACCION_REGAR:
 		regarParcela(jugador);
 		break;
 	case ACCION_ENVIAR_A_DESTINO:
-		//TODO: Implementar...
+		enviarCosechaADestino(jugador);
 		break;
 	case ACCION_COMPRAR_TERRENO:
-		//TODO: Implementar...
+		comprarTerreno(jugador);
 		break;
 	case ACCION_VENDER_TERRENO:
-		//TODO: Implementar...
+		venderTerreno(jugador);
 		break;
 	case ACCION_COMPRAR_CAPACIDAD_TANQUE:
-		jugador->obtenerTanque()->aumentarCapacidad();
-		//FALTA RESTAR CREDITOS
+		comprarCapacidadTanque(jugador);
 		break;
 	case ACCION_COMPRAR_CAPACIDAD_ALMACEN:
 		comprarAlmacen(jugador);
 		break;
 	case ACCION_CAMBIAR_TERRENO:
-		//TODO: Implementar...
+		solicitarCambioTerreno(jugador);
 		break;
 	}
 }
+
+void Juego::comprarCapacidadTanque(Jugador* jugador) {
+	jugador->obtenerTanque()->aumentarCapacidad();
+	//TODO: FALTA RESTAR CREDITOS...
+}
+
+void Juego::comprarTerreno(Jugador* jugador) {
+	//TODO: Implementar...
+}
+
+void Juego::venderTerreno(Jugador* jugador) {
+	//TODO: Implementar...
+}
+
+void Juego::solicitarCambioTerreno(Jugador* jugador) {
+	unsigned int indiceTerrenoSeleccionado = 1;
+	unsigned int cantidadTerrenosDelJugador =
+			jugador->obtenerTerrenos()->contarElementos();
+	if (cantidadTerrenosDelJugador == 0) {
+		cout << "Usted no tiene terrenos. Debe comprar uno primero." << endl;
+	} else if (cantidadTerrenosDelJugador == 1) {
+		cout << "Tiene un solo terreno" << endl;
+	} else {
+		indiceTerrenoSeleccionado = solicitarSeleccionarTerreno(jugador);
+	}
+	jugador->cambiarTerrenoActual(indiceTerrenoSeleccionado);
+}
+
+unsigned int Juego::solicitarSeleccionarTerreno(Jugador* jugador) {
+	unsigned int cantidadTerrenosDelJugador =
+			jugador->obtenerTerrenos()->contarElementos();
+	cout << "Tiene " << cantidadTerrenosDelJugador << " Terrenos." << endl;
+	cout << "Seleccione el terreno con el cual desea trabajar (del " << 1
+			<< " al " << cantidadTerrenosDelJugador << "):" << endl;
+	return consola.solicitarIngresoNumerico(1, cantidadTerrenosDelJugador);
+
+}
+
 void Juego::comprarAlmacen(Jugador* jugador) {
 	Almacen* nuevoAlmacen = new Almacen(
 			this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
 			this->obtenerAltoTerreno(), this->obtenerAnchoTerreno());
 	jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
-	//ELIMINAR ESTO LUEGO DE LA PRUEBA
+//ELIMINAR ESTO LUEGO DE LA PRUEBA
 	cout << "Ahora hay " << jugador->obtenerAlmacenes()->contarElementos()
 			<< " almacenes" << endl;
-	//FALTA RESTAR CREDITO
+//FALTA RESTAR CREDITO
 }
 
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
@@ -143,7 +181,7 @@ int Juego::regarParcela(Jugador* jugador) {
 	return aguaUtilizada;
 }
 
-void Juego::cosecharParcel(Jugador* jugador) {
+void Juego::cosecharParcela(Jugador* jugador) {
 	Parcela* parcelaActual = this->seleccionarParcela(
 			jugador->obtenerTerrenoActual());
 	Cultivo* cultivoSelcionado = parcelaActual->obtenerCultivo();
@@ -155,7 +193,6 @@ void Juego::cosecharParcel(Jugador* jugador) {
 			if (cultivoSelcionado->obtenerNombre() != CULTIVO_PODRIDO
 					&& cultivoSelcionado->obtenerNombre() != CULTIVO_SECO) {
 				parcelaActual->cosechar(cultivoSelcionado);
-
 
 			} else {
 				cout
@@ -173,6 +210,10 @@ void Juego::cosecharParcel(Jugador* jugador) {
 		cout << "Solo se pueden cosechar parcelas con cultivo." << endl;
 	}
 
+}
+
+void Juego::enviarCosechaADestino(Jugador* jugador) {
+//TODO: Implementar...
 }
 
 Cultivo* Juego::seleccionarCultivo() {
