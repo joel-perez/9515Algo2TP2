@@ -49,3 +49,6 @@ Lista<Parcela*>* Terreno::seleccionarTerreno(
 		Lista<Terreno*>* terrenosJugadorActual) {
 	return 0;
 }
+Lista<Parcela*>* Terreno::obtenerParcelas(){
+	return this->parcelas;
+}

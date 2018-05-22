@@ -1,63 +1,79 @@
 #include "Imagen.h"
-
+#include<string>
 Imagen::Imagen() {
-	//TODO: Implementar este constructor...
+	fondoTerreno.ReadFromFile("terreno.bmp");
+	imagenDelTerreno.SetSize(fondoTerreno.TellWidth(),
+			fondoTerreno.TellHeight());
+	imagenDelTerreno.SetBitDepth(24);
+	cultivo.ReadFromFile("frutilla.bmp");
+	color.Red = 225;
+	color.Blue = 225;
+	color.Green = 225;
 }
 
-void Imagen::mostrarTerrenos(Jugador* jugador) {
-	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programación II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
-	std::cout << "TODO: Implementar mostrarTerrenos usando EasyBMP."
-			<< std::endl;
+void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
+		unsigned int filas) {
+	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programaciï¿½n II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
+
+	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
+	terrenos->iniciarCursor();
+	while (terrenos->avanzarCursor()) {
+		Terreno* terrenoParaGraficar = terrenos->obtenerCursor();
+		this->obtenerImagenDelTerreno(terrenoParaGraficar, jugador, columnas,
+				filas);
+	}
+
 }
 
+void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
+		unsigned int columnas, unsigned int filas) {
+	std::string nombre = jugador->obtenerNombre();
+
+	this->pegarEstadoDelTerreno(terreno, columnas, filas);
+	imagenDelTerreno.WriteToFile("ejemploterreno.bmp");
+
+}
+
+void Imagen::rescalarImagenes(unsigned int columnas) {
+	Rescale(cultivo, 'f',
+			(imagenDelTerreno.TellWidth() - (2 * MARGEN_COLUMNA)) / columnas);
+}
+
+void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
+		unsigned int filas) {
+	RangedPixelToPixelCopy(fondoTerreno, 0, fondoTerreno.TellWidth(),
+			fondoTerreno.TellHeight(), 0, imagenDelTerreno, 0, 0);
+	this->rescalarImagenes(columnas);
+	Lista<Parcela*>* parcelas = terreno->obtenerParcelas();
+	parcelas->iniciarCursor();
+	unsigned int fila = 1;
+	unsigned int columna = 1;
+
+	while (fila <= filas) {
+		while (columna <= columnas && parcelas->avanzarCursor()) {
+			Parcela* parcela = parcelas->obtenerCursor();
+
+			if (!parcela->estaOcupada()) {
+				char datoParaImprimir[20] = "asdfghjkloiuytredsg";
+
+				std::strcpy(datoParaImprimir, parcela->obtenerNombre().c_str());
+
+				RangedPixelToPixelCopyTransparent(cultivo, 0,
+						cultivo.TellWidth(), cultivo.TellHeight(), 0,
+						imagenDelTerreno,
+						(columna * cultivo.TellWidth()) + 0,
+						(fila * cultivo.TellHeight()) + 0,
+						*cultivo(0, 49));
+				PrintString(cultivo, datoParaImprimir, cultivo.TellWidth() / 2,
+						(cultivo.TellHeight() / 2) + 17, 8, color);
+
+			}
+			columna++;
+		}
+		fila++;
+		columna = 1;
+	}
+}
 Imagen::~Imagen() {
-	//TODO: Implementar este constructor...
+
 }
-
-/*
- Imagen::Imagen() {
-
- cultivo.ReadFromFile("cultivoo.bmp");
- fondoTerreno.ReadFromFile("terrenoo.bmp");
- fondoUsuario.ReadFromFile("fondoJugadorr.bmp");
- imagenDelTerreno.SetSize(fondoTerreno.TellWidth(),
- fondoTerreno.TellHeight() + fondoUsuario.TellHeight());
- imagenDelTerreno.SetBitDepth(24);
-
- color.Red = 255;
- color.Green = 255;
- color.Blue = 225;
- }
-
- void Imagen::rescalarImagenes() {
- Rescale(cultivo, 'f',
- (imagenDelTerreno.TellWidth() - (2 * MARGEN_COLUMNA)) / COLUMNA);
- }
-
- void Imagen::pegarFondos() {
- RangedPixelToPixelCopy(fondoTerreno, 0, fondoTerreno.TellWidth(),
- fondoTerreno.TellHeight(), 0, imagenDelTerreno, 0, 0);
- RangedPixelToPixelCopy(fondoUsuario, 0, fondoTerreno.TellWidth(),
- fondoTerreno.TellHeight() - 1, 0, imagenDelTerreno, 0,
- fondoTerreno.TellHeight());
- }
-
- void Imagen::obtenerImagenDelTerreno(char* jugador) {
- this->rescalarImagenes();
- this->pegarFondos();
-
- for (int fila = 0; fila < FILA; fila++) {
- for (int columna = 0; columna < COLUMNA; columna++) {
- RangedPixelToPixelCopy(cultivo, 0, cultivo.TellWidth(),
- cultivo.TellHeight(), 0, imagenDelTerreno,
- (columna * cultivo.TellWidth()) + MARGEN_COLUMNA,
- (fila * cultivo.TellHeight()) + MARGEN_FILA);
- }
- }
-
- PrintString(imagenDelTerreno, jugador, fondoUsuario.TellWidth() / 3,
- fondoTerreno.TellHeight() + 50, 60, color);
-
- imagenDelTerreno.WriteToFile("ejemploterrenoo.bmp");
- }
- */

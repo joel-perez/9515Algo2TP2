@@ -41,5 +41,8 @@ const std::string DIRECTORIO_ARCHIVOS_DATOS = "datos";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string DIRECTORIO_RECURSOS = "res";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
-
+const int MARGEN_COLUMNA=0;
+const int MARGEN_FILA=0;
+const std::string FONDO_TERRENO = "terrenoo.bmp";
+const std::string CULTIVO_FRUTILLA = "frutilla.bmp";
 #endif

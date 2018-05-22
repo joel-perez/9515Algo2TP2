@@ -34,7 +34,7 @@ public:
 	 * POST: delvuelve el alto del terreno,
 	 */
 	unsigned int obtenerFilas();
-
+	Lista<Parcela*>* obtenerParcelas();
 	/*
 	 * PRE:
 	 * POST: devuelve el ancho del terreno.

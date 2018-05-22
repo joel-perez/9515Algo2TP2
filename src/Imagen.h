@@ -1,19 +1,20 @@
 #ifndef IMAGEN_H_
 #define IMAGEN_H_
 
-/*
- * Necesita > Dimensiones, capacidad del Tanque y cantidad, capacidad del almacen y cantidad, nombre del jugador,
- */
-
 #include "Jugador.h"
+#include "Archivo.h"
 #include "lib/EasyBMP.h"
 #include "lib/EasyBMP_Geometry.h"
 #include "lib/EasyBMP_Font.h"
 
 class Imagen {
-//private:
-//	RGBApixel color;
-//	BMP cultivo;
+private:
+	BMP fondoTerreno;
+	BMP imagenDelTerreno;
+	BMP cultivo;
+	Archivo archivo;
+
+	RGBApixel color;
 //	BMP fondoTerreno;
 //	BMP fondoUsuario;
 //	BMP imagenDelTerreno;
@@ -28,7 +29,7 @@ public:
 	/*
 	 * POST: Muestra los terrenos del jugador indicado en una o varias imagenes BMP.
 	 */
-	void mostrarTerrenos(Jugador* jugador);
+	void mostrarTerrenos(Jugador* jugador,unsigned int columnas, unsigned int filas);
 
 	/*
 	 * POST: Libera los recursos utilizados.
@@ -39,19 +40,20 @@ public:
 	 * PRE
 	 * POST imagen del estado del terreno en cada turno creado.
 	 */
-	//void obtenerImagenDelTerreno(char* jugador);
-//private:
+	void obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,unsigned int columnas, unsigned int filas);
+private:
 	/*
 	 * PRE
 	 * POST adecua las medidas del cultivo.
 	 */
-	//void rescalarImagenes();
+	void rescalarImagenes(unsigned int columnas);
 	/*
 	 * PRE
 	 * POST coloca los fondos del disenio en la imagen final.
 	 */
-	//void pegarFondos();
+	void pegarFondos();
+	void pegarEstadoDelTerreno(Terreno* terreno,unsigned int columnas,unsigned int filas);
+	void pegarEstadoDeLosDatos();
 };
 
 #endif
-
