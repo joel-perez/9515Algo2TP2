@@ -7,24 +7,18 @@ using namespace std;
 
 Imagen::Imagen() {
 	fondoTerreno.ReadFromFile("terreno.bmp");
-	imagenDelTerreno.SetSize(fondoTerreno.TellWidth(),
-			fondoTerreno.TellHeight());
 	imagenDelTerreno.SetBitDepth(24);
 	cultivo.ReadFromFile("cultivodefault.bmp");
 	cultivoVacio.ReadFromFile("cultivovacio.bmp");
 	cultivoSeco.ReadFromFile("cultivoseco.bmp");
 	cultivoRecienSembrado.ReadFromFile("cultivobebe.bmp");
 	cultivoPodrido.ReadFromFile("cultivopodrdio.bmp");
-
-	color.Red = 225;
-	color.Blue = 225;
-	color.Green = 225;
 }
 
 void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		unsigned int filas, unsigned int turno) {
 	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programaci�n II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
-	int numeroTerreno = 1;
+	int numeroTerreno = 1; //TODO: buscar una mejor forma para indicar que terreno es el de la imagen
 	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
 	terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {
@@ -36,7 +30,6 @@ void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 	}
 }
 string Imagen::casquearNumeroAString(unsigned int numero) {
-	//   int to string en c++
 	std::ostringstream convert;
 	convert << numero;
 	return convert.str();
@@ -48,7 +41,8 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 	string nombreImagen = jugador->obtenerNombre() + "-turno-"
 			+ this->casquearNumeroAString(turno) + "-terreno-"
 			+ this->casquearNumeroAString(numeroTerreno) + ".bmp";
-
+	this->determinarMedidaDeLaImagen(columnas, filas);
+	this->pegarFondo(columnas, filas);
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
 	archivo.crearDirectorio(archivo.obtenerRutaCapturasPantalla().c_str());
 	string rutaCompleta = archivo.concatenarRutas(
@@ -56,15 +50,17 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 	imagenDelTerreno.WriteToFile(rutaCompleta.c_str());
 }
 
-void Imagen::rescalarImagenes(unsigned int columnas) {
-
-}
-
-void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
+void Imagen::determinarMedidaDeLaImagen(unsigned int columnas,
 		unsigned int filas) {
+	imagenDelTerreno.SetSize((cultivo.TellWidth() * columnas) + 135,
+			(cultivo.TellHeight() * filas) + 135);
+}
+void Imagen::pegarFondo(unsigned int columnas, unsigned int filas) {
 	RangedPixelToPixelCopy(fondoTerreno, 0, fondoTerreno.TellWidth(),
 			fondoTerreno.TellHeight(), 0, imagenDelTerreno, 0, 0);
-	this->rescalarImagenes(columnas);
+}
+void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
+		unsigned int filas) {
 	Lista<Parcela*>* parcelas = terreno->obtenerParcelas();
 	parcelas->iniciarCursor();
 	unsigned int fila = 1;

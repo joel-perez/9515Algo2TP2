@@ -18,44 +18,36 @@ private:
 	BMP cultivoPodrido;
 
 	Archivo archivo;
-	RGBApixel color;
 
 	/*
 	 * PRE
-	 * POST adecua las medidas del cultivo.
+	 * POST adecua las medidas del la imagen final.
 	 */
-	void rescalarImagenes(unsigned int columnas);
+	void determinarMedidaDeLaImagen(unsigned int columnas, unsigned int filas);
 
 	/*
-	 * PRE
-	 * POST coloca los fondos del disenio en la imagen final.
-	 */
-	void pegarFondos();
-
-	/*
-	 *
+	 *POST: pega en la imagen los cultivos segun su estado
 	 */
 	void pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 			unsigned int filas);
 
 	/*
-	 *
-	 */
-	void pegarEstadoDeLosDatos();
-	/*
-	 *
+	 *POST: convierte un numero a un string
 	 */
 	std::string casquearNumeroAString(unsigned int numero);
 	/*
-	 *
-	 *
+	 *POST: elige la imagen del cultivo segun el nombre del mismo. Si no esta se coloca una imagen generica.
 	 */
 	void obtenerCultivo(std::string nombreCultivo);
+	/*
+	 *POST: pega la imagen de fondo del terreno
+	 */
+	void pegarFondo(unsigned int columnas, unsigned int filas);
 
 public:
 	/*
 	 * PRE:
-	 * POST: dimensiones de la imagen final creada.
+	 * POST: .
 	 */
 	Imagen();
 
