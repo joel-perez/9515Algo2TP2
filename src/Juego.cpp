@@ -9,6 +9,7 @@ Juego::Juego() {
 	this->jugadores = new Lista<Jugador*>;
 	this->cultivos = new Lista<Cultivo*>;
 	this->destinos = new Lista<Destino*>;
+	this->dificultad = Dificultad(1);
 	this->turnos = 0;
 	this->turnoActual = 0;
 	this->numeroDeJugadores = 0;

@@ -79,7 +79,7 @@ public:
 
 private:
 	/*
-	 *PRE:~
+	 * PRE:~
 	 * POST: elige el multiplicador segun la dificultad
 	 */
 	unsigned int elegirMultiplicador();
