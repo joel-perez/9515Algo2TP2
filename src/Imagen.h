@@ -12,6 +12,11 @@ private:
 	BMP fondoTerreno;
 	BMP imagenDelTerreno;
 	BMP cultivo;
+	BMP cultivoVacio;
+	BMP cultivoSeco;
+	BMP cultivoRecienSembrado;
+	BMP cultivoPodrido;
+
 	Archivo archivo;
 	RGBApixel color;
 
@@ -37,6 +42,15 @@ private:
 	 *
 	 */
 	void pegarEstadoDeLosDatos();
+	/*
+	 *
+	 */
+	std::string casquearNumeroAString(unsigned int numero);
+	/*
+	 *
+	 *
+	 */
+	void obtenerCultivo(std::string nombreCultivo);
 
 public:
 	/*
@@ -49,14 +63,14 @@ public:
 	 * POST: Muestra los terrenos del jugador indicado en una o varias imagenes BMP.
 	 */
 	void mostrarTerrenos(Jugador* jugador, unsigned int columnas,
-			unsigned int filas);
+			unsigned int filas,unsigned int turno);
 
 	/*
 	 * PRE
 	 * POST imagen del estado del terreno en cada turno creado.
 	 */
 	void obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
-			unsigned int columnas, unsigned int filas);
+			unsigned int columnas, unsigned int filas, unsigned int turno);
 
 	/*
 	 * POST: Libera los recursos utilizados.

@@ -308,7 +308,7 @@ void Juego::cargarArchivos() {
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
 	consola.mostrarTerrenos(jugadorActual);
 	imagen.mostrarTerrenos(jugadorActual, this->obtenerAnchoTerreno(),
-			this->obtenerAltoTerreno());
+			this->obtenerAltoTerreno(), this->turnoActual);
 }
 
 void Juego::iniciarJuego() {
