@@ -23,12 +23,15 @@ public:
 	Dificultad();
 
 	/*
-	 * PRE:  dificultadSeleccionada debe de estar en el
-	 * 	intervalo de [1,3].
+	 * PRE:  dificultadSeleccionada debe de estar en el intervalo de [1,3].
 	 * POST: Dificultad lista para ser usada segun la dificultadSeleccionada.
 	 */
-	//Dificultad(const TipoDificultad& dificultadSeleccionada);
 	Dificultad(unsigned int dificultadSeleccionada);
+
+	/*
+	 *
+	 */
+	Dificultad(TipoDificultad dificultadSeleccionada);
 
 	/*
 	 * PRE:~
@@ -76,6 +79,21 @@ public:
 	 * POST:devuelve el CoeficienteMultiplicadorAgua según la dificultadSeleccionada.
 	 */
 	unsigned int obtenerCoeficienteMultiplicadorAgua();
+
+	/*
+	 *
+	 */
+	void inicializarDificultadFacil();
+
+	/*
+	 *
+	 */
+	void inicializarDificultadIntermedio();
+
+	/*
+	 *
+	 */
+	void inicializarDificultadDificil();
 
 private:
 	/*
