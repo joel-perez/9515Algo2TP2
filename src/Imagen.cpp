@@ -24,14 +24,15 @@ Imagen::Imagen() {
 void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		unsigned int filas, unsigned int turno) {
 	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programaci�n II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
-
+	int numeroTerreno = 1;
 	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
 	terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {
 		Terreno* terrenoParaGraficar = terrenos->obtenerCursor();
 		cout << "Generando imagen, espere un momento..." << endl;
 		this->obtenerImagenDelTerreno(terrenoParaGraficar, jugador, columnas,
-				filas, turno);
+				filas, turno, numeroTerreno);
+		numeroTerreno++;
 	}
 }
 string Imagen::casquearNumeroAString(unsigned int numero) {
@@ -42,9 +43,11 @@ string Imagen::casquearNumeroAString(unsigned int numero) {
 }
 
 void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
-		unsigned int columnas, unsigned int filas, unsigned int turno) {
-	string nombreImagen = jugador->obtenerNombre() + "turno"
-			+ this->casquearNumeroAString(turno) + ".bmp";
+		unsigned int columnas, unsigned int filas, unsigned int turno,
+		int numeroTerreno) {
+	string nombreImagen = jugador->obtenerNombre() + "-turno-"
+			+ this->casquearNumeroAString(turno) + "-terreno-"
+			+ this->casquearNumeroAString(numeroTerreno) + ".bmp";
 
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
 	archivo.crearDirectorio(archivo.obtenerRutaCapturasPantalla().c_str());
@@ -82,7 +85,8 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
 						(fila * cultivo.TellHeight()), *cultivo(0, 49));
 			} else {
-				this->obtenerCultivo(parcela->obtenerCultivo()->obtenerNombre());
+				this->obtenerCultivo(
+						parcela->obtenerCultivo()->obtenerNombre());
 				RangedPixelToPixelCopyTransparent(cultivo, 0,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
@@ -106,9 +110,9 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 		cultivo.ReadFromFile("cannabis.bmp");
 	} else if (nombreCultivo == "maiz") {
 		cultivo.ReadFromFile("maiz.bmp");
-	}else if(nombreCultivo == "girasol"){
+	} else if (nombreCultivo == "girasol") {
 		cultivo.ReadFromFile("girasol.bmp");
-	}	else {
+	} else {
 		cultivo.ReadFromFile("cultivodefault.bmp");
 	}
 }

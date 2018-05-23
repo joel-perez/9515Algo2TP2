@@ -63,14 +63,15 @@ public:
 	 * POST: Muestra los terrenos del jugador indicado en una o varias imagenes BMP.
 	 */
 	void mostrarTerrenos(Jugador* jugador, unsigned int columnas,
-			unsigned int filas,unsigned int turno);
+			unsigned int filas, unsigned int turno);
 
 	/*
 	 * PRE
 	 * POST imagen del estado del terreno en cada turno creado.
 	 */
 	void obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
-			unsigned int columnas, unsigned int filas, unsigned int turno);
+			unsigned int columnas, unsigned int filas, unsigned int turno,
+			int numeroTerreno);
 
 	/*
 	 * POST: Libera los recursos utilizados.
