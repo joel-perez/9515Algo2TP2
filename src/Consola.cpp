@@ -32,7 +32,7 @@ void Consola::mostrarBienvenida() {
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual,
 		unsigned int turnoActual) {
 	cout << endl << "JUGADOR: " << jugadorActual->obtenerNombre() << endl;
-	cout << "Turno Nro: " << turnoActual + 1 << endl;
+	cout << "Turno Nro: " << turnoActual << endl;
 	cout << "Creditos: " << jugadorActual->obtenerCreditos() << endl;
 }
 

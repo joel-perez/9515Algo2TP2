@@ -11,7 +11,7 @@ Juego::Juego() {
 	this->destinos = new Lista<Destino*>;
 	this->dificultad = Dificultad(1);
 	this->turnos = 0;
-	this->turnoActual = 0;
+	this->turnoActual = 1;
 	this->numeroDeJugadores = 0;
 	this->anchoTerreno = 0;
 	this->altoTerreno = 0;
