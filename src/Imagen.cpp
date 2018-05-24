@@ -28,7 +28,7 @@ void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		numeroTerreno++;
 	}
 }
-string Imagen::casquearNumeroAString(unsigned int numero) {
+string Imagen::castearNumeroComoString(unsigned int numero) {
 	std::ostringstream convert;
 	convert << numero;
 	return convert.str();
@@ -38,8 +38,8 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 		unsigned int columnas, unsigned int filas, unsigned int turno,
 		int numeroTerreno) {
 	string nombreImagen = jugador->obtenerNombre() + "-turno-"
-			+ this->casquearNumeroAString(turno) + "-terreno-"
-			+ this->casquearNumeroAString(numeroTerreno) + ".bmp";
+			+ this->castearNumeroComoString(turno) + "-terreno-"
+			+ this->castearNumeroComoString(numeroTerreno) + ".bmp";
 	this->determinarMedidaDeLaImagen(columnas, filas);
 	this->pegarFondo(columnas, filas);
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);

@@ -34,7 +34,7 @@ private:
 	/*
 	 *POST: convierte un numero a un string
 	 */
-	std::string casquearNumeroAString(unsigned int numero);
+	std::string castearNumeroComoString(unsigned int numero);
 	/*
 	 *POST: elige la imagen del cultivo segun el nombre del mismo. Si no esta se coloca una imagen generica.
 	 */
