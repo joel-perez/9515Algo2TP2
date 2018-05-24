@@ -17,7 +17,6 @@ Imagen::Imagen() {
 
 void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		unsigned int filas, unsigned int turno) {
-	//	archivo.abrirConAplicacionPredeterminada("C:\\Cloud\\MEGA\\UBA\\FIUBA\\95 Computacion\\95.15 Algoritmos y Programaci�n II\\Trabajos Practicos\\2018 a\\GitHub\\EasyBMPTest\\res\\frutilla.bmp");
 	int numeroTerreno = 1; //TODO: buscar una mejor forma para indicar que terreno es el de la imagen
 	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
 	terrenos->iniciarCursor();
@@ -48,6 +47,7 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 	string rutaCompleta = archivo.concatenarRutas(
 			archivo.obtenerRutaCapturasPantalla(), nombreImagen);
 	imagenDelTerreno.WriteToFile(rutaCompleta.c_str());
+	archivo.abrirConAplicacionPredeterminada(rutaCompleta.c_str());
 }
 
 void Imagen::determinarMedidaDeLaImagen(unsigned int columnas,

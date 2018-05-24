@@ -116,23 +116,20 @@ void Parcela::procesarTurno() {
 }
 
 void Parcela::procesarTurnoCultivoNormal() {
-//TODO: Joel tiene que implementar esto!! ;)
-	/*
-	 if (this->yaEstaRegada()) {
-	 this->estaRegada = false;
-	 if (this->tiempoHastaCosecha > 0) {
-	 this->tiempoHastaCosecha--;
-	 } else {
-	 this->establecerCultivo(Podrido); // estadoActual es PODRIDA
-	 this->tiempoHastaRecuperacion = this->tiempoHastaRecuperacion
-	 * TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO;
-	 }
-	 } else {
-	 this->establecerCultivo(Seco); //estadoActual es SECA
-	 this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_SECO;
-	 this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_SECO;
-	 }
-	 */
+	if (this->yaEstaRegada()) {
+		this->estaRegada = false;
+		if (this->tiempoHastaCosecha > 0) {
+			this->tiempoHastaCosecha--;
+		} else {
+			this->estadoParcela = PODRIDA;
+			this->tiempoHastaRecuperacion = this->tiempoHastaRecuperacion
+					* TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO;
+		}
+	} else {
+		this->estadoParcela = SECA;
+		this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_SECO;
+		this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_SECO;
+	}
 }
 
 void Parcela::procesarTurnoCultivoSeco() {
