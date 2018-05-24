@@ -106,6 +106,11 @@ public:
 	 */
 	Lista<Destino*>* leerDestinos();
 
+	/*
+	 * POST: Indica si el archivo nombreArchivo existe.
+	 */
+	bool existe(std::string nombreArchivo);
+
 	~Archivo();
 };
 

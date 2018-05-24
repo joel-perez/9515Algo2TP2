@@ -161,6 +161,10 @@ Lista<Destino*>* Archivo::leerDestinos() {
 	return destinosDisponibles;
 }
 
+bool Archivo::existe(std::string nombreArchivo) {
+	return true; //TODO: Implementar...
+}
+
 Archivo::~Archivo() {
 
 }

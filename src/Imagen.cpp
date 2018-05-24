@@ -75,7 +75,7 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
 						(fila * cultivo.TellHeight()), *cultivo(0, 49));
-			} else if (!parcela->yaEstaRegada()) {
+			} else if (parcela->obtenerEstado() == SECA) {
 				RangedPixelToPixelCopyTransparent(cultivoSeco, 0,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
@@ -95,22 +95,12 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 	}
 }
 void Imagen::obtenerCultivo(string nombreCultivo) {
-
-	if (nombreCultivo == "trigo") {
-		cultivo.ReadFromFile("trigo.bmp");
-	} else if (nombreCultivo == "frutilla") {
-		cultivo.ReadFromFile("frutilla.bmp");
-	} else if (nombreCultivo == "banana") {
-		cultivo.ReadFromFile("cultivodefault.bmp");
-	} else if (nombreCultivo == "cannabis") {
-		cultivo.ReadFromFile("cannabis.bmp");
-	} else if (nombreCultivo == "maiz") {
-		cultivo.ReadFromFile("maiz.bmp");
-	} else if (nombreCultivo == "girasol") {
-		cultivo.ReadFromFile("girasol.bmp");
-	} else {
-		cultivo.ReadFromFile("cultivodefault.bmp");
-	}
+	string nombreArchivo = archivo.concatenarRutas(
+			archivo.obtenerRutaRecursos(), nombreCultivo + ".bmp");
+	if (!archivo.existe(nombreArchivo))
+		nombreArchivo = archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+				"cultivodefault.bmp");
+	cultivo.ReadFromFile(nombreArchivo.c_str());
 }
 
 Imagen::~Imagen() {
