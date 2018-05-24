@@ -35,6 +35,7 @@ public:
 	 */
 	unsigned int obtenerCantidadDeCultivosEnUnaCosecha();
 
+	~Cosecha();
 
 
 

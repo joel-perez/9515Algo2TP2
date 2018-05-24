@@ -6,9 +6,9 @@
 using namespace std;
 
 Juego::Juego() {
-	this->jugadores = new Lista<Jugador*>;
-	this->cultivos = new Lista<Cultivo*>;
-	this->destinos = new Lista<Destino*>;
+	this->jugadores = NULL;
+	this->cultivos = NULL;
+	this->destinos = NULL;
 	this->dificultad = Dificultad(1);
 	this->turnos = 0;
 	this->turnoActual = 1;
@@ -352,4 +352,7 @@ Juego::~Juego() {
 	while (destinos->avanzarCursor()) {
 		delete this->destinos->obtenerCursor();
 	}
+	delete jugadores;
+	delete cultivos;
+	delete destinos;
 }

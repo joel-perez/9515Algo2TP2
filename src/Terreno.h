@@ -54,7 +54,7 @@ public:
 	 * devolvera ese terreno.
 	 */
 	Lista<Parcela*>* seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
-
+	~Terreno();
 };
 
 #endif

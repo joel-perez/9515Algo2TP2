@@ -16,6 +16,12 @@ unsigned int Cosecha::obtenerCantidadDeCultivosEnUnaCosecha(){
 		return(this->cultivos->contarElementos());
 	}
 
-
+Cosecha::~Cosecha(){
+	this->cultivos->iniciarCursor();
+	while(cultivos->avanzarCursor()){
+		delete this->cultivos->obtenerCursor();
+	}
+	delete cultivos;
+}
 
 //TODO: Implementar los metodos necesarios...

@@ -81,5 +81,15 @@ Jugador::~Jugador() {
 	// TODO: Eliminar estos tres elementos, las listas borrarlas recorriendolas... ya tu sabes.
 	// delete this->terrenos = new Lista<Terreno*>;
 	// delete this->almacenes = new Lista<Almacen*>;
+	this->terrenos->iniciarCursor();
+	while(terrenos->avanzarCursor()){
+		delete this->terrenos->obtenerCursor();
+	}
+	this->almacenes->iniciarCursor();
+	while(almacenes->avanzarCursor()){
+		delete this->almacenes->obtenerCursor();
+	}
+	delete terrenos;
+	delete almacenes;
 	delete this->tanque;
 }

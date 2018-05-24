@@ -75,7 +75,7 @@ public:
 
 		return (this->cosechas->obtener(cosechaElegida));
 	}
-
+	~Almacen();
 
 
 };
