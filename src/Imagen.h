@@ -18,6 +18,7 @@ private:
 	BMP cultivoPodrido;
 
 	Archivo archivo;
+	Texto texto;
 
 	/*
 	 * PRE

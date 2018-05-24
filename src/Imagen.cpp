@@ -6,7 +6,9 @@
 using namespace std;
 
 Imagen::Imagen() {
-	fondoTerreno.ReadFromFile("terreno.bmp");
+	fondoTerreno.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"terreno.bmp").c_str());
 	imagenDelTerreno.SetBitDepth(24);
 	cultivo.ReadFromFile("cultivodefault.bmp");
 	cultivoVacio.ReadFromFile("cultivovacio.bmp");
@@ -28,18 +30,13 @@ void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		numeroTerreno++;
 	}
 }
-string Imagen::castearNumeroComoString(unsigned int numero) {
-	std::ostringstream convert;
-	convert << numero;
-	return convert.str();
-}
 
 void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 		unsigned int columnas, unsigned int filas, unsigned int turno,
 		int numeroTerreno) {
 	string nombreImagen = jugador->obtenerNombre() + "-turno-"
-			+ this->castearNumeroComoString(turno) + "-terreno-"
-			+ this->castearNumeroComoString(numeroTerreno) + ".bmp";
+			+ texto.intToString(turno) + "-terreno-"
+			+ texto.intToString(numeroTerreno) + ".bmp";
 	this->determinarMedidaDeLaImagen(columnas, filas);
 	this->pegarFondo(columnas, filas);
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
@@ -98,16 +95,11 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 void Imagen::obtenerCultivo(string nombreCultivo) {
 	string nombreArchivo = archivo.concatenarRutas(
 			archivo.obtenerRutaRecursos(), nombreCultivo + ".bmp");
-
-	cout << "nombreArchivo: " << nombreArchivo << endl;
-
 	if (!archivo.existe(nombreArchivo))
 		nombreArchivo = archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
 				"cultivodefault.bmp");
-
 	if (archivo.existe(nombreArchivo))
 		cultivo.ReadFromFile(nombreArchivo.c_str());
-
 	Rescale(cultivo, 'f', 64); //TODO: Mejorar esto, no es proporcional, lo puse fijo...
 }
 
