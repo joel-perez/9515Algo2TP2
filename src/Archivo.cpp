@@ -161,8 +161,20 @@ Lista<Destino*>* Archivo::leerDestinos() {
 	return destinosDisponibles;
 }
 
-bool Archivo::existe(std::string nombreArchivo) {
-	return true; //TODO: Implementar...
+bool Archivo::existe(const string& nombreArchivo) {
+#ifdef linux
+	//Alternativa 1
+	//ifstream f(nombreArchivo.c_str());
+	//return f.good();
+	//Alternativa 4
+	struct stat buffer;
+	return (stat(nombreArchivo.c_str(), &buffer) == 0);
+#elif _WIN32
+	cout << "nombreArchivo: " << nombreArchivo << endl;
+	unsigned long dwAttrib = GetFileAttributes(nombreArchivo.c_str());
+	return (dwAttrib != INVALID_FILE_ATTRIBUTES
+			&& !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
+#endif
 }
 
 Archivo::~Archivo() {

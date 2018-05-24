@@ -109,7 +109,7 @@ public:
 	/*
 	 * POST: Indica si el archivo nombreArchivo existe.
 	 */
-	bool existe(std::string nombreArchivo);
+	bool existe(const std::string& nombreArchivo);
 
 	~Archivo();
 };

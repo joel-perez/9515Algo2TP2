@@ -70,17 +70,17 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 		while (columna <= columnas && parcelas->avanzarCursor()) {
 			Parcela* parcela = parcelas->obtenerCursor();
 
-			if (!parcela->estaOcupada()) {
-				RangedPixelToPixelCopyTransparent(cultivoVacio, 0,
-						cultivo.TellWidth(), cultivo.TellHeight(), 0,
-						imagenDelTerreno, (columna * cultivo.TellWidth()),
-						(fila * cultivo.TellHeight()), *cultivo(0, 49));
-			} else if (parcela->obtenerEstado() == SECA) {
+			/*if (!parcela->estaOcupada()) {
+			 RangedPixelToPixelCopyTransparent(cultivoVacio, 0,
+			 cultivo.TellWidth(), cultivo.TellHeight(), 0,
+			 imagenDelTerreno, (columna * cultivo.TellWidth()),
+			 (fila * cultivo.TellHeight()), *cultivo(0, 49));
+			 } else*/if (parcela->obtenerEstado() == SECA) {
 				RangedPixelToPixelCopyTransparent(cultivoSeco, 0,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
 						(fila * cultivo.TellHeight()), *cultivo(0, 49));
-			} else {
+			} else if (parcela->obtenerEstado() == SEMBRADA) {
 				this->obtenerCultivo(
 						parcela->obtenerCultivo()->obtenerNombre());
 				RangedPixelToPixelCopyTransparent(cultivo, 0,
@@ -94,13 +94,20 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 		columna = 1;
 	}
 }
+
 void Imagen::obtenerCultivo(string nombreCultivo) {
 	string nombreArchivo = archivo.concatenarRutas(
 			archivo.obtenerRutaRecursos(), nombreCultivo + ".bmp");
+
+	cout << "nombreArchivo: " << nombreArchivo << endl;
+
 	if (!archivo.existe(nombreArchivo))
 		nombreArchivo = archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
 				"cultivodefault.bmp");
-	cultivo.ReadFromFile(nombreArchivo.c_str());
+
+	if (archivo.existe(nombreArchivo))
+		cultivo.ReadFromFile(nombreArchivo.c_str());
+
 	Rescale(cultivo, 'f', 64); //TODO: Mejorar esto, no es proporcional, lo puse fijo...
 }
 
