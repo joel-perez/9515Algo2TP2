@@ -2,3 +2,4 @@ Gabriela:
 
 - Si se riega una parcela, el cultivo revive.
 
+posibilidades: puede ser que falten mas validaciones (if cultivo ya esta regado, if cultivo ya le llego la hora, etc) ;)
