@@ -3,9 +3,6 @@
 
 #include <string>
 
-const char CULTIVO_A = 'A';
-const char CULTIVO_B = 'B';
-const char CULTIVO_C = 'C';
 const char SEPARADOR_DIRECTORIO_LINUX = '/';
 const char SEPARADOR_DIRECTORIO_WINDOWS = '\\';
 const int ACCION_ABANDONAR = 11;
