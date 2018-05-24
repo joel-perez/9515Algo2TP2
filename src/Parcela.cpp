@@ -117,18 +117,51 @@ void Parcela::procesarTurno() {
 
 void Parcela::procesarTurnoCultivoNormal() {
 //TODO: Joel tiene que implementar esto!! ;)
+	/*
+	 if (this->yaEstaRegada()) {
+	 this->estaRegada = false;
+	 if (this->tiempoHastaCosecha > 0) {
+	 this->tiempoHastaCosecha--;
+	 } else {
+	 this->establecerCultivo(Podrido); // estadoActual es PODRIDA
+	 this->tiempoHastaRecuperacion = this->tiempoHastaRecuperacion
+	 * TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO;
+	 }
+	 } else {
+	 this->establecerCultivo(Seco); //estadoActual es SECA
+	 this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_SECO;
+	 this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_SECO;
+	 }
+	 */
 }
 
 void Parcela::procesarTurnoCultivoSeco() {
 //TODO: Joel tiene que implementar esto!! ;)
+	/*
+	 this->cultivo = Cultivo(Vacio);
+	 this->estaRegada = false;
+	 this->tiempoHastaCosecha = this->cultivo.obtenerTiempoHastaCosecha();
+	 this->tiempoHastaRecuperacion = this->cultivo.obtenerTiempoRecuperacion();
+	 this->rentabilidad = RENTABILIDAD_CULTIVO_SECO;
+	 */
 }
 
 void Parcela::procesarTurnoCultivoPodrido() {
-//TODO: Joel tiene que implementar esto!! ;)
+	if (this->tiempoHastaRecuperacion > 0) {
+		this->tiempoHastaRecuperacion--;
+	} else {
+		this->establecerCultivo(new Cultivo()); //TODO: Probar bien esto,quizas no hace falta pasar un puntero a new...
+		this->estadoParcela = VACIA;
+	}
 }
 
 void Parcela::procesarTurnoCultivoEnRecuperacion() {
-//TODO: Joel tiene que implementar esto!! ;)
+	if (this->tiempoHastaRecuperacion > 0) {
+		this->tiempoHastaRecuperacion--;
+	} else {
+		this->establecerCultivo(new Cultivo()); //TODO: Probar bien esto,quizas no hace falta pasar un puntero a new...
+		this->estadoParcela = VACIA;
+	}
 }
 
 Parcela::~Parcela() {
