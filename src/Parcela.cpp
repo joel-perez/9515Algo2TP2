@@ -28,7 +28,7 @@ string Parcela::obtenerEstadoParaMostrarEnPantalla() {
 	string estadoParaMostrar = "";
 	switch (this->estadoParcela) {
 	case VACIA:
-		estadoParaMostrar = PARCEL_VACIA;
+		estadoParaMostrar = PARCELA_VACIA;
 		break;
 	case SEMBRADA:
 		estadoParaMostrar = this->obtenerNombre().substr(0, 10);

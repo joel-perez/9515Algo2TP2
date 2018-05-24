@@ -49,6 +49,6 @@ const std::string DIRECTORIO_RECURSOS = "res";
 const std::string FONDO_TERRENO = "terrenoo.bmp";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
 const std::string PARCELA_EN_RECUPERACION = "R";
-const std::string PARCEL_VACIA = "#";
+const std::string PARCELA_VACIA = "#";
 const unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
 #endif
