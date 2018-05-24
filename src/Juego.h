@@ -91,7 +91,13 @@ public:
 	 * POST:Realiza las operaciones correspondientes al avance de un turno luego
 	 * de que el jugador haya realizado las acciones que considero necesarias.
 	 */
-	void procesarTurno(Jugador* jugador);
+	void procesarTurnoJugador(Jugador* jugador);
+
+	/*
+	 * PRE:
+	 * POST:
+	 */
+	void procesarTurnoTerreno(Terreno* terreno);
 
 	/*
 	 * PRE:

@@ -233,8 +233,20 @@ void Juego::sembrarParcela(Jugador* jugador) {
 	jugador->restarCredito(creditoUtilizado);
 }
 
-void Juego::procesarTurno(Jugador* jugador) {
-//TODO: JOEL se va a encargar de esto!! =)
+void Juego::procesarTurnoJugador(Jugador* jugador) {
+	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
+	terrenos->iniciarCursor();
+	while (terrenos->avanzarCursor()) {
+		procesarTurnoTerreno(terrenos->obtenerCursor());
+	}
+}
+
+void Juego::procesarTurnoTerreno(Terreno* terreno) {
+	Lista<Parcela*>* parcelas = terreno->obtenerParcelas();
+	parcelas->iniciarCursor();
+	while (parcelas->avanzarCursor()) {
+		parcelas->obtenerCursor()->procesarTurno();
+	}
 }
 
 void Juego::solicitarDatosIniciales() {
@@ -325,7 +337,7 @@ void Juego::iniciarJuego() {
 				administrarAguaDelTurno(jugadorActual);
 				solicitarAcciones(jugadorActual);
 			}
-			procesarTurno(jugadorActual);
+			procesarTurnoJugador(jugadorActual);
 		}
 		turnoActual++;
 	}

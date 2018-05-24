@@ -94,6 +94,43 @@ void Parcela::cosechar(Cultivo* &cultivo) {
 	}
 }
 
+void Parcela::procesarTurno() {
+	if (!this->estaOcupada()) {
+		switch (this->obtenerEstado()) {
+		case SEMBRADA:
+			this->procesarTurnoCultivoNormal();
+			break;
+		case SECA:
+			this->procesarTurnoCultivoSeco();
+			break;
+		case PODRIDA:
+			this->procesarTurnoCultivoPodrido();
+			break;
+		case RECUPERACION:
+			this->procesarTurnoCultivoEnRecuperacion();
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Parcela::procesarTurnoCultivoNormal() {
+//TODO: Joel tiene que implementar esto!! ;)
+}
+
+void Parcela::procesarTurnoCultivoSeco() {
+//TODO: Joel tiene que implementar esto!! ;)
+}
+
+void Parcela::procesarTurnoCultivoPodrido() {
+//TODO: Joel tiene que implementar esto!! ;)
+}
+
+void Parcela::procesarTurnoCultivoEnRecuperacion() {
+//TODO: Joel tiene que implementar esto!! ;)
+}
+
 Parcela::~Parcela() {
 	delete this->cultivo;
 }

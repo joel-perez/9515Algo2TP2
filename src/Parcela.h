@@ -94,7 +94,27 @@ public:
 	 * POST:Procesa las acciones realizadas por el jugador para establecer las
 	 * condiciones iniciales del siguiente turno.
 	 */
-	//void procesarTurno();
+	void procesarTurno();
+
+	/*
+	 *
+	 */
+	void procesarTurnoCultivoNormal();
+
+	/*
+	 *
+	 */
+	void procesarTurnoCultivoSeco();
+
+	/*
+	 *
+	 */
+	void procesarTurnoCultivoPodrido();
+
+	/*
+	 *
+	 */
+	void procesarTurnoCultivoEnRecuperacion();
 
 	/*
 	 * PRE:
@@ -103,9 +123,9 @@ public:
 	unsigned int sembrar(Cultivo* &tipoCultivo);
 
 	/*
-	* PRE:
-	* POST:Cosecha el la parcelaActual, dejando su estado en recuperacion.
-	*/
+	 * PRE:
+	 * POST:Cosecha el la parcelaActual, dejando su estado en recuperacion.
+	 */
 	void cosechar(Cultivo* &cultivo);
 
 	/*

@@ -3,3 +3,10 @@ Gabriela:
 - Si se riega una parcela, el cultivo revive.
 
 posibilidades: puede ser que falten mas validaciones (if cultivo ya esta regado, if cultivo ya le llego la hora, etc) ;)
+
+Gabriela:
+
+- encontro el siguiente error al finalizar el programa:
+
+  double free or corruption (out): 0x0000000000d932a0
+
