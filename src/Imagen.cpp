@@ -101,6 +101,7 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 		nombreArchivo = archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
 				"cultivodefault.bmp");
 	cultivo.ReadFromFile(nombreArchivo.c_str());
+	Rescale(cultivo, 'f', 64); //TODO: Mejorar esto, no es proporcional, lo puse fijo...
 }
 
 Imagen::~Imagen() {
