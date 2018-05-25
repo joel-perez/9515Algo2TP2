@@ -10,3 +10,5 @@ Gabriela:
 
   double free or corruption (out): 0x0000000000d932a0
 
+Veronica: 
+  No resta los creditos cuando se utiliza ni el agua del tanque.
