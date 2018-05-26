@@ -55,6 +55,10 @@ unsigned int Jugador::restarCredito(unsigned int creditoUtilizado) {
 	return (this->creditos -= creditoUtilizado);
 }
 
+void Jugador::agregarCredito(unsigned int creditoUtilizado) {
+	this->creditos += creditoUtilizado;
+}
+
 unsigned int Jugador::incrementoDeGananciaPorHaberLLegadoADestino(
 		unsigned int gananciaPorLlegarADestino) {
 	return (this->creditos += gananciaPorLlegarADestino);

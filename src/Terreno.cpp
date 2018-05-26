@@ -8,6 +8,7 @@ Terreno::Terreno() {
 	this->parcelas = NULL;
 	this->tamanioColumnas = 0;
 	this->tamanioFilas = 0;
+	this->precio = 0;
 }
 
 Terreno::Terreno(unsigned int filas, unsigned int columnas) {
@@ -52,6 +53,16 @@ Lista<Parcela*>* Terreno::seleccionarTerreno(
 Lista<Parcela*>* Terreno::obtenerParcelas() {
 	return this->parcelas;
 }
+
+unsigned int Terreno::obtenerPrecio() {
+	return this->precio;
+}
+
+void Terreno::asignarPrecio(Dificultad dificultad) {
+	this->precio = dificultad.obtenerCoeficientePrecioTerreno()
+			* this->tamanioFilas * this->tamanioColumnas;
+}
+
 Terreno::~Terreno() {
 	std::cout << "Terreno::~Terreno()" << std::endl;
 	this->parcelas->iniciarCursor();

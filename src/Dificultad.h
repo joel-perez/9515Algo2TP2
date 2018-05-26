@@ -14,6 +14,7 @@ private:
 	unsigned int coeficientePrecioCultivo;
 	unsigned int coeficientePrecioTerreno;
 	unsigned int coeficienteMultiplicadorAgua;
+	unsigned int coeficientePrecioTanque;
 
 public:
 	/*
@@ -68,6 +69,12 @@ public:
 	 * POST:devuelve el CoeficientePrecioTerreno según la dificultadSeleccionada.
 	 */
 	unsigned int obtenerCoeficientePrecioTerreno();
+
+	/*
+	 * POST: Devuelve el coeficiente por el cual se multiplicara el precio del tanque nuevo.
+	 */
+	unsigned int obtenerCoeficientePrecioTanque();
+
 	/*
 	 * PRE:
 	 * POST:Devuelve el tipo de cultivo.

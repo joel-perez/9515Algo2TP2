@@ -21,3 +21,7 @@ Veronica:
   y hacer un new Cosecha() (sin la lista de cultivos dentro de cosecha) en los que se le pasen los parametros 
   que importan... Pero no se me ocurre mas que el nombre puesto que en cosecha no dice que destino se permite... 
   - Determinar el precio para comprar y vender cosas.
+  
+  Joel: TODOs List (muy a futuro):
+  * Definir los atributos y metodos necesarios para poder asignar, cambiar y consultar un nombre para cada terreno, por default: terreno1, terreno2, etc.
+  

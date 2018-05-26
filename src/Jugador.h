@@ -110,6 +110,11 @@ public:
 	bool abandono();
 
 	/*
+	 * POST: Agrega credito al jugador.
+	 */
+	void agregarCredito(unsigned int creditoUtilizado);
+
+	/*
 	 * POST: Libera los recursos utilizados.
 	 */
 	~Jugador();

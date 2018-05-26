@@ -13,6 +13,7 @@ private:
 	Texto texto;
 	unsigned int tamanioColumnas;
 	unsigned int tamanioFilas;
+	unsigned int precio;
 
 public:
 	/*
@@ -34,7 +35,12 @@ public:
 	 * POST: delvuelve el alto del terreno,
 	 */
 	unsigned int obtenerFilas();
+
+	/*
+	 * POST: Devuelve la lista de parcelas que componen este terreno.
+	 */
 	Lista<Parcela*>* obtenerParcelas();
+
 	/*
 	 * PRE:
 	 * POST: devuelve el ancho del terreno.
@@ -54,6 +60,17 @@ public:
 	 * devolvera ese terreno.
 	 */
 	Lista<Parcela*>* seleccionarTerreno(Lista<Terreno*>* terrenosJugadorActual);
+
+	/*
+	 * POST: Devuelve el precio de este terreno.
+	 */
+	unsigned int obtenerPrecio();
+
+	/*
+	 * POST: Deja asignado el precio de este terreno en base a la dificultad actual.
+	 */
+	void asignarPrecio(Dificultad dificultad);
+
 	~Terreno();
 };
 

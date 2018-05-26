@@ -44,6 +44,7 @@ void Dificultad::inicializarDificultadFacil() {
 	this->coeficientePrecioTerreno = 1;
 	this->coeficienteTamanioAlmacen = 1;
 	this->coeficienteTamanioTerreno = 1;
+	this->coeficienteTamanioTanque = 1;
 }
 
 void Dificultad::inicializarDificultadIntermedio() {
@@ -55,6 +56,7 @@ void Dificultad::inicializarDificultadIntermedio() {
 	this->coeficientePrecioTerreno = 2;
 	this->coeficienteTamanioAlmacen = 2;
 	this->coeficienteTamanioTerreno = 2;
+	this->coeficienteTamanioTanque = 2;
 }
 
 void Dificultad::inicializarDificultadDificil() {
@@ -66,6 +68,7 @@ void Dificultad::inicializarDificultadDificil() {
 	this->coeficientePrecioTerreno = 3;
 	this->coeficienteTamanioAlmacen = 3;
 	this->coeficienteTamanioTerreno = 3;
+	this->coeficienteTamanioTanque = 3;
 }
 
 unsigned int Dificultad::obtenerCoeficienteCreditosAsignados() {
@@ -102,4 +105,8 @@ TipoDificultad Dificultad::obtenerDificultad() {
 
 unsigned int Dificultad::obtenerCoeficienteMultiplicadorAgua() {
 	return this->coeficienteMultiplicadorAgua;
+}
+
+unsigned int Dificultad::obtenerCoeficientePrecioTanque() {
+	return this->coeficientePrecioTanque;
 }

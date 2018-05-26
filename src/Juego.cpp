@@ -101,27 +101,34 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 
 void Juego::comprarCapacidadTanque(Jugador* jugador) {
 	jugador->obtenerTanque()->aumentarCapacidad();
-	//TODO: FALTA RESTAR CREDITOS...
+	jugador->restarCredito(
+			PRECIO_BASE_TANQUE
+					* this->dificultad.obtenerCoeficientePrecioTanque());
 }
 
 void Juego::comprarTerreno(Jugador* jugador) {
 	Terreno* nuevoTerreno = new Terreno(this->obtenerAnchoTerreno(),
 			this->obtenerAltoTerreno());
+	nuevoTerreno->asignarPrecio(dificultad);
 	jugador->obtenerTerrenos()->agregar(nuevoTerreno);
-	//TODO: restar creditos.
+	jugador->restarCredito(
+			nuevoTerreno->obtenerPrecio()
+					* jugador->obtenerTerrenos()->contarElementos()
+					* PROPORCIONAL_COMPRA_TERRENO);
 }
 
 void Juego::venderTerreno(Jugador* jugador) {
 	if (jugador->obtenerTerrenos()->contarElementos() > 0) {
 		cout << "Ingrese que numero de terreno desea vender: " << endl;
-		//TODO: Como diferenciamos a los terrenos?
 		unsigned int posicion = consola.solicitarIngresoNumerico(1,
 				jugador->obtenerTerrenos()->contarElementos());
+		jugador->agregarCredito(
+				jugador->obtenerTerrenos()->obtener(posicion)->obtenerPrecio()
+						* PROPORCIONAL_VENTA_TERRENO);
 		jugador->obtenerTerrenos()->remover(posicion);
 	} else {
 		cout << "No posee terrenos para vender." << endl;
 	}
-	//TODO: restar creditos
 }
 
 void Juego::solicitarCambioTerreno(Jugador* jugador) {
@@ -287,6 +294,7 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 		Jugador* nuevoJugador = new Jugador(nombre, dificultad, altoTerreno,
 				anchoTerreno);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
+		nuevoTerreno->asignarPrecio(dificultad);
 		Almacen* nuevoAlmacen = new Almacen(
 				dificultad.obtenerCoeficienteTamanioAlmacen(), altoTerreno,
 				anchoTerreno);
