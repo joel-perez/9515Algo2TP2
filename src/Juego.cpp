@@ -169,6 +169,7 @@ int Juego::regarParcela(Jugador* jugador) {
 				parcelaActual->regar();
 				aguaUtilizada =
 						parcelaActual->obtenerCultivo()->obtenerConsumoDeAgua();
+				jugador->obtenerTanque()->usarAguaDisponible(aguaUtilizada);
 				cout << "La parcela ha sido regada." << endl;
 			} else {
 				cout << "No hay suficiente agua para regar la parcela." << endl;

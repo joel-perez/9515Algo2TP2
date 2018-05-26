@@ -53,12 +53,12 @@ unsigned int Jugador::obtenerCreditos() {
 }
 
 unsigned int Jugador::restarCredito(unsigned int creditoUtilizado) {
-	return (this->creditos - creditoUtilizado);
+	return (this->creditos -= creditoUtilizado);
 }
 
 unsigned int Jugador::incrementoDeGananciaPorHaberLLegadoADestino(
 		unsigned int gananciaPorLlegarADestino) {
-	return (this->creditos + gananciaPorLlegarADestino);
+	return (this->creditos += gananciaPorLlegarADestino);
 }
 
 Tanque* Jugador::obtenerTanque() {
@@ -92,5 +92,4 @@ Jugador::~Jugador() {
 	delete terrenos;
 	delete almacenes;
 	delete tanque;
-	delete terrenoActual;
 }

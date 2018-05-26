@@ -37,6 +37,5 @@ Almacen::~Almacen(){
 	while(this->cosechas->avanzarCursor()){
 		delete this->cosechas->obtenerCursor();
 	}
-	this->cosechas->~Lista();
 	delete cosechas;
 }
