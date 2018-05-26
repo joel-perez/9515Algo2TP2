@@ -205,9 +205,9 @@ int Juego::regarParcela(Jugador* jugador) {
 void Juego::cosecharParcela(Jugador* jugador) {
 	Parcela* parcelaActual = this->seleccionarParcela(
 			jugador->obtenerTerrenoActual());
-	Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
-	Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
 	if (parcelaActual->estaOcupada()) {
+		Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
+		Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
 		if (cultivoSeleccionado->obtenerTiempoHastaCosecha() == 0
 				&& cultivoSeleccionado->obtenerNombre()
 						!= PARCELA_EN_RECUPERACION) {
