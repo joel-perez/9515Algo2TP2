@@ -345,25 +345,65 @@ void Juego::iniciarJuego() {
 }
 
 Juego::~Juego() {
-//TODO: Eliminar jugadores, cultivos y destinos...
-
-//this->obtenerJugadores()->~Lista();
-//this->obtenerCultivos()->~Lista();
-//this->obtenerDestinos()->~Lista();
+	//TODO: Eliminar jugadores, cultivos y destinos...
 
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
-		delete this->jugadores->obtenerCursor();
+		Jugador* jugador = this->jugadores->obtenerCursor();
+
+		Lista<Almacen*>* almacenes = jugador->obtenerAlmacenes();
+		almacenes->iniciarCursor();
+		while (almacenes->avanzarCursor()) {
+			Almacen* almacen = almacenes->obtenerCursor();
+			Lista<Cosecha*>* cosechas = almacen->obtenerCosechas();
+			cosechas->iniciarCursor();
+			while (cosechas->avanzarCursor()) {
+				Cosecha* cosecha = cosechas->obtenerCursor();
+				Lista<Cultivo*>* cultivos = cosecha->obtenerCosecha();
+				cultivos->iniciarCursor();
+				while (cultivos->avanzarCursor()) {
+					Cultivo* cultivo = cultivos->obtenerCursor();
+					delete cultivo;
+				}
+				delete cosecha;
+			}
+			delete almacen;
+		}
+
+		Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
+		terrenos->iniciarCursor();
+		while (terrenos->avanzarCursor()) {
+			Terreno* terreno = terrenos->obtenerCursor();
+			Lista<Parcela*>* parcelas = terreno->obtenerParcelas();
+			parcelas->iniciarCursor();
+			while (parcelas->avanzarCursor()) {
+				Parcela* parcela = parcelas->obtenerCursor();
+				Cultivo* cultivo = parcela->obtenerCultivo();
+				delete cultivo;
+				delete parcela;
+			}
+			delete terreno;
+		}
+
+		delete jugador->obtenerAlmacenes();
+		delete jugador->obtenerTerrenos();
+		delete jugador->obtenerTanque();
+		delete jugador->obtenerTerrenoActual();
+		delete jugador;
 	}
+
 	this->cultivos->iniciarCursor();
 	while (cultivos->avanzarCursor()) {
-		delete this->cultivos->obtenerCursor();
+		Cultivo* cultivo = this->cultivos->obtenerCursor();
+		delete cultivo;
 	}
 
 	this->destinos->iniciarCursor();
 	while (destinos->avanzarCursor()) {
-		delete this->destinos->obtenerCursor();
+		Destino* destino = this->destinos->obtenerCursor();
+		delete destino;
 	}
+
 	delete jugadores;
 	delete cultivos;
 	delete destinos;
