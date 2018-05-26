@@ -2,7 +2,7 @@
 #define TIPODIFICULTAD_H_
 
 enum TipoDificultad {
-	FACIL, INTERMEDIO, DIFICIL
+	FACIL = 1, INTERMEDIO = 2, DIFICIL = 3
 };
 
 #endif

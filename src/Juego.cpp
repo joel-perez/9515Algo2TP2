@@ -350,45 +350,6 @@ Juego::~Juego() {
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
 		Jugador* jugador = this->jugadores->obtenerCursor();
-
-		Lista<Almacen*>* almacenes = jugador->obtenerAlmacenes();
-		almacenes->iniciarCursor();
-		while (almacenes->avanzarCursor()) {
-			Almacen* almacen = almacenes->obtenerCursor();
-			Lista<Cosecha*>* cosechas = almacen->obtenerCosechas();
-			cosechas->iniciarCursor();
-			while (cosechas->avanzarCursor()) {
-				Cosecha* cosecha = cosechas->obtenerCursor();
-				Lista<Cultivo*>* cultivos = cosecha->obtenerCosecha();
-				cultivos->iniciarCursor();
-				while (cultivos->avanzarCursor()) {
-					Cultivo* cultivo = cultivos->obtenerCursor();
-					delete cultivo;
-				}
-				delete cosecha;
-			}
-			delete almacen;
-		}
-
-		Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
-		terrenos->iniciarCursor();
-		while (terrenos->avanzarCursor()) {
-			Terreno* terreno = terrenos->obtenerCursor();
-			Lista<Parcela*>* parcelas = terreno->obtenerParcelas();
-			parcelas->iniciarCursor();
-			while (parcelas->avanzarCursor()) {
-				Parcela* parcela = parcelas->obtenerCursor();
-				Cultivo* cultivo = parcela->obtenerCultivo();
-				delete cultivo;
-				delete parcela;
-			}
-			delete terreno;
-		}
-
-		delete jugador->obtenerAlmacenes();
-		delete jugador->obtenerTerrenos();
-		delete jugador->obtenerTanque();
-		delete jugador->obtenerTerrenoActual();
 		delete jugador;
 	}
 

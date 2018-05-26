@@ -6,9 +6,9 @@ using namespace std;
 Parcela::Parcela() {
 	this->estadoParcela = VACIA;
 	this->estaRegada = false;
-	this->cultivo = new Cultivo(); //lo puse asi para que compile, hay que cambiarlo...
-	this->tiempoHastaCosecha = cultivo->obtenerTiempoHastaCosecha();
-	this->tiempoHastaRecuperacion = this->cultivo->obtenerTiempoRecuperacion();
+	this->cultivo = NULL;
+	this->tiempoHastaCosecha = 0;
+	this->tiempoHastaRecuperacion = 0;
 	this->rentabilidad = RENTABILIDAD_CULTIVO_VACIO;
 }
 

@@ -9,24 +9,10 @@
 using namespace std;
 
 void Consola::mostrarBienvenida() {
-	cout << "=) T.P. Nro. 2 - Granjeros." << endl;
-	cout << "  		   ..:::Bienvenidos:::.." << endl << endl;
+	cout << "Algoritmos y Programacion 2 - T.P. Nro. 2 - Granjeros." << endl;
+	cout << "..:::Bienvenidos:::.." << endl << endl;
 	cout << "El juego consiste en maximizar las ganancias del jugador" << endl;
-	cout << "				Buena suerte		" << endl << endl;
-
-	Archivo archivo;
-	cout << "El separador de directorios para el S.O. Actual es: "
-			<< archivo.obtenerSeparadorDirectorio() << endl;
-	cout << "La carpeta del ejecutable actual es: "
-			<< archivo.obtenerRutaEjecucion() << endl;
-	cout << "Capturas de Pantalla: " << archivo.obtenerRutaCapturasPantalla()
-			<< endl;
-	cout << "Archivo de Cultivos: "
-			<< archivo.obtenerRutaArchivosDatos(ARCHIVO_CULTIVOS) << endl;
-	cout << "Archivo de Destinos: "
-			<< archivo.obtenerRutaArchivosDatos(ARCHIVO_DESTINOS) << endl;
-	cout << "Recursos (Imagenes): " << archivo.obtenerRutaRecursos() << endl
-			<< endl << endl << endl;
+	cout << "Buena suerte!!" << endl << endl;
 }
 
 void Consola::mostrarDatosDelTurno(Jugador* jugadorActual,
