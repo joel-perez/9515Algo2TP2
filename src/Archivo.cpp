@@ -28,15 +28,18 @@ void Archivo::crearDirectorio(std::string nombreDirectorio) {
 }
 
 void Archivo::abrirConAplicacionPredeterminada(string nombreArchivo) {
+	string lineaDeComandos = "";
 #ifdef _WIN32
-	system(((char) 34 + nombreArchivo + (char) 34).c_str());
+	lineaDeComandos = (char) 34 + nombreArchivo + (char) 34;
 #endif
 #ifdef __unix__
 	//    play       (requiere: sudo apt install sox)
 	//    xdg-open   (requiere: sudo apt install xdg-utils)
 	//    gnome-open (requiere: sudo apt install libgnome2-bin)
-	system(("xdg-open " + nombreArchivo).c_str());
+	lineaDeComandos = "xdg-open ";
+	lineaDeComandos += (char) 34 + nombreArchivo + (char) 34;
 #endif
+	system(lineaDeComandos.c_str());
 }
 
 char Archivo::obtenerSeparadorDirectorio() {
@@ -172,5 +175,5 @@ bool Archivo::existe(const string& nombreArchivo) {
 }
 
 Archivo::~Archivo() {
-std::cout << "Archivo::~Archivo()" << std::endl;
+	std::cout << "Archivo::~Archivo()" << std::endl;
 }
