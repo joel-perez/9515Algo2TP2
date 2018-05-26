@@ -205,32 +205,28 @@ int Juego::regarParcela(Jugador* jugador) {
 void Juego::cosecharParcela(Jugador* jugador) {
 	Parcela* parcelaActual = this->seleccionarParcela(
 			jugador->obtenerTerrenoActual());
-	Cultivo* cultivoSelcionado = parcelaActual->obtenerCultivo();
-	cultivoSelcionado->obtenerNombre();
+	Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
 	if (parcelaActual->estaOcupada()) {
-		if (cultivoSelcionado->obtenerTiempoHastaCosecha() == 0
-				&& cultivoSelcionado->obtenerNombre()
+		if (cultivoSeleccionado->obtenerTiempoHastaCosecha() == 0
+				&& cultivoSeleccionado->obtenerNombre()
 						!= PARCELA_EN_RECUPERACION) {
-			if (cultivoSelcionado->obtenerNombre() != PARCELA_PODRIDA
-					&& cultivoSelcionado->obtenerNombre() != PARCELA_SECA) {
-				parcelaActual->cosechar(cultivoSelcionado);
+			if (cultivoSeleccionado->obtenerNombre() != PARCELA_PODRIDA
+					&& cultivoSeleccionado->obtenerNombre() != PARCELA_SECA) {
+				parcelaActual->cosechar(cultivoSeleccionado);
 
 			} else {
 				cout
 						<< "Solo se puede cosechar parcelas que no esten podridas o secas."
 						<< endl;
 			}
-
 		} else {
 			cout
 					<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."
 					<< endl;
 		}
-
 	} else {
 		cout << "Solo se pueden cosechar parcelas con cultivo." << endl;
 	}
-
 }
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
