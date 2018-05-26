@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Almacen.h"
 
 Almacen::Almacen() {
@@ -30,6 +31,7 @@ bool Almacen::estaLleno(){
 	return (this->obtenerCosechas()->contarElementos() == this->obtenerCapacidadMaxima());
 }
 Almacen::~Almacen(){
+	std::cout << "Almacen::~Almacen()" << std::endl;
 	this->cosechas->iniciarCursor();
 	while(this->cosechas->avanzarCursor()){
 		delete this->cosechas->obtenerCursor();

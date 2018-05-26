@@ -172,5 +172,5 @@ bool Archivo::existe(const string& nombreArchivo) {
 }
 
 Archivo::~Archivo() {
-
+std::cout << "Archivo::~Archivo()" << std::endl;
 }

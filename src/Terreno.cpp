@@ -53,6 +53,7 @@ Lista<Parcela*>* Terreno::obtenerParcelas(){
 	return this->parcelas;
 }
 Terreno::~Terreno(){
+	std::cout << "Terreno::~Terreno()" << std::endl;
 	this->parcelas->iniciarCursor();
 	while(parcelas->avanzarCursor()){
 		delete this->parcelas->obtenerCursor();

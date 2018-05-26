@@ -162,5 +162,6 @@ void Parcela::procesarTurnoCultivoEnRecuperacion() {
 }
 
 Parcela::~Parcela() {
+	std::cout << "Parcela::~Parcela()" << std::endl;
 	delete this->cultivo;
 }

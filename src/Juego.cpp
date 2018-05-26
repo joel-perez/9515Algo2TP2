@@ -345,7 +345,7 @@ void Juego::iniciarJuego() {
 }
 
 Juego::~Juego() {
-	//TODO: Eliminar jugadores, cultivos y destinos...
+	std::cout << "Juego::~Juego()" << std::endl;
 
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {

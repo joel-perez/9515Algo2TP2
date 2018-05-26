@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Cosecha.h"
 
 Cosecha::Cosecha() {
@@ -17,11 +18,10 @@ unsigned int Cosecha::obtenerCantidadDeCultivosEnUnaCosecha(){
 	}
 
 Cosecha::~Cosecha(){
+	std::cout << "Cosecha::~Cosecha()" << std::endl;
 	this->cultivos->iniciarCursor();
 	while(cultivos->avanzarCursor()){
 		delete this->cultivos->obtenerCursor();
 	}
 	delete cultivos;
 }
-
-//TODO: Implementar los metodos necesarios...
