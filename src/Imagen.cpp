@@ -10,11 +10,16 @@ Imagen::Imagen() {
 			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
 					"terreno.bmp").c_str());
 	imagenDelTerreno.SetBitDepth(24);
-	cultivo.ReadFromFile("cultivodefault.bmp");
-	cultivoVacio.ReadFromFile("cultivovacio.bmp");
-	cultivoSeco.ReadFromFile("cultivoseco.bmp");
-	cultivoRecienSembrado.ReadFromFile("cultivobebe.bmp");
-	cultivoPodrido.ReadFromFile("cultivopodrdio.bmp");
+	cultivo.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			"cultivodefault.bmp").c_str());
+	cultivoVacio.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			"cultivovacio.bmp").c_str());
+	cultivoSeco.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			"cultivoseco.bmp").c_str());
+	cultivoRecienSembrado.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			"cultivobebe.bmp").c_str());
+	cultivoPodrido.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			"cultivopodrido.bmp").c_str());
 }
 
 void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
@@ -95,7 +100,6 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 				"cultivodefault.bmp");
 	if (archivo.existe(nombreArchivo))
 		cultivo.ReadFromFile(nombreArchivo.c_str());
-	Rescale(cultivo, 'f', 64); //TODO: Mejorar esto, no es proporcional, lo puse fijo...
 }
 
 Imagen::~Imagen() {
