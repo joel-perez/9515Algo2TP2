@@ -10,7 +10,7 @@ Destino::Destino() {
 	this->distanciaEnKm = 0;
 }
 
-Destino::Destino(std::string nombreDestino, int km, int precio,
+Destino::Destino(std::string nombreDestino, unsigned int km, unsigned int precio,
 		std::string cultivoAceptado) {
 	this->nombre = nombreDestino;
 	this->distanciaEnKm = km;

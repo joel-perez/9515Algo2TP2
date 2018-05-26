@@ -55,26 +55,18 @@ public:
 
 	Lista<Cosecha*>* obtenerCosechas();
 	//TODO: Implementar metodos necesarios...
-
-
-
-
-	/*///////////////////////////////////////////////
+	/*
 	 * PRE:~
 	 * POST:devuelve la cantidad de cosechas de ese almacen.
 	 */
-	unsigned int obtenerCantidadDeCosechasEnUnAlmacen(){
-		return(this->cosechas->contarElementos());
-	}
+	unsigned int obtenerCantidadDeCosechasEnUnAlmacen();
 
 	/*
 	 * PRE:~
 	 * POST:devuelve la cosecha indicada por cosechaElegida.
 	 */
-	Cosecha* obtenerUnaCosecha(unsigned int cosechaElegida) {
+	Cosecha* obtenerUnaCosecha(unsigned int cosechaElegida);
 
-		return (this->cosechas->obtener(cosechaElegida));
-	}
 	~Almacen();
 
 

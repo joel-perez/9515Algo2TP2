@@ -1,6 +1,12 @@
 #ifndef TANQUE_H_
 #define TANQUE_H_
 
+/*
+ *El Tanque es una identidad que almacena agua, qcon una capacidad
+ * maxima de contencion del liquido.
+ */
+
+
 class Tanque {
 private:
 	unsigned int capacidadMaxima;

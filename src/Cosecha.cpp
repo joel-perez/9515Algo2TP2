@@ -9,6 +9,10 @@ Cosecha::Cosecha() {
 Lista<Cultivo*>* Cosecha::obtenerCosecha(){
 	return this->cultivos;
 }
+void Cosecha::agregarCultivoACosecha(Cultivo* cultivo){
+	this->cultivos->agregar(cultivo);
+}
+
 
 Cultivo*Cosecha::obtenerUncultivoCosechado(unsigned int cultivoCosechadoElegido){
 	return (this->cultivos->obtener(cultivoCosechadoElegido));

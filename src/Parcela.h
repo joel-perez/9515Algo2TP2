@@ -43,13 +43,13 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:delvuele el estado .
 	 */
 	EstadoParcela obtenerEstado();
 
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:devuelve el nombre  del cultivo en la parcela.
 	 */
 	std::string obtenerNombre();
 

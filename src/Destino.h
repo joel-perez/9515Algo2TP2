@@ -14,15 +14,15 @@ private:
 public:
 	/*
 	 * PRE:
-	 * POST:
+	 * POST:Destino listo para usar:
 	 */
 	Destino();
 
 	/*
-	 * PRE:
-	 * POST:
+	 * PRE:~
+	 * POST:Destino  lista para usar;
 	 */
-	Destino(std::string nombreDestino, int km, int precio,
+	Destino(std::string nombreDestino, unsigned int km, unsigned int precio,
 			std::string cultivoAceptado);
 
 	/*
@@ -32,18 +32,20 @@ public:
 	std::string obtenerNombre();
 
 	/*
-	 *
-	 *
+	 *PRE:~
+	 *POST:
 	 */
 	Cultivo obtenerCultivoQueAcepta();
 	/*
-	 *
+	 *PRE:
+	 *POST: Devuelve el costo del  envio de una
+	 *      cosecha (un cultivo) a destino.
 	 *
 	 */
 	float obtenerCostoDeEnvio();
 	/*
-	 *
-	 *
+	 *PRE:~
+	 *POST: Devuelve la dista [km] del envio de la cosecha (Un cultivo).
 	 */
 	unsigned int obtenerDistancia();
 };

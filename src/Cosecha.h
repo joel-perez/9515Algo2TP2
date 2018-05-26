@@ -10,7 +10,6 @@ class Cosecha {
 private:
 	Lista<Cultivo*>* cultivos;
 
-
 public:
 	/*
 	 * PRE:
@@ -23,7 +22,11 @@ public:
 	 */
 
 	Lista<Cultivo*>* obtenerCosecha();
-	/////////////////////////////////////////
+	/*
+	 * PRE:
+	 * POST:agrega un cultivo ami cosecha (caja).
+	 */
+	void agregarCultivoACosecha(Cultivo* cultivo);
 	/*
 	 * PRE:~
 	 * POST:devuelve el cultivo indicada por cultivoCosechadoElegido.
@@ -37,13 +40,6 @@ public:
 
 	~Cosecha();
 
-
-
-
-
-
 };
-
-
 
 #endif

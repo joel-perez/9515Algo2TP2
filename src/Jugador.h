@@ -22,14 +22,14 @@ private:
 
 public:
 	/*
-	 * PRE:
+	 * PRE:~
 	 * POST: Jugador listo para jugar.
 	 */
 	Jugador(std::string nombre, Dificultad dificultad, unsigned int altoTerreno,
 			unsigned int anchoTerreno);
 
 	/*
-	 * PRE:
+	 * PRE:~
 	 * POST:compra un terreno durantes el turnoActual;
 	 */
 	void comprarTerreno();
@@ -99,7 +99,8 @@ public:
 	void abandonarJuego();
 
 	/*
-	 *
+	 * PRE:indiceTerreno debe de estar en [1, terrenos->contarElementos()].
+	 * POST: el jugador elige el terreno sobre el cual desea trabajar.
 	 */
 	void cambiarTerrenoActual(unsigned int indiceTerreno);
 
