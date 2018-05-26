@@ -34,10 +34,10 @@ string Parcela::obtenerEstadoParaMostrarEnPantalla() {
 		estadoParaMostrar = this->obtenerNombre().substr(0, 10);
 		break;
 	case SECA:
-		estadoParaMostrar = CULTIVO_SECO;
+		estadoParaMostrar = PARCELA_SECA;
 		break;
 	case PODRIDA:
-		estadoParaMostrar = CULTIVO_PODRIDO;
+		estadoParaMostrar = PARCELA_PODRIDA;
 		break;
 	case RECUPERACION:
 		estadoParaMostrar = PARCELA_EN_RECUPERACION;

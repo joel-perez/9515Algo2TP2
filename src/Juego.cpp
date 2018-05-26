@@ -204,8 +204,8 @@ void Juego::cosecharParcela(Jugador* jugador) {
 		if (cultivoSelcionado->obtenerTiempoHastaCosecha() == 0
 				&& cultivoSelcionado->obtenerNombre()
 						!= PARCELA_EN_RECUPERACION) {
-			if (cultivoSelcionado->obtenerNombre() != CULTIVO_PODRIDO
-					&& cultivoSelcionado->obtenerNombre() != CULTIVO_SECO) {
+			if (cultivoSelcionado->obtenerNombre() != PARCELA_PODRIDA
+					&& cultivoSelcionado->obtenerNombre() != PARCELA_SECA) {
 				parcelaActual->cosechar(cultivoSelcionado);
 
 			} else {
