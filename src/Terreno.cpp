@@ -24,6 +24,7 @@ Terreno::Terreno(unsigned int filas, unsigned int columnas) {
 		Parcela* nuevaParcela = new Parcela();
 		this->parcelas->agregar(nuevaParcela);
 	}
+	this->precio = 0; //Esto lo estoy asignando en otra funcion...
 	this->tamanioColumnas = columnas;
 	this->tamanioFilas = filas;
 }
