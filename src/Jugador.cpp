@@ -16,7 +16,6 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
 	this->terrenoActual = NULL;
-	srand(time(NULL));
 }
 
 void Jugador::comprarTerreno() {
