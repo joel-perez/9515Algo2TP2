@@ -87,12 +87,6 @@ string Archivo::obtenerRutaArchivosDatos(string nombreArchivoDatos) {
 			nombreArchivoDatos);
 }
 
-std::string Archivo::pedirRuta(std::string obteneRuta) {
-	// Por ahora fijo, se debe preguntar el nombre del archivo....
-	std::string ruta = obteneRuta;
-	return ruta;
-}
-
 Lista<Cultivo*>* Archivo::leerCultivos() {
 
 	std::ifstream entrada;

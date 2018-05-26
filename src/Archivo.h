@@ -91,11 +91,6 @@ public:
 	 */
 	std::string obtenerRutaArchivosDatos(std::string nombreArchivoDatos);
 
-	/* PRE: La obteneRuta del archito txt debe de exitir .
-	 * POST:Obtien la determinada ruta;
-	 */
-	std::string pedirRuta(std::string obteneRuta);
-
 	/* PRE:~
 	 * POST:Devuelve una nueva Lista con todos los Cultivos.
 	 */
