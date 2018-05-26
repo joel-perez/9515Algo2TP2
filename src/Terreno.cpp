@@ -49,13 +49,13 @@ Lista<Parcela*>* Terreno::seleccionarTerreno(
 		Lista<Terreno*>* terrenosJugadorActual) {
 	return 0;
 }
-Lista<Parcela*>* Terreno::obtenerParcelas(){
+Lista<Parcela*>* Terreno::obtenerParcelas() {
 	return this->parcelas;
 }
-Terreno::~Terreno(){
+Terreno::~Terreno() {
 	std::cout << "Terreno::~Terreno()" << std::endl;
 	this->parcelas->iniciarCursor();
-	while(parcelas->avanzarCursor()){
+	while (parcelas->avanzarCursor()) {
 		delete this->parcelas->obtenerCursor();
 	}
 	delete parcelas;

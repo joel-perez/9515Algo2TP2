@@ -30,6 +30,7 @@ Lista<Cosecha*>* Almacen::obtenerCosechas(){
 bool Almacen::estaLleno(){
 	return (this->obtenerCosechas()->contarElementos() == this->obtenerCapacidadMaxima());
 }
+
 Almacen::~Almacen(){
 	std::cout << "Almacen::~Almacen()" << std::endl;
 	this->cosechas->iniciarCursor();
@@ -39,4 +40,3 @@ Almacen::~Almacen(){
 	this->cosechas->~Lista();
 	delete cosechas;
 }
-//TODO: Implementar los metodos necesarios... 

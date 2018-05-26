@@ -92,4 +92,5 @@ Jugador::~Jugador() {
 	delete terrenos;
 	delete almacenes;
 	delete tanque;
+	delete terrenoActual;
 }
