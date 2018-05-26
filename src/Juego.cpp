@@ -105,11 +105,23 @@ void Juego::comprarCapacidadTanque(Jugador* jugador) {
 }
 
 void Juego::comprarTerreno(Jugador* jugador) {
-	//TODO: Implementar...
+	Terreno* nuevoTerreno = new Terreno(this->obtenerAnchoTerreno(),
+			this->obtenerAltoTerreno());
+	jugador->obtenerTerrenos()->agregar(nuevoTerreno);
+	//TODO: restar creditos.
 }
 
 void Juego::venderTerreno(Jugador* jugador) {
-	//TODO: Implementar...
+	if (jugador->obtenerTerrenos()->contarElementos() > 0) {
+		cout << "Ingrese que numero de terreno desea vender: "<<endl;
+		//TODO: Como diferenciamos a los terrenos?
+		unsigned int posicion = consola.solicitarIngresoNumerico(1,
+				jugador->obtenerTerrenos()->contarElementos());
+		jugador->obtenerTerrenos()->remover(posicion);
+	} else {
+		cout << "No posee terrenos para vender." << endl;
+	}
+	//TODO: restar creditos
 }
 
 void Juego::solicitarCambioTerreno(Jugador* jugador) {
@@ -215,7 +227,10 @@ void Juego::cosecharParcela(Jugador* jugador) {
 }
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
-//TODO: Implementar...
+	// Debe preguntar con que almacen desea realizar la operacion.
+	// Debe preguntar que cultivo desa enviar a destino.
+	// Verificar que el cultivo exista y que el destino igual, que lo acepte.
+	// Remover la cosecha de la lista en el almacen y sumar creditos.
 }
 
 Cultivo* Juego::seleccionarCultivo() {
