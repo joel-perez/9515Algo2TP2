@@ -113,7 +113,7 @@ void Juego::comprarTerreno(Jugador* jugador) {
 
 void Juego::venderTerreno(Jugador* jugador) {
 	if (jugador->obtenerTerrenos()->contarElementos() > 0) {
-		cout << "Ingrese que numero de terreno desea vender: "<<endl;
+		cout << "Ingrese que numero de terreno desea vender: "<<endl
 		//TODO: Como diferenciamos a los terrenos?
 		unsigned int posicion = consola.solicitarIngresoNumerico(1,
 				jugador->obtenerTerrenos()->contarElementos());

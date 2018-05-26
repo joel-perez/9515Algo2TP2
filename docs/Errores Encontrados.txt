@@ -11,9 +11,7 @@ Gabriela:
   double free or corruption (out): 0x0000000000d932a0
 
 Veronica: 
-  - No resta los creditos cuando se utiliza ni el agua del tanque.
-  - Cambiar los numeros del enum dificultad para que los asigne bien
   - Verificar que si en el tanque hay 1 unidad de agua y se tiene que gastar 5, no realice la accion
-  - Parcela.cpp: en vez de un new tanto en el constructor como en procersar podriamos poner un NULL ya que de lo 
-  contrario perderiamos memoria en el transcurso del juego. Si hacemos eso en el destructor no debe haber un delete
-  porque apuntaria a un elemento de la lista cultivo. 
+  
+  
+  - Jugador.cpp, agregar terreno y almacen, no serian metodos sin utilizar? 
