@@ -67,12 +67,7 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 		while (columna <= columnas && parcelas->avanzarCursor()) {
 			Parcela* parcela = parcelas->obtenerCursor();
 
-			/*if (!parcela->estaOcupada()) {
-			 RangedPixelToPixelCopyTransparent(cultivoVacio, 0,
-			 cultivo.TellWidth(), cultivo.TellHeight(), 0,
-			 imagenDelTerreno, (columna * cultivo.TellWidth()),
-			 (fila * cultivo.TellHeight()), *cultivo(0, 49));
-			 } else*/if (parcela->obtenerEstado() == SECA) {
+			if (parcela->obtenerEstado() == SECA) {
 				RangedPixelToPixelCopyTransparent(cultivoSeco, 0,
 						cultivo.TellWidth(), cultivo.TellHeight(), 0,
 						imagenDelTerreno, (columna * cultivo.TellWidth()),
@@ -104,5 +99,5 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 }
 
 Imagen::~Imagen() {
-std::cout << "Imagen::~Imagen()" << std::endl;
+	std::cout << "Imagen::~Imagen()" << std::endl;
 }
