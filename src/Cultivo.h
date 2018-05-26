@@ -66,6 +66,35 @@ public:
 	 */
 	unsigned int obtenerConsumoDeAgua();
 
+	/*
+	 * POST:
+	 */
+	void asignarConsumoDeAgua(unsigned int consumoDeAgua);
+
+	/*
+	 * POST:
+	 */
+	void asignarCosto(unsigned int costo);
+
+	/*
+	 * POST:
+	 */
+	void asignarNombre(std::string nombre);
+
+	/*
+	 * POST:
+	 */
+	void asignarRentabilidad(unsigned int rentabilidad);
+
+	/*
+	 * POST:
+	 */
+	void asignarTiempoDeCrecimiento(unsigned int tiempoDeCrecimiento);
+
+	/*
+	 * POST:
+	 */
+	void asignarTiempoDeRecuperacion(unsigned int tiempoDeRecuperacion);
 };
 
 #endif

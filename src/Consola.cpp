@@ -140,3 +140,16 @@ void Consola::mostrarDestinosDisponibles(Lista<Destino*>* destinos) {
 				<< endl;
 	}
 }
+
+void Consola::mostrarAlmacenesDisponibles(Lista<Almacen*>* almacenes) {
+	unsigned int i = 1;
+	almacenes->iniciarCursor();
+	while (almacenes->avanzarCursor()) {
+		Almacen* almacen = almacenes->obtenerCursor();
+		int cantidadCultivos = almacen->obtenerCultivos()->contarElementos();
+		cout << texto.intToString(i) << " - Almacen Nro. "
+				<< texto.intToString(i) << "(" << cantidadCultivos << ")"
+				<< endl;
+		i++;
+	}
+}

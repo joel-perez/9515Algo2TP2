@@ -8,6 +8,7 @@
 #include "Constantes.h"
 #include "Cultivo.h"
 #include "EstadoParcela.h"
+#include "Almacen.h"
 
 /*
  * Una PARCELA es un cubiculo donde se puede almacenar un cultivo.
@@ -124,9 +125,10 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:Cosecha el la parcelaActual, dejando su estado en recuperacion.
+	 * POST: Cosecha la parcela, dejando su estado en recuperacion, y guarda
+	 *       el producto en el almacen indicado.
 	 */
-	void cosechar(Cultivo* &cultivo);
+	void cosechar(Almacen* almacen);
 
 	/*
 	 * PRE:

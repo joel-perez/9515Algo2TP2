@@ -206,14 +206,14 @@ void Juego::cosecharParcela(Jugador* jugador) {
 	Parcela* parcelaActual = this->seleccionarParcela(
 			jugador->obtenerTerrenoActual());
 	Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
+	Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
 	if (parcelaActual->estaOcupada()) {
 		if (cultivoSeleccionado->obtenerTiempoHastaCosecha() == 0
 				&& cultivoSeleccionado->obtenerNombre()
 						!= PARCELA_EN_RECUPERACION) {
 			if (cultivoSeleccionado->obtenerNombre() != PARCELA_PODRIDA
 					&& cultivoSeleccionado->obtenerNombre() != PARCELA_SECA) {
-				parcelaActual->cosechar(cultivoSeleccionado);
-
+				parcelaActual->cosechar(almacenSeleccionado);
 			} else {
 				cout
 						<< "Solo se puede cosechar parcelas que no esten podridas o secas."
@@ -330,6 +330,14 @@ Dificultad Juego::solicitarDificultad() {
 	unsigned int dificultadSeleccionada = consola.solicitarIngresoNumerico(1,
 			3);
 	return Dificultad(dificultadSeleccionada);
+}
+
+Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
+	Lista<Almacen*>* almacenes = jugador->obtenerAlmacenes();
+	consola.mostrarAlmacenesDisponibles(almacenes);
+	unsigned int opcionSeleccionada = consola.solicitarIngresoNumerico(1,
+			almacenes->contarElementos());
+	return almacenes->obtener(opcionSeleccionada);
 }
 
 void Juego::cargarArchivos() {

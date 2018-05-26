@@ -3,11 +3,10 @@
 
 #include "Lista.h"
 #include "Destino.h"
-#include "Cosecha.h"
 
 class Almacen {
 private:
-	Lista<Cosecha*>* cosechas;
+	Lista<Cultivo*>* cultivos;
 	unsigned int capacidadMaximaAlmacen;
 
 public:
@@ -33,42 +32,37 @@ public:
 	 *
 	 *
 	 */
-	void enviarCosechas();
+	void enviarCultivos();
 
-	/*////////////////////////////////////
-	 *
-	 *
+	/*
+	 * POST: Agrega el cultivo indicado al almacen actual.
 	 */
-	void agregarCosechaAmiAlmacen(Cultivo* cultivo);
+	void agregarCultivo(Cultivo* cultivo);
 
-	/* esta lleno el almacen?
-	 *
-	 *
-	 * POST: devuelve true si es asi y false si no
+	/*
+	 * POST: devuelve true si es esta lleno el almacen
 	 */
 	bool estaLleno();
 
 	/*
-	 * PRE:~
-	 * POST:devuelve las cosechas de ese almacen.
+	 * PRE: ~
+	 * POST: devuelve las cosechas de ese almacen.
 	 */
+	Lista<Cultivo*>* obtenerCultivos();
 
-	Lista<Cosecha*>* obtenerCosechas();
-	//TODO: Implementar metodos necesarios...
 	/*
 	 * PRE:~
 	 * POST:devuelve la cantidad de cosechas de ese almacen.
 	 */
-	unsigned int obtenerCantidadDeCosechasEnUnAlmacen();
+	unsigned int obtenerCantidadDeCultivosEnUnAlmacen();
 
 	/*
 	 * PRE:~
 	 * POST:devuelve la cosecha indicada por cosechaElegida.
 	 */
-	Cosecha* obtenerUnaCosecha(unsigned int cosechaElegida);
+	Cultivo* obtenerUnCultivo(unsigned int cultivoElegido);
 
 	~Almacen();
-
 
 };
 

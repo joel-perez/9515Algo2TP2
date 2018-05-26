@@ -54,3 +54,27 @@ unsigned int Cultivo::obtenerRentabilidad() {
 unsigned int Cultivo::obtenerConsumoDeAgua() {
 	return this->consumoDeAgua;
 }
+
+void Cultivo::asignarConsumoDeAgua(unsigned int consumoDeAgua) {
+	this->consumoDeAgua = consumoDeAgua;
+}
+
+void Cultivo::asignarCosto(unsigned int costo) {
+	this->costo = costo;
+}
+
+void Cultivo::asignarNombre(std::string nombre) {
+	this->nombre = nombre;
+}
+
+void Cultivo::asignarRentabilidad(unsigned int rentabilidad) {
+	this->rentabilidad = rentabilidad;
+}
+
+void Cultivo::asignarTiempoDeCrecimiento(unsigned int tiempoDeCrecimiento) {
+	this->tiempoDeCrecimiento = tiempoDeCrecimiento;
+}
+
+void Cultivo::asignarTiempoDeRecuperacion(unsigned int tiempoDeRecuperacion) {
+	this->tiempoDeRecuperacion = tiempoDeRecuperacion;
+}

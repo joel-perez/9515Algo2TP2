@@ -230,6 +230,11 @@ public:
 	unsigned int solicitarSeleccionarTerreno(Jugador* jugador);
 
 	/*
+	 * POST: Solicita al usuario que seleccione uno de sus almacenes.
+	 */
+	Almacen* seleccionarAlmacen(Jugador* jugador);
+
+	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
 	~Juego();

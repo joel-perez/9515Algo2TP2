@@ -2,13 +2,13 @@
 #include "Almacen.h"
 
 Almacen::Almacen() {
-	this->cosechas = new Lista<Cosecha*>;
+	this->cultivos = new Lista<Cultivo*>;
 	this->capacidadMaximaAlmacen = 1;
 }
 
 Almacen::Almacen(unsigned int coeficienteCapacidadAlmacen, unsigned int filas,
 		unsigned int columnas) {
-	this->cosechas = new Lista<Cosecha*>;
+	this->cultivos = new Lista<Cultivo*>;
 	this->capacidadMaximaAlmacen = coeficienteCapacidadAlmacen
 			* (filas + columnas);
 }
@@ -17,34 +17,45 @@ unsigned int Almacen::obtenerCapacidadMaxima() {
 	return this->capacidadMaximaAlmacen;
 }
 
-void Almacen::agregarCosechaAmiAlmacen(Cultivo* cultivo) {
-
+void Almacen::agregarCultivo(Cultivo* cultivo) {
+	Cultivo* miCultivo = new Cultivo();
+	miCultivo->asignarConsumoDeAgua(cultivo->obtenerConsumoDeAgua());
+	miCultivo->asignarCosto(cultivo->obtenerCosto());
+	miCultivo->asignarNombre(cultivo->obtenerNombre());
+	miCultivo->asignarRentabilidad(cultivo->obtenerRentabilidad());
+	miCultivo->asignarTiempoDeCrecimiento(cultivo->obtenerTiempoHastaCosecha());
+	miCultivo->asignarTiempoDeRecuperacion(
+			cultivo->obtenerTiempoRecuperacion());
+	this->cultivos->agregar(miCultivo);
 }
 
-void Almacen::enviarCosechas() {
-
+void Almacen::enviarCultivos() {
+//TODO: Implementar...
 }
-Lista<Cosecha*>* Almacen::obtenerCosechas() {
-	return this->cosechas;
+
+Lista<Cultivo*>* Almacen::obtenerCultivos() {
+	return this->cultivos;
 }
 
 bool Almacen::estaLleno() {
-	return (this->obtenerCosechas()->contarElementos()
+	return (this->obtenerCultivos()->contarElementos()
 			== this->obtenerCapacidadMaxima());
 }
-unsigned int Almacen::obtenerCantidadDeCosechasEnUnAlmacen() {
-	return (this->cosechas->contarElementos());
-}
-Cosecha* Almacen::obtenerUnaCosecha(unsigned int cosechaElegida) {
 
-	return (this->cosechas->obtener(cosechaElegida));
+unsigned int Almacen::obtenerCantidadDeCultivosEnUnAlmacen() {
+	return (this->cultivos->contarElementos());
 }
+
+Cultivo* Almacen::obtenerUnCultivo(unsigned int cultivoElegido) {
+	return (this->cultivos->obtener(cultivoElegido));
+}
+
 Almacen::~Almacen() {
 	std::cout << "Almacen::~Almacen()" << std::endl;
-	this->cosechas->iniciarCursor();
-	while (this->cosechas->avanzarCursor()) {
-		delete this->cosechas->obtenerCursor();
+	this->cultivos->iniciarCursor();
+	while (this->cultivos->avanzarCursor()) {
+		delete this->cultivos->obtenerCursor();
 	}
-	delete cosechas;
+	delete cultivos;
 }
 
