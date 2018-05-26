@@ -127,28 +127,33 @@ void Parcela::procesarTurnoCultivoNormal() {
 		}
 	} else {
 		this->estadoParcela = SECA;
+		this->estaRegada = false;
 		this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_SECO;
 		this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_SECO;
+		this->rentabilidad = RENTABILIDAD_CULTIVO_SECO;
 	}
 }
 
 void Parcela::procesarTurnoCultivoSeco() {
-//TODO: Joel tiene que implementar esto!! ;)
-	/*
-	 this->cultivo = Cultivo(Vacio);
-	 this->estaRegada = false;
-	 this->tiempoHastaCosecha = this->cultivo.obtenerTiempoHastaCosecha();
-	 this->tiempoHastaRecuperacion = this->cultivo.obtenerTiempoRecuperacion();
-	 this->rentabilidad = RENTABILIDAD_CULTIVO_SECO;
-	 */
+	this->cultivo = NULL;
+	this->estadoParcela = VACIA;
+	this->estaRegada = false;
+	this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_SECO;
+	this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_SECO;
+	this->rentabilidad = RENTABILIDAD_CULTIVO_SECO;
 }
 
 void Parcela::procesarTurnoCultivoPodrido() {
 	if (this->tiempoHastaRecuperacion > 0) {
 		this->tiempoHastaRecuperacion--;
 	} else {
-		this->establecerCultivo(new Cultivo()); //TODO: Probar bien esto,quizas no hace falta pasar un puntero a new...
+		this->cultivo = NULL;
 		this->estadoParcela = VACIA;
+		this->estaRegada = false;
+		this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_PODRIDO;
+		this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_PODRIDO;
+		this->rentabilidad = RENTABILIDAD_CULTIVO_PODRIDO;
+
 	}
 }
 
@@ -156,8 +161,12 @@ void Parcela::procesarTurnoCultivoEnRecuperacion() {
 	if (this->tiempoHastaRecuperacion > 0) {
 		this->tiempoHastaRecuperacion--;
 	} else {
-		this->establecerCultivo(new Cultivo()); //TODO: Probar bien esto,quizas no hace falta pasar un puntero a new...
+		this->cultivo = NULL;
 		this->estadoParcela = VACIA;
+		this->estaRegada = false;
+		this->tiempoHastaCosecha = TIEMPO_COSECHA_CULTIVO_RECUPERACION;
+		this->tiempoHastaRecuperacion = TIEMPO_RECUPERACION_CULTIVO_RECUPERACION;
+		this->rentabilidad = RENTABILIDAD_CULTIVO_RECUPERACION;
 	}
 }
 

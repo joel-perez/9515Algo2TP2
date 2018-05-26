@@ -5,6 +5,7 @@
 
 const char SEPARADOR_DIRECTORIO_LINUX = '/';
 const char SEPARADOR_DIRECTORIO_WINDOWS = '\\';
+const float TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO = 0.5;
 const int ACCION_ABANDONAR = 11;
 const int ACCION_CAMBIAR_TERRENO = 9;
 const int ACCION_COMPRAR_CAPACIDAD_ALMACEN = 8;
@@ -27,23 +28,30 @@ const int MAX_TURNO = 6;
 const int MIN_TURNO = 3;
 const int MULTIPLICADOR_DADO = 8;
 const int POTENCIADOR_AGUA = 5;
+const int RENTABILIDAD_CULTIVO_PODRIDO = 0;
+const int RENTABILIDAD_CULTIVO_RECUPERACION = 0;
+const int RENTABILIDAD_CULTIVO_SECO = 0;
 const int RENTABILIDAD_CULTIVO_VACIO = 0;
 const int TERRENO_MAX_COLUMNAS = 10;
 const int TERRENO_MAX_FILAS = 10;
 const int TERRENO_MIN_COLUMNAS = 3;
 const int TERRENO_MIN_FILAS = 3;
+const int TIEMPO_COSECHA_CULTIVO_PODRIDO = 0;
+const int TIEMPO_COSECHA_CULTIVO_RECUPERACION = 0;
 const int TIEMPO_COSECHA_CULTIVO_SECO = 0;
+const int TIEMPO_RECUPERACION_CULTIVO_PODRIDO = 0;
+const int TIEMPO_RECUPERACION_CULTIVO_RECUPERACION = 0;
 const int TIEMPO_RECUPERACION_CULTIVO_SECO = 1;
-const float TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO = 0.5;
 const std::string ARCHIVO_CULTIVOS = "cultivos.txt";
 const std::string ARCHIVO_DESTINOS = "destinos.txt";
-const std::string PARCELA_PODRIDA = "P";
-const std::string PARCELA_SECA = "S";
 const std::string DIRECTORIO_ARCHIVOS_DATOS = "datos";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string DIRECTORIO_RECURSOS = "res";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
 const std::string PARCELA_EN_RECUPERACION = "R";
+const std::string PARCELA_PODRIDA = "P";
+const std::string PARCELA_SECA = "S";
 const std::string PARCELA_VACIA = "#";
 const unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
+
 #endif
