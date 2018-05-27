@@ -81,8 +81,6 @@ bool Jugador::abandono() {
 }
 
 Jugador::~Jugador() {
-	std::cout << "Jugador::~Jugador()" << std::endl;
-
 	this->terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {
 		delete this->terrenos->obtenerCursor();
