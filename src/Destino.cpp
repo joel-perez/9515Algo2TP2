@@ -25,9 +25,12 @@ string Destino::obtenerNombre() {
 Cultivo Destino::obtenerCultivoQueAcepta() {
 	return this->cultivo;
 }
-float Destino::obtenerCostoDeEnvio() {
+unsigned int Destino::obtenerCostoDeEnvio() {
 	return this->costoPorKm;
 }
 unsigned int Destino::obtenerDistancia() {
 	return this->distanciaEnKm;
+}
+unsigned int Destino::obtenerCostoDeEnvioFinal(){
+	return (this->obtenerCostoDeEnvio() * this->obtenerDistancia());
 }

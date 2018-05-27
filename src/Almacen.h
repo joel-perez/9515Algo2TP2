@@ -32,7 +32,7 @@ public:
 	 *
 	 *
 	 */
-	void enviarCultivos();
+	void enviarCultivos(unsigned int posicion);
 
 	/*
 	 * POST: Agrega el cultivo indicado al almacen actual.

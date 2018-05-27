@@ -29,8 +29,8 @@ void Almacen::agregarCultivo(Cultivo* cultivo) {
 	this->cultivos->agregar(miCultivo);
 }
 
-void Almacen::enviarCultivos() {
-//TODO: Implementar...
+void Almacen::enviarCultivos(unsigned int posicion) {
+	this->obtenerCultivos()->remover(posicion);
 }
 
 Lista<Cultivo*>* Almacen::obtenerCultivos() {

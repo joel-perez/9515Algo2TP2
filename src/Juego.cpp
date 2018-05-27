@@ -230,10 +230,36 @@ void Juego::cosecharParcela(Jugador* jugador) {
 }
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
-	// Debe preguntar con que almacen desea realizar la operacion.
-	// Debe preguntar que cultivo desa enviar a destino.
-	// Verificar que el cultivo exista y que el destino igual, que lo acepte.
-	// Remover la cosecha de la lista en el almacen y sumar creditos.
+	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
+
+	consola.mostraCutivosDisponiblesDeUnAlmacen(almacenSeleccionado);
+	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
+			almacenSeleccionado->obtenerCultivos()->contarElementos());
+	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
+	unsigned int posicionDestino = consola.solicitarIngresoNumerico(1,
+			this->obtenerDestinos()->contarElementos());
+
+	Destino* destinoSeleccionado = this->obtenerDestinos()->obtener(
+			posicionDestino);
+	Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
+			posicionCultivo);
+
+	if (destinoSeleccionado->obtenerCultivoQueAcepta().obtenerNombre()
+			== cultivoSeleccionado->obtenerNombre()) {
+		if (jugador->obtenerCreditos()
+				>= destinoSeleccionado->obtenerCostoDeEnvioFinal()) {
+			jugador->restarCredito(
+					destinoSeleccionado->obtenerCostoDeEnvioFinal());
+			jugador->agregarCredito(cultivoSeleccionado->obtenerRentabilidad()); //TODO: solo la rentabilidad del txt?
+			almacenSeleccionado->enviarCultivos(posicionCultivo);
+		} else {
+			cout << "No posee suficiente credito para realizar este envio"
+					<< endl;
+		}
+
+	} else {
+		cout << "Este destino no acepta el cultivo seleccionado." << endl;
+	}
 }
 
 Cultivo* Juego::seleccionarCultivo() {

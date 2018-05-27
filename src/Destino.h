@@ -8,7 +8,7 @@ class Destino {
 private:
 	std::string nombre;
 	unsigned int distanciaEnKm;
-	float costoPorKm;
+	unsigned int costoPorKm;
 	Cultivo cultivo;
 
 public:
@@ -42,12 +42,17 @@ public:
 	 *      cosecha (un cultivo) a destino.
 	 *
 	 */
-	float obtenerCostoDeEnvio();
+	unsigned int obtenerCostoDeEnvio();
 	/*
 	 *PRE:~
 	 *POST: Devuelve la dista [km] del envio de la cosecha (Un cultivo).
 	 */
 	unsigned int obtenerDistancia();
+
+	/*
+	 * POST: devuelve el costo final del envio de la cosecha.
+	 */
+	unsigned int obtenerCostoDeEnvioFinal();
 };
 
 #endif
