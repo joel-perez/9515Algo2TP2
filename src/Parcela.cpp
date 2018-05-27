@@ -170,5 +170,5 @@ void Parcela::procesarTurnoCultivoEnRecuperacion() {
 }
 
 Parcela::~Parcela() {
-	std::cout << "Parcela::~Parcela()" << std::endl;
+
 }

@@ -103,5 +103,5 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 }
 
 Imagen::~Imagen() {
-	std::cout << "Imagen::~Imagen()" << std::endl;
+
 }

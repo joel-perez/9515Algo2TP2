@@ -65,7 +65,7 @@ void Terreno::asignarPrecio(Dificultad dificultad) {
 }
 
 Terreno::~Terreno() {
-	std::cout << "Terreno::~Terreno()" << std::endl;
+
 	this->parcelas->iniciarCursor();
 	while (parcelas->avanzarCursor()) {
 		delete this->parcelas->obtenerCursor();

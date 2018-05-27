@@ -51,7 +51,7 @@ Cultivo* Almacen::obtenerUnCultivo(unsigned int cultivoElegido) {
 }
 
 Almacen::~Almacen() {
-	std::cout << "Almacen::~Almacen()" << std::endl;
+
 	this->cultivos->iniciarCursor();
 	while (this->cultivos->avanzarCursor()) {
 		delete this->cultivos->obtenerCursor();

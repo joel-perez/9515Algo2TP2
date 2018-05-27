@@ -399,7 +399,6 @@ void Juego::iniciarJuego() {
 }
 
 Juego::~Juego() {
-	std::cout << "Juego::~Juego()" << std::endl;
 
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
