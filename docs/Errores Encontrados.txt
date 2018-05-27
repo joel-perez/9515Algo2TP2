@@ -25,3 +25,5 @@ Veronica:
   Joel: TODOs List (muy a futuro):
   * Definir los atributos y metodos necesarios para poder asignar, cambiar y consultar un nombre para cada terreno, por default: terreno1, terreno2, etc.
   
+  
+  Gabi: No cambia el esto de verdad de "estaRegada", para regar ese cultivo en el siguiente turno.
