@@ -98,22 +98,22 @@ public:
 	void procesarTurno();
 
 	/*
-	 *
+	 *POST:cambia el de la parcela para el siguiente turno.
 	 */
 	void procesarTurnoCultivoNormal();
 
 	/*
-	 *
+	 *POST:cambia el estado de la parcela a Seco para el siguiente turno.
 	 */
 	void procesarTurnoCultivoSeco();
 
 	/*
-	 *
+	 *POST:cambia el estado de la parcela a Podrido para el siguiente turno
 	 */
 	void procesarTurnoCultivoPodrido();
 
 	/*
-	 *
+	 *POST: cambia el estado de la parcela a Recuperacione en el turno actual.
 	 */
 	void procesarTurnoCultivoEnRecuperacion();
 
