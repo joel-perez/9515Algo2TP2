@@ -377,6 +377,15 @@ void Juego::mostrarTerrenos(Jugador* jugadorActual) {
 			this->obtenerAltoTerreno(), this->turnoActual);
 }
 
+void Juego::mostrarTerrenosFinales(Lista<Jugador*>* jugadores) {
+	jugadores->iniciarCursor();
+	while (jugadores->avanzarCursor()) {
+		Jugador* jugador = jugadores->obtenerCursor();
+		cout << "Jugador: " << jugador->obtenerNombre() << endl << endl;
+		mostrarTerrenos(jugador);
+	}
+}
+
 void Juego::iniciarJuego() {
 	consola.mostrarBienvenida();
 	cargarArchivos();
@@ -395,6 +404,7 @@ void Juego::iniciarJuego() {
 		}
 		turnoActual++;
 	}
+	mostrarTerrenosFinales(jugadores);
 	consola.mostrarFin(jugadores);
 }
 

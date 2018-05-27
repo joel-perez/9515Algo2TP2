@@ -43,9 +43,20 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 }
 
 void Consola::mostrarFin(Lista<Jugador*>* jugadores) {
-	//TODO: Agregar resultados finales, o sea quien gano el juego con sus terrenos,
-	//      La lista de todos los jugadores ordenados descendentemente por cantidad de creditos.
-	//      Guardar la imagen BMP final con todos estos datos tambien...
+	unsigned int maxCredito = 0;
+	string nombreMaxCredito = "";
+	jugadores->iniciarCursor();
+	while (jugadores->avanzarCursor()) {
+		Jugador* jugador = jugadores->obtenerCursor();
+		if (jugador->obtenerCreditos() > maxCredito) {
+			maxCredito = jugador->obtenerCreditos();
+			nombreMaxCredito = jugador->obtenerNombre();
+		}
+	}
+	cout << "El ganador es el jugador: " << nombreMaxCredito << endl;
+	cout << "Que acumulo un total de " << maxCredito
+			<< " Creditos al finalizar el juego." << endl << endl;
+
 	this->solicitarEnterParaSalir();
 }
 
@@ -153,19 +164,16 @@ void Consola::mostrarAlmacenesDisponibles(Lista<Almacen*>* almacenes) {
 		i++;
 	}
 }
-void Consola::mostraCutivosDisponiblesDeUnAlmacen(Almacen* almacen){
-	unsigned int i=1;
-	Lista<Cultivo*>* cultivos= almacen->obtenerCultivos();
+void Consola::mostraCutivosDisponiblesDeUnAlmacen(Almacen* almacen) {
+	unsigned int i = 1;
+	Lista<Cultivo*>* cultivos = almacen->obtenerCultivos();
 	cultivos->iniciarCursor();
-	while(cultivos->avanzarCursor()){
-		Cultivo* cultivo= cultivos->obtenerCursor();
-		cout<<"Elija el cultivo que desea enviar a destino:"<<endl;
-		cout<<i<<" ) "<<cultivo->obtenerNombre()<<endl;
-		cout <<  "- Rentabilidad: " << cultivo->obtenerRentabilidad()
-						<< endl;
+	while (cultivos->avanzarCursor()) {
+		Cultivo* cultivo = cultivos->obtenerCursor();
+		cout << "Elija el cultivo que desea enviar a destino:" << endl;
+		cout << i << " ) " << cultivo->obtenerNombre() << endl;
+		cout << "- Rentabilidad: " << cultivo->obtenerRentabilidad() << endl;
 		i++;
 	}
-
-
 
 }

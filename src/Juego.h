@@ -235,6 +235,11 @@ public:
 	Almacen* seleccionarAlmacen(Jugador* jugador);
 
 	/*
+	 * POST: Muestra los terrenos de todos los jugadores pasados como parametro.
+	 */
+	void mostrarTerrenosFinales(Lista<Jugador*>* jugadores);
+
+	/*
 	 * POST: Libera la memoria que habia sido solicitada en el Heap.
 	 */
 	~Juego();
