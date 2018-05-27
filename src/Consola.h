@@ -91,6 +91,12 @@ public:
 	 * POST: Imprime en pantalla la lista de almacenes indicada.
 	 */
 	void mostrarAlmacenesDisponibles(Lista<Almacen*>* almacenes);
+	/*
+	 * POTS: Imprime en pantalla la lista de cultivos del almacen indicado.
+	 */
+	void mostraCutivosDisponiblesDeUnAlmacen(Almacen* almacen);
+
+
 };
 
 #endif
