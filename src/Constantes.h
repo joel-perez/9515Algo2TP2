@@ -5,6 +5,8 @@
 
 const char SEPARADOR_DIRECTORIO_LINUX = '/';
 const char SEPARADOR_DIRECTORIO_WINDOWS = '\\';
+const float PROPORCIONAL_COMPRA_TERRENO = 1.3;
+const float PROPORCIONAL_VENTA_TERRENO = 0.5;
 const float TIEMPO_RECUPERACION_PROPORCIONAL_CULTIVO_PODRIDO = 0.5;
 const int ACCION_ABANDONAR = 11;
 const int ACCION_CAMBIAR_TERRENO = 9;
@@ -52,8 +54,7 @@ const std::string PARCELA_EN_RECUPERACION = "R";
 const std::string PARCELA_PODRIDA = "P";
 const std::string PARCELA_SECA = "S";
 const std::string PARCELA_VACIA = "#";
-const unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
-const float PROPORCIONAL_VENTA_TERRENO = 0.5;
-const float PROPORCIONAL_COMPRA_TERRENO = 1.3;
 const unsigned int PRECIO_BASE_TANQUE = 5;
+const unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
+
 #endif

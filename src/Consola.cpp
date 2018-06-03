@@ -164,15 +164,16 @@ void Consola::mostrarAlmacenesDisponibles(Lista<Almacen*>* almacenes) {
 		i++;
 	}
 }
-void Consola::mostraCutivosDisponiblesDeUnAlmacen(Almacen* almacen) {
+
+void Consola::mostrarCultivosDisponiblesDeUnAlmacen(Almacen* almacen) {
 	unsigned int i = 1;
 	Lista<Cultivo*>* cultivos = almacen->obtenerCultivos();
 	cultivos->iniciarCursor();
 	while (cultivos->avanzarCursor()) {
 		Cultivo* cultivo = cultivos->obtenerCursor();
 		cout << "Elija el cultivo que desea enviar a destino:" << endl;
-		cout << i << " ) " << cultivo->obtenerNombre() << endl;
-		cout << "- Rentabilidad: " << cultivo->obtenerRentabilidad() << endl;
+		cout << i << " ) " << cultivo->obtenerNombre();
+		cout << " - Rentabilidad: " << cultivo->obtenerRentabilidad() << endl;
 		i++;
 	}
 

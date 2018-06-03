@@ -232,7 +232,7 @@ void Juego::cosecharParcela(Jugador* jugador) {
 void Juego::enviarCosechaADestino(Jugador* jugador) {
 	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
 
-	consola.mostraCutivosDisponiblesDeUnAlmacen(almacenSeleccionado);
+	consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
 	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
 			almacenSeleccionado->obtenerCultivos()->contarElementos());
 	consola.mostrarDestinosDisponibles(this->obtenerDestinos());

@@ -94,7 +94,7 @@ public:
 	/*
 	 * POTS: Imprime en pantalla la lista de cultivos del almacen indicado.
 	 */
-	void mostraCutivosDisponiblesDeUnAlmacen(Almacen* almacen);
+	void mostrarCultivosDisponiblesDeUnAlmacen(Almacen* almacen);
 
 
 };
