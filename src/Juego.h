@@ -10,6 +10,7 @@
 #include "Archivo.h"
 #include "Terreno.h"
 #include "Imagen.h"
+#include "Grafo.h"
 
 class Juego {
 private:
