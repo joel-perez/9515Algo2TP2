@@ -1,7 +1,8 @@
 #ifndef GRAFO_H_
 #define GRAFO_H_
 
-#include "Nodo.h"
+#include "Vertice.h"
+#include "Lista.h"
 
 /*
  * Es un TDA contenedor de un conjunto de datos llamados nodos y de un conjunto
@@ -10,6 +11,7 @@
 template<class T> class Grafo {
 
 private:
+	Lista<Lista<Vertice*>*>* listaAdyacencia;
 
 public:
 	/* Genera un grafo vacío.
@@ -28,25 +30,25 @@ public:
 	 * PRE: que el grafo exista , que la arista no esté previamente y que existan en el grafo los nodos origen y destino de la arista.
 	 * POST: el grafo queda modificado por el agregado de la nueva arista.
 	 */
-	void InsertarArista(Nodo<T>* origen, Nodo<T>* destino, int peso);
+	void InsertarArista(Vertice* origen, Vertice* destino, int peso);
 
 	/* Elimina un nodo, recibido como argumento,  del grafo.
 	 * PRE: que el grafo exista  y que el nodo a eliminar esté en él y no tenga aristas incidentes en él.
 	 * POST: el grafo queda modificado por la eliminación del nodo.
 	 */
-	void EliminarNodo(Nodo<T>* nodo);
+	void EliminarNodo(Vertice* nodo);
 
 	/* Elimina una arista, recibida como argumento,  del grafo.
 	 * PRE: que el grafo exista  y la arista estén él.
 	 * POST: el grafo queda modificado por la eliminación de la arista.
 	 */
-	void EliminarArista(Nodo<T>* origen, Nodo<T>* destino);
+	void EliminarArista(Vertice* origen, Vertice* destino);
 
 	/* Recibe una arista y retorna un valor logico indicando si la arista existe en el grafo.
 	 * PRE: que el grafo exista.
 	 * POST: --- 
 	 */
-	bool ExisteArista(Nodo<T>* origen, Nodo<T>* destino);
+	bool ExisteArista(Vertice* origen, Vertice* destino);
 
 	/* Recibe una arista y retorna un valor logico indicando si el nodo existe en el grafo.
 	 * PRE: que el grafo exista.
@@ -63,40 +65,59 @@ public:
 };
 
 template<class T> Grafo<T>::Grafo() {
-	//TODO: Implementar...
+	listaAdyacencia = NULL;
 }
 
 template<class T> void Grafo<T>::InsertarNodo(std::string nombre) {
+	Vertice* nuevoVertice = new Vertice(nombre);
+	Lista<Vertice*>* nuevaLista = new Lista<Vertice*>;
+	nuevaLista->agregar(nuevoVertice);
+	listaAdyacencia->agregar(nuevaLista);
+}
+
+template<class T> void Grafo<T>::InsertarArista(Vertice* origen,
+		Vertice* destino, int peso) {
 	//TODO: Implementar...
 }
 
-template<class T> void Grafo<T>::InsertarArista(Nodo<T>* origen,
-		Nodo<T>* destino, int peso) {
+template<class T> void Grafo<T>::EliminarNodo(Vertice* nodo) {
 	//TODO: Implementar...
 }
 
-template<class T> void Grafo<T>::EliminarNodo(Nodo<T>* nodo) {
+template<class T> void Grafo<T>::EliminarArista(Vertice* origen,
+		Vertice* destino) {
 	//TODO: Implementar...
 }
 
-template<class T> void Grafo<T>::EliminarArista(Nodo<T>* origen,
-		Nodo<T>* destino) {
-	//TODO: Implementar...
-}
-
-template<class T> bool Grafo<T>::ExisteArista(Nodo<T>* origen,
-		Nodo<T>* destino) {
+template<class T> bool Grafo<T>::ExisteArista(Vertice* origen,
+		Vertice* destino) {
 	//TODO: Implementar...
 	return false;
 }
 
 template<class T> bool Grafo<T>::ExisteNodo(std::string nombre) {
-	//TODO: Implementar...
-	return false;
+	bool resultado = false;
+	listaAdyacencia->iniciarCursor();
+	while (listaAdyacencia->avanzarCursor() && !resultado) {
+		Lista<Vertice*>* listaVertices = listaAdyacencia->obtenerCursor();
+		Vertice* verticeActual = listaVertices->obtener(1);
+		resultado = verticeActual->obtenerDato() == nombre;
+	}
+	return resultado;
 }
 
 template<class T> Grafo<T>::~Grafo() {
-	//TODO: Implementar...
+	listaAdyacencia->iniciarCursor();
+	while (listaAdyacencia->avanzarCursor()) {
+		Lista<Vertice*>* listaVertices = listaAdyacencia->obtenerCursor();
+		listaVertices->iniciarCursor();
+		while (listaVertices->avanzarCursor()) {
+			Vertice* vertice = listaVertices->obtenerCursor();
+			delete vertice;
+		}
+		delete listaVertices;
+	}
+	delete listaAdyacencia;
 }
 
 #endif
