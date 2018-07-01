@@ -1,54 +1,45 @@
 #ifndef VERTICE_H_
 #define VERTICE_H_
+#include <iostream>
+#include <string>
+#include "Lista.h"
+#include "Arista.h"
 
-#ifndef NULL
-#define NULL 0
-#endif
-
+class Arista;
 class Vertice {
-
 private:
-	std::string dato;
-	Vertice* siguiente;
+	std::string nombre;
+	Lista<Arista*>* adyacentes;
+	unsigned int indice;
 
 public:
-
 	/*
-	 * post: el Nodo resulta inicializado con el dato dado
-	 *       y sin un Nodo siguiente.
+	 * pre: Indice debe ser mayor que cero y el nombre no debe estar vacio
+	 * post: Vertice listo para utilizar con un nombre y un indice dado. Si no cumple las precondiciones
+	 * no hace nada.
 	 */
-	Vertice(std::string dato) {
-		this->dato = dato;
-		this->siguiente = NULL;
-	}
-
+	Vertice(std::string nombre, unsigned int indice);
 	/*
-	 * post: devuelve el valor del dato.
+	 * post: devuelve el nombre del vertice
 	 */
-	std::string obtenerDato() {
-		return this->dato;
-	}
-
+	std::string obtenerNombre();
 	/*
-	 * post: cambia el valor del dato.
+	 * post: devuelve la lista de adyacentes
 	 */
-	void cambiarDato(std::string nuevoDato) {
-		this->dato = nuevoDato;
-	}
-
+	Lista<Arista*>* obtenerAdyacentes();
 	/*
-	 * post: devuelve el siguiente Nodo.
+	 *post: devuelve el indice
 	 */
-	Vertice* obtenerSiguiente() {
-		return this->siguiente;
-	}
-
+	unsigned int obtenerIndice();
 	/*
-	 * post: cambia el siguiente Nodo por nuevoSiguiente.
+	 *pre: La arista no debe ser nula.
+	 *post: Agrega una arista a la lista de adyacentes
 	 */
-	void cambiarSiguiente(Vertice* nuevoSiguiente) {
-		this->siguiente = nuevoSiguiente;
-	}
+	void agregarArista(Arista* nuevaArista);
+	/*
+	 * post: libera los recursos utilizados en vertice.
+	 */
+	~Vertice();
 };
 
-#endif
+#endif /* VERTICE_H_ */
