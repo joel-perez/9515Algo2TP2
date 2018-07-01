@@ -97,10 +97,16 @@ public:
 	 */
 	Lista<Cultivo*>* leerCultivos();
 
-	/* PRE:~
-	 * POST:Devuelve una nueva Lista con todos los Destinos.
+	/*
+	 * PRE:  ~
+	 * POST: Devuelve una nueva Lista con todos los Destinos.
 	 */
-	Grafo* leerDestinos();
+	Lista<Destino*>* leerDestinos();
+
+	/* PRE:~
+	 * POST: Devuelve un grafo para calcular el menor recorrido al enviar un cultivo a destino.
+	 */
+	Grafo* leerGrafoDestinos();
 
 	/*
 	 * POST: Indica si el archivo nombreArchivo existe.

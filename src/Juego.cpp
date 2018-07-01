@@ -9,8 +9,8 @@ Juego::Juego() {
 	this->jugadores = NULL;
 	this->cultivos = NULL;
 	this->dificultad = Dificultad(1);
-	this->recorridos=NULL;
-	this->destinos=new Lista<Destino*>();
+	this->recorridos = NULL;
+	this->destinos = new Lista<Destino*>();
 	this->turnos = 0;
 	this->turnoActual = 1;
 	this->numeroDeJugadores = 0;
@@ -25,7 +25,7 @@ Lista<Jugador*>* Juego::obtenerJugadores() {
 Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
 }
-Lista<Destino*>* Juego::obtenerDestinos(){
+Lista<Destino*>* Juego::obtenerDestinos() {
 	return this->destinos;
 }
 Grafo* Juego::obtenerRecorridos() {
@@ -235,34 +235,34 @@ void Juego::cosecharParcela(Jugador* jugador) {
 void Juego::enviarCosechaADestino(Jugador* jugador) {
 	/*Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
 
-	consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
-	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
-			almacenSeleccionado->obtenerCultivos()->contarElementos());
-	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
-	unsigned int posicionDestino = consola.solicitarIngresoNumerico(1,
-			this->obtenerDestinos()->contarElementos());
+	 consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
+	 unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
+	 almacenSeleccionado->obtenerCultivos()->contarElementos());
+	 consola.mostrarDestinosDisponibles(this->obtenerDestinos());
+	 unsigned int posicionDestino = consola.solicitarIngresoNumerico(1,
+	 this->obtenerDestinos()->contarElementos());
 
-	Destino* destinoSeleccionado = this->obtenerDestinos()->obtener(
-			posicionDestino);
-	Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
-			posicionCultivo);
+	 Destino* destinoSeleccionado = this->obtenerDestinos()->obtener(
+	 posicionDestino);
+	 Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
+	 posicionCultivo);
 
-	if (destinoSeleccionado->obtenerCultivoQueAcepta().obtenerNombre()
-			== cultivoSeleccionado->obtenerNombre()) {
-		if (jugador->obtenerCreditos()
-				>= destinoSeleccionado->obtenerCostoDeEnvioFinal()) {
-			jugador->restarCredito(
-					destinoSeleccionado->obtenerCostoDeEnvioFinal());
-			jugador->agregarCredito(cultivoSeleccionado->obtenerRentabilidad()); //TODO: solo la rentabilidad del txt?
-			almacenSeleccionado->enviarCultivos(posicionCultivo);
-		} else {
-			cout << "No posee suficiente credito para realizar este envio"
-					<< endl;
-		}
+	 if (destinoSeleccionado->obtenerCultivoQueAcepta().obtenerNombre()
+	 == cultivoSeleccionado->obtenerNombre()) {
+	 if (jugador->obtenerCreditos()
+	 >= destinoSeleccionado->obtenerCostoDeEnvioFinal()) {
+	 jugador->restarCredito(
+	 destinoSeleccionado->obtenerCostoDeEnvioFinal());
+	 jugador->agregarCredito(cultivoSeleccionado->obtenerRentabilidad()); //TODO: solo la rentabilidad del txt?
+	 almacenSeleccionado->enviarCultivos(posicionCultivo);
+	 } else {
+	 cout << "No posee suficiente credito para realizar este envio"
+	 << endl;
+	 }
 
-	} else {
-		cout << "Este destino no acepta el cultivo seleccionado." << endl;
-	}*/
+	 } else {
+	 cout << "Este destino no acepta el cultivo seleccionado." << endl;
+	 }*/
 }
 
 Cultivo* Juego::seleccionarCultivo() {
@@ -370,8 +370,9 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 }
 
 void Juego::cargarArchivos() {
-	//this->cultivos = archivo.leerCultivos();
-	this->recorridos = archivo.leerDestinos();
+	this->cultivos = archivo.leerCultivos();
+	this->destinos = archivo.leerDestinos();
+	this->recorridos = archivo.leerGrafoDestinos();
 	this->recorridos->mostrarListaAdyacencia();
 	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
 }
@@ -392,9 +393,9 @@ void Juego::mostrarTerrenosFinales(Lista<Jugador*>* jugadores) {
 }
 
 void Juego::iniciarJuego() {
-	//consola.mostrarBienvenida();
+	consola.mostrarBienvenida();
 	cargarArchivos();
-	/*solicitarDatosIniciales();
+	solicitarDatosIniciales();
 	while (turnoActual <= this->turnos) {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
@@ -410,12 +411,11 @@ void Juego::iniciarJuego() {
 		turnoActual++;
 	}
 	mostrarTerrenosFinales(jugadores);
-	consola.mostrarFin(jugadores);*/
+	consola.mostrarFin(jugadores);
 }
 
 Juego::~Juego() {
-
-	/*this->jugadores->iniciarCursor();
+	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
 		Jugador* jugador = this->jugadores->obtenerCursor();
 		delete jugador;
@@ -428,6 +428,6 @@ Juego::~Juego() {
 	}
 
 	delete jugadores;
-	delete cultivos;*/
+	delete cultivos;
 	delete destinos;
 }
