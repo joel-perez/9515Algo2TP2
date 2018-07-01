@@ -2,9 +2,9 @@
 #define ARISTA_H_
 
 #include <iostream>
-#include "Vertice.h"
 
 class Vertice;
+
 class Arista{
 private:
 	unsigned int peso;

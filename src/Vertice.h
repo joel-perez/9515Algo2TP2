@@ -5,7 +5,6 @@
 #include "Lista.h"
 #include "Arista.h"
 
-class Arista;
 class Vertice {
 private:
 	std::string nombre;
