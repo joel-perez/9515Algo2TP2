@@ -93,7 +93,7 @@ void Parcela::cosechar(Almacen* almacen) {
 }
 
 void Parcela::procesarTurno() {
-	if (!this->estaOcupada()) {
+	if (this->estaOcupada()) {
 		switch (this->obtenerEstado()) {
 		case SEMBRADA:
 			this->procesarTurnoCultivoNormal();
