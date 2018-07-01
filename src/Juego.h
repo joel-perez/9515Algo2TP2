@@ -55,7 +55,7 @@ public:
 	/*
 	 * POST: Devuelve la lista de destinos que se cargo desde un archivo.
 	 */
-	Grafo* obtenerDestinos();
+	Grafo* obtenerRecorridos();
 	/*
 	 * POST: devuelve la cantidad de columnas en el terreno
 	 */
@@ -124,7 +124,10 @@ public:
 	 * POST: Jugadore listos para jugar.
 	 */
 	Lista<Jugador*>* solicitarJugadores(Dificultad dificultad);
-
+	/*
+	 *
+	 */
+	Lista<Destino*>* obtenerDestinos();
 	/*
 	 * PRE:~
 	 * POST:Crea un Terreno dinamico de 'N' filas x 'M' columnas.

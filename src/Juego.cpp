@@ -10,7 +10,7 @@ Juego::Juego() {
 	this->cultivos = NULL;
 	this->dificultad = Dificultad(1);
 	this->recorridos=NULL;
-	this->destinos=NULL;
+	this->destinos=new Lista<Destino*>();
 	this->turnos = 0;
 	this->turnoActual = 1;
 	this->numeroDeJugadores = 0;
@@ -25,8 +25,10 @@ Lista<Jugador*>* Juego::obtenerJugadores() {
 Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
 }
-
-Grafo* Juego::obtenerDestinos() {
+Lista<Destino*>* Juego::obtenerDestinos(){
+	return this->destinos;
+}
+Grafo* Juego::obtenerRecorridos() {
 	return this->recorridos;
 }
 unsigned int Juego::obtenerAnchoTerreno() {
@@ -371,6 +373,7 @@ void Juego::cargarArchivos() {
 	//this->cultivos = archivo.leerCultivos();
 	this->recorridos = archivo.leerDestinos();
 	this->recorridos->mostrarListaAdyacencia();
+	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {

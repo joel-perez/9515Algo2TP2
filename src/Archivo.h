@@ -8,6 +8,7 @@
 #include "Lista.h"
 #include "Cultivo.h"
 #include "Grafo.h"
+#include "Destino.h"
 #include "Constantes.h"
 
 #ifdef linux
