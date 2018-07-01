@@ -155,7 +155,7 @@ Grafo* Archivo::leerDestinos() {
 
 		destinosDisponibles->insertarNodo(nombreOrigen);
 		destinosDisponibles->insertarNodo(nombreDestino);
-		destinosDisponibles->insertarArista(nombreOrigen,nombreDestino,distancia);
+		destinosDisponibles->insertarArista(nombreOrigen,nombreDestino,distancia,precio,cultivoAceptado);
 	}
 
 	entrada.close();

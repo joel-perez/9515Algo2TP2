@@ -36,6 +36,15 @@ public:
 	 */
 	void agregarArista(Arista* nuevaArista);
 	/*
+	 *
+	 */
+	void ingresarDatosEnvio(unsigned int precio, std::string nombre);
+	/*
+	 *
+	 */
+	void mostrarPosiblesEnvios();
+
+	/*
 	 * post: libera los recursos utilizados en vertice.
 	 */
 	~Vertice();

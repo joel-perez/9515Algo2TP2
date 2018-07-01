@@ -35,7 +35,7 @@ Vertice* Grafo::existeNodo(string nombre) {
 }
 
 void Grafo::insertarArista(string nombreOrigen, string nombreDestino,
-		unsigned int peso) {
+		unsigned int peso, unsigned int precio, string cultivo) {
 	Vertice* origen = this->existeNodo(nombreOrigen);
 	Vertice* destino = this->existeNodo(nombreDestino);
 

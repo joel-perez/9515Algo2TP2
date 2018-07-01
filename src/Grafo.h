@@ -38,7 +38,8 @@ public:
 	 * nodos origen y destino de la arista.
 	 * POST: el grafo queda modificado por el agregado de la nueva arista.
 	 */
-	void insertarArista(std::string origen, std::string destino, unsigned int peso);
+	void insertarArista(std::string origen, std::string destino,
+			unsigned int peso, unsigned int precio, std::string cultivo);
 
 	/*
 	 * PRE: que el grafo exista  y que el nodo a eliminar este en el y no tenga aristas incidentes en el.
@@ -73,6 +74,7 @@ public:
 	 * post: imprime por pantalla la lista de adyacencia del grafo.
 	 */
 	void mostrarListaAdyacencia();
+
 	/*
 	 * PRE: que el grafo exista.
 	 * POST: libera los recursos utilizados por el grafo

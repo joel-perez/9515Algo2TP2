@@ -16,7 +16,8 @@ class Juego {
 private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
-	Grafo* destinos;
+	Lista<Destino*>* destinos;
+	Grafo* recorridos;
 	Dificultad dificultad;
 	unsigned int altoTerreno;
 	unsigned int anchoTerreno;

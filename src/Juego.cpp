@@ -9,6 +9,7 @@ Juego::Juego() {
 	this->jugadores = NULL;
 	this->cultivos = NULL;
 	this->dificultad = Dificultad(1);
+	this->recorridos=NULL;
 	this->destinos=NULL;
 	this->turnos = 0;
 	this->turnoActual = 1;
@@ -26,7 +27,7 @@ Lista<Cultivo*>* Juego::obtenerCultivos() {
 }
 
 Grafo* Juego::obtenerDestinos() {
-	return this->destinos;
+	return this->recorridos;
 }
 unsigned int Juego::obtenerAnchoTerreno() {
 	return this->anchoTerreno;
@@ -368,8 +369,8 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 
 void Juego::cargarArchivos() {
 	//this->cultivos = archivo.leerCultivos();
-	this->destinos = archivo.leerDestinos();
-	this->destinos->mostrarListaAdyacencia();
+	this->recorridos = archivo.leerDestinos();
+	this->recorridos->mostrarListaAdyacencia();
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
@@ -388,9 +389,9 @@ void Juego::mostrarTerrenosFinales(Lista<Jugador*>* jugadores) {
 }
 
 void Juego::iniciarJuego() {
-	consola.mostrarBienvenida();
+	//consola.mostrarBienvenida();
 	cargarArchivos();
-	solicitarDatosIniciales();
+	/*solicitarDatosIniciales();
 	while (turnoActual <= this->turnos) {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
@@ -406,12 +407,12 @@ void Juego::iniciarJuego() {
 		turnoActual++;
 	}
 	mostrarTerrenosFinales(jugadores);
-	consola.mostrarFin(jugadores);
+	consola.mostrarFin(jugadores);*/
 }
 
 Juego::~Juego() {
 
-	this->jugadores->iniciarCursor();
+	/*this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
 		Jugador* jugador = this->jugadores->obtenerCursor();
 		delete jugador;
@@ -424,6 +425,6 @@ Juego::~Juego() {
 	}
 
 	delete jugadores;
-	delete cultivos;
+	delete cultivos;*/
 	delete destinos;
 }

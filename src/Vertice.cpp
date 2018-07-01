@@ -9,7 +9,6 @@ Vertice::Vertice(string nombre, unsigned int indice) {
 		this->indice = indice;
 	}
 }
-
 Lista<Arista*>* Vertice::obtenerAdyacentes() {
 	return this->adyacentes;
 }
@@ -26,7 +25,9 @@ void Vertice::agregarArista(Arista* nuevaArista) {
 	}
 }
 
+
 Vertice::~Vertice() {
+
 	this->adyacentes->iniciarCursor();
 	while (this->adyacentes->avanzarCursor()) {
 		delete this->adyacentes->obtenerCursor();
