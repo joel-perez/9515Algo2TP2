@@ -96,7 +96,7 @@ Lista<Cultivo*>* Archivo::leerCultivos() {
 
 	std::string linea;
 	if (entrada.fail()) {
-		std::cout << "Error al abrir el archivo" << std::endl;
+		throw string("No se pudo abrir el archivo cultivos.");
 	}
 	Lista<Cultivo*>* cultivosDisponibles = new Lista<Cultivo*>;
 
@@ -126,31 +126,36 @@ Lista<Cultivo*>* Archivo::leerCultivos() {
 	return cultivosDisponibles;
 }
 
-Lista<Destino*>* Archivo::leerDestinos() {
+Grafo* Archivo::leerDestinos() {
 	std::ifstream entrada;
 	std::string rutaDeterminada = this->obtenerRutaArchivosDatos(
 			ARCHIVO_DESTINOS);
 
 	entrada.open(rutaDeterminada.c_str());
 	if (entrada.fail()) {
-		std::cout << "Ha ocurrido un error al abrir el archivo." << std::endl; //TODO: ver si conviene lanzar Excepcion...
+		throw string("No se pudo abrir el archivo destinos.");
 	}
-	Lista<Destino*>* destinosDisponibles = new Lista<Destino*>;
+	Grafo* destinosDisponibles = new Grafo();
 
 	std::string linea;
 	while (getline(entrada, linea)) {
 		std::stringstream ss(linea);
 
+		std::string nombreOrigen;
+		getline(ss, nombreOrigen, ',');
 		std::string nombreDestino;
 		getline(ss, nombreDestino, ',');
 
-		int km = 0, precio = 0;
+		int distancia = 0, precio = 0;
 		std::string cultivoAceptado;
+		char separador;
+		ss >> distancia >> separador;
+		ss >> precio >> separador;
+		ss >> cultivoAceptado >> separador;
 
-		Destino* nuevoDestino = new Destino(nombreDestino, km, precio,
-				cultivoAceptado);
-		destinosDisponibles->agregar(nuevoDestino);
-
+		destinosDisponibles->insertarNodo(nombreOrigen);
+		destinosDisponibles->insertarNodo(nombreDestino);
+		destinosDisponibles->insertarArista(nombreOrigen,nombreDestino,distancia);
 	}
 
 	entrada.close();

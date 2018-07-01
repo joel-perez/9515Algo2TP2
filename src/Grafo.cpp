@@ -13,9 +13,11 @@ unsigned int Grafo::obtenerTam() {
 }
 
 void Grafo::insertarNodo(string nombreVertice) {
-	Vertice* nuevoVertice = new Vertice(nombreVertice, this->obtenerTam());
-	this->vertices->agregar(nuevoVertice);
-	this->tam++;
+	if (this->existeNodo(nombreVertice) == NULL) {
+		Vertice* nuevoVertice = new Vertice(nombreVertice, this->obtenerTam());
+		this->vertices->agregar(nuevoVertice);
+		this->tam++;
+	}
 }
 
 Vertice* Grafo::existeNodo(string nombre) {

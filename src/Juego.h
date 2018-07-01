@@ -16,7 +16,7 @@ class Juego {
 private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
-	Lista<Destino*>* destinos;
+	Grafo* destinos;
 	Dificultad dificultad;
 	unsigned int altoTerreno;
 	unsigned int anchoTerreno;
@@ -54,7 +54,7 @@ public:
 	/*
 	 * POST: Devuelve la lista de destinos que se cargo desde un archivo.
 	 */
-	Lista<Destino*>* obtenerDestinos();
+	Grafo* obtenerDestinos();
 	/*
 	 * POST: devuelve la cantidad de columnas en el terreno
 	 */

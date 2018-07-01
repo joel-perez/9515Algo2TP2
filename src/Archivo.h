@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include "Lista.h"
 #include "Cultivo.h"
-#include "Destino.h"
+#include "Grafo.h"
 #include "Constantes.h"
 
 #ifdef linux
@@ -99,7 +99,7 @@ public:
 	/* PRE:~
 	 * POST:Devuelve una nueva Lista con todos los Destinos.
 	 */
-	Lista<Destino*>* leerDestinos();
+	Grafo* leerDestinos();
 
 	/*
 	 * POST: Indica si el archivo nombreArchivo existe.

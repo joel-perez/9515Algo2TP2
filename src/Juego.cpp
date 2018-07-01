@@ -8,8 +8,8 @@ using namespace std;
 Juego::Juego() {
 	this->jugadores = NULL;
 	this->cultivos = NULL;
-	this->destinos = NULL;
 	this->dificultad = Dificultad(1);
+	this->destinos=NULL;
 	this->turnos = 0;
 	this->turnoActual = 1;
 	this->numeroDeJugadores = 0;
@@ -25,7 +25,7 @@ Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
 }
 
-Lista<Destino*>* Juego::obtenerDestinos() {
+Grafo* Juego::obtenerDestinos() {
 	return this->destinos;
 }
 unsigned int Juego::obtenerAnchoTerreno() {
@@ -230,7 +230,7 @@ void Juego::cosecharParcela(Jugador* jugador) {
 }
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
-	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
+	/*Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
 
 	consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
 	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
@@ -259,7 +259,7 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 
 	} else {
 		cout << "Este destino no acepta el cultivo seleccionado." << endl;
-	}
+	}*/
 }
 
 Cultivo* Juego::seleccionarCultivo() {
@@ -367,8 +367,9 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 }
 
 void Juego::cargarArchivos() {
-	this->cultivos = archivo.leerCultivos();
+	//this->cultivos = archivo.leerCultivos();
 	this->destinos = archivo.leerDestinos();
+	this->destinos->mostrarListaAdyacencia();
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
@@ -420,12 +421,6 @@ Juego::~Juego() {
 	while (cultivos->avanzarCursor()) {
 		Cultivo* cultivo = this->cultivos->obtenerCursor();
 		delete cultivo;
-	}
-
-	this->destinos->iniciarCursor();
-	while (destinos->avanzarCursor()) {
-		Destino* destino = this->destinos->obtenerCursor();
-		delete destino;
 	}
 
 	delete jugadores;
