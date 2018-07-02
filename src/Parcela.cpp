@@ -116,10 +116,8 @@ void Parcela::procesarTurno() {
 void Parcela::procesarTurnoCultivoNormal() {
 	if (this->yaEstaRegada()) {
 		this->estaRegada = false;
-		if (this->tiempoHastaCosecha > 0) {
+		if (this->tiempoHastaCosecha >= 0) {
 			this->tiempoHastaCosecha--;
-		} else if (this->tiempoHastaCosecha == 0) {
-			//Dejo pasar el turno, ver de mejorar esta condicion...
 		} else {
 			this->estadoParcela = PODRIDA;
 			this->tiempoHastaRecuperacion = this->tiempoHastaRecuperacion
