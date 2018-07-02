@@ -10,8 +10,8 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 	this->almacenes = new Lista<Almacen*>;
 	this->tanque = new Tanque(altoTerreno, anchoTerreno,
 			dificultad.obtenerCoeficienteTamanioTanque());
-	this->creditos = dificultad.obtenerCoeficienteCreditosAsignados();
-	//*altoTerreno * anchoTerreno;
+	this->creditos = dificultad.obtenerCoeficienteCreditosAsignados()
+			* altoTerreno * anchoTerreno;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
