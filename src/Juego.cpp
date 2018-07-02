@@ -277,8 +277,13 @@ void Juego::sembrarParcela(Jugador* jugador) {
 	Parcela* parcelaActual = seleccionarParcela(
 			jugador->obtenerTerrenoActual());
 	Cultivo* cultivoSeleccionado = seleccionarCultivo();
-	creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
-	jugador->restarCredito(creditoUtilizado);
+	if (parcelaActual->obtenerEstado() == VACIA) {
+		creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
+		jugador->restarCredito(creditoUtilizado);
+	} else {
+		cout << "No se puede sembrar una parcela ya sembrada anteriormente."
+				<< endl;
+	}
 }
 
 void Juego::procesarTurnoJugador(Jugador* jugador) {
