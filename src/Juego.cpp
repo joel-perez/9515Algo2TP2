@@ -99,21 +99,35 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 }
 
 void Juego::comprarCapacidadTanque(Jugador* jugador) {
-	jugador->obtenerTanque()->aumentarCapacidad();
-	jugador->restarCredito(
-			PRECIO_BASE_TANQUE
-					* this->dificultad.obtenerCoeficientePrecioTanque());
+	if (jugador->obtenerCreditos()
+			>= PRECIO_BASE_TANQUE
+					* this->dificultad.obtenerCoeficientePrecioTanque()) {
+		jugador->obtenerTanque()->aumentarCapacidad();
+		jugador->restarCredito(
+				PRECIO_BASE_TANQUE
+						* this->dificultad.obtenerCoeficientePrecioTanque());
+	} else {
+		cout << "No tiene creditos para realizar esta operacion." << endl;
+	}
 }
 
 void Juego::comprarTerreno(Jugador* jugador) {
-	Terreno* nuevoTerreno = new Terreno(this->obtenerAnchoTerreno(),
-			this->obtenerAltoTerreno());
-	nuevoTerreno->asignarPrecio(dificultad);
-	jugador->obtenerTerrenos()->agregar(nuevoTerreno);
-	jugador->restarCredito(
-			nuevoTerreno->obtenerPrecio()
-					* jugador->obtenerTerrenos()->contarElementos()
-					* PROPORCIONAL_COMPRA_TERRENO);
+	if (jugador->obtenerCreditos()
+			>= this->obtenerAnchoTerreno() * this->obtenerAltoTerreno()
+					* dificultad.obtenerCoeficienteTamanioTerreno()) {
+
+		Terreno* nuevoTerreno = new Terreno(this->obtenerAnchoTerreno(),
+				this->obtenerAltoTerreno());
+		nuevoTerreno->asignarPrecio(dificultad);
+		jugador->obtenerTerrenos()->agregar(nuevoTerreno);
+		jugador->restarCredito(
+				nuevoTerreno->obtenerPrecio()
+						* jugador->obtenerTerrenos()->contarElementos()
+						* PROPORCIONAL_COMPRA_TERRENO);
+	} else {
+		cout << "No posee suficientes creditos para realizar esta accion."
+				<< endl;
+	}
 }
 
 void Juego::venderTerreno(Jugador* jugador) {
@@ -155,10 +169,18 @@ unsigned int Juego::solicitarSeleccionarTerreno(Jugador* jugador) {
 }
 
 void Juego::comprarAlmacen(Jugador* jugador) {
-	Almacen* nuevoAlmacen = new Almacen(
-			this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
-			this->obtenerAltoTerreno(), this->obtenerAnchoTerreno());
-	jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
+	if (jugador->obtenerCreditos()
+			>= this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen()
+					* this->obtenerAltoTerreno()
+					* this->obtenerAnchoTerreno()) {
+
+		Almacen* nuevoAlmacen = new Almacen(
+				this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
+				this->obtenerAltoTerreno(), this->obtenerAnchoTerreno());
+		jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
+	} else {
+		cout << "No tiene creditos para realizar esta accion." << endl;
+	}
 }
 
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
@@ -179,7 +201,8 @@ int Juego::regarParcela(Jugador* jugador) {
 			jugador->obtenerTerrenoActual());
 	if (parcelaActual->estaOcupada()) {
 		if (!parcelaActual->yaEstaRegada()) {
-			if (jugador->obtenerTanque()->obtenerAguaDisponible() > 0) {
+			if (jugador->obtenerTanque()->obtenerAguaDisponible()
+					> parcelaActual->obtenerCultivo()->obtenerConsumoDeAgua()) {
 				parcelaActual->regar();
 				aguaUtilizada =
 						parcelaActual->obtenerCultivo()->obtenerConsumoDeAgua();
@@ -226,39 +249,48 @@ void Juego::cosecharParcela(Jugador* jugador) {
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
 	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
+	if (almacenSeleccionado->obtenerCantidadDeCultivosEnUnAlmacen() > 0) {
+		consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
+		unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
+				almacenSeleccionado->obtenerCultivos()->contarElementos());
+		consola.mostrarDestinosDisponibles(this->obtenerRecorridos());
+		string nombreDestino = texto.mayusculas(
+				consola.SolicitarIngresoLineaTexto());
 
-	consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
-	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
-			almacenSeleccionado->obtenerCultivos()->contarElementos());
-	consola.mostrarDestinosDisponibles(this->obtenerRecorridos());
-	string nombreDestino = texto.mayusculas(consola.SolicitarIngresoLineaTexto());
+		Vertice* destinoSeleccionado = this->recorridos->existeNodo(
+				nombreDestino);
 
-	Vertice* destinoSeleccionado = this->recorridos->existeNodo(nombreDestino);
-
-	if (destinoSeleccionado != NULL) {
-		Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
-				posicionCultivo);
-		if (destinoSeleccionado->aceptaCultivo(
-				cultivoSeleccionado->obtenerNombre())) {
-			unsigned int costoEnvio = this->recorridos->costoDeEnvio(
-					destinoSeleccionado, cultivoSeleccionado->obtenerNombre());
-			if (jugador->obtenerCreditos() >= costoEnvio) {
-				jugador->restarCredito(costoEnvio);
-				jugador->agregarCredito(
-						cultivoSeleccionado->obtenerRentabilidad());
-				cout << "Rentabilidad "
-						<< cultivoSeleccionado->obtenerRentabilidad() << endl;
-				almacenSeleccionado->enviarCultivos(posicionCultivo);
+		if (destinoSeleccionado != NULL) {
+			Cultivo* cultivoSeleccionado =
+					almacenSeleccionado->obtenerUnCultivo(posicionCultivo);
+			if (destinoSeleccionado->aceptaCultivo(
+					cultivoSeleccionado->obtenerNombre())) {
+				unsigned int costoEnvio = this->recorridos->costoDeEnvio(
+						destinoSeleccionado,
+						cultivoSeleccionado->obtenerNombre());
+				if (jugador->obtenerCreditos() >= costoEnvio) {
+					jugador->restarCredito(costoEnvio);
+					jugador->agregarCredito(
+							cultivoSeleccionado->obtenerRentabilidad());
+					cout << "Rentabilidad "
+							<< cultivoSeleccionado->obtenerRentabilidad()
+							<< endl;
+					almacenSeleccionado->enviarCultivos(posicionCultivo);
+				} else {
+					cout
+							<< "No posee suficiente credito para realizar este envio"
+							<< endl;
+				}
 			} else {
-				cout << "No posee suficiente credito para realizar este envio"
+				cout << "Este destino no acepta el cultivo seleccionado."
 						<< endl;
 			}
-		} else {
-			cout << "Este destino no acepta el cultivo seleccionado." << endl;
-		}
 
+		} else {
+			cout << "No existe el destino selecciondado." << endl;
+		}
 	} else {
-		cout << "No existe el destino selecciondado." << endl;
+		cout << "Este almacen no tiene cultivos" << endl;
 	}
 }
 
