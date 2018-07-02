@@ -16,7 +16,6 @@ class Juego {
 private:
 	Lista<Jugador*>* jugadores;
 	Lista<Cultivo*>* cultivos;
-	Lista<Destino*>* destinos;
 	Grafo* recorridos;
 	Dificultad dificultad;
 	unsigned int altoTerreno;
@@ -124,10 +123,7 @@ public:
 	 * POST: Jugadore listos para jugar.
 	 */
 	Lista<Jugador*>* solicitarJugadores(Dificultad dificultad);
-	/*
-	 *
-	 */
-	Lista<Destino*>* obtenerDestinos();
+
 	/*
 	 * PRE:~
 	 * POST:Crea un Terreno dinamico de 'N' filas x 'M' columnas.

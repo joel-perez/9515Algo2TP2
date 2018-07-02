@@ -85,7 +85,7 @@ public:
 	/*
 	 * POST: imprime la lista de destinos disponibles.
 	 */
-	void mostrarDestinosDisponibles(Lista<Destino*>* destinos);
+	void mostrarDestinosDisponibles(Grafo* destinos);
 
 	/*
 	 * POST: Imprime en pantalla la lista de almacenes indicada.

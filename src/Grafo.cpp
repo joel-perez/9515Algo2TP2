@@ -42,6 +42,7 @@ void Grafo::insertarArista(string nombreOrigen, string nombreDestino,
 	if (origen != NULL && destino != NULL) {
 		Arista* nuevaArista = new Arista(destino, peso);
 		origen->agregarArista(nuevaArista);
+		destino->ingresarDatosEnvio(precio, cultivo);
 	}
 }
 
@@ -51,7 +52,16 @@ void Grafo::eliminarNodo(string nombre) {
 		delete eliminar;
 	}
 }
-
+void Grafo::mostrarCultivoyDestinos() {
+	this->vertices->iniciarCursor();
+	while (this->vertices->avanzarCursor()) {
+		Vertice* actual = this->vertices->obtenerCursor();
+		cout << "Destino: " << actual->obtenerNombre()
+				<< " // Posibles cultivos: ";
+		actual->mostrarPosiblesEnvios();
+		cout << endl;
+	}
+}
 void Grafo::mostrarListaAdyacencia() {
 	this->vertices->iniciarCursor();
 	while (this->vertices->avanzarCursor()) {
@@ -118,6 +128,15 @@ unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino) {
 		return costos[destino->obtenerIndice()];
 	}
 	return -1;
+}
+unsigned int Grafo::costoDeEnvio(Vertice* destino, string nombreCultivo) {
+	unsigned int costoPrecioDelCultivo = destino->obtenerCostoDelCultivo(
+			nombreCultivo);
+	unsigned int kilometros = this->buscarElCaminoMinimo(
+			this->existeNodo("ALMACEN"), destino);
+	cout << "Costo: " << kilometros << " x " << costoPrecioDelCultivo << " = "
+			<< costoPrecioDelCultivo * kilometros << endl;
+	return (costoPrecioDelCultivo * kilometros);
 }
 
 Grafo::~Grafo() {

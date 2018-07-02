@@ -136,7 +136,6 @@ Grafo* Archivo::leerDestinos() {
 		throw string("No se pudo abrir el archivo destinos.");
 	}
 	Grafo* destinosDisponibles = new Grafo();
-	//destinos = new Lista<Destino*>();
 
 	std::string linea;
 	while (getline(entrada, linea)) {
@@ -153,9 +152,7 @@ Grafo* Archivo::leerDestinos() {
 		ss >> distancia >> separador;
 		ss >> precio >> separador;
 		ss >> cultivoAceptado >> separador;
-		//Destino* envio = new Destino(nombreDestino, distancia, precio,
-//				cultivoAceptado);
-		//destinos->agregar(envio);
+
 		destinosDisponibles->insertarNodo(nombreOrigen);
 		destinosDisponibles->insertarNodo(nombreDestino);
 		destinosDisponibles->insertarArista(nombreOrigen, nombreDestino,

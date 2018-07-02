@@ -1,7 +1,6 @@
-frutilla,2,3,5,12,4
-girasol,3,4,1,5,3
-maiz,3,5,7,23,5
-soja,3,4,5,2,4
-trigo,1,2,3,10,5
-cannabis,10,2,200,3,15
-
+FRUTILLA,2,3,5,12,4
+GIRASOL,3,4,1,5,3
+MAIZ,3,5,7,23,5
+SOJA,3,4,5,2,4
+TRIGO,1,2,3,10,5
+CANNABIS,10,2,200,3,15

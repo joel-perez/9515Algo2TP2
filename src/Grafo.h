@@ -74,6 +74,8 @@ public:
 	 * post: imprime por pantalla la lista de adyacencia del grafo.
 	 */
 	void mostrarListaAdyacencia();
+	void mostrarCultivoyDestinos();
+	unsigned int costoDeEnvio(Vertice* destino,std::string nombreCultivo);
 
 	/*
 	 * PRE: que el grafo exista.

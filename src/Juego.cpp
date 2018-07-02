@@ -9,8 +9,7 @@ Juego::Juego() {
 	this->jugadores = NULL;
 	this->cultivos = NULL;
 	this->dificultad = Dificultad(1);
-	this->recorridos=NULL;
-	this->destinos=new Lista<Destino*>();
+	this->recorridos = NULL;
 	this->turnos = 0;
 	this->turnoActual = 1;
 	this->numeroDeJugadores = 0;
@@ -24,9 +23,6 @@ Lista<Jugador*>* Juego::obtenerJugadores() {
 
 Lista<Cultivo*>* Juego::obtenerCultivos() {
 	return this->cultivos;
-}
-Lista<Destino*>* Juego::obtenerDestinos(){
-	return this->destinos;
 }
 Grafo* Juego::obtenerRecorridos() {
 	return this->recorridos;
@@ -163,10 +159,6 @@ void Juego::comprarAlmacen(Jugador* jugador) {
 			this->obtenerDificultad().obtenerCoeficienteTamanioAlmacen(),
 			this->obtenerAltoTerreno(), this->obtenerAnchoTerreno());
 	jugador->obtenerAlmacenes()->agregar(nuevoAlmacen);
-//ELIMINAR ESTO LUEGO DE LA PRUEBA
-	cout << "Ahora hay " << jugador->obtenerAlmacenes()->contarElementos()
-			<< " almacenes" << endl;
-//FALTA RESTAR CREDITO
 }
 
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
@@ -208,24 +200,21 @@ int Juego::regarParcela(Jugador* jugador) {
 void Juego::cosecharParcela(Jugador* jugador) {
 	Parcela* parcelaActual = this->seleccionarParcela(
 			jugador->obtenerTerrenoActual());
+
 	if (parcelaActual->estaOcupada()) {
-		Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
 		Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
-		if (cultivoSeleccionado->obtenerTiempoHastaCosecha() == 0
-				&& cultivoSeleccionado->obtenerNombre()
-						!= PARCELA_EN_RECUPERACION) {
-			if (cultivoSeleccionado->obtenerNombre() != PARCELA_PODRIDA
-					&& cultivoSeleccionado->obtenerNombre() != PARCELA_SECA) {
+
+		if (parcelaActual->obtenerTiempoHastaCosecha() == 0
+				&& parcelaActual->obtenerEstado()
+						!= RECUPERACION) {
+			if (parcelaActual->obtenerEstado() != PODRIDA
+					&& parcelaActual->obtenerEstado() != SECA) {
 				parcelaActual->cosechar(almacenSeleccionado);
 			} else {
-				cout
-						<< "Solo se puede cosechar parcelas que no esten podridas o secas."
-						<< endl;
+				cout<< "Solo se puede cosechar parcelas que no esten podridas o secas."<< endl;
 			}
 		} else {
-			cout
-					<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."
-					<< endl;
+			cout<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."<< endl;
 		}
 	} else {
 		cout << "Solo se pueden cosechar parcelas con cultivo." << endl;
@@ -233,36 +222,41 @@ void Juego::cosecharParcela(Jugador* jugador) {
 }
 
 void Juego::enviarCosechaADestino(Jugador* jugador) {
-	/*Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
+	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
 
 	consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
 	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
 			almacenSeleccionado->obtenerCultivos()->contarElementos());
-	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
-	unsigned int posicionDestino = consola.solicitarIngresoNumerico(1,
-			this->obtenerDestinos()->contarElementos());
+	consola.mostrarDestinosDisponibles(this->obtenerRecorridos());
+	string nombreDestino = consola.SolicitarIngresoLineaTexto();
 
-	Destino* destinoSeleccionado = this->obtenerDestinos()->obtener(
-			posicionDestino);
-	Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
-			posicionCultivo);
+	Vertice* destinoSeleccionado = this->recorridos->existeNodo(nombreDestino);
 
-	if (destinoSeleccionado->obtenerCultivoQueAcepta().obtenerNombre()
-			== cultivoSeleccionado->obtenerNombre()) {
-		if (jugador->obtenerCreditos()
-				>= destinoSeleccionado->obtenerCostoDeEnvioFinal()) {
-			jugador->restarCredito(
-					destinoSeleccionado->obtenerCostoDeEnvioFinal());
-			jugador->agregarCredito(cultivoSeleccionado->obtenerRentabilidad()); //TODO: solo la rentabilidad del txt?
-			almacenSeleccionado->enviarCultivos(posicionCultivo);
+	if (destinoSeleccionado != NULL) {
+		Cultivo* cultivoSeleccionado = almacenSeleccionado->obtenerUnCultivo(
+				posicionCultivo);
+		if (destinoSeleccionado->aceptaCultivo(
+				cultivoSeleccionado->obtenerNombre())) {
+			unsigned int costoEnvio = this->recorridos->costoDeEnvio(
+					destinoSeleccionado, cultivoSeleccionado->obtenerNombre());
+			if (jugador->obtenerCreditos() >= costoEnvio) {
+				jugador->restarCredito(costoEnvio);
+				jugador->agregarCredito(
+						cultivoSeleccionado->obtenerRentabilidad());
+				cout<<"Rentabilidad "<< cultivoSeleccionado->obtenerRentabilidad()<<endl;
+				almacenSeleccionado->enviarCultivos(posicionCultivo);
+			} else {
+				cout << "No posee suficiente credito para realizar este envio"
+						<< endl;
+			}
 		} else {
-			cout << "No posee suficiente credito para realizar este envio"
-					<< endl;
+			cout << "Este destino no acepta el cultivo seleccionado." << endl;
 		}
 
 	} else {
-		cout << "Este destino no acepta el cultivo seleccionado." << endl;
-	}*/
+		cout << "No existe el destino selecciondado." << endl;
+	}
+
 }
 
 Cultivo* Juego::seleccionarCultivo() {
@@ -277,8 +271,12 @@ void Juego::sembrarParcela(Jugador* jugador) {
 	Parcela* parcelaActual = seleccionarParcela(
 			jugador->obtenerTerrenoActual());
 	Cultivo* cultivoSeleccionado = seleccionarCultivo();
-	creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
-	jugador->restarCredito(creditoUtilizado);
+	if (parcelaActual->obtenerEstado() == VACIA) {
+		creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
+		jugador->restarCredito(creditoUtilizado);
+	} else {
+		cout << "No se puede sembrar una parcela ya ocupada." << endl;
+	}
 }
 
 void Juego::procesarTurnoJugador(Jugador* jugador) {
@@ -370,10 +368,8 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 }
 
 void Juego::cargarArchivos() {
-	//this->cultivos = archivo.leerCultivos();
+	this->cultivos = archivo.leerCultivos();
 	this->recorridos = archivo.leerDestinos();
-	this->recorridos->mostrarListaAdyacencia();
-	consola.mostrarDestinosDisponibles(this->obtenerDestinos());
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
@@ -392,9 +388,9 @@ void Juego::mostrarTerrenosFinales(Lista<Jugador*>* jugadores) {
 }
 
 void Juego::iniciarJuego() {
-	//consola.mostrarBienvenida();
+	consola.mostrarBienvenida();
 	cargarArchivos();
-	/*solicitarDatosIniciales();
+	solicitarDatosIniciales();
 	while (turnoActual <= this->turnos) {
 		jugadores->iniciarCursor();
 		while (jugadores->avanzarCursor()) {
@@ -410,12 +406,12 @@ void Juego::iniciarJuego() {
 		turnoActual++;
 	}
 	mostrarTerrenosFinales(jugadores);
-	consola.mostrarFin(jugadores);*/
+	consola.mostrarFin(jugadores);
 }
 
 Juego::~Juego() {
 
-	/*this->jugadores->iniciarCursor();
+	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
 		Jugador* jugador = this->jugadores->obtenerCursor();
 		delete jugador;
@@ -428,6 +424,6 @@ Juego::~Juego() {
 	}
 
 	delete jugadores;
-	delete cultivos;*/
-	delete destinos;
+	delete cultivos;
+	delete recorridos;
 }

@@ -93,7 +93,7 @@ void Parcela::cosechar(Almacen* almacen) {
 }
 
 void Parcela::procesarTurno() {
-	if (!this->estaOcupada()) {
+	if (this->estaOcupada()) {
 		switch (this->obtenerEstado()) {
 		case SEMBRADA:
 			this->procesarTurnoCultivoNormal();
@@ -116,7 +116,7 @@ void Parcela::procesarTurno() {
 void Parcela::procesarTurnoCultivoNormal() {
 	if (this->yaEstaRegada()) {
 		this->estaRegada = false;
-		if (this->tiempoHastaCosecha > 0) {
+		if (this->tiempoHastaCosecha >= 0) {
 			this->tiempoHastaCosecha--;
 		} else {
 			this->estadoParcela = PODRIDA;

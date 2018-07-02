@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Lista.h"
+#include "Envio.h"
 #include "Arista.h"
 
 class Vertice {
@@ -10,6 +11,7 @@ private:
 	std::string nombre;
 	Lista<Arista*>* adyacentes;
 	unsigned int indice;
+	Lista<Envio*>* envios;
 
 public:
 	/*
@@ -43,7 +45,8 @@ public:
 	 *
 	 */
 	void mostrarPosiblesEnvios();
-
+	bool aceptaCultivo(std::string analizado);
+	unsigned int obtenerCostoDelCultivo(std::string nombre);
 	/*
 	 * post: libera los recursos utilizados en vertice.
 	 */

@@ -139,16 +139,14 @@ void Consola::mostrarCultivosDisponibles(Lista<Cultivo*>* cultivos) {
 	}
 }
 
-void Consola::mostrarDestinosDisponibles(Lista<Destino*>* destinos) {
-	destinos->iniciarCursor();
-	while (destinos->avanzarCursor()) {
-		Destino* destinoActual = destinos->obtenerCursor();
-		cout << "Destino: " << destinoActual->obtenerNombre() << endl;
-		cout << "\t Costo de envio: " << destinoActual->obtenerCostoDeEnvio()
-				<< endl;
-		cout << "\t Tipo de cultivo que acepta: "
-				<< destinoActual->obtenerCultivoQueAcepta().obtenerNombre()
-				<< endl;
+void Consola::mostrarDestinosDisponibles(Grafo* destinos) {
+	destinos->obtenerVertices()->iniciarCursor();
+	while (destinos->obtenerVertices()->avanzarCursor()) {
+		Vertice* actual = destinos->obtenerVertices()->obtenerCursor();
+		cout << "Destino: " << actual->obtenerNombre()
+				<< " // Posibles cultivos: ";
+		actual->mostrarPosiblesEnvios();
+		cout << endl;
 	}
 }
 
