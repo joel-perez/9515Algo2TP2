@@ -18,10 +18,23 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 	this->terrenoActual = NULL;
 }
 
-void Jugador::comprarTerreno() {
+void Jugador::comprarTerreno(unsigned int ancho, unsigned int alto,
+		Dificultad dificultad) {
+	Terreno* nuevoTerreno = new Terreno(ancho, alto);
+	nuevoTerreno->asignarPrecio(dificultad);
+	this->obtenerTerrenos()->agregar(nuevoTerreno);
+	this->restarCredito(
+			nuevoTerreno->obtenerPrecio()
+					* this->obtenerTerrenos()->contarElementos()
+					* PROPORCIONAL_COMPRA_TERRENO);
 }
 
-void Jugador::venderTerreno() {
+void Jugador::venderTerreno(unsigned int posicion) {
+	this->agregarCredito(
+			this->obtenerTerrenos()->obtener(posicion)->obtenerPrecio()
+					* PROPORCIONAL_VENTA_TERRENO);
+	this->obtenerTerrenos()->remover(posicion);
+	this->cambiarTerrenoActual(1);
 }
 
 Lista<Terreno*>* Jugador::obtenerTerrenos() {

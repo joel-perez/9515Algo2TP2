@@ -65,7 +65,6 @@ void Terreno::asignarPrecio(Dificultad dificultad) {
 }
 
 Terreno::~Terreno() {
-
 	this->parcelas->iniciarCursor();
 	while (parcelas->avanzarCursor()) {
 		delete this->parcelas->obtenerCursor();

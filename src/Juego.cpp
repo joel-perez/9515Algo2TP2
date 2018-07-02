@@ -115,15 +115,8 @@ void Juego::comprarTerreno(Jugador* jugador) {
 	if (jugador->obtenerCreditos()
 			>= this->obtenerAnchoTerreno() * this->obtenerAltoTerreno()
 					* dificultad.obtenerCoeficienteTamanioTerreno()) {
-
-		Terreno* nuevoTerreno = new Terreno(this->obtenerAnchoTerreno(),
-				this->obtenerAltoTerreno());
-		nuevoTerreno->asignarPrecio(dificultad);
-		jugador->obtenerTerrenos()->agregar(nuevoTerreno);
-		jugador->restarCredito(
-				nuevoTerreno->obtenerPrecio()
-						* jugador->obtenerTerrenos()->contarElementos()
-						* PROPORCIONAL_COMPRA_TERRENO);
+		jugador->comprarTerreno(this->obtenerAnchoTerreno(),
+				this->obtenerAltoTerreno(), this->obtenerDificultad());
 	} else {
 		cout << "No posee suficientes creditos para realizar esta accion."
 				<< endl;
@@ -135,10 +128,7 @@ void Juego::venderTerreno(Jugador* jugador) {
 		cout << "Ingrese que numero de terreno desea vender: " << endl;
 		unsigned int posicion = consola.solicitarIngresoNumerico(1,
 				jugador->obtenerTerrenos()->contarElementos());
-		jugador->agregarCredito(
-				jugador->obtenerTerrenos()->obtener(posicion)->obtenerPrecio()
-						* PROPORCIONAL_VENTA_TERRENO);
-		jugador->obtenerTerrenos()->remover(posicion);
+		jugador->venderTerreno(posicion);
 	} else {
 		cout << "No posee terrenos para vender." << endl;
 	}

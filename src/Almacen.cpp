@@ -18,15 +18,7 @@ unsigned int Almacen::obtenerCapacidadMaxima() {
 }
 
 void Almacen::agregarCultivo(Cultivo* cultivo) {
-	Cultivo* miCultivo = new Cultivo();
-	miCultivo->asignarConsumoDeAgua(cultivo->obtenerConsumoDeAgua());
-	miCultivo->asignarCosto(cultivo->obtenerCosto());
-	miCultivo->asignarNombre(cultivo->obtenerNombre());
-	miCultivo->asignarRentabilidad(cultivo->obtenerRentabilidad());
-	miCultivo->asignarTiempoDeCrecimiento(cultivo->obtenerTiempoHastaCosecha());
-	miCultivo->asignarTiempoDeRecuperacion(
-			cultivo->obtenerTiempoRecuperacion());
-	this->cultivos->agregar(miCultivo);
+	this->cultivos->agregar(cultivo);
 }
 
 void Almacen::enviarCultivos(unsigned int posicion) {
@@ -52,10 +44,6 @@ Cultivo* Almacen::obtenerUnCultivo(unsigned int cultivoElegido) {
 
 Almacen::~Almacen() {
 
-	this->cultivos->iniciarCursor();
-	while (this->cultivos->avanzarCursor()) {
-		delete this->cultivos->obtenerCursor();
-	}
 	delete cultivos;
 }
 

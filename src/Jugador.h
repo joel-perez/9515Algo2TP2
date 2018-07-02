@@ -32,13 +32,13 @@ public:
 	 * PRE:~
 	 * POST:compra un terreno durantes el turnoActual;
 	 */
-	void comprarTerreno();
+	void comprarTerreno(unsigned int ancho,unsigned int alto, Dificultad dificultad);
 
 	/*
 	 * PRE:~
 	 * POST: vende un terreno durantes el turnoActual;
 	 */
-	void venderTerreno();
+	void venderTerreno(unsigned int posicion);
 
 	/*
 	 * PRE:~
