@@ -211,7 +211,7 @@ void Juego::cosecharParcela(Jugador* jugador) {
 	if (parcelaActual->estaOcupada()) {
 		Cultivo* cultivoSeleccionado = parcelaActual->obtenerCultivo();
 		Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
-		if (cultivoSeleccionado->obtenerTiempoHastaCosecha() == 0
+		if (parcelaActual->obtenerTiempoHastaCosecha() == 0
 				&& cultivoSeleccionado->obtenerNombre()
 						!= PARCELA_EN_RECUPERACION) {
 			if (cultivoSeleccionado->obtenerNombre() != PARCELA_PODRIDA
