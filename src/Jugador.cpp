@@ -12,7 +12,7 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 			dificultad.obtenerCoeficienteTamanioTanque());
 	//this->creditos = dificultad.obtenerCoeficienteCreditosAsignados()
 	//*altoTerreno * anchoTerreno;
-	this->creditos = 100000000;
+	//this->creditos = 100000000;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
