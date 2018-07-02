@@ -203,12 +203,12 @@ void Juego::cosecharParcela(Jugador* jugador) {
 
 	if (parcelaActual->estaOcupada()) {
 		Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
-
 		if (parcelaActual->obtenerTiempoHastaCosecha() == 0
 				&& parcelaActual->obtenerEstado()
 						!= RECUPERACION) {
 			if (parcelaActual->obtenerEstado() != PODRIDA
 					&& parcelaActual->obtenerEstado() != SECA) {
+
 				parcelaActual->cosechar(almacenSeleccionado);
 			} else {
 				cout<< "Solo se puede cosechar parcelas que no esten podridas o secas."<< endl;
@@ -256,7 +256,6 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 	} else {
 		cout << "No existe el destino selecciondado." << endl;
 	}
-
 }
 
 Cultivo* Juego::seleccionarCultivo() {
@@ -275,7 +274,8 @@ void Juego::sembrarParcela(Jugador* jugador) {
 		creditoUtilizado = parcelaActual->sembrar(cultivoSeleccionado);
 		jugador->restarCredito(creditoUtilizado);
 	} else {
-		cout << "No se puede sembrar una parcela ya ocupada." << endl;
+		cout << "No se puede sembrar una parcela ya sembrada anteriormente."
+				<< endl;
 	}
 }
 
@@ -370,6 +370,7 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 void Juego::cargarArchivos() {
 	this->cultivos = archivo.leerCultivos();
 	this->recorridos = archivo.leerDestinos();
+
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
@@ -410,7 +411,6 @@ void Juego::iniciarJuego() {
 }
 
 Juego::~Juego() {
-
 	this->jugadores->iniciarCursor();
 	while (jugadores->avanzarCursor()) {
 		Jugador* jugador = this->jugadores->obtenerCursor();
@@ -425,5 +425,6 @@ Juego::~Juego() {
 
 	delete jugadores;
 	delete cultivos;
+
 	delete recorridos;
 }

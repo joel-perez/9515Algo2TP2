@@ -27,7 +27,7 @@ const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_WINDOWS;
  * Administra el manejo de archivos, directorios, rutas, etc.
  * Dado que depende de rutinas internas del Sistema Operativo
  * en el cual se ejecuta la aplicacion, se acoto las posibilidades
- * a sistemas Linux y Windows.
+ * a sistemas Linux y Windows.////
  */
 class Archivo {
 private:
