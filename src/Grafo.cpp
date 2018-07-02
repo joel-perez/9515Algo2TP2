@@ -57,7 +57,7 @@ void Grafo::mostrarCultivoyDestinos() {
 	while (this->vertices->avanzarCursor()) {
 		Vertice* actual = this->vertices->obtenerCursor();
 		cout << "Destino: " << actual->obtenerNombre()
-				<< " // Posibles cultivos: ";
+				<< " || Cultivos Aceptados: ";
 		actual->mostrarPosiblesEnvios();
 		cout << endl;
 	}
@@ -134,8 +134,7 @@ unsigned int Grafo::costoDeEnvio(Vertice* destino, string nombreCultivo) {
 			nombreCultivo);
 	unsigned int kilometros = this->buscarElCaminoMinimo(
 			this->existeNodo("ALMACEN"), destino);
-	cout << "Costo: " << kilometros << " x " << costoPrecioDelCultivo << " = "
-			<< costoPrecioDelCultivo * kilometros << endl;
+	cout << "Costo: " << costoPrecioDelCultivo * kilometros << endl;
 	return (costoPrecioDelCultivo * kilometros);
 }
 

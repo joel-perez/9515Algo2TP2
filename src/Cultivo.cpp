@@ -78,3 +78,4 @@ void Cultivo::asignarTiempoDeCrecimiento(unsigned int tiempoDeCrecimiento) {
 void Cultivo::asignarTiempoDeRecuperacion(unsigned int tiempoDeRecuperacion) {
 	this->tiempoDeRecuperacion = tiempoDeRecuperacion;
 }
+

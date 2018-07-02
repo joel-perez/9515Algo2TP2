@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "Jugador.h"
+#include "Lista.h"
 #include "Constantes.h"
 
 Jugador::Jugador(std::string nombre, Dificultad dificultad,
@@ -10,8 +11,8 @@ Jugador::Jugador(std::string nombre, Dificultad dificultad,
 	this->almacenes = new Lista<Almacen*>;
 	this->tanque = new Tanque(altoTerreno, anchoTerreno,
 			dificultad.obtenerCoeficienteTamanioTanque());
-	this->creditos = dificultad.obtenerCoeficienteCreditosAsignados()
-			* altoTerreno * anchoTerreno;
+	this->creditos = 99999999;//dificultad.obtenerCoeficienteCreditosAsignados()
+			//* altoTerreno * anchoTerreno;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;
@@ -33,8 +34,9 @@ void Jugador::venderTerreno(unsigned int posicion) {
 	this->agregarCredito(
 			this->obtenerTerrenos()->obtener(posicion)->obtenerPrecio()
 					* PROPORCIONAL_VENTA_TERRENO);
+	Terreno* remover = this->obtenerTerrenos()->obtener(posicion);
 	this->obtenerTerrenos()->remover(posicion);
-	this->cambiarTerrenoActual(1);
+	delete remover;
 }
 
 Lista<Terreno*>* Jugador::obtenerTerrenos() {

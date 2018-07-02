@@ -99,13 +99,10 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 }
 
 void Juego::comprarCapacidadTanque(Jugador* jugador) {
-	if (jugador->obtenerCreditos()
-			>= PRECIO_BASE_TANQUE
-					* this->dificultad.obtenerCoeficientePrecioTanque()) {
+	unsigned int precio=(PRECIO_BASE_TANQUE* this->dificultad.obtenerCoeficientePrecioTanque());
+	if (jugador->obtenerCreditos()>= precio) {
 		jugador->obtenerTanque()->aumentarCapacidad();
-		jugador->restarCredito(
-				PRECIO_BASE_TANQUE
-						* this->dificultad.obtenerCoeficientePrecioTanque());
+		jugador->restarCredito(precio);
 	} else {
 		cout << "No tiene creditos para realizar esta operacion." << endl;
 	}

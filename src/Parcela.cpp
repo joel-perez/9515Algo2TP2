@@ -171,3 +171,4 @@ void Parcela::procesarTurnoCultivoEnRecuperacion() {
 
 Parcela::~Parcela() {
 }
+

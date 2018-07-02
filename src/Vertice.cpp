@@ -39,7 +39,7 @@ void Vertice::mostrarPosiblesEnvios() {
 		this->envios->iniciarCursor();
 		while (this->envios->avanzarCursor()) {
 			Envio* actual = this->envios->obtenerCursor();
-			cout << actual->obtenerNombreCultivo();
+			cout << actual->obtenerNombreCultivo()<", ";
 		}
 	}
 }
@@ -47,7 +47,6 @@ bool Vertice::aceptaCultivo(string analizado) {
 	bool encontrado = false;
 	this->envios->iniciarCursor();
 	while (this->envios->avanzarCursor() && !encontrado) {
-		cout << this->envios->obtenerCursor()->obtenerNombreCultivo() << " ? " << analizado << endl;
 		encontrado = (this->envios->obtenerCursor()->obtenerNombreCultivo()
 				== analizado);
 	}

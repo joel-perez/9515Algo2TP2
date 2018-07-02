@@ -95,6 +95,7 @@ public:
 	 * POST:
 	 */
 	void asignarTiempoDeRecuperacion(unsigned int tiempoDeRecuperacion);
+
 };
 
 #endif
