@@ -11,6 +11,7 @@
 #include "Terreno.h"
 #include "Imagen.h"
 #include "Grafo.h"
+#include "Texto.h"
 
 class Juego {
 private:
@@ -25,6 +26,7 @@ private:
 	Consola consola;
 	Imagen imagen;
 	Archivo archivo;
+	Texto texto;
 	unsigned int numeroDeJugadores;
 
 public:

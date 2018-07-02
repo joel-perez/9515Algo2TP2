@@ -14,6 +14,11 @@ public:
 	 * POST: Devuelve un string rellenado a derecha con el caracter pad.
 	 */
 	std::string rellenarDerecha(std::string str, unsigned int cant, char pad);
+
+	/*
+	 * POST: Devuelve el texto en mayusculas
+	 */
+	std::string mayusculas(std::string texto);
 };
 
 #endif

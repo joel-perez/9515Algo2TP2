@@ -143,8 +143,10 @@ Grafo* Archivo::leerDestinos() {
 
 		std::string nombreOrigen;
 		getline(ss, nombreOrigen, ',');
+		nombreOrigen = texto.mayusculas(nombreOrigen);
 		std::string nombreDestino;
 		getline(ss, nombreDestino, ',');
+		nombreDestino = texto.mayusculas(nombreDestino);
 
 		int distancia = 0, precio = 0;
 		std::string cultivoAceptado;

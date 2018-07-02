@@ -204,17 +204,20 @@ void Juego::cosecharParcela(Jugador* jugador) {
 	if (parcelaActual->estaOcupada()) {
 		Almacen* almacenSeleccionado = seleccionarAlmacen(jugador);
 		if (parcelaActual->obtenerTiempoHastaCosecha() == 0
-				&& parcelaActual->obtenerEstado()
-						!= RECUPERACION) {
+				&& parcelaActual->obtenerEstado() != RECUPERACION) {
 			if (parcelaActual->obtenerEstado() != PODRIDA
 					&& parcelaActual->obtenerEstado() != SECA) {
 
 				parcelaActual->cosechar(almacenSeleccionado);
 			} else {
-				cout<< "Solo se puede cosechar parcelas que no esten podridas o secas."<< endl;
+				cout
+						<< "Solo se puede cosechar parcelas que no esten podridas o secas."
+						<< endl;
 			}
 		} else {
-			cout<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."<< endl;
+			cout
+					<< "Solo se pueden cosechar parcelas a tiempo de ser cosechadas."
+					<< endl;
 		}
 	} else {
 		cout << "Solo se pueden cosechar parcelas con cultivo." << endl;
@@ -228,7 +231,7 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 	unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
 			almacenSeleccionado->obtenerCultivos()->contarElementos());
 	consola.mostrarDestinosDisponibles(this->obtenerRecorridos());
-	string nombreDestino = consola.SolicitarIngresoLineaTexto();
+	string nombreDestino = texto.mayusculas(consola.SolicitarIngresoLineaTexto());
 
 	Vertice* destinoSeleccionado = this->recorridos->existeNodo(nombreDestino);
 
@@ -243,7 +246,8 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 				jugador->restarCredito(costoEnvio);
 				jugador->agregarCredito(
 						cultivoSeleccionado->obtenerRentabilidad());
-				cout<<"Rentabilidad "<< cultivoSeleccionado->obtenerRentabilidad()<<endl;
+				cout << "Rentabilidad "
+						<< cultivoSeleccionado->obtenerRentabilidad() << endl;
 				almacenSeleccionado->enviarCultivos(posicionCultivo);
 			} else {
 				cout << "No posee suficiente credito para realizar este envio"

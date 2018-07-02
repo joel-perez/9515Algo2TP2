@@ -10,6 +10,7 @@
 #include "Grafo.h"
 #include "Destino.h"
 #include "Constantes.h"
+#include "Texto.h"
 
 #ifdef linux
 #include <string>
@@ -31,6 +32,7 @@ const char SEPARADOR_DIRECTORIO = SEPARADOR_DIRECTORIO_WINDOWS;
  */
 class Archivo {
 private:
+	Texto texto;
 
 public:
 	/*
