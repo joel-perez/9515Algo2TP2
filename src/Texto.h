@@ -19,6 +19,12 @@ public:
 	 * POST: Devuelve el texto en mayusculas
 	 */
 	std::string mayusculas(std::string texto);
+
+	/*
+	 * POST: Devuelve el texto en minusculas
+	 */
+	std::string minusculas(std::string texto);
+
 };
 
 #endif

@@ -24,3 +24,8 @@ string Texto::mayusculas(string texto) {
 	transform(texto.begin(), texto.end(), texto.begin(), ::toupper);
 	return texto;
 }
+
+string Texto::minusculas(string texto) {
+	transform(texto.begin(), texto.end(), texto.begin(), ::tolower);
+	return texto;
+}

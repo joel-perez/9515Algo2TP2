@@ -116,6 +116,8 @@ Lista<Cultivo*>* Archivo::leerCultivos() {
 		ss >> tiempoDeRecuperacion >> separador;
 		ss >> consumoDeAgua >> separador;
 
+		nombreCultivo = texto.minusculas(nombreCultivo);
+
 		Cultivo* nuevoCultivo = new Cultivo(nombreCultivo, costo,
 				tiempoDeCrecimiento, rentabilidad, tiempoDeRecuperacion,
 				consumoDeAgua);
