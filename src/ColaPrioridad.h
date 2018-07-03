@@ -17,7 +17,6 @@ public:
 	 * post: Actualiza el valor de la prioridad del nodo y lo ordena en la cola. Si el valor de la prioridad
 	 * no es la indicada no hace nada.
 	 */
-	//TODO: buscar forma para que sea general la prioridad (Es necesario que sea generico?)
 	void actualizarValor(T vertice, unsigned int prioridad);
 	/*
 	 * post: devuelve true si la cola esta vacia y false si no.
@@ -135,7 +134,8 @@ T ColaPrioridad<T>::desacolar() {
 template<class T>
 T ColaPrioridad<T>::obtenerFrente() {
 	if (this->estaVacia()) {
-		throw std::string("No se puede obtener el frente, la cola está vacía.");
+		throw std::string(
+				"No se puede obtener el frente, la cola está vacía.");
 	}
 	T elemento = this->frente->obtenerDato();
 	return elemento;

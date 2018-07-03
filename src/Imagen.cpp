@@ -10,21 +10,26 @@ Imagen::Imagen() {
 			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
 					"terreno.bmp").c_str());
 	imagenDelTerreno.SetBitDepth(24);
-	cultivo.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
-			"cultivodefault.bmp").c_str());
-	cultivoVacio.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
-			"cultivovacio.bmp").c_str());
-	cultivoSeco.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
-			"cultivoseco.bmp").c_str());
-	cultivoRecienSembrado.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
-			"cultivobebe.bmp").c_str());
-	cultivoPodrido.ReadFromFile(archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
-			"cultivopodrido.bmp").c_str());
+	cultivo.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"cultivodefault.bmp").c_str());
+	cultivoVacio.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"cultivovacio.bmp").c_str());
+	cultivoSeco.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"cultivoseco.bmp").c_str());
+	cultivoRecienSembrado.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"cultivobebe.bmp").c_str());
+	cultivoPodrido.ReadFromFile(
+			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+					"cultivopodrido.bmp").c_str());
 }
 
 void Imagen::mostrarTerrenos(Jugador* jugador, unsigned int columnas,
 		unsigned int filas, unsigned int turno) {
-	int numeroTerreno = 1; //TODO: buscar una mejor forma para indicar que terreno es el de la imagen
+	int numeroTerreno = 1;
 	Lista<Terreno*>* terrenos = jugador->obtenerTerrenos();
 	terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {

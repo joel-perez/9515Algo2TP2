@@ -10,13 +10,12 @@ Destino::Destino() {
 	this->distanciaEnKm = 0;
 }
 
-Destino::Destino(std::string nombreDestino, unsigned int km, unsigned int precio,
-		std::string cultivoAceptado) {
+Destino::Destino(std::string nombreDestino, unsigned int km,
+		unsigned int precio, std::string cultivoAceptado) {
 	this->nombre = nombreDestino;
 	this->distanciaEnKm = km;
 	this->costoPorKm = precio;
-	this->cultivo = Cultivo(cultivoAceptado); //TODO: Creo que aca habria que recibir un cultivo ya existente de los que se cargaron del otro archivo...
-
+	this->cultivo = Cultivo(cultivoAceptado);
 }
 
 string Destino::obtenerNombre() {
@@ -31,6 +30,6 @@ unsigned int Destino::obtenerCostoDeEnvio() {
 unsigned int Destino::obtenerDistancia() {
 	return this->distanciaEnKm;
 }
-unsigned int Destino::obtenerCostoDeEnvioFinal(){
+unsigned int Destino::obtenerCostoDeEnvioFinal() {
 	return (this->obtenerCostoDeEnvio() * this->obtenerDistancia());
 }

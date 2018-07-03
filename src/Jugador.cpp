@@ -7,12 +7,12 @@
 
 Jugador::Jugador(std::string nombre, Dificultad dificultad,
 		unsigned int altoTerreno, unsigned int anchoTerreno) {
-	this->terrenos = new Lista<Terreno*>; //TODO: Ver si aca es mejor opcion para inicializar el primer terreno vacio para el jugador...
+	this->terrenos = new Lista<Terreno*>;
 	this->almacenes = new Lista<Almacen*>;
 	this->tanque = new Tanque(altoTerreno, anchoTerreno,
 			dificultad.obtenerCoeficienteTamanioTanque());
-	this->creditos = 99999999;//dificultad.obtenerCoeficienteCreditosAsignados()
-			//* altoTerreno * anchoTerreno;
+	this->creditos = dificultad.obtenerCoeficienteCreditosAsignados()
+			* altoTerreno * anchoTerreno;
 	this->nombre = nombre;
 	this->aguaPorTurno = 0;
 	this->sigueJugando = true;

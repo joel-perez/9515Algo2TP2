@@ -71,7 +71,6 @@ public:
 	 */
 	bool superoCapacidadMaxima();
 
-//TODO: Implementar los metodos que hagan falta...
 };
 
 #endif
