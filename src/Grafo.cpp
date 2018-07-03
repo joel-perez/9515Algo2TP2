@@ -25,8 +25,9 @@ Vertice* Grafo::existeNodo(string nombre) {
 	bool encontrado = false;
 	this->vertices->iniciarCursor();
 	while (this->vertices->avanzarCursor() && !encontrado) {
-		encontrado =
-				(this->vertices->obtenerCursor()->obtenerNombre() == nombre);
+		encontrado = (texto.mayusculas(
+				this->vertices->obtenerCursor()->obtenerNombre())
+				== texto.mayusculas(nombre));
 		if (encontrado) {
 			vertice = vertices->obtenerCursor();
 		}

@@ -47,8 +47,8 @@ bool Vertice::aceptaCultivo(string analizado) {
 	bool encontrado = false;
 	this->envios->iniciarCursor();
 	while (this->envios->avanzarCursor() && !encontrado) {
-		encontrado = (this->envios->obtenerCursor()->obtenerNombreCultivo()
-				== analizado);
+		encontrado = (texto.mayusculas(this->envios->obtenerCursor()->obtenerNombreCultivo())
+				== texto.mayusculas(analizado));
 	}
 	return encontrado;
 }
@@ -57,8 +57,8 @@ unsigned int Vertice::obtenerCostoDelCultivo(string nombre) {
 	unsigned int costo = 0;
 	this->envios->iniciarCursor();
 	while (this->envios->avanzarCursor() && !encontrado) {
-		encontrado = (this->envios->obtenerCursor()->obtenerNombreCultivo()
-				== nombre);
+		encontrado = (texto.mayusculas(this->envios->obtenerCursor()->obtenerNombreCultivo())
+				== texto.mayusculas(nombre));
 		if (encontrado) {
 			costo = this->envios->obtenerCursor()->obtenerPrecioEnvio();
 		}

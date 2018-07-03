@@ -5,6 +5,7 @@
 #include "Lista.h"
 #include "Envio.h"
 #include "Arista.h"
+#include "Texto.h"
 
 class Vertice {
 private:
@@ -12,6 +13,7 @@ private:
 	Lista<Arista*>* adyacentes;
 	unsigned int indice;
 	Lista<Envio*>* envios;
+	Texto texto;
 
 public:
 	/*

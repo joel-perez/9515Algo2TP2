@@ -6,12 +6,14 @@
 #include "ColaPrioridad.h"
 #include "Lista.h"
 #include "Vertice.h"
+#include "Texto.h"
 
 class Grafo {
 
 private:
 	Lista<Vertice*>* vertices;
 	unsigned int tam;
+	Texto texto;
 
 public:
 	/*
