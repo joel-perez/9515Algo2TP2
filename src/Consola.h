@@ -38,10 +38,15 @@ public:
 
 	/*
 	 * PRE:
-	 * POST:muestra el estado del terreno del
-	 * 	jugadorActual.
+	 * POST: Muestra el estado de los terrenos del jugadorActual.
 	 */
 	void mostrarTerrenos(Jugador* jugadorActual);
+
+	/*
+	 * PRE:
+	 * POST: muestra el estado actual de un terreno.
+	 */
+	void mostrarTerreno(Terreno* terrenoActual);
 
 	/*
 	 * PRE:~
@@ -95,7 +100,6 @@ public:
 	 * POTS: Imprime en pantalla la lista de cultivos del almacen indicado.
 	 */
 	void mostrarCultivosDisponiblesDeUnAlmacen(Almacen* almacen);
-
 
 };
 

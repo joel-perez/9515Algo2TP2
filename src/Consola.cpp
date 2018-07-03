@@ -28,20 +28,23 @@ void Consola::mostrarTerrenos(Jugador* jugadorActual) {
 	terrenos->iniciarCursor();
 	while (terrenos->avanzarCursor()) {
 		Terreno* terrenoActual = terrenos->obtenerCursor();
-		for (unsigned int i = 1; i <= terrenoActual->obtenerFilas(); i++) {
-			for (unsigned int j = 1; j <= terrenoActual->obtenerColumnas();
-					j++) {
-				Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
-				cout
-						<< texto.rellenarDerecha(
-								miParcela->obtenerEstadoParaMostrarEnPantalla()
-										+ " ("
-										+ texto.intToString(
-												miParcela->obtenerTiempoHastaCosecha())
-										+ ")", 15, ' ');
-			}
-			cout << endl;
+		mostrarTerreno(terrenoActual);
+	}
+}
+
+void Consola::mostrarTerreno(Terreno* terrenoActual) {
+	for (unsigned int i = 1; i <= terrenoActual->obtenerFilas(); i++) {
+		for (unsigned int j = 1; j <= terrenoActual->obtenerColumnas(); j++) {
+			Parcela* miParcela = terrenoActual->obtenerParcela(i, j);
+			cout
+					<< texto.rellenarDerecha(
+							miParcela->obtenerEstadoParaMostrarEnPantalla()
+									+ " ("
+									+ texto.intToString(
+											miParcela->obtenerTiempoHastaCosecha())
+									+ ")", 15, ' ');
 		}
+		cout << endl;
 	}
 }
 
