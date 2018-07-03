@@ -37,7 +37,7 @@ Dificultad::Dificultad(TipoDificultad dificultadSeleccionada) {
 
 void Dificultad::inicializarDificultadFacil() {
 	this->coeficienteTamanioTanque = 3;
-	this->coeficienteCreditosAsignados = 3;
+	this->coeficienteCreditosAsignados = 40;
 	this->coeficientePrecioCultivo = 1;
 	this->coeficienteCantidadTurnos = 1;
 	this->coeficienteMultiplicadorAgua = 3;
@@ -49,7 +49,7 @@ void Dificultad::inicializarDificultadFacil() {
 
 void Dificultad::inicializarDificultadIntermedio() {
 	this->coeficienteTamanioTanque = 2;
-	this->coeficienteCreditosAsignados = 2;
+	this->coeficienteCreditosAsignados = 20;
 	this->coeficientePrecioCultivo = 2;
 	this->coeficienteCantidadTurnos = 1;
 	this->coeficienteMultiplicadorAgua = 2;
@@ -61,7 +61,7 @@ void Dificultad::inicializarDificultadIntermedio() {
 
 void Dificultad::inicializarDificultadDificil() {
 	this->coeficienteTamanioTanque = 1;
-	this->coeficienteCreditosAsignados = 1;
+	this->coeficienteCreditosAsignados = 10;
 	this->coeficientePrecioCultivo = 3;
 	this->coeficienteCantidadTurnos = 1;
 	this->coeficienteMultiplicadorAgua = 1;
