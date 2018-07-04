@@ -393,7 +393,6 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 void Juego::cargarArchivos() {
 	this->cultivos = archivo.leerCultivos();
 	this->recorridos = archivo.leerDestinos();
-consola.mostrarCultivosDisponibles(cultivos);
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {

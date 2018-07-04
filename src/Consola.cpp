@@ -20,6 +20,7 @@ void Consola::mostrarDatosDelTurno(Jugador* jugadorActual,
 	cout << endl << "JUGADOR: " << jugadorActual->obtenerNombre() << endl;
 	cout << "Turno Nro: " << turnoActual << endl;
 	cout << "Creditos: " << jugadorActual->obtenerCreditos() << endl;
+
 }
 
 void Consola::mostrarTerrenos(Jugador* jugadorActual) {

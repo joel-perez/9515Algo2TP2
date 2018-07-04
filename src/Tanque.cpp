@@ -4,6 +4,8 @@
 #include "Tanque.h"
 #include "Constantes.h"
 
+using namespace std;
+
 Tanque::Tanque() {
 	this->capacidadMaxima = 10;
 	this->aguaDisponible = 10;
@@ -44,6 +46,7 @@ void Tanque::cambiarAguaDisponible(unsigned int aguaDelTurno) {
 
 unsigned int Tanque::tirarDado() {
 	unsigned int potenciador = (rand() % CARAS_DADO) + 1;
+	cout << "potenciador "<< potenciador <<endl; //todo: pasar esto a otro lado, al juego cpp
 	return potenciador;
 }
 bool Tanque::superoCapacidadMaxima() {
