@@ -1,6 +1,6 @@
 #ifndef ARISTA_H
 #define ARISTA_H_
-
+#include "Cultivo.h"
 #include <iostream>
 
 class Vertice;
@@ -9,6 +9,7 @@ class Arista{
 private:
 	unsigned int peso;
 	Vertice* destino;
+    Cultivo* cultivo; //todo: agregar lo correspondiente...
 
 public:
 	/*
