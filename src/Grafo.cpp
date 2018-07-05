@@ -126,6 +126,7 @@ unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino) {
 			}
 		}
 	}
+
 	delete[] costos;
 	delete cola;
 

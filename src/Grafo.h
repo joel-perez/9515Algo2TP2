@@ -93,7 +93,7 @@ public:
 	unsigned int* inicializarVector(Vertice* origen);
 	/*
 	 * pre: origen debe ser diferente a NULL
-	 * post: devuelve una cola con prioridad con los vertices en el.
+	 * post: devuelve una cola con prioridad con los vertices en el..
 	 */
 	ColaPrioridad<Vertice*>* inicializarCola(Vertice* origen, unsigned int* costos);
 
