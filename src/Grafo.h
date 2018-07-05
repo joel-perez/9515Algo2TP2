@@ -76,8 +76,26 @@ public:
 	 * post: imprime por pantalla la lista de adyacencia del grafo.
 	 */
 	void mostrarListaAdyacencia();
+	/*
+	 * post: imprime por pantalla cultivos y destinos
+	 */
 	void mostrarCultivoyDestinos();
+	/*
+	 * pre: Destino debe existir en la lista de vertices y nombre de cultivo debe existir en la
+	 * lista de cultivos y el destino debe aceptarlo.
+	 * post: devuelve el costo total de envio
+	 */
 	unsigned int costoDeEnvio(Vertice* destino,std::string nombreCultivo);
+	/*
+	 * pre: Origen debe estar en la lista de vertices
+	 * post: devuelve un vector inicializado del mismo tamanio que la cantidad de vertices actual
+	 */
+	unsigned int* inicializarVector(Vertice* origen);
+	/*
+	 * pre: origen debe ser diferente a NULL
+	 * post: devuelve una cola con prioridad con los vertices en el.
+	 */
+	ColaPrioridad<Vertice*>* inicializarCola(Vertice* origen, unsigned int* costos);
 
 	/*
 	 * PRE: que el grafo exista.

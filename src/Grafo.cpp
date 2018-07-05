@@ -79,57 +79,60 @@ void Grafo::mostrarListaAdyacencia() {
 		cout << endl;
 	}
 }
+unsigned int* Grafo::inicializarVector(Vertice* origen) {
+	unsigned int* costos = new unsigned int[this->obtenerTam()];
+	for (unsigned int i = 0; i < this->obtenerTam(); i++) {
+		costos[i] = 99999999;
+	}
+	origen->obtenerAdyacentes()->iniciarCursor();
+	while (origen->obtenerAdyacentes()->avanzarCursor()) {
+		Arista* analizada = origen->obtenerAdyacentes()->obtenerCursor();
+		unsigned int costo = analizada->obtenerPeso();
+		costos[analizada->obtenerDestino()->obtenerIndice()] = costo;
+	}
+	costos[origen->obtenerIndice()] = 0;
+	return costos;
+}
+ColaPrioridad<Vertice*>* Grafo::inicializarCola(Vertice* origen,
+		unsigned int* costos) {
+	ColaPrioridad<Vertice*>* cola = new ColaPrioridad<Vertice*>();
+
+	this->vertices->iniciarCursor();
+	while (this->vertices->avanzarCursor()) {
+		Vertice* actual = this->vertices->obtenerCursor();
+		if (actual->obtenerNombre() != origen->obtenerNombre()) {
+			cola->acolar(actual, costos[actual->obtenerIndice()]);
+		}
+	}
+	return cola;
+}
 
 unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino) {
-	if (origen != NULL && destino != NULL) {
-		ColaPrioridad<Vertice*> cola;
-		unsigned int costos[this->obtenerTam()];
+	unsigned int* costos = this->inicializarVector(origen);
+	ColaPrioridad<Vertice*>* cola = this->inicializarCola(origen, costos);
 
-		for (unsigned int i = 0; i < this->obtenerTam(); i++) {
-			costos[i] = 9999999;
-		}
-		costos[origen->obtenerIndice()] = 0;
-
-		// actualizar valores en el arreglo
-		origen->obtenerAdyacentes()->iniciarCursor();
-		while (origen->obtenerAdyacentes()->avanzarCursor()) {
-			Arista* analizada = origen->obtenerAdyacentes()->obtenerCursor();
-			unsigned int costo = analizada->obtenerPeso();
-			costos[analizada->obtenerDestino()->obtenerIndice()] = costo;
-		}
-
-		//Colocar vectores en la cola
-		this->vertices->iniciarCursor();
-		while (this->vertices->avanzarCursor()) {
-			Vertice* actual = this->vertices->obtenerCursor();
-			if (actual->obtenerNombre() != origen->obtenerNombre()) {
-				cola.acolar(actual, costos[actual->obtenerIndice()]);
+	while (!cola->estaVacia()) {
+		Vertice* actual = cola->desacolar();
+		actual->obtenerAdyacentes()->iniciarCursor();
+		while (actual->obtenerAdyacentes()->avanzarCursor()) {
+			Arista* analizada = actual->obtenerAdyacentes()->obtenerCursor();
+			unsigned int temporal = costos[actual->obtenerIndice()]
+					+ analizada->obtenerPeso();
+			Vertice* actualiza = analizada->obtenerDestino();
+			if (costos[analizada->obtenerDestino()->obtenerIndice()]
+					> temporal) {
+				costos[analizada->obtenerDestino()->obtenerIndice()] = temporal;
+				cola->actualizarValor(actualiza, temporal);
 			}
 		}
-
-		while (!cola.estaVacia()) {
-			Vertice* actual = cola.desacolar();
-			actual->obtenerAdyacentes()->iniciarCursor();
-			while (actual->obtenerAdyacentes()->avanzarCursor()) {
-				Arista* analizada =
-						actual->obtenerAdyacentes()->obtenerCursor();
-				unsigned int temporal = costos[actual->obtenerIndice()]
-						+ analizada->obtenerPeso();
-				Vertice* actualiza = analizada->obtenerDestino();
-				if (costos[analizada->obtenerDestino()->obtenerIndice()]
-						> temporal) {
-					costos[analizada->obtenerDestino()->obtenerIndice()] =
-							temporal;
-					cola.actualizarValor(actualiza, temporal);
-				}
-			}
-		}
-
-		cout << "VALOR FINAL: " << costos[destino->obtenerIndice()] << endl;
-		return costos[destino->obtenerIndice()];
 	}
-	return -1;
+	delete[] costos;
+	delete cola;
+
+	cout << "VALOR FINAL: " << costos[destino->obtenerIndice()] << endl;
+	return costos[destino->obtenerIndice()];
 }
+
 unsigned int Grafo::costoDeEnvio(Vertice* destino, string nombreCultivo) {
 	unsigned int costoPrecioDelCultivo = destino->obtenerCostoDelCultivo(
 			nombreCultivo);
