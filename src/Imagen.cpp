@@ -6,6 +6,7 @@
 using namespace std;
 
 Imagen::Imagen() {
+	archivo = new Archivo();
 	fondoTerreno.ReadFromFile(
 			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"terreno.bmp").c_str());
@@ -108,5 +109,5 @@ void Imagen::obtenerCultivo(string nombreCultivo) {
 }
 
 Imagen::~Imagen() {
-
+	delete archivo;
 }
