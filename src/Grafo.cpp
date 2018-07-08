@@ -41,7 +41,7 @@ void Grafo::insertarArista(string nombreOrigen, string nombreDestino,
 	Vertice* destino = this->existeNodo(nombreDestino);
 
 	if (origen != NULL && destino != NULL) {
-		Arista* nuevaArista = new Arista(destino, peso);
+		Arista* nuevaArista = new Arista(destino, peso, cultivo);
 		origen->agregarArista(nuevaArista);
 		destino->ingresarDatosEnvio(precio, cultivo);
 	}
@@ -107,7 +107,9 @@ ColaPrioridad<Vertice*>* Grafo::inicializarCola(Vertice* origen,
 	return cola;
 }
 
-unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino) {
+unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino,
+		string nombreCultivo) {
+	unsigned int resultado = -1;
 	unsigned int* costos = this->inicializarVector(origen);
 	ColaPrioridad<Vertice*>* cola = this->inicializarCola(origen, costos);
 
@@ -116,29 +118,34 @@ unsigned int Grafo::buscarElCaminoMinimo(Vertice* origen, Vertice* destino) {
 		actual->obtenerAdyacentes()->iniciarCursor();
 		while (actual->obtenerAdyacentes()->avanzarCursor()) {
 			Arista* analizada = actual->obtenerAdyacentes()->obtenerCursor();
-			unsigned int temporal = costos[actual->obtenerIndice()]
-					+ analizada->obtenerPeso();
-			Vertice* actualiza = analizada->obtenerDestino();
-			if (costos[analizada->obtenerDestino()->obtenerIndice()]
-					> temporal) {
-				costos[analizada->obtenerDestino()->obtenerIndice()] = temporal;
-				cola->actualizarValor(actualiza, temporal);
+			if (analizada->obtenerCultivo() == nombreCultivo) {
+				unsigned int temporal = costos[actual->obtenerIndice()]
+						+ analizada->obtenerPeso();
+				Vertice* actualiza = analizada->obtenerDestino();
+				if (costos[analizada->obtenerDestino()->obtenerIndice()]
+						> temporal) {
+					costos[analizada->obtenerDestino()->obtenerIndice()] =
+							temporal;
+					cola->actualizarValor(actualiza, temporal);
+				}
 			}
 		}
 	}
 
+	resultado = costos[destino->obtenerIndice()];
+
 	delete[] costos;
 	delete cola;
 
-	cout << "VALOR FINAL: " << costos[destino->obtenerIndice()] << endl;
-	return costos[destino->obtenerIndice()];
+	cout << "VALOR FINAL: " << resultado << endl;
+	return resultado;
 }
 
 unsigned int Grafo::costoDeEnvio(Vertice* destino, string nombreCultivo) {
 	unsigned int costoPrecioDelCultivo = destino->obtenerCostoDelCultivo(
 			nombreCultivo);
 	unsigned int kilometros = this->buscarElCaminoMinimo(
-			this->existeNodo("ALMACEN"), destino);
+			this->existeNodo("ALMACEN"), destino, nombreCultivo);
 	cout << "Costo: " << costoPrecioDelCultivo * kilometros << endl;
 	return (costoPrecioDelCultivo * kilometros);
 }

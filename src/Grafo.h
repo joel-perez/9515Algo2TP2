@@ -71,7 +71,7 @@ public:
 	 * post: si no cumple la pre condicion devuelve -1. En caso contrario calcula el minimo valor hasta llegar
 	 * al destino
 	 */
-	unsigned int buscarElCaminoMinimo(Vertice* origen, Vertice* destino);
+	unsigned int buscarElCaminoMinimo(Vertice* origen, Vertice* destino, std::string nombreCultivo);
 	/*
 	 * post: imprime por pantalla la lista de adyacencia del grafo.
 	 */

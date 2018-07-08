@@ -5,11 +5,11 @@
 
 class Vertice;
 
-class Arista{
+class Arista {
 private:
 	unsigned int peso;
 	Vertice* destino;
-    Cultivo* cultivo; //todo: agregar lo correspondiente...
+	std::string nombreCultivo;
 
 public:
 	/*
@@ -19,20 +19,24 @@ public:
 	/*
 	 *post: Arista con peso determinado y con un destino fijado.
 	 */
-	Arista(Vertice* destino, unsigned int peso);
+	Arista(Vertice* destino, unsigned int peso, std::string nombreCultivo);
 	/*
 	 *post: devuelve el valor peso de la arista.
 	 */
 	unsigned int obtenerPeso();
 	/*
-	 *post: devuelve el destino asociado a la arista
+	 * POST: Devuelve el destino asociado a la arista.
 	 */
 	Vertice* obtenerDestino();
+
+	/*
+	 * POST: Devuelve el cultivo asociado a la arista.
+	 */
+	std::string obtenerCultivo();
 	/*
 	 *post: -
 	 */
 	~Arista();
 };
-
 
 #endif /* ARISTA_H_ */
