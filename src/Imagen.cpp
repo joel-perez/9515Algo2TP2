@@ -7,23 +7,23 @@ using namespace std;
 
 Imagen::Imagen() {
 	fondoTerreno.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"terreno.bmp").c_str());
 	imagenDelTerreno.SetBitDepth(24);
 	cultivo.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"cultivodefault.bmp").c_str());
 	cultivoVacio.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"cultivovacio.bmp").c_str());
 	cultivoSeco.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"cultivoseco.bmp").c_str());
 	cultivoRecienSembrado.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"cultivobebe.bmp").c_str());
 	cultivoPodrido.ReadFromFile(
-			archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+			archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 					"cultivopodrido.bmp").c_str());
 }
 
@@ -50,11 +50,11 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 	this->determinarMedidaDeLaImagen(columnas, filas);
 	this->pegarFondo(columnas, filas);
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
-	archivo.crearDirectorio(archivo.obtenerRutaCapturasPantalla().c_str());
-	string rutaCompleta = archivo.concatenarRutas(
-			archivo.obtenerRutaCapturasPantalla(), nombreImagen);
+	archivo->crearDirectorio(archivo->obtenerRutaCapturasPantalla().c_str());
+	string rutaCompleta = archivo->concatenarRutas(
+			archivo->obtenerRutaCapturasPantalla(), nombreImagen);
 	imagenDelTerreno.WriteToFile(rutaCompleta.c_str());
-	archivo.abrirConAplicacionPredeterminada(rutaCompleta.c_str());
+	archivo->abrirConAplicacionPredeterminada(rutaCompleta.c_str());
 }
 
 void Imagen::determinarMedidaDeLaImagen(unsigned int columnas,
@@ -98,12 +98,12 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 }
 
 void Imagen::obtenerCultivo(string nombreCultivo) {
-	string nombreArchivo = archivo.concatenarRutas(
-			archivo.obtenerRutaRecursos(), nombreCultivo + ".bmp");
-	if (!archivo.existe(nombreArchivo))
-		nombreArchivo = archivo.concatenarRutas(archivo.obtenerRutaRecursos(),
+	string nombreArchivo = archivo->concatenarRutas(
+			archivo->obtenerRutaRecursos(), nombreCultivo + ".bmp");
+	if (!archivo->existe(nombreArchivo))
+		nombreArchivo = archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 				"cultivodefault.bmp");
-	if (archivo.existe(nombreArchivo))
+	if (archivo->existe(nombreArchivo))
 		cultivo.ReadFromFile(nombreArchivo.c_str());
 }
 

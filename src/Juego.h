@@ -25,7 +25,7 @@ private:
 	unsigned int turnoActual;
 	Consola* consola;
 	Imagen imagen;
-	Archivo archivo;
+	Archivo* archivo;
 	Texto texto;
 	unsigned int numeroDeJugadores;
 
@@ -54,7 +54,7 @@ public:
 	Lista<Cultivo*>* obtenerCultivos();
 
 	/*
-	 * POST: Devuelve la lista de destinos que se cargo desde un archivo.
+	 * POST: Devuelve la lista de destinos que se cargo desde un archivo->
 	 */
 	Grafo* obtenerRecorridos();
 	/*

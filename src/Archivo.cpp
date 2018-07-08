@@ -170,7 +170,7 @@ Grafo* Archivo::leerDestinos() {
 bool Archivo::existe(const string& nombreArchivo) {
 #ifdef linux
 	struct stat buffer;
-	return (stat(nombreArchivo.c_str(), &buffer) == 0);
+	return (stat(nombrearchivo->c_str(), &buffer) == 0);
 #elif _WIN32
 	unsigned long dwAttrib = GetFileAttributes(nombreArchivo.c_str());
 	return (dwAttrib != INVALID_FILE_ATTRIBUTES

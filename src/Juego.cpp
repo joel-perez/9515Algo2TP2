@@ -391,8 +391,8 @@ Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 }
 
 void Juego::cargarArchivos() {
-	this->cultivos = archivo.leerCultivos();
-	this->recorridos = archivo.leerDestinos();
+	this->cultivos = archivo->leerCultivos();
+	this->recorridos = archivo->leerDestinos();
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {

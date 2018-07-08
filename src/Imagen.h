@@ -17,7 +17,7 @@ private:
 	BMP cultivoRecienSembrado;
 	BMP cultivoPodrido;
 
-	Archivo archivo;
+	Archivo* archivo;
 	Texto texto;
 
 	/*
