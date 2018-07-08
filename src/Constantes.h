@@ -49,6 +49,7 @@ const std::string ARCHIVO_DESTINOS = "destinos.txt";
 const std::string DIRECTORIO_ARCHIVOS_DATOS = "datos";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string DIRECTORIO_RECURSOS = "res";
+const std::string EXTENSION_IMAGEN = ".bmp";
 const std::string NOMBRE_JUGADOR_DEFAULT = "Anonimo";
 const std::string PARCELA_EN_RECUPERACION = "R";
 const std::string PARCELA_PODRIDA = "P";

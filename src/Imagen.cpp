@@ -47,7 +47,7 @@ void Imagen::obtenerImagenDelTerreno(Terreno* terreno, Jugador* jugador,
 		int numeroTerreno) {
 	string nombreImagen = jugador->obtenerNombre() + "-turno-"
 			+ texto.intToString(turno) + "-terreno-"
-			+ texto.intToString(numeroTerreno) + ".bmp";
+			+ texto.intToString(numeroTerreno) + EXTENSION_IMAGEN;
 	this->determinarMedidaDeLaImagen(columnas, filas);
 	this->pegarFondo(columnas, filas);
 	this->pegarEstadoDelTerreno(terreno, columnas, filas);
@@ -100,7 +100,7 @@ void Imagen::pegarEstadoDelTerreno(Terreno* terreno, unsigned int columnas,
 
 void Imagen::obtenerCultivo(string nombreCultivo) {
 	string nombreArchivo = archivo->concatenarRutas(
-			archivo->obtenerRutaRecursos(), nombreCultivo + ".bmp");
+			archivo->obtenerRutaRecursos(), nombreCultivo + EXTENSION_IMAGEN);
 	if (!archivo->existe(nombreArchivo))
 		nombreArchivo = archivo->concatenarRutas(archivo->obtenerRutaRecursos(),
 				"cultivodefault.bmp");
