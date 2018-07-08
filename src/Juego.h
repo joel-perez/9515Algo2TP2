@@ -23,7 +23,7 @@ private:
 	unsigned int anchoTerreno;
 	unsigned int turnos;
 	unsigned int turnoActual;
-	Consola consola;
+	Consola* consola;
 	Imagen imagen;
 	Archivo archivo;
 	Texto texto;

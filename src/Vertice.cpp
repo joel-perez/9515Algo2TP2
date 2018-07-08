@@ -39,7 +39,7 @@ void Vertice::mostrarPosiblesEnvios() {
 		this->envios->iniciarCursor();
 		while (this->envios->avanzarCursor()) {
 			Envio* actual = this->envios->obtenerCursor();
-			cout << actual->obtenerNombreCultivo()<", ";
+			cout << actual->obtenerNombreCultivo() << ", ";
 		}
 	}
 }
@@ -47,7 +47,8 @@ bool Vertice::aceptaCultivo(string analizado) {
 	bool encontrado = false;
 	this->envios->iniciarCursor();
 	while (this->envios->avanzarCursor() && !encontrado) {
-		encontrado = (texto.mayusculas(this->envios->obtenerCursor()->obtenerNombreCultivo())
+		encontrado = (texto.mayusculas(
+				this->envios->obtenerCursor()->obtenerNombreCultivo())
 				== texto.mayusculas(analizado));
 	}
 	return encontrado;
@@ -57,7 +58,8 @@ unsigned int Vertice::obtenerCostoDelCultivo(string nombre) {
 	unsigned int costo = 0;
 	this->envios->iniciarCursor();
 	while (this->envios->avanzarCursor() && !encontrado) {
-		encontrado = (texto.mayusculas(this->envios->obtenerCursor()->obtenerNombreCultivo())
+		encontrado = (texto.mayusculas(
+				this->envios->obtenerCursor()->obtenerNombreCultivo())
 				== texto.mayusculas(nombre));
 		if (encontrado) {
 			costo = this->envios->obtenerCursor()->obtenerPrecioEnvio();
@@ -66,9 +68,9 @@ unsigned int Vertice::obtenerCostoDelCultivo(string nombre) {
 	return costo;
 }
 Vertice::~Vertice() {
-	if(this->envios != NULL){
+	if (this->envios != NULL) {
 		this->envios->iniciarCursor();
-		while(this->envios->avanzarCursor()){
+		while (this->envios->avanzarCursor()) {
 			delete this->envios->obtenerCursor();
 		}
 		delete envios;

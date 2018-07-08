@@ -58,8 +58,8 @@ void Juego::solicitarAcciones(Jugador* jugador) {
 
 	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO
 			&& accionSeleccionada != ACCION_ABANDONAR) {
-		consola.mostrarPosiblesAcciones();
-		accionSeleccionada = consola.solicitarIngresoNumerico(1, 11);
+		consola->mostrarPosiblesAcciones();
+		accionSeleccionada = consola->solicitarIngresoNumerico(1, 11);
 		ejecutarAccion(accionSeleccionada, jugador);
 	}
 	if (accionSeleccionada == ACCION_ABANDONAR)
@@ -123,7 +123,7 @@ void Juego::comprarTerreno(Jugador* jugador) {
 void Juego::venderTerreno(Jugador* jugador) {
 	if (jugador->obtenerTerrenos()->contarElementos() > 0) {
 		cout << "Ingrese que numero de terreno desea vender: " << endl;
-		unsigned int posicion = consola.solicitarIngresoNumerico(1,
+		unsigned int posicion = consola->solicitarIngresoNumerico(1,
 				jugador->obtenerTerrenos()->contarElementos());
 		jugador->venderTerreno(posicion);
 	} else {
@@ -151,7 +151,7 @@ unsigned int Juego::solicitarSeleccionarTerreno(Jugador* jugador) {
 	cout << "Tiene " << cantidadTerrenosDelJugador << " Terrenos." << endl;
 	cout << "Seleccione el terreno con el cual desea trabajar (del " << 1
 			<< " al " << cantidadTerrenosDelJugador << "):" << endl;
-	return consola.solicitarIngresoNumerico(1, cantidadTerrenosDelJugador);
+	return consola->solicitarIngresoNumerico(1, cantidadTerrenosDelJugador);
 
 }
 
@@ -173,9 +173,9 @@ void Juego::comprarAlmacen(Jugador* jugador) {
 Parcela* Juego::seleccionarParcela(Terreno* terreno) {
 	cout << "Seleccione una Parcela:" << endl;
 	cout << "Ingrese Fila: ";
-	int fila = consola.solicitarIngresoNumerico(1, terreno->obtenerFilas());
+	int fila = consola->solicitarIngresoNumerico(1, terreno->obtenerFilas());
 	cout << "Ingrese Columna: ";
-	int columna = consola.solicitarIngresoNumerico(1,
+	int columna = consola->solicitarIngresoNumerico(1,
 			terreno->obtenerColumnas());
 	cout << "Ha seleccionado la Parcela(" << fila << ", " << columna << ")"
 			<< endl;
@@ -237,12 +237,12 @@ void Juego::cosecharParcela(Jugador* jugador) {
 void Juego::enviarCosechaADestino(Jugador* jugador) {
 	Almacen* almacenSeleccionado = this->seleccionarAlmacen(jugador);
 	if (almacenSeleccionado->obtenerCantidadDeCultivosEnUnAlmacen() > 0) {
-		consola.mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
-		unsigned int posicionCultivo = consola.solicitarIngresoNumerico(1,
+		consola->mostrarCultivosDisponiblesDeUnAlmacen(almacenSeleccionado);
+		unsigned int posicionCultivo = consola->solicitarIngresoNumerico(1,
 				almacenSeleccionado->obtenerCultivos()->contarElementos());
-		consola.mostrarDestinosDisponibles(this->obtenerRecorridos());
+		consola->mostrarDestinosDisponibles(this->obtenerRecorridos());
 		string nombreDestino = texto.mayusculas(
-				consola.SolicitarIngresoLineaTexto());
+				consola->SolicitarIngresoLineaTexto());
 
 		Vertice* destinoSeleccionado = this->recorridos->existeNodo(
 				nombreDestino);
@@ -282,8 +282,8 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 }
 
 Cultivo* Juego::seleccionarCultivo() {
-	consola.mostrarCultivosDisponibles(this->obtenerCultivos());
-	unsigned int opcionSeleccionada = consola.solicitarIngresoNumerico(1,
+	consola->mostrarCultivosDisponibles(this->obtenerCultivos());
+	unsigned int opcionSeleccionada = consola->solicitarIngresoNumerico(1,
 			cultivos->contarElementos());
 	return cultivos->obtener(opcionSeleccionada);
 }
@@ -331,12 +331,12 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 	unsigned int cantidad;
 	string nombre = "";
 	cout << "Ingrese la CANTIDAD de jugadores: ";
-	cantidad = consola.solicitarIngresoNumerico(1, CANTIDAD_MAXIMA_JUGADORES);
-	consola.LimpiarIngreso();
+	cantidad = consola->solicitarIngresoNumerico(1, CANTIDAD_MAXIMA_JUGADORES);
+	consola->LimpiarIngreso();
 	this->numeroDeJugadores = cantidad;
 	do {
 		cout << ">Ingrese el Nombre del JUGADOR -" << contador + 1 << "- :";
-		nombre = consola.SolicitarIngresoLineaTexto();
+		nombre = consola->SolicitarIngresoLineaTexto();
 		Jugador* nuevoJugador = new Jugador(nombre, dificultad, altoTerreno,
 				anchoTerreno);
 		Terreno* nuevoTerreno = new Terreno(altoTerreno, anchoTerreno);
@@ -355,7 +355,7 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 unsigned int Juego::solicitarCantidadTurnos() {
 	cout << "Ingrese la cantidad de TURNOS [cantidad max. " << MAX_TURNO
 			<< " - cantidad min. " << MIN_TURNO << "]: " << endl;
-	unsigned int cantidadDeTurnos = consola.solicitarIngresoNumerico(MIN_TURNO,
+	unsigned int cantidadDeTurnos = consola->solicitarIngresoNumerico(MIN_TURNO,
 			MAX_TURNO);
 	return (this->turnos = cantidadDeTurnos);
 }
@@ -365,10 +365,10 @@ void Juego::solicitarTamanioTerreno() {
 	cout << "[el minimo es " << TERRENO_MIN_FILAS << "]" << endl;
 	cout << "[el maximo es " << TERRENO_MAX_FILAS << "]" << endl;
 	cout << ">Filas:";
-	this->altoTerreno = consola.solicitarIngresoNumerico(TERRENO_MIN_FILAS,
+	this->altoTerreno = consola->solicitarIngresoNumerico(TERRENO_MIN_FILAS,
 			TERRENO_MAX_FILAS);
 	cout << ">columnas:";
-	this->anchoTerreno = consola.solicitarIngresoNumerico(TERRENO_MIN_FILAS,
+	this->anchoTerreno = consola->solicitarIngresoNumerico(TERRENO_MIN_FILAS,
 			TERRENO_MAX_FILAS);
 }
 
@@ -377,15 +377,15 @@ Dificultad Juego::solicitarDificultad() {
 	cout << "1 - Facil." << endl;
 	cout << "2 - Medio." << endl;
 	cout << "3 - Dificil." << endl;
-	unsigned int dificultadSeleccionada = consola.solicitarIngresoNumerico(1,
+	unsigned int dificultadSeleccionada = consola->solicitarIngresoNumerico(1,
 			3);
 	return Dificultad(dificultadSeleccionada);
 }
 
 Almacen* Juego::seleccionarAlmacen(Jugador* jugador) {
 	Lista<Almacen*>* almacenes = jugador->obtenerAlmacenes();
-	consola.mostrarAlmacenesDisponibles(almacenes);
-	unsigned int opcionSeleccionada = consola.solicitarIngresoNumerico(1,
+	consola->mostrarAlmacenesDisponibles(almacenes);
+	unsigned int opcionSeleccionada = consola->solicitarIngresoNumerico(1,
 			almacenes->contarElementos());
 	return almacenes->obtener(opcionSeleccionada);
 }
@@ -396,7 +396,7 @@ void Juego::cargarArchivos() {
 }
 
 void Juego::mostrarTerrenos(Jugador* jugadorActual) {
-	consola.mostrarTerrenos(jugadorActual);
+	consola->mostrarTerrenos(jugadorActual);
 	imagen.mostrarTerrenos(jugadorActual, this->obtenerAnchoTerreno(),
 			this->obtenerAltoTerreno(), this->turnoActual);
 }
@@ -411,7 +411,7 @@ void Juego::mostrarTerrenosFinales(Lista<Jugador*>* jugadores) {
 }
 
 void Juego::iniciarJuego() {
-	consola.mostrarBienvenida();
+	consola->mostrarBienvenida();
 	cargarArchivos();
 	solicitarDatosIniciales();
 	while (turnoActual <= this->turnos) {
@@ -419,7 +419,7 @@ void Juego::iniciarJuego() {
 		while (jugadores->avanzarCursor()) {
 			Jugador* jugadorActual = jugadores->obtenerCursor();
 			if (!jugadorActual->abandono()) {
-				consola.mostrarDatosDelTurno(jugadorActual, turnoActual);
+				consola->mostrarDatosDelTurno(jugadorActual, turnoActual);
 				mostrarTerrenos(jugadorActual);
 				administrarAguaDelTurno(jugadorActual);
 				solicitarAcciones(jugadorActual);
@@ -429,7 +429,7 @@ void Juego::iniciarJuego() {
 		turnoActual++;
 	}
 	mostrarTerrenosFinales(jugadores);
-	consola.mostrarFin(jugadores);
+	consola->mostrarFin(jugadores);
 }
 
 Juego::~Juego() {
