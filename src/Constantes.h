@@ -46,6 +46,7 @@ const int TIEMPO_RECUPERACION_CULTIVO_RECUPERACION = 0;
 const int TIEMPO_RECUPERACION_CULTIVO_SECO = 1;
 const std::string ARCHIVO_CULTIVOS = "cultivos.txt";
 const std::string ARCHIVO_DESTINOS = "destinos.txt";
+const std::string ARCHIVO_DESTINOS_DOS = "destinos2.txt";
 const std::string DIRECTORIO_ARCHIVOS_DATOS = "datos";
 const std::string DIRECTORIO_CAPTURAS_PANTALLA = "screenshots";
 const std::string DIRECTORIO_RECURSOS = "res";
