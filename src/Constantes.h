@@ -57,5 +57,6 @@ const std::string PARCELA_SECA = "S";
 const std::string PARCELA_VACIA = "#";
 const unsigned int PRECIO_BASE_TANQUE = 5;
 const unsigned int TIEMPO_COSECHA_CULTIVO_COSECHADO = 0;
+const unsigned int VALOR_GRANDE = 99999999;
 
 #endif

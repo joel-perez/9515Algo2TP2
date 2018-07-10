@@ -27,6 +27,9 @@ public:
 	 */
 	Jugador(std::string nombre, Dificultad dificultad, unsigned int altoTerreno,
 			unsigned int anchoTerreno);
+	unsigned int obtenerAguaDelTurno(){
+		return this->aguaPorTurno;
+	}
 
 	/*
 	 * PRE:~

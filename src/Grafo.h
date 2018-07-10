@@ -90,7 +90,7 @@ public:
 	 * pre: Origen debe estar en la lista de vertices
 	 * post: devuelve un vector inicializado del mismo tamanio que la cantidad de vertices actual
 	 */
-	unsigned int* inicializarVector(Vertice* origen);
+	unsigned int* inicializarVector(Vertice* origen, std::string nombreCultivo);
 	/*
 	 * pre: origen debe ser diferente a NULL
 	 * post: devuelve una cola con prioridad con los vertices en el..

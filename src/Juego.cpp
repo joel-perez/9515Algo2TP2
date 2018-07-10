@@ -99,8 +99,9 @@ void Juego::ejecutarAccion(unsigned int accionSeleccionada, Jugador* jugador) {
 }
 
 void Juego::comprarCapacidadTanque(Jugador* jugador) {
-	unsigned int precio=(PRECIO_BASE_TANQUE* this->dificultad.obtenerCoeficientePrecioTanque());
-	if (jugador->obtenerCreditos()>= precio) {
+	unsigned int precio = (PRECIO_BASE_TANQUE
+			* this->dificultad.obtenerCoeficientePrecioTanque());
+	if (jugador->obtenerCreditos() >= precio) {
 		jugador->obtenerTanque()->aumentarCapacidad();
 		jugador->restarCredito(precio);
 	} else {
@@ -217,7 +218,7 @@ void Juego::cosecharParcela(Jugador* jugador) {
 				&& parcelaActual->obtenerEstado() != RECUPERACION) {
 			if (parcelaActual->obtenerEstado() != PODRIDA
 					&& parcelaActual->obtenerEstado() != SECA) {
-
+				jugador->agregarCredito(parcelaActual->obtenerRentabilidad());
 				parcelaActual->cosechar(almacenSeleccionado);
 			} else {
 				cout
@@ -255,18 +256,20 @@ void Juego::enviarCosechaADestino(Jugador* jugador) {
 				unsigned int costoEnvio = this->recorridos->costoDeEnvio(
 						destinoSeleccionado,
 						cultivoSeleccionado->obtenerNombre());
-				if (jugador->obtenerCreditos() >= costoEnvio) {
-					jugador->restarCredito(costoEnvio);
-					jugador->agregarCredito(
-							cultivoSeleccionado->obtenerRentabilidad());
-					cout << "Rentabilidad "
-							<< cultivoSeleccionado->obtenerRentabilidad()
-							<< endl;
-					almacenSeleccionado->enviarCultivos(posicionCultivo);
-				} else {
-					cout
-							<< "No posee suficiente credito para realizar este envio"
-							<< endl;
+				if (costoEnvio != 0) {
+					if (jugador->obtenerCreditos() >= costoEnvio) {
+						jugador->restarCredito(costoEnvio);
+						jugador->agregarCredito(
+								cultivoSeleccionado->obtenerRentabilidad());
+						cout << "Rentabilidad "
+								<< cultivoSeleccionado->obtenerRentabilidad()
+								<< endl;
+						almacenSeleccionado->enviarCultivos(posicionCultivo);
+					} else {
+						cout
+								<< "No posee suficiente credito para realizar este envio"
+								<< endl;
+					}
 				}
 			} else {
 				cout << "Este destino no acepta el cultivo seleccionado."
