@@ -100,6 +100,10 @@ public:
 	 * POTS: Imprime en pantalla la lista de cultivos del almacen indicado.
 	 */
 	void mostrarCultivosDisponiblesDeUnAlmacen(Almacen* almacen);
+	/*
+	 * POTS: Imprime en pantalla las unidades de agua disponible del jugadorActual.
+	 */
+	void mostrarAguaDisponibleParaRegar(Jugador* jugadorActual);
 
 };
 

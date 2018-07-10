@@ -46,7 +46,8 @@ void Tanque::cambiarAguaDisponible(unsigned int aguaDelTurno) {
 
 unsigned int Tanque::tirarDado() {
 	unsigned int potenciador = (rand() % CARAS_DADO) + 1;
-	cout << "potenciador "<< potenciador <<endl; //todo: pasar esto a otro lado, al juego cpp
+	cout<<""<<endl;
+	cout << ">Potenciado de aguar: "<< potenciador <<endl; //todo: pasar esto a otro lado, al juego cpp
 	return potenciador;
 }
 bool Tanque::superoCapacidadMaxima() {

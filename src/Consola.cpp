@@ -20,6 +20,7 @@ void Consola::mostrarDatosDelTurno(Jugador* jugadorActual,
 	cout << endl << "JUGADOR: " << jugadorActual->obtenerNombre() << endl;
 	cout << "Turno Nro: " << turnoActual << endl;
 	cout << "Creditos: " << jugadorActual->obtenerCreditos() << endl;
+	cout << "Unidades de agua almacenada en Tanque: "<<jugadorActual->obtenerTanque()->obtenerAguaDisponible()<<endl;
 
 }
 
@@ -60,6 +61,8 @@ void Consola::mostrarFin(Lista<Jugador*>* jugadores) {
 			nombreMaxCredito = jugador->obtenerNombre();
 		}
 	}
+	cout<<""<<endl;
+	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 	cout << "El ganador es el jugador: " << nombreMaxCredito << endl;
 	cout << "Que acumulo un total de " << maxCredito
 			<< " Creditos al finalizar el juego." << endl << endl;
@@ -183,3 +186,8 @@ void Consola::mostrarCultivosDisponiblesDeUnAlmacen(Almacen* almacen) {
 	}
 
 }
+
+void Consola::mostrarAguaDisponibleParaRegar(Jugador* jugadorActual){
+	cout<<">Unidades de Agua disponoble para riego: "<<jugadorActual->obtenerTanque()->obtenerAguaDisponible()<<endl;
+	cout<<""<<endl;
+ }

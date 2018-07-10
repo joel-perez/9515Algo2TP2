@@ -51,6 +51,7 @@ Dificultad Juego::obtenerDificultad() {
 void Juego::administrarAguaDelTurno(Jugador* jugador) {
 	Tanque* tanqueActual = jugador->obtenerTanque();
 	tanqueActual->asignarAguaDisponible();
+	consola->mostrarAguaDisponibleParaRegar(jugador);
 }
 
 void Juego::solicitarAcciones(Jugador* jugador) {
@@ -58,6 +59,7 @@ void Juego::solicitarAcciones(Jugador* jugador) {
 
 	while (accionSeleccionada != ACCION_SIGUIENTE_TURNO
 			&& accionSeleccionada != ACCION_ABANDONAR) {
+
 		consola->mostrarPosiblesAcciones();
 		accionSeleccionada = consola->solicitarIngresoNumerico(1, 11);
 		ejecutarAccion(accionSeleccionada, jugador);
@@ -196,6 +198,8 @@ int Juego::regarParcela(Jugador* jugador) {
 						parcelaActual->obtenerCultivo()->obtenerConsumoDeAgua();
 				jugador->obtenerTanque()->usarAguaDisponible(aguaUtilizada);
 				cout << "La parcela ha sido regada." << endl;
+				consola->mostrarAguaDisponibleParaRegar(jugador);
+
 			} else {
 				cout << "No hay suficiente agua para regar la parcela." << endl;
 			}
@@ -356,8 +360,8 @@ Lista<Jugador*>* Juego::solicitarJugadores(Dificultad dificultad) {
 }
 
 unsigned int Juego::solicitarCantidadTurnos() {
-	cout << "Ingrese la cantidad de TURNOS [cantidad max. " << MAX_TURNO
-			<< " - cantidad min. " << MIN_TURNO << "]: " << endl;
+	cout << "Ingrese la cantidad de TURNOS [cantidad min. " << MIN_TURNO
+			<< " - cantidad max. " << MAX_TURNO<< "]: " << endl;
 	unsigned int cantidadDeTurnos = consola->solicitarIngresoNumerico(MIN_TURNO,
 			MAX_TURNO);
 	return (this->turnos = cantidadDeTurnos);
